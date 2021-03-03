@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>71445ca4-1713-4144-8cf5-2ab69788d6fc</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Bindings</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\ByteStream.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\IO\Compression.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\IO\Encryption.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\IO\FileHandler.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\IO\Serialization.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\Network\Client.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\Network\Ftp.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)ASFW\Network\Server.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Time.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Types.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configurations\Language.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configurations\Inputs.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Configurations\Settings.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Globals\Constants.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Globals\Enumerators.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Packets.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Globals\Paths.vb" />
+    <Compile Include="$(MSBuildThisFileDirectory)Globals\Variables.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Network\" />
+  </ItemGroup>
+</Project>

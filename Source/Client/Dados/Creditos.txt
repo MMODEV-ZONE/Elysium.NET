@@ -1,0 +1,27 @@
+﻿Elysium.NET:
+Raijenki
+boasfesta
+andreidl
+
+Design:
+Pablo
+
+Base:
+Orion+ Engine por JC Snider, Damian666
+Eclipse Origins v1.1.0 por Robin Perris*
+
+Plataforma gráfica e sonora:
+SFML*
+
+Gráficos temporários:
+RpgMaker MV
+
+Contribuições externas:
+Kras
+Pamiclo
+H3lp
+SpiceyWolf
+Chronos
+BugSick
+
+*Cópias das licenças se encontram no diretório.
