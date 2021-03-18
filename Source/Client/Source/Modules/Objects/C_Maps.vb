@@ -247,6 +247,23 @@ Module C_Maps
         buffer.Dispose()
     End Sub
 
+    Sub Packet_MapItemData(ByRef data() As Byte)
+        Dim i As Integer, mapNum As Integer
+        Dim buffer As New ByteStream(data)
+
+        mapNum = buffer.ReadInt32
+        For i = 1 To MAX_MAP_ITEMS
+            With MapItem(i)
+                .Num = buffer.ReadInt32
+                .Value = buffer.ReadInt32
+                .X = buffer.ReadInt32
+                .Y = buffer.ReadInt32
+            End With
+        Next
+
+        buffer.Dispose()
+    End Sub
+
     Sub Packet_MapData(ByRef data() As Byte)
         Dim x As Integer, y As Integer, i As Integer, mapNum As Integer
         Dim buffer As New ByteStream(Compression.DecompressBytes(data))

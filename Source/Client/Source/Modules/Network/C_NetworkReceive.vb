@@ -28,6 +28,7 @@ Module C_NetworkReceive
         Socket.PacketId(ServerPackets.SNpcAttack) = AddressOf Packet_NpcAttack
         Socket.PacketId(ServerPackets.SCheckForMap) = AddressOf Packet_CheckMap
         Socket.PacketId(ServerPackets.SMapData) = AddressOf Packet_MapData
+        Socket.PacketId(ServerPackets.SMapItemData) = AddressOf Packet_MapItemData
         Socket.PacketId(ServerPackets.SMapNpcData) = AddressOf Packet_MapNPCData
         Socket.PacketId(ServerPackets.SMapNpcUpdate) = AddressOf Packet_MapNPCUpdate
         Socket.PacketId(ServerPackets.SMapDone) = AddressOf Packet_MapDone
