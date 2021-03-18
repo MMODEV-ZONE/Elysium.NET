@@ -251,7 +251,6 @@ Module C_Maps
         Dim i As Integer, mapNum As Integer
         Dim buffer As New ByteStream(data)
 
-        mapNum = buffer.ReadInt32
         For i = 1 To MAX_MAP_ITEMS
             With MapItem(i)
                 .Num = buffer.ReadInt32
