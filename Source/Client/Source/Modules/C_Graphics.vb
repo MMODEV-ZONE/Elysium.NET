@@ -2552,7 +2552,7 @@ NextLoop:
                     itempic = Item(MapItem(i).Num).Pic
 
                     If itempic < 1 OrElse itempic > NumItems Then Exit Sub
-                    maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frames tem. /2 por causa dos icones de inventario e também dentro do jogo
+                    maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frames tem. 
 
                     If MapItem(i).Frame < maxFrames - 1 Then
                         MapItem(i).Frame = MapItem(i).Frame + 1
@@ -2571,7 +2571,7 @@ NextLoop:
                 If itempic > 0 AndAlso itempic <= NumItems Then
                     If ItemsGfxInfo(itempic).Width >= 64 Then
 
-                        maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frmaes tem. /2  por causa dos icones de inventario e também dentro do jogo
+                        maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frames tem.
 
                         If GetTickCount() > tmr100 Then
                             If InvItemFrame(i) < maxFrames - 1 Then
