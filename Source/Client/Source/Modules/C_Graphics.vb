@@ -2552,12 +2552,12 @@ NextLoop:
                     itempic = Item(MapItem(i).Num).Pic
 
                     If itempic < 1 OrElse itempic > NumItems Then Exit Sub
-                    maxFrames = (ItemsGfxInfo(itempic).Width / 2) / 32 ' Ver quantos frames tem. /2 por causa dos icones de inventario e também dentro do jogo
+                    maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frames tem. /2 por causa dos icones de inventario e também dentro do jogo
 
                     If MapItem(i).Frame < maxFrames - 1 Then
                         MapItem(i).Frame = MapItem(i).Frame + 1
                     Else
-                        MapItem(i).Frame = 1
+                        MapItem(i).Frame = 0
                     End If
                 End If
             Next
@@ -2569,23 +2569,23 @@ NextLoop:
             If itemnum > 0 AndAlso itemnum <= MAX_ITEMS Then
                 itempic = Item(itemnum).Pic
                 If itempic > 0 AndAlso itempic <= NumItems Then
-                    If ItemsGfxInfo(itempic).Width > 64 Then
+                    If ItemsGfxInfo(itempic).Width >= 64 Then
 
-                        maxFrames = (ItemsGfxInfo(itempic).Width / 2) / 32 ' Ver quantos frmaes tem. /2  por causa dos icones de inventario e também dentro do jogo
+                        maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frmaes tem. /2  por causa dos icones de inventario e também dentro do jogo
 
                         If GetTickCount() > tmr100 Then
                             If InvItemFrame(i) < maxFrames - 1 Then
                                 InvItemFrame(i) = InvItemFrame(i) + 1
                             Else
-                                InvItemFrame(i) = 1
+                                InvItemFrame(i) = 0
                             End If
-                            tmr100 = GetTickCount() + 100
+                            If i = MAX_INV Then tmr100 = GetTickCount() + 100
                         End If
 
                         With rec
                             .Y = 0
                             .Height = 32
-                            .X = (ItemsGfxInfo(itempic).Width / 2) + (InvItemFrame(i) * 32) ' no meio para comecár as gfx do inventário então +32 pra cada frame
+                            .X = (InvItemFrame(i) * 32) ' no meio para comecár as gfx do inventário então +32 pra cada frame
                             .Width = 32
                         End With
 

@@ -231,14 +231,14 @@ Module modLoop
                             ' Enviar atualização para todos
                             SendMapItemsToAll(mapNum)
                         End If
-                        ' Retirar item?
-                        If MapItem(mapNum, i).CanDespawn Then
-                            If MapItem(mapNum, i).DespawnTimer < GetTimeMs() Then
-                                ' Retirar do mapa
-                                ClearMapItem(i, mapNum)
-                                ' Enviar atualização para todos
-                                SendMapItemsToAll(mapNum)
-                            End If
+                    End If
+                    ' Retirar item?
+                    If MapItem(mapNum, i).CanDespawn Then
+                        If MapItem(mapNum, i).DespawnTimer < GetTimeMs() Then
+                            ' Retirar do mapa
+                            ClearMapItem(i, mapNum)
+                            ' Enviar atualização para todos
+                            SendMapItemsToAll(mapNum)
                         End If
                     End If
                 End If
