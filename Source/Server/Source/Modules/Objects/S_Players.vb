@@ -1749,14 +1749,7 @@ Module S_Players
 
                                 If Item(itemnum).Randomize <> 0 Then
                                     If Trim(MapItem(mapNum, i).ItemData.Prefix) <> "" OrElse Trim(MapItem(mapNum, i).ItemData.Suffix) <> "" Then
-                                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Prefix = MapItem(mapNum, i).ItemData.Prefix
-                                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Suffix = MapItem(mapNum, i).ItemData.Suffix
-                                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Rarity = MapItem(mapNum, i).ItemData.Rarity
-                                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Damage = MapItem(mapNum, i).ItemData.Damage
-                                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Speed = MapItem(mapNum, i).ItemData.Speed
-                                        For m = 1 To StatType.Count - 1
-                                            Player(index).Character(TempPlayer(index).CurChar).Inv(n).Stat(m) = MapItem(GetPlayerMap(index), i).ItemData.Stat(m)
-                                        Next m
+                                        Player(index).Character(TempPlayer(index).CurChar).Inv(n) = MapItem(mapNum, i).ItemData.Clone()
                                     Else ' Nada foi gerado ainda!
                                         GivePlayerRandomItem(index, itemnum, n)
                                     End If
@@ -1773,8 +1766,7 @@ Module S_Players
                                 End If
 
                                 ' Apagar item do mapa
-                                MapItem(mapNum, i).ItemData.Num = 0
-                                MapItem(mapNum, i).ItemData.Value = 0
+                                MapItem(mapNum, i).ItemData = New PlayerInvStruct()
                                 MapItem(mapNum, i).X = 0
                                 MapItem(mapNum, i).Y = 0
 
@@ -1926,7 +1918,7 @@ Module S_Players
                 i = FindOpenMapItemSlot(GetPlayerMap(index))
 
                 If i <> 0 Then
-                    MapItem(GetPlayerMap(index), i).ItemData = GetPlayerInvItem(index, InvNum)
+                    MapItem(GetPlayerMap(index), i).ItemData = GetPlayerInvItem(index, InvNum).Clone()
                     MapItem(GetPlayerMap(index), i).X = GetPlayerX(index)
                     MapItem(GetPlayerMap(index), i).Y = GetPlayerY(index)
                     MapItem(GetPlayerMap(index), i).PlayerName = Trim$(GetPlayerName(index))
@@ -1960,7 +1952,7 @@ Module S_Players
                     ' Enviar atualização de inventário
                     SendInventoryUpdate(index, InvNum)
                     ' Gerar o item antes de setarmos a quantidade ou pegaremos um espaço de item diferente no mapa 
-                    SpawnItemSlot(i, MapItem(GetPlayerMap(index), i).ItemData.Num, Amount, GetPlayerMap(index), GetPlayerX(index), GetPlayerY(index))
+                    SpawnItemSlot(i, MapItem(GetPlayerMap(index), i).ItemData, GetPlayerMap(index), GetPlayerX(index), GetPlayerY(index))
                 Else
                     PlayerMsg(index, "Já existem muitos itens no chão.", ColorType.Yellow)
                 End If

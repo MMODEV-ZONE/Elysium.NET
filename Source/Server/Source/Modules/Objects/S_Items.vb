@@ -152,25 +152,35 @@ Friend Module S_Items
     End Sub
 
     Sub SpawnItemSlot(MapItemSlot As Integer, itemNum As Integer, ItemVal As Integer, mapNum As Integer, x As Integer, y As Integer)
+        Dim item = New PlayerInvStruct With {
+            .Num = itemNum,
+            .Value = ItemVal
+        }
+
+        ReDim item.Stat(StatType.Count - 1)
+
+        SpawnItemSlot(MapItemSlot, item, mapNum, x, y)
+    End Sub
+
+    Sub SpawnItemSlot(MapItemSlot As Integer, item As PlayerInvStruct, mapNum As Integer, x As Integer, y As Integer)
         Dim i As Integer
         Dim buffer As New ByteStream(4)
 
         ' Verificar por subscript out of range
-        If MapItemSlot <= 0 OrElse MapItemSlot > MAX_MAP_ITEMS OrElse itemNum < 0 OrElse itemNum > MAX_ITEMS OrElse mapNum <= 0 OrElse mapNum > MAX_CACHED_MAPS Then Exit Sub
+        If MapItemSlot <= 0 OrElse MapItemSlot > MAX_MAP_ITEMS OrElse item.Num < 0 OrElse item.Num > MAX_ITEMS OrElse mapNum <= 0 OrElse mapNum > MAX_CACHED_MAPS Then Exit Sub
 
         i = MapItemSlot
 
         If i <> 0 Then
-            If itemNum >= 0 AndAlso itemNum <= MAX_ITEMS Then
-                MapItem(mapNum, i).ItemData.Num = itemNum
-                MapItem(mapNum, i).ItemData.Value = ItemVal
+            If item.Num >= 0 AndAlso item.Num <= MAX_ITEMS Then
+                MapItem(mapNum, i).ItemData = item.Clone()
                 MapItem(mapNum, i).X = x
                 MapItem(mapNum, i).Y = y
 
                 buffer.WriteInt32(ServerPackets.SSpawnItem)
                 buffer.WriteInt32(i)
-                buffer.WriteInt32(itemNum)
-                buffer.WriteInt32(ItemVal)
+                buffer.WriteInt32(item.Num)
+                buffer.WriteInt32(item.Value)
                 buffer.WriteInt32(x)
                 buffer.WriteInt32(y)
 #If DEBUG Then

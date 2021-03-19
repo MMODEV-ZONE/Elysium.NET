@@ -101,6 +101,20 @@
         Dim Rarity As Integer
         Dim Damage As Integer
         Dim Speed As Integer
+
+        Public Function Clone() As PlayerInvStruct
+            Dim theClone As PlayerInvStruct
+            theClone.Num = Me.Num
+            theClone.Value = Me.Value
+            theClone.Prefix = Me.Prefix
+            theClone.Suffix = Me.Suffix
+            theClone.Rarity = Me.Rarity
+            theClone.Damage = Me.Damage
+            theClone.Speed = Me.Speed
+            ReDim theClone.Stat(Me.Stat.GetUpperBound(0))
+            Array.Copy(Me.Stat, theClone.Stat, Me.Stat.Length)
+            Return theClone
+        End Function
     End Structure
 
     <Serializable>
