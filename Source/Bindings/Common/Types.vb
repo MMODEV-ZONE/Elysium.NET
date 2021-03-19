@@ -115,6 +115,17 @@
             Array.Copy(Me.Stat, theClone.Stat, Me.Stat.Length)
             Return theClone
         End Function
+
+        Sub Clear()
+            Me.Num = 0
+            Me.Value = 0
+            Me.Prefix = String.Empty
+            Me.Suffix = String.Empty
+            Me.Rarity = 0
+            Me.Damage = 0
+            Me.Speed = 0
+            ReDim Me.Stat(StatType.Count - 1)
+        End Sub
     End Structure
 
     <Serializable>

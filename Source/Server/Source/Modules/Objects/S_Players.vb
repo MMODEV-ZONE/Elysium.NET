@@ -1848,31 +1848,11 @@ Module S_Players
         End If
 
         For i = 1 To MAX_INV
-
             ' Ver se o jogador já tem o item
             If GetPlayerInvItemNum(index, i) = ItemNum Then
-                If Item(ItemNum).Type = ItemType.Currency OrElse Item(ItemNum).Stackable = 1 Then
-
-                    ' Estamos tentando pegar mais do que eles tem? Se sim, setar para zero. 
-                    If ItemVal >= GetPlayerInvItemValue(index, i) Then
-                        TakeInvItem = True
-                    Else
-                        SetPlayerInvItemValue(index, i, GetPlayerInvItemValue(index, i) - ItemVal)
-                        SendInventoryUpdate(index, i)
-                    End If
-                Else
-                    TakeInvItem = True
-                End If
-
-                If TakeInvItem Then
-                    SetPlayerInvItemNum(index, i, 0)
-                    SetPlayerInvItemValue(index, i, 0)
-                    ' Atualizar inventário
-                    SendInventoryUpdate(index, i)
-                    Exit Function
-                End If
+                TakeInvSlot(index, i, ItemVal)
+                Exit Function
             End If
-
         Next
 
     End Function
@@ -1983,8 +1963,7 @@ Module S_Players
         End If
 
         If TakeInvSlot Then
-            SetPlayerInvItemNum(index, InvSlot, 0)
-            SetPlayerInvItemValue(index, InvSlot, 0)
+            ClearInvSlot(index, InvSlot)
             Exit Function
         End If
 
@@ -2075,9 +2054,7 @@ Module S_Players
                                 PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
                             End If
 
-                            SetPlayerInvItemNum(index, InvNum, 0)
-                            SetPlayerInvItemValue(index, InvNum, 0)
-                            ClearRandInv(index, InvNum)
+                            TakeInvSlot(index, InvNum, 1)
 
                             If tempitem > 0 Then ' dar de volta o item guardado
                                 m = FindOpenInvSlot(index, tempitem)
@@ -2138,8 +2115,7 @@ Module S_Players
                             Next
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvItem(index, InvItemNum, 0)
-                            ClearRandInv(index, InvNum)
+                            TakeInvSlot(index, InvNum, 1)
 
                             If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário.
                                 m = FindOpenInvSlot(index, tempitem)
@@ -2200,8 +2176,7 @@ Module S_Players
                             Next
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvItem(index, InvItemNum, 1)
-                            ClearRandInv(index, InvNum)
+                            TakeInvSlot(index, InvNum, 1)
 
                             If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
                                 m = FindOpenInvSlot(index, tempitem)
@@ -2265,8 +2240,7 @@ Module S_Players
                             Next
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvItem(index, InvItemNum, 1)
-                            ClearRandInv(index, InvNum)
+                            TakeInvSlot(index, InvNum, 1)
 
                             If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
                                 m = FindOpenInvSlot(index, tempitem)
@@ -2325,8 +2299,7 @@ Module S_Players
                             Next
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvItem(index, InvItemNum, 1)
-                            ClearRandInv(index, InvNum)
+                            TakeInvSlot(index, InvNum, 1)
 
                             If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
                                 m = FindOpenInvSlot(index, tempitem)
@@ -2385,8 +2358,7 @@ Module S_Players
                             Next
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvItem(index, InvItemNum, 1)
-                            ClearRandInv(index, InvNum)
+                            TakeInvSlot(index, InvNum, 1)
 
                             If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
                                 m = FindOpenInvSlot(index, tempitem)

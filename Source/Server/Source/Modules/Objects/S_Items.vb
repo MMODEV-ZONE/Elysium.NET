@@ -152,12 +152,11 @@ Friend Module S_Items
     End Sub
 
     Sub SpawnItemSlot(MapItemSlot As Integer, itemNum As Integer, ItemVal As Integer, mapNum As Integer, x As Integer, y As Integer)
-        Dim item = New PlayerInvStruct With {
-            .Num = itemNum,
-            .Value = ItemVal
-        }
+        Dim item = New PlayerInvStruct()
 
-        ReDim item.Stat(StatType.Count - 1)
+        item.Clear()
+        item.Num = itemNum
+        item.Value = ItemVal
 
         SpawnItemSlot(MapItemSlot, item, mapNum, x, y)
     End Sub

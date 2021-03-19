@@ -14,6 +14,9 @@
         Next i
     End Sub
 
+    Friend Sub ClearInvSlot(index As Integer, InvNum As Integer)
+        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clear()
+    End Sub
     Friend Sub ClearRandInv(index As Integer, InvNum As Integer)
         Dim i As Integer
 
