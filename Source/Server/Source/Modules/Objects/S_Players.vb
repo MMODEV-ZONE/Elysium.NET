@@ -947,6 +947,12 @@ Module S_Players
         GetPlayerPK = Player(index).Character(TempPlayer(index).CurChar).Pk
     End Function
 
+    Function GetPlayerEquipmentSlot(index As Integer, EquipmentSlot As EquipmentType) As PlayerInvStruct
+        If index > MAX_PLAYERS Then Exit Function
+        If EquipmentSlot = 0 Then Exit Function
+        GetPlayerEquipmentSlot = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentSlot)
+    End Function
+
     Function GetPlayerEquipment(index As Integer, EquipmentSlot As EquipmentType) As Integer
         GetPlayerEquipment = 0
         If index > MAX_PLAYERS Then Exit Function
@@ -1970,8 +1976,8 @@ Module S_Players
     End Function
 
     Friend Sub UseItem(index As Integer, InvNum As Integer)
-        Dim InvItemNum As Integer, i As Integer, n As Integer, x As Integer, y As Integer, tempitem As Integer
-        Dim m As Integer, tempdata(StatType.Count + 3) As Integer, tempstr(2) As String
+        Dim InvItemNum As Integer, i As Integer, n As Integer, x As Integer, y As Integer, tempitem As PlayerInvStruct
+        Dim m As Integer
 
         ' Prevenir hacking
         If InvNum < 1 OrElse InvNum > MAX_ITEMS Then Exit Sub
@@ -2012,7 +2018,6 @@ Module S_Players
                     End If
 
                     'Se tudo deu certo, olhar o subtipo
-
                     Select Case Item(InvItemNum).SubType
                         Case EquipmentType.Weapon
 
@@ -2024,55 +2029,21 @@ Module S_Players
                             End If
 
                             If GetPlayerEquipment(index, EquipmentType.Weapon) > 0 Then
-                                tempitem = GetPlayerEquipment(index, EquipmentType.Weapon)
-                                tempstr(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Prefix
-                                tempstr(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Suffix
-                                tempdata(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Damage
-                                tempdata(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Speed
-                                tempdata(3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Rarity
-                                For i = 1 To StatType.Count - 1
-                                    tempdata(i + 3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Stat(i)
-                                Next
+                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Weapon)
                             End If
 
                             SetPlayerEquipment(index, InvItemNum, EquipmentType.Weapon)
 
                             ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Prefix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Suffix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Damage = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Speed = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Rarity = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity
+                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
 
-                            For i = 1 To StatType.Count - 1
-                                Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i)
-                            Next
-
-                            If Item(InvItemNum).Randomize <> 0 Then
-                                PlayerMsg(index, "Você equipou " & tempstr(1) & " " & CheckGrammar(Item(InvItemNum).Name) & " " & tempstr(2), ColorType.BrightGreen)
-                            Else
-                                PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            End If
+                            PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
 
                             TakeInvSlot(index, InvNum, 1)
 
-                            If tempitem > 0 Then ' dar de volta o item guardado
-                                m = FindOpenInvSlot(index, tempitem)
-                                SetPlayerInvItemNum(index, m, tempitem)
-                                SetPlayerInvItemValue(index, m, 0)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Prefix = tempstr(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Suffix = tempstr(2)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Damage = tempdata(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Speed = tempdata(2)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Rarity = tempdata(3)
-
-                                For i = 1 To StatType.Count - 1
-                                    Player(index).Character(TempPlayer(index).CurChar).Inv(m).Stat(i) = tempdata(i + 3)
-                                Next
-
-                                tempitem = 0
+                            If tempitem.Num > 0 Then ' dar de volta o item guardado
+                                m = FindOpenInvSlot(index, tempitem.Num)
+                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
                             End If
 
                             SendWornEquipment(index)
@@ -2088,52 +2059,20 @@ Module S_Players
                             If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
 
                         Case EquipmentType.Armor
-
                             If GetPlayerEquipment(index, EquipmentType.Armor) > 0 Then
-                                tempitem = GetPlayerEquipment(index, EquipmentType.Armor)
-                                tempstr(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Prefix
-                                tempstr(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Suffix
-                                tempdata(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Damage
-                                tempdata(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Speed
-                                tempdata(3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Rarity
-                                For i = 1 To StatType.Count - 1
-                                    tempdata(i + 3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Stat(i)
-                                Next
+                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Armor)
                             End If
 
-                            SetPlayerEquipment(index, InvItemNum, EquipmentType.Armor)
-
                             ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Prefix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Suffix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Damage = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Speed = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Rarity = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity
-
-                            For i = 1 To StatType.Count - 1
-                                Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i)
-                            Next
+                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
                             TakeInvSlot(index, InvNum, 1)
 
-                            If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário.
-                                m = FindOpenInvSlot(index, tempitem)
-                                SetPlayerInvItemNum(index, m, tempitem)
-                                SetPlayerInvItemValue(index, m, 0)
+                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário.
+                                m = FindOpenInvSlot(index, tempitem.Num)
 
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Prefix = tempstr(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Suffix = tempstr(2)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Damage = tempdata(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Speed = tempdata(2)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Rarity = tempdata(3)
-
-                                For i = 1 To StatType.Count - 1
-                                    Player(index).Character(TempPlayer(index).CurChar).Inv(m).Stat(i) = tempdata(i + 3)
-                                Next i
-
-                                tempitem = 0
+                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
                             End If
 
                             SendWornEquipment(index)
@@ -2149,52 +2088,21 @@ Module S_Players
                             If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
 
                         Case EquipmentType.Helmet
-
                             If GetPlayerEquipment(index, EquipmentType.Helmet) > 0 Then
-                                tempitem = GetPlayerEquipment(index, EquipmentType.Helmet)
-                                tempstr(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Prefix
-                                tempstr(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Suffix
-                                tempdata(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Damage
-                                tempdata(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Speed
-                                tempdata(3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Rarity
-                                For i = 1 To StatType.Count - 1
-                                    tempdata(i + 3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Stat(i)
-                                Next i
+                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Helmet)
                             End If
 
                             SetPlayerEquipment(index, InvItemNum, EquipmentType.Helmet)
 
                             ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Prefix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Suffix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Damage = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Speed = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Rarity = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity
-
-                            For i = 1 To StatType.Count - 1
-                                Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i)
-                            Next
+                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
                             TakeInvSlot(index, InvNum, 1)
 
-                            If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem)
-                                SetPlayerInvItemNum(index, m, tempitem)
-                                SetPlayerInvItemValue(index, m, 0)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Prefix = tempstr(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Suffix = tempstr(2)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Damage = tempdata(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Speed = tempdata(2)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Rarity = tempdata(3)
-
-                                For i = 1 To StatType.Count - 1
-                                    Player(index).Character(TempPlayer(index).CurChar).Inv(m).Stat(i) = tempdata(i + 3)
-                                Next
-
-                                tempitem = 0
+                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
+                                m = FindOpenInvSlot(index, tempitem.Num)
+                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
                             End If
 
                             SendWornEquipment(index)
@@ -2215,50 +2123,21 @@ Module S_Players
                             End If
 
                             If GetPlayerEquipment(index, EquipmentType.Shield) > 0 Then
-                                tempitem = GetPlayerEquipment(index, EquipmentType.Shield)
-                                tempstr(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Prefix
-                                tempstr(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Suffix
-                                tempdata(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Damage
-                                tempdata(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Speed
-                                tempdata(3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Rarity
-                                For i = 1 To StatType.Count - 1
-                                    tempdata(i + 3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Stat(i)
-                                Next i
+                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Shield)
                             End If
 
                             SetPlayerEquipment(index, InvItemNum, EquipmentType.Shield)
 
                             ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Prefix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Suffix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Damage = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Speed = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Rarity = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity
-
-                            For i = 1 To StatType.Count - 1
-                                Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i)
-                            Next
+                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
                             TakeInvSlot(index, InvNum, 1)
 
-                            If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem)
-                                SetPlayerInvItemNum(index, m, tempitem)
-                                SetPlayerInvItemValue(index, m, 0)
+                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
+                                m = FindOpenInvSlot(index, tempitem.Num)
 
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Prefix = tempstr(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Suffix = tempstr(2)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Damage = tempdata(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Speed = tempdata(2)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Rarity = tempdata(3)
-
-                                For i = 1 To StatType.Count - 1
-                                    Player(index).Character(TempPlayer(index).CurChar).Inv(m).Stat(i) = tempdata(i + 3)
-                                Next
-
-                                tempitem = 0
+                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
                             End If
 
                             SendWornEquipment(index)
@@ -2274,50 +2153,21 @@ Module S_Players
 
                         Case EquipmentType.Shoes
                             If GetPlayerEquipment(index, EquipmentType.Shoes) > 0 Then
-                                tempitem = GetPlayerEquipment(index, EquipmentType.Shoes)
-                                tempstr(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Prefix
-                                tempstr(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Suffix
-                                tempdata(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Damage
-                                tempdata(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Speed
-                                tempdata(3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Rarity
-                                For i = 1 To StatType.Count - 1
-                                    tempdata(i + 3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Stat(i)
-                                Next i
+                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Shoes)
                             End If
 
                             SetPlayerEquipment(index, InvItemNum, EquipmentType.Shoes)
 
                             ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Prefix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Suffix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Damage = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Speed = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Rarity = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity
-
-                            For i = 1 To StatType.Count - 1
-                                Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i)
-                            Next
+                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
                             TakeInvSlot(index, InvNum, 1)
 
-                            If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem)
-                                SetPlayerInvItemNum(index, m, tempitem)
-                                SetPlayerInvItemValue(index, m, 0)
+                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
+                                m = FindOpenInvSlot(index, tempitem.Num)
 
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Prefix = tempstr(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Suffix = tempstr(2)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Damage = tempdata(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Speed = tempdata(2)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Rarity = tempdata(3)
-
-                                For i = 1 To StatType.Count - 1
-                                    Player(index).Character(TempPlayer(index).CurChar).Inv(m).Stat(i) = tempdata(i + 3)
-                                Next
-
-                                tempitem = 0
+                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
                             End If
 
                             SendWornEquipment(index)
@@ -2333,50 +2183,21 @@ Module S_Players
 
                         Case EquipmentType.Gloves
                             If GetPlayerEquipment(index, EquipmentType.Gloves) > 0 Then
-                                tempitem = GetPlayerEquipment(index, EquipmentType.Gloves)
-                                tempstr(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Prefix
-                                tempstr(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Suffix
-                                tempdata(1) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Damage
-                                tempdata(2) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Speed
-                                tempdata(3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Rarity
-                                For i = 1 To StatType.Count - 1
-                                    tempdata(i + 3) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Stat(i)
-                                Next i
+                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Gloves)
                             End If
 
                             SetPlayerEquipment(index, InvItemNum, EquipmentType.Gloves)
 
                             ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Prefix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Suffix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Damage = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Speed = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Rarity = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity
-
-                            For i = 1 To StatType.Count - 1
-                                Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i)
-                            Next
+                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
 
                             PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
                             TakeInvSlot(index, InvNum, 1)
 
-                            If tempitem > 0 Then ' Retornar o euqipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem)
-                                SetPlayerInvItemNum(index, m, tempitem)
-                                SetPlayerInvItemValue(index, m, 0)
+                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
+                                m = FindOpenInvSlot(index, tempitem.Num)
 
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Prefix = tempstr(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Suffix = tempstr(2)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Damage = tempdata(1)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Speed = tempdata(2)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Rarity = tempdata(3)
-
-                                For i = 1 To StatType.Count - 1
-                                    Player(index).Character(TempPlayer(index).CurChar).Inv(m).Stat(i) = tempdata(i + 3)
-                                Next
-
-                                tempitem = 0
+                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
                             End If
 
                             SendWornEquipment(index)
