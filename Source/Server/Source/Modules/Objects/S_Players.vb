@@ -948,6 +948,7 @@ Module S_Players
     End Function
 
     Function GetPlayerEquipmentSlot(index As Integer, EquipmentSlot As EquipmentType) As PlayerInvStruct
+        GetPlayerEquipmentSlot = New PlayerInvStruct
         If index > MAX_PLAYERS Then Exit Function
         If EquipmentSlot = 0 Then Exit Function
         GetPlayerEquipmentSlot = Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentSlot)
@@ -1707,6 +1708,7 @@ Module S_Players
     End Function
 
     Function GetPlayerInvItem(index As Integer, InvSlot As Integer) As PlayerInvStruct
+        GetPlayerInvItem = New PlayerInvStruct()
         If index > MAX_PLAYERS Then Exit Function
         If InvSlot = 0 Then Exit Function
 
@@ -1976,7 +1978,8 @@ Module S_Players
     End Function
 
     Friend Sub UseItem(index As Integer, InvNum As Integer)
-        Dim InvItemNum As Integer, i As Integer, n As Integer, x As Integer, y As Integer, tempitem As PlayerInvStruct
+        Dim InvItemNum As Integer, i As Integer, n As Integer, x As Integer, y As Integer
+        Dim tempItem As New PlayerInvStruct
         Dim m As Integer
 
         ' Prevenir hacking
@@ -2035,7 +2038,7 @@ Module S_Players
                     End Select
 
                     If GetPlayerEquipment(index, Item(InvItemNum).SubType) > 0 Then
-                        tempitem = GetPlayerEquipmentSlot(index, Item(InvItemNum).SubType)
+                        tempItem = GetPlayerEquipmentSlot(index, Item(InvItemNum).SubType)
                     End If
 
                     SetPlayerEquipment(index, InvItemNum, Item(InvItemNum).SubType)
@@ -2046,10 +2049,10 @@ Module S_Players
                     PlayerMsg(index, "Você equipou " & CheckGrammar(GetItemName(GetPlayerEquipmentSlot(index, Item(InvItemNum).SubType))), ColorType.BrightGreen)
                     TakeInvSlot(index, InvNum, 1)
 
-                    If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
-                        m = FindOpenInvSlot(index, tempitem.Num)
+                    If tempItem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
+                        m = FindOpenInvSlot(index, tempItem.Num)
 
-                        Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
+                        Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempItem.Clone()
                     End If
 
                     SendWornEquipment(index)
