@@ -947,6 +947,14 @@ Module S_Players
         GetPlayerPK = Player(index).Character(TempPlayer(index).CurChar).Pk
     End Function
 
+    Function GetItemName(invSlot As PlayerInvStruct) As String
+        If Item(invSlot.Num).Randomize > 0 Then
+            GetItemName = Trim(invSlot.Prefix) & " " & Trim(Item(invSlot.Num).Name) & " " & Trim(invSlot.Suffix)
+        Else
+            GetItemName = Item(invSlot.Num).Name
+        End If
+    End Function
+
     Function GetPlayerEquipmentSlot(index As Integer, EquipmentSlot As EquipmentType) As PlayerInvStruct
         If index > MAX_PLAYERS Then Exit Function
         If EquipmentSlot = 0 Then Exit Function
@@ -2020,7 +2028,6 @@ Module S_Players
                     'Se tudo deu certo, olhar o subtipo
                     Select Case Item(InvItemNum).SubType
                         Case EquipmentType.Weapon
-
                             If Item(InvItemNum).TwoHanded > 0 Then
                                 If GetPlayerEquipment(index, EquipmentType.Shield) > 0 Then
                                     PlayerMsg(index, "Esta é uma arma de duas mãos! Desequipe seu escudo primeiro!", ColorType.BrightRed)
@@ -2028,189 +2035,41 @@ Module S_Players
                                 End If
                             End If
 
-                            If GetPlayerEquipment(index, EquipmentType.Weapon) > 0 Then
-                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Weapon)
-                            End If
-
-                            SetPlayerEquipment(index, InvItemNum, EquipmentType.Weapon)
-
-                            ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Weapon) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
-
-                            PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-
-                            TakeInvSlot(index, InvNum, 1)
-
-                            If tempitem.Num > 0 Then ' dar de volta o item guardado
-                                m = FindOpenInvSlot(index, tempitem.Num)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
-                            End If
-
-                            SendWornEquipment(index)
-                            SendMapEquipment(index)
-                            SendInventory(index)
-                            SendInventoryUpdate(index, InvNum)
-                            SendStats(index)
-
-                            ' enviar vitais
-                            SendVitals(index)
-
-                            ' enviar vitais ao grupo se em um
-                            If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
-
-                        Case EquipmentType.Armor
-                            If GetPlayerEquipment(index, EquipmentType.Armor) > 0 Then
-                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Armor)
-                            End If
-
-                            ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Armor) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
-
-                            PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvSlot(index, InvNum, 1)
-
-                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário.
-                                m = FindOpenInvSlot(index, tempitem.Num)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
-                            End If
-
-                            SendWornEquipment(index)
-                            SendMapEquipment(index)
-
-                            SendInventory(index)
-                            SendStats(index)
-
-                            ' enviar vitais
-                            SendVitals(index)
-
-                            ' enviar vitais ao grupo se em um
-                            If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
-
-                        Case EquipmentType.Helmet
-                            If GetPlayerEquipment(index, EquipmentType.Helmet) > 0 Then
-                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Helmet)
-                            End If
-
-                            SetPlayerEquipment(index, InvItemNum, EquipmentType.Helmet)
-
-                            ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Helmet) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
-
-                            PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvSlot(index, InvNum, 1)
-
-                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem.Num)
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
-                            End If
-
-                            SendWornEquipment(index)
-                            SendMapEquipment(index)
-                            SendInventory(index)
-                            SendStats(index)
-
-                            ' Enviar vitais 
-                            SendVitals(index)
-
-                            ' Enviar vitais ao grupo se em um
-                            If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
-
                         Case EquipmentType.Shield
                             If Item(GetPlayerEquipment(index, EquipmentType.Weapon)).TwoHanded > 0 Then
                                 PlayerMsg(index, "Primeiramente desequipe sua arma de duas mãos.", ColorType.BrightRed)
                                 Exit Sub
                             End If
-
-                            If GetPlayerEquipment(index, EquipmentType.Shield) > 0 Then
-                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Shield)
-                            End If
-
-                            SetPlayerEquipment(index, InvItemNum, EquipmentType.Shield)
-
-                            ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shield) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
-
-                            PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvSlot(index, InvNum, 1)
-
-                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem.Num)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
-                            End If
-
-                            SendWornEquipment(index)
-                            SendMapEquipment(index)
-                            SendInventory(index)
-                            SendStats(index)
-
-                            ' Enviar vitais 
-                            SendVitals(index)
-
-                            ' Enviar vitais ao grupo se em um
-                            If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
-
-                        Case EquipmentType.Shoes
-                            If GetPlayerEquipment(index, EquipmentType.Shoes) > 0 Then
-                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Shoes)
-                            End If
-
-                            SetPlayerEquipment(index, InvItemNum, EquipmentType.Shoes)
-
-                            ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Shoes) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
-
-                            PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvSlot(index, InvNum, 1)
-
-                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem.Num)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
-                            End If
-
-                            SendWornEquipment(index)
-                            SendMapEquipment(index)
-                            SendInventory(index)
-                            SendStats(index)
-
-                            ' Enviar vitais 
-                            SendVitals(index)
-
-                            ' Enviar vitais ao grupo se em um
-                            If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
-
-                        Case EquipmentType.Gloves
-                            If GetPlayerEquipment(index, EquipmentType.Gloves) > 0 Then
-                                tempitem = GetPlayerEquipmentSlot(index, EquipmentType.Gloves)
-                            End If
-
-                            SetPlayerEquipment(index, InvItemNum, EquipmentType.Gloves)
-
-                            ' Transferir os dados do inventário para o equipamento
-                            Player(index).Character(TempPlayer(index).CurChar).Equipment(EquipmentType.Gloves) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
-
-                            PlayerMsg(index, "Você equipou " & CheckGrammar(Item(InvItemNum).Name), ColorType.BrightGreen)
-                            TakeInvSlot(index, InvNum, 1)
-
-                            If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
-                                m = FindOpenInvSlot(index, tempitem.Num)
-
-                                Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
-                            End If
-
-                            SendWornEquipment(index)
-                            SendMapEquipment(index)
-                            SendInventory(index)
-                            SendStats(index)
-
-                            ' Enviar vitais
-                            SendVitals(index)
-
-                            ' Enviar vitais ao grupo se em um
-                            If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
                     End Select
+
+                    If GetPlayerEquipment(index, Item(InvItemNum).SubType) > 0 Then
+                        tempitem = GetPlayerEquipmentSlot(index, Item(InvItemNum).SubType)
+                    End If
+
+                    SetPlayerEquipment(index, InvItemNum, Item(InvItemNum).SubType)
+
+                    ' Transferir os dados do inventário para o equipamento
+                    Player(index).Character(TempPlayer(index).CurChar).Equipment(Item(InvItemNum).SubType) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clone()
+
+                    PlayerMsg(index, "Você equipou " & CheckGrammar(GetItemName(GetPlayerEquipmentSlot(index, Item(InvItemNum).SubType))), ColorType.BrightGreen)
+                    TakeInvSlot(index, InvNum, 1)
+
+                    If tempitem.Num > 0 Then ' Retornar o equipamento antigo ao inventário
+                        m = FindOpenInvSlot(index, tempitem.Num)
+
+                        Player(index).Character(TempPlayer(index).CurChar).Inv(m) = tempitem.Clone()
+                    End If
+
+                    SendWornEquipment(index)
+                    SendMapEquipment(index)
+                    SendInventory(index)
+                    SendStats(index)
+
+                    ' Enviar vitais
+                    SendVitals(index)
+
+                    ' Enviar vitais ao grupo se em um
+                    If TempPlayer(index).InParty > 0 Then SendPartyVitals(TempPlayer(index).InParty, index)
 
                 Case ItemType.Consumable
 
