@@ -947,14 +947,6 @@ Module S_Players
         GetPlayerPK = Player(index).Character(TempPlayer(index).CurChar).Pk
     End Function
 
-    Function GetItemName(invSlot As PlayerInvStruct) As String
-        If Item(invSlot.Num).Randomize > 0 Then
-            GetItemName = Trim(invSlot.Prefix) & " " & Trim(Item(invSlot.Num).Name) & " " & Trim(invSlot.Suffix)
-        Else
-            GetItemName = Item(invSlot.Num).Name
-        End If
-    End Function
-
     Function GetPlayerEquipmentSlot(index As Integer, EquipmentSlot As EquipmentType) As PlayerInvStruct
         If index > MAX_PLAYERS Then Exit Function
         If EquipmentSlot = 0 Then Exit Function
@@ -2446,7 +2438,7 @@ Module S_Players
 
             ClearRandEq(index, EqSlot)
 
-            PlayerMsg(index, "Você desequipou " & CheckGrammar(Item(GetPlayerEquipment(index, EqSlot)).Name), ColorType.Yellow)
+            PlayerMsg(index, "Você desequipou " & CheckGrammar(GetItemName(GetPlayerEquipmentSlot(index, EqSlot))), ColorType.Yellow)
             ' remover equipamento
             SetPlayerEquipment(index, 0, EqSlot)
             SendWornEquipment(index)

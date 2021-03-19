@@ -94,4 +94,16 @@ Module C_Items
 
 #End Region
 
+#Region "General Functions"
+
+    Function GetItemName(invSlot As PlayerInvStruct) As String
+        If Item(invSlot.Num).Randomize > 0 Then
+            GetItemName = Trim(invSlot.Prefix) & " " & Trim(Item(invSlot.Num).Name) & " " & Trim(invSlot.Suffix)
+        Else
+            GetItemName = Item(invSlot.Num).Name
+        End If
+    End Function
+
+#End Region
+
 End Module

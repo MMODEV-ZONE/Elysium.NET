@@ -862,24 +862,25 @@ Continue1:
         buffer.Dispose()
     End Sub
 
+
     Friend Sub UpdateDescWindow(itemnum As Integer, amount As Integer, invNum As Integer, windowType As Byte)
         Dim theName As String = "", tmpRarity As Integer
 
         If Item(itemnum).Randomize <> 0 AndAlso invNum <> 0 Then
             If windowType = 0 Then ' inventario
-                theName = Trim(PlayerInv(invNum).Prefix) & " " & Trim(Item(itemnum).Name) & " " & Trim(PlayerInv(invNum).Suffix)
+                theName = GetItemName(PlayerInv(invNum))
                 tmpRarity = PlayerInv(invNum).Rarity
             ElseIf windowType = 1 Then ' equips
-                theName = Trim(Player(Myindex).Equipment(invNum).Prefix) & " " & Trim(Item(itemnum).Name) & " " & Trim(Player(Myindex).Equipment(invNum).Suffix)
+                theName = GetItemName(Player(Myindex).Equipment(invNum))
                 tmpRarity = Player(Myindex).Equipment(invNum).Rarity
             ElseIf windowType = 2 Then ' banco
-                theName = Trim(Bank.Item(invNum).Prefix) & " " & Trim(Item(itemnum).Name) & " " & Trim(Bank.Item(invNum).Suffix)
+                theName = GetItemName(Bank.Item(invNum))
                 tmpRarity = Bank.Item(invNum).Rarity
             ElseIf windowType = 3 Then ' loja
-                theName = Trim(Player(Myindex).Equipment(invNum).Prefix) & " " & Trim(Item(itemnum).Name) & " " & Trim(Player(Myindex).Equipment(invNum).Suffix)
+                theName = GetItemName(Player(Myindex).Equipment(invNum))
                 tmpRarity = Player(Myindex).Equipment(invNum).Rarity
             ElseIf windowType = 4 Then ' troca
-                theName = Trim(Player(Myindex).Equipment(invNum).Prefix) & " " & Trim(Item(itemnum).Name) & " " & Trim(Player(Myindex).Equipment(invNum).Suffix)
+                theName = GetItemName(Player(Myindex).Equipment(invNum))
                 tmpRarity = Player(Myindex).Equipment(invNum).Rarity
             End If
         Else
