@@ -291,6 +291,7 @@ Namespace ASFW.Network
         End Sub
 
         Private Function EndAccept(ByVal Optional ar As IAsyncResult = Nothing) As Socket
+            On Error Resume Next
             Dim pendingAccept = If(ar, _pendingAccept)
 
             If pendingAccept Is Nothing OrElse _listener Is Nothing Then
