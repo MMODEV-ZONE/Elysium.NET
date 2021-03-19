@@ -248,7 +248,7 @@ Module C_Maps
     End Sub
 
     Sub Packet_MapItemData(ByRef data() As Byte)
-        Dim i As Integer, mapNum As Integer
+        Dim i As Integer
         Dim buffer As New ByteStream(data)
 
         For i = 1 To MAX_MAP_ITEMS
