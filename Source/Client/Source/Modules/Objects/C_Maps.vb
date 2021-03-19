@@ -66,13 +66,11 @@ Module C_Maps
     End Structure
 
     Friend Structure MapItemStruct
-        Dim Num As Integer
-        Dim Value As Integer
         Dim Frame As Byte
         Dim X As Byte
         Dim Y As Byte
 
-        Dim RandData As RandInvStruct
+        Dim ItemData As PlayerInvStruct
     End Structure
 
     Friend Structure MapNpcStruct
@@ -166,8 +164,8 @@ Module C_Maps
 
     Sub ClearMapItem(index As Integer)
         MapItem(index).Frame = 0
-        MapItem(index).Num = 0
-        MapItem(index).Value = 0
+        MapItem(index).ItemData.Num = 0
+        MapItem(index).ItemData.Value = 0
         MapItem(index).X = 0
         MapItem(index).Y = 0
     End Sub
@@ -253,8 +251,8 @@ Module C_Maps
 
         For i = 1 To MAX_MAP_ITEMS
             With MapItem(i)
-                .Num = buffer.ReadInt32
-                .Value = buffer.ReadInt32
+                .ItemData.Num = buffer.ReadInt32
+                .ItemData.Value = buffer.ReadInt32
                 .X = buffer.ReadInt32
                 .Y = buffer.ReadInt32
             End With
@@ -459,8 +457,8 @@ Module C_Maps
             End If
 
             For i = 1 To MAX_MAP_ITEMS
-                MapItem(i).Num = buffer.ReadInt32
-                MapItem(i).Value = buffer.ReadInt32()
+                MapItem(i).ItemData.Num = buffer.ReadInt32
+                MapItem(i).ItemData.Value = buffer.ReadInt32()
                 MapItem(i).X = buffer.ReadInt32()
                 MapItem(i).Y = buffer.ReadInt32()
             Next

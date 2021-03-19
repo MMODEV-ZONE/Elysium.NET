@@ -221,7 +221,7 @@ Module modLoop
 
             ' Itens aparecendo para todos
             For i = 1 To MAX_MAP_ITEMS
-                If MapItem(mapNum, i).Num > 0 Then
+                If MapItem(mapNum, i).ItemData.Num > 0 Then
                     If MapItem(mapNum, i).PlayerName <> vbNullString Then
                         ' Tornar item publico?
                         If MapItem(mapNum, i).PlayerTimer < GetTimeMs() Then

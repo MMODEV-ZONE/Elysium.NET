@@ -1258,7 +1258,7 @@ Module C_Graphics
         Dim picNum As Integer
         Dim x As Integer, y As Integer
 
-        picNum = Item(MapItem(itemnum).Num).Pic
+        picNum = Item(MapItem(itemnum).ItemData.Num).Pic
 
         If picNum < 1 OrElse picNum > NumItems Then Exit Sub
 
@@ -1683,7 +1683,7 @@ Module C_Graphics
         ' desenhar itens
         If NumItems > 0 Then
             For I = 1 To MAX_MAP_ITEMS
-                If MapItem(I).Num > 0 Then
+                If MapItem(I).ItemData.Num > 0 Then
                     DrawItem(I)
                 End If
             Next
@@ -2568,8 +2568,8 @@ NextLoop:
             ' ver por mudanças de animação
             For i = 1 To MAX_MAP_ITEMS
 
-                If MapItem(i).Num > 0 Then
-                    itempic = Item(MapItem(i).Num).Pic
+                If MapItem(i).ItemData.Num > 0 Then
+                    itempic = Item(MapItem(i).ItemData.Num).Pic
 
                     If itempic < 1 OrElse itempic > NumItems Then Exit Sub
                     maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frames tem. 

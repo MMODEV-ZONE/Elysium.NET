@@ -1559,10 +1559,10 @@ Module S_NetworkReceive
         ' Verificar item
         For i = 1 To MAX_MAP_ITEMS
 
-            If MapItem(GetPlayerMap(index), i).Num > 0 Then
+            If MapItem(GetPlayerMap(index), i).ItemData.Num > 0 Then
                 If MapItem(GetPlayerMap(index), i).X = x Then
                     If MapItem(GetPlayerMap(index), i).Y = y Then
-                        PlayerMsg(index, "Você vê um(a) " & CheckGrammar(Trim$(Item(MapItem(GetPlayerMap(index), i).Num).Name)) & ".", ColorType.White)
+                        PlayerMsg(index, "Você vê um(a) " & CheckGrammar(Trim$(Item(MapItem(GetPlayerMap(index), i).ItemData.Num).Name)) & ".", ColorType.White)
                         Exit Sub
                     End If
                 End If

@@ -188,14 +188,14 @@ Module S_NetworkSend
         For i = 1 To MAX_INV
             buffer.WriteInt32(GetPlayerInvItemNum(index, i))
             buffer.WriteInt32(GetPlayerInvItemValue(index, i))
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).RandInv(i).Prefix.Trim))
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).RandInv(i).Suffix.Trim))
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(i).Rarity)
+            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(i).Prefix.Trim))
+            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(i).Suffix.Trim))
+            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Rarity)
             For n = 1 To StatType.Count - 1
-                buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(i).Stat(n))
+                buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Stat(n))
             Next
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(i).Damage)
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(i).Speed)
+            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Damage)
+            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Speed)
         Next
 
         Socket.SendDataTo(index, buffer.Data, buffer.Head)
@@ -441,13 +441,13 @@ Module S_NetworkSend
         Next
 
         For i = 1 To EquipmentType.Count - 1
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).RandEquip(i).Prefix.Trim))
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).RandEquip(i).Suffix.Trim))
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandEquip(i).Damage)
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandEquip(i).Speed)
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandEquip(i).Rarity)
+            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Prefix.Trim))
+            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Suffix.Trim))
+            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Damage)
+            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Speed)
+            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Rarity)
             For n = 1 To StatType.Count - 1
-                buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandEquip(i).Stat(n))
+                buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Stat(n))
             Next
         Next
 
@@ -625,8 +625,8 @@ Module S_NetworkSend
         End If
 
         For i = 1 To MAX_MAP_ITEMS
-            buffer.WriteInt32(MapItem(mapNum, i).Num)
-            buffer.WriteInt32(MapItem(mapNum, i).Value)
+            buffer.WriteInt32(MapItem(mapNum, i).ItemData.Num)
+            buffer.WriteInt32(MapItem(mapNum, i).ItemData.Value)
             buffer.WriteInt32(MapItem(mapNum, i).X)
             buffer.WriteInt32(MapItem(mapNum, i).Y)
         Next
@@ -981,14 +981,14 @@ Module S_NetworkSend
         AddDebug("Enviada SMSG: SPlayerInvUpdate")
 #End If
 
-        buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).RandInv(InvSlot).Prefix.Trim))
-        buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).RandInv(InvSlot).Suffix.Trim))
-        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(InvSlot).Rarity)
+        buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Prefix.Trim))
+        buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Suffix.Trim))
+        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Rarity)
         For n = 1 To StatType.Count - 1
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(InvSlot).Stat(n))
+            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Stat(n))
         Next n
-        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(InvSlot).Damage)
-        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).RandInv(InvSlot).Speed)
+        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Damage)
+        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Speed)
 
         Socket.SendDataTo(index, buffer.Data, buffer.Head)
 

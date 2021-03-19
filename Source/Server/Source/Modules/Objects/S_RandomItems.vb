@@ -3,42 +3,42 @@
     Friend Sub ClearRandBank(index As Integer, BankNum As Integer)
         Dim i As Integer
 
-        Bank(index).ItemRand(BankNum).Prefix = ""
-        Bank(index).ItemRand(BankNum).Suffix = ""
-        Bank(index).ItemRand(BankNum).Damage = 0
-        Bank(index).ItemRand(BankNum).Speed = 0
-        Bank(index).ItemRand(BankNum).Rarity = 0
+        Bank(index).Item(BankNum).Prefix = ""
+        Bank(index).Item(BankNum).Suffix = ""
+        Bank(index).Item(BankNum).Damage = 0
+        Bank(index).Item(BankNum).Speed = 0
+        Bank(index).Item(BankNum).Rarity = 0
 
         For i = 1 To StatType.Count - 1
-            Bank(index).ItemRand(BankNum).Stat(i) = 0
+            Bank(index).Item(BankNum).Stat(i) = 0
         Next i
     End Sub
 
     Friend Sub ClearRandInv(index As Integer, InvNum As Integer)
         Dim i As Integer
 
-        Player(index).Character(TempPlayer(index).CurChar).RandInv(InvNum).Prefix = ""
-        Player(index).Character(TempPlayer(index).CurChar).RandInv(InvNum).Suffix = ""
-        Player(index).Character(TempPlayer(index).CurChar).RandInv(InvNum).Damage = 0
-        Player(index).Character(TempPlayer(index).CurChar).RandInv(InvNum).Speed = 0
-        Player(index).Character(TempPlayer(index).CurChar).RandInv(InvNum).Rarity = 0
+        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix = ""
+        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix = ""
+        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage = 0
+        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed = 0
+        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity = 0
 
         For i = 1 To StatType.Count - 1
-            Player(index).Character(TempPlayer(index).CurChar).RandInv(InvNum).Stat(i) = 0
+            Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i) = 0
         Next i
     End Sub
 
     Friend Sub ClearRandEq(index As Integer, Equipment As EquipmentType)
         Dim i As Integer
 
-        Player(index).Character(TempPlayer(index).CurChar).RandEquip(Equipment).Prefix = ""
-        Player(index).Character(TempPlayer(index).CurChar).RandEquip(Equipment).Suffix = ""
-        Player(index).Character(TempPlayer(index).CurChar).RandEquip(Equipment).Damage = 0
-        Player(index).Character(TempPlayer(index).CurChar).RandEquip(Equipment).Speed = 0
-        Player(index).Character(TempPlayer(index).CurChar).RandEquip(Equipment).Rarity = 0
+        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Prefix = ""
+        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Suffix = ""
+        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Damage = 0
+        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Speed = 0
+        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Rarity = 0
 
         For i = 1 To StatType.Count - 1
-            Player(index).Character(TempPlayer(index).CurChar).RandEquip(Equipment).Stat(i) = 0
+            Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Stat(i) = 0
         Next i
     End Sub
 
@@ -90,126 +90,126 @@
         ' Dar item baseado no tipo
         Select Case RandomType
             Case RandomBonusType.RANDOM_SPEED
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " da Velocidade"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed - (Item(itemnum).Speed * TempAmount)
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " da Velocidade"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed - (Item(itemnum).Speed * TempAmount)
             Case RandomBonusType.RANDOM_DAMAGE
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Dano"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Dano"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
                 If TempAmount < 1 Then TempAmount = 1
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2 + (Item(itemnum).Data2 * TempAmount)
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2 + (Item(itemnum).Data2 * TempAmount)
             Case RandomBonusType.RANDOM_WARRIOR
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Guerreiro"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Guerreiro"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_ARCHER
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Arqueiro"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Arqueiro"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_MAGE
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Mago"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Mago"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_JESTER
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Bobo-da-corte"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Bobo-da-corte"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_BATTLEMAGE
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Mago de Batalha"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Mago de Batalha"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_ROGUE
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Vampiro"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Vampiro"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_TOWER
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " da Torre"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " da Torre"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Endurance) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_SURVIVALIST
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " da Sobrevivência"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(ResourceSkills.Fisherman) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " da Sobrevivência"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(ResourceSkills.Fisherman) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_PERFECTIONIST
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " da Perfeição"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(ResourceSkills.Miner) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " da Perfeição"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(ResourceSkills.Miner) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_COALMEN
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Mineiro"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(ResourceSkills.Miner) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(ResourceSkills.WoodCutter) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Mineiro"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(ResourceSkills.Miner) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(ResourceSkills.WoodCutter) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_BOWYER
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Arqueador"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(ResourceSkills.WoodCutter) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Arqueador"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(ResourceSkills.WoodCutter) = ItemLevel + StatAmount
             Case RandomBonusType.RANDOM_BROKEN
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = "Quebrado "
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = ""
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = RarityType.RARITY_BROKEN
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2 - (Item(itemnum).Data2 / 10)
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed + (Item(itemnum).Speed / 10)
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = "Quebrado "
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = ""
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = RarityType.RARITY_BROKEN
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2 - (Item(itemnum).Data2 / 10)
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed + (Item(itemnum).Speed / 10)
             Case RandomBonusType.RANDOM_PRISM
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Prisma"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Prisma"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
                 For i = 1 To 4
-                    Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(Random(1, StatType.Count - 1)) = ItemLevel + StatAmount
+                    Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(Random(1, StatType.Count - 1)) = ItemLevel + StatAmount
                 Next
             Case RandomBonusType.RANDOM_CANNON
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Prefix = Prefix
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Suffix = " do Canhão"
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Rarity = Rarity
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Damage = Item(itemnum).Data2
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Speed = Item(itemnum).Speed
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
-                Player(index).Character(TempPlayer(index).CurChar).RandInv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Prefix = Prefix
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Suffix = " do Canhão"
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Rarity = Rarity
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Damage = Item(itemnum).Data2
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Speed = Item(itemnum).Speed
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Strength) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Intelligence) = ItemLevel + StatAmount
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invslot).Stat(StatType.Spirit) = ItemLevel + StatAmount
         End Select
     End Sub
 

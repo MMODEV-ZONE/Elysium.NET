@@ -292,14 +292,14 @@ Module C_NetworkReceive
             SetPlayerInvItemNum(Myindex, i, invNum)
             SetPlayerInvItemValue(Myindex, i, amount)
 
-            Player(Myindex).RandInv(i).Prefix = buffer.ReadString
-            Player(Myindex).RandInv(i).Suffix = buffer.ReadString
-            Player(Myindex).RandInv(i).Rarity = buffer.ReadInt32
+            PlayerInv(i).Prefix = buffer.ReadString
+            PlayerInv(i).Suffix = buffer.ReadString
+            PlayerInv(i).Rarity = buffer.ReadInt32
             For n = 1 To StatType.Count - 1
-                Player(Myindex).RandInv(i).Stat(n) = buffer.ReadInt32
+                PlayerInv(i).Stat(n) = buffer.ReadInt32
             Next
-            Player(Myindex).RandInv(i).Damage = buffer.ReadInt32
-            Player(Myindex).RandInv(i).Speed = buffer.ReadInt32
+            PlayerInv(i).Damage = buffer.ReadInt32
+            PlayerInv(i).Speed = buffer.ReadInt32
         Next
 
         ' Muda para o inventário, precisa limpar qualquer outro drop menu
@@ -318,14 +318,14 @@ Module C_NetworkReceive
         SetPlayerInvItemNum(Myindex, n, buffer.ReadInt32)
         SetPlayerInvItemValue(Myindex, n, buffer.ReadInt32)
 
-        Player(Myindex).RandInv(n).Prefix = buffer.ReadString
-        Player(Myindex).RandInv(n).Suffix = buffer.ReadString
-        Player(Myindex).RandInv(n).Rarity = buffer.ReadInt32
+        PlayerInv(n).Prefix = buffer.ReadString
+        PlayerInv(n).Suffix = buffer.ReadString
+        PlayerInv(n).Rarity = buffer.ReadInt32
         For i = 1 To StatType.Count - 1
-            Player(Myindex).RandInv(n).Stat(i) = buffer.ReadInt32
+            PlayerInv(n).Stat(i) = buffer.ReadInt32
         Next
-        Player(Myindex).RandInv(n).Damage = buffer.ReadInt32
-        Player(Myindex).RandInv(n).Speed = buffer.ReadInt32
+        PlayerInv(n).Damage = buffer.ReadInt32
+        PlayerInv(n).Speed = buffer.ReadInt32
 
         ' Mudanças, limpar qualquer drop menu
         FrmGame.pnlCurrency.Visible = False
@@ -344,14 +344,14 @@ Module C_NetworkReceive
         Next
 
         For i = 1 To EquipmentType.Count - 1
-            Player(Myindex).RandEquip(i).Prefix = buffer.ReadString
-            Player(Myindex).RandEquip(i).Suffix = buffer.ReadString
-            Player(Myindex).RandEquip(i).Damage = buffer.ReadInt32
-            Player(Myindex).RandEquip(i).Speed = buffer.ReadInt32
-            Player(Myindex).RandEquip(i).Rarity = buffer.ReadInt32
+            Player(Myindex).Equipment(i).Prefix = buffer.ReadString
+            Player(Myindex).Equipment(i).Suffix = buffer.ReadString
+            Player(Myindex).Equipment(i).Damage = buffer.ReadInt32
+            Player(Myindex).Equipment(i).Speed = buffer.ReadInt32
+            Player(Myindex).Equipment(i).Rarity = buffer.ReadInt32
 
             For n = 1 To StatType.Count - 1
-                Player(Myindex).RandEquip(i).Stat(n) = buffer.ReadInt32
+                Player(Myindex).Equipment(i).Stat(n) = buffer.ReadInt32
             Next
         Next
 
@@ -468,8 +468,8 @@ Module C_NetworkReceive
         i = buffer.ReadInt32
 
         With MapItem(i)
-            .Num = buffer.ReadInt32
-            .Value = buffer.ReadInt32
+            .ItemData.Num = buffer.ReadInt32
+            .ItemData.Value = buffer.ReadInt32
             .X = buffer.ReadInt32
             .Y = buffer.ReadInt32
         End With

@@ -48,7 +48,7 @@
         Dim Points As Byte
 
         ' Equipamento usado
-        Dim Equipment() As Integer
+        Dim Equipment() As PlayerInvStruct
 
         ' Inventário
         Dim Inv() As PlayerInvStruct
@@ -84,11 +84,6 @@
         Dim GatherSkills() As ResourceSkillsStruct
 
         Dim RecipeLearned() As Byte
-
-        ' Itens Aleatórios
-        Dim RandInv() As RandInvStruct
-
-        Dim RandEquip() As RandInvStruct
 
         Dim Pet As PlayerPetRec
     End Structure
@@ -244,12 +239,10 @@
     End Structure
 
     Friend Structure MapItemRec
-        Dim Num As Integer
-        Dim Value As Integer
         Dim X As Byte
         Dim Y As Byte
 
-        Dim RandData As RandInvStruct
+        Dim ItemData As PlayerInvStruct
 
         ' ownership + despawn
         Dim PlayerName As String

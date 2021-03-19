@@ -8,17 +8,6 @@
     Friend Resource(MAX_RESOURCES) As ResourceStruct
     Friend Animation(MAX_ANIMATIONS) As AnimationStruct
 
-    ' Estruturas de dados comuns
-    <Serializable>
-    Friend Structure RandInvStruct
-        Dim Prefix As String
-        Dim Suffix As String
-        Dim Stat() As Integer
-        Dim Rarity As Integer
-        Dim Damage As Integer
-        Dim Speed As Integer
-    End Structure
-
     <Serializable>
     Friend Structure ResourceSkillsStruct
         Dim SkillLevel As Integer
@@ -106,12 +95,17 @@
     Friend Structure PlayerInvStruct
         Dim Num As Integer
         Dim Value As Integer
+        Dim Prefix As String
+        Dim Suffix As String
+        Dim Stat() As Integer
+        Dim Rarity As Integer
+        Dim Damage As Integer
+        Dim Speed As Integer
     End Structure
 
     <Serializable>
     Friend Structure BankStruct
         Dim Item() As PlayerInvStruct
-        Dim ItemRand() As RandInvStruct
     End Structure
 
     <Serializable>

@@ -40,7 +40,7 @@ Module C_Player
         Dim Points As Byte
 
         ' Equipamento Usado
-        Dim Equipment() As Integer
+        Dim Equipment() As PlayerInvStruct
 
         ' Posição
         Dim Map As Integer
@@ -84,11 +84,6 @@ Module C_Player
 
         Dim RecipeLearned() As Byte
 
-        ' Itens aleatórios
-        Dim RandInv() As RandInvStruct
-
-        Dim RandEquip() As RandInvStruct
-
         Dim Pet As PlayerPetRec
     End Structure
 #End Region
@@ -114,7 +109,7 @@ Module C_Player
 
         ReDim Player(index).Equipment(EquipmentType.Count - 1)
         For y = 1 To EquipmentType.Count - 1
-            Player(index).Equipment(y) = 0
+            Player(index).Equipment(y).Num = 0
         Next
 
         Player(index).Exp = 0
@@ -146,19 +141,17 @@ Module C_Player
         Player(index).Y = 0
         Player(index).YOffset = 0
 
-        ReDim Player(index).RandEquip(EquipmentType.Count - 1)
         For y = 1 To EquipmentType.Count - 1
-            ReDim Player(index).RandEquip(y).Stat(StatType.Count - 1)
+            ReDim Player(index).Equipment(y).Stat(StatType.Count - 1)
             For x = 1 To StatType.Count - 1
-                Player(index).RandEquip(y).Stat(x) = 0
+                Player(index).Equipment(y).Stat(x) = 0
             Next
         Next
 
-        ReDim Player(index).RandInv(MAX_INV)
         For y = 1 To MAX_INV
-            ReDim Player(index).RandInv(y).Stat(StatType.Count - 1)
+            ReDim PlayerInv(y).Stat(StatType.Count - 1)
             For x = 1 To StatType.Count - 1
-                Player(index).RandInv(y).Stat(x) = 0
+                PlayerInv(y).Stat(x) = 0
             Next
         Next
 
@@ -893,7 +886,7 @@ Module C_Player
     Function GetPlayerEquipment(index As Integer, equipmentSlot As EquipmentType) As Byte
         GetPlayerEquipment = 0
         If index > MAX_PLAYERS Then Exit Function
-        GetPlayerEquipment = Player(index).Equipment(equipmentSlot)
+        GetPlayerEquipment = Player(index).Equipment(equipmentSlot).Num
     End Function
 
     Function GetPlayerStat(index As Integer, stat As StatType) As Integer
@@ -933,7 +926,7 @@ Module C_Player
 
     Sub SetPlayerEquipment(index As Integer, invNum As Integer, equipmentSlot As EquipmentType)
         If index < 1 OrElse index > MAX_PLAYERS Then Exit Sub
-        Player(index).Equipment(equipmentSlot) = invNum
+        Player(index).Equipment(equipmentSlot).Num = invNum
     End Sub
 #End Region
 
@@ -1162,7 +1155,7 @@ Module C_Player
 
                 ' Setar o nome
                 If Item(itemnum).Randomize <> 0 Then
-                    tmprarity = Player(Myindex).RandEquip(i).Rarity
+                    tmprarity = Player(Myindex).Equipment(i).Rarity
                 Else
                     tmprarity = Item(itemnum).Rarity
                 End If

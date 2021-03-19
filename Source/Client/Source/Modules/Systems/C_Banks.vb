@@ -24,9 +24,8 @@ Module C_Banks
 
     Sub ClearBank()
         ReDim Bank.Item(MAX_BANK)
-        ReDim Bank.ItemRand(MAX_BANK)
         For x = 1 To MAX_BANK
-            ReDim Bank.ItemRand(x).Stat(StatType.Count - 1)
+            ReDim Bank.Item(x).Stat(StatType.Count - 1)
         Next
     End Sub
 

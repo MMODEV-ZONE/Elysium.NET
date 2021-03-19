@@ -82,9 +82,8 @@ Module S_General
 
         For i = 1 To MAX_PLAYERS
             ReDim Bank(i).Item(MAX_BANK)
-            ReDim Bank(i).ItemRand(MAX_BANK)
             For x = 1 To MAX_BANK
-                ReDim Bank(i).ItemRand(x).Stat(StatType.Count - 1)
+                ReDim Bank(i).Item(x).Stat(StatType.Count - 1)
             Next
         Next
 
@@ -102,15 +101,6 @@ Module S_General
                 ReDim Player(i).Character(x).Inv(MAX_INV)
                 ReDim Player(i).Character(x).Skill(MAX_PLAYER_SKILLS)
                 ReDim Player(i).Character(x).PlayerQuest(MAX_QUESTS)
-
-                ReDim Player(i).Character(x).RandEquip(EquipmentType.Count - 1)
-                ReDim Player(i).Character(x).RandInv(MAX_INV)
-                For y = 1 To EquipmentType.Count - 1
-                    ReDim Player(i).Character(x).RandEquip(y).Stat(StatType.Count - 1)
-                Next
-                For y = 1 To MAX_INV
-                    ReDim Player(i).Character(x).RandInv(y).Stat(StatType.Count - 1)
-                Next
             Next
         Next
 

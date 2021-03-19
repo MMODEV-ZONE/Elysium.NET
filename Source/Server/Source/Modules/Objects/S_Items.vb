@@ -105,8 +105,8 @@ Friend Module S_Items
         AddDebug("Enviada SMSG: SMapItemData")
 #End If
         For i = 1 To MAX_MAP_ITEMS
-            buffer.WriteInt32(MapItem(mapNum, i).Num)
-            buffer.WriteInt32(MapItem(mapNum, i).Value)
+            buffer.WriteInt32(MapItem(mapNum, i).ItemData.Num)
+            buffer.WriteInt32(MapItem(mapNum, i).ItemData.Value)
             buffer.WriteInt32(MapItem(mapNum, i).X)
             buffer.WriteInt32(MapItem(mapNum, i).Y)
         Next
@@ -126,8 +126,8 @@ Friend Module S_Items
         AddDebug("Enviada SMSG: SMapItemData Para Todos")
 #End If
         For i = 1 To MAX_MAP_ITEMS
-            buffer.WriteInt32(MapItem(mapNum, i).Num)
-            buffer.WriteInt32(MapItem(mapNum, i).Value)
+            buffer.WriteInt32(MapItem(mapNum, i).ItemData.Num)
+            buffer.WriteInt32(MapItem(mapNum, i).ItemData.Value)
             buffer.WriteInt32(MapItem(mapNum, i).X)
             buffer.WriteInt32(MapItem(mapNum, i).Y)
         Next
@@ -162,8 +162,8 @@ Friend Module S_Items
 
         If i <> 0 Then
             If itemNum >= 0 AndAlso itemNum <= MAX_ITEMS Then
-                MapItem(mapNum, i).Num = itemNum
-                MapItem(mapNum, i).Value = ItemVal
+                MapItem(mapNum, i).ItemData.Num = itemNum
+                MapItem(mapNum, i).ItemData.Value = ItemVal
                 MapItem(mapNum, i).X = x
                 MapItem(mapNum, i).Y = y
 
@@ -192,7 +192,7 @@ Friend Module S_Items
         If mapNum <= 0 OrElse mapNum > MAX_CACHED_MAPS Then Exit Function
 
         For i = 1 To MAX_MAP_ITEMS
-            If MapItem(mapNum, i).Num = 0 Then
+            If MapItem(mapNum, i).ItemData.Num = 0 Then
                 FindOpenMapItemSlot = i
                 Exit Function
             End If

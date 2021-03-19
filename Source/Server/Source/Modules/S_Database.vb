@@ -517,8 +517,8 @@ Module modDatabase
 
     Sub ClearMapItem(index As Integer, mapNum As Integer)
         MapItem(mapNum, index) = Nothing
-        MapItem(mapNum, index).RandData.Prefix = ""
-        MapItem(mapNum, index).RandData.Suffix = ""
+        MapItem(mapNum, index).ItemData.Prefix = ""
+        MapItem(mapNum, index).ItemData.Suffix = ""
     End Sub
 
     Sub ClearMapItems()
@@ -903,21 +903,20 @@ Module modDatabase
 
     Sub ClearBank(index As Integer)
         ReDim Bank(index).Item(MAX_BANK)
-        ReDim Bank(index).ItemRand(MAX_BANK)
 
         For i = 1 To MAX_BANK
 
             Bank(index).Item(i).Num = 0
             Bank(index).Item(i).Value = 0
-            Bank(index).ItemRand(i).Prefix = ""
-            Bank(index).ItemRand(i).Suffix = ""
-            Bank(index).ItemRand(i).Rarity = 0
-            Bank(index).ItemRand(i).Damage = 0
-            Bank(index).ItemRand(i).Speed = 0
+            Bank(index).Item(i).Prefix = ""
+            Bank(index).Item(i).Suffix = ""
+            Bank(index).Item(i).Rarity = 0
+            Bank(index).Item(i).Damage = 0
+            Bank(index).Item(i).Speed = 0
 
-            ReDim Bank(index).ItemRand(i).Stat(StatType.Count - 1)
+            ReDim Bank(index).Item(i).Stat(StatType.Count - 1)
             For x = 1 To StatType.Count - 1
-                Bank(index).ItemRand(i).Stat(x) = 0
+                Bank(index).Item(i).Stat(x) = 0
             Next
         Next
     End Sub
@@ -931,7 +930,7 @@ Module modDatabase
         Player(index).Character(CharNum).Dir = 0
 
         For i = 0 To EquipmentType.Count - 1
-            Player(index).Character(CharNum).Equipment(i) = 0
+            Player(index).Character(CharNum).Equipment(i).Num = 0
         Next
 
         For i = 0 To MAX_INV
@@ -1015,31 +1014,31 @@ Module modDatabase
         Next
 
         'Itens aleatórios
-        ReDim Player(index).Character(CharNum).RandInv(MAX_INV)
+        ReDim Player(index).Character(CharNum).Inv(MAX_INV)
         For i = 1 To MAX_INV
-            Player(index).Character(CharNum).RandInv(i).Prefix = ""
-            Player(index).Character(CharNum).RandInv(i).Suffix = ""
-            Player(index).Character(CharNum).RandInv(i).Rarity = 0
-            Player(index).Character(CharNum).RandInv(i).Damage = 0
-            Player(index).Character(CharNum).RandInv(i).Speed = 0
+            Player(index).Character(CharNum).Inv(i).Prefix = ""
+            Player(index).Character(CharNum).Inv(i).Suffix = ""
+            Player(index).Character(CharNum).Inv(i).Rarity = 0
+            Player(index).Character(CharNum).Inv(i).Damage = 0
+            Player(index).Character(CharNum).Inv(i).Speed = 0
 
-            ReDim Player(index).Character(CharNum).RandInv(i).Stat(StatType.Count - 1)
+            ReDim Player(index).Character(CharNum).Inv(i).Stat(StatType.Count - 1)
             For x = 1 To StatType.Count - 1
-                Player(index).Character(CharNum).RandInv(i).Stat(x) = 0
+                Player(index).Character(CharNum).Inv(i).Stat(x) = 0
             Next
         Next
 
-        ReDim Player(index).Character(CharNum).RandEquip(EquipmentType.Count - 1)
+        ReDim Player(index).Character(CharNum).Equipment(EquipmentType.Count - 1)
         For i = 1 To EquipmentType.Count - 1
-            Player(index).Character(CharNum).RandEquip(i).Prefix = ""
-            Player(index).Character(CharNum).RandEquip(i).Suffix = ""
-            Player(index).Character(CharNum).RandEquip(i).Rarity = 0
-            Player(index).Character(CharNum).RandEquip(i).Damage = 0
-            Player(index).Character(CharNum).RandEquip(i).Speed = 0
+            Player(index).Character(CharNum).Equipment(i).Prefix = ""
+            Player(index).Character(CharNum).Equipment(i).Suffix = ""
+            Player(index).Character(CharNum).Equipment(i).Rarity = 0
+            Player(index).Character(CharNum).Equipment(i).Damage = 0
+            Player(index).Character(CharNum).Equipment(i).Speed = 0
 
-            ReDim Player(index).Character(CharNum).RandEquip(i).Stat(StatType.Count - 1)
+            ReDim Player(index).Character(CharNum).Equipment(i).Stat(StatType.Count - 1)
             For x = 1 To StatType.Count - 1
-                Player(index).Character(CharNum).RandEquip(i).Stat(x) = 0
+                Player(index).Character(CharNum).Equipment(i).Stat(x) = 0
             Next
         Next
 
@@ -1124,13 +1123,13 @@ Module modDatabase
                     Player(index).Character(CharNum).Inv(n).Value = Classes(ClassNum).StartValue(n)
 
                     If Item(Classes(ClassNum).StartItem(n)).Randomize Then
-                        Player(index).Character(TempPlayer(index).CurChar).RandInv(n).Prefix = ""
-                        Player(index).Character(TempPlayer(index).CurChar).RandInv(n).Suffix = ""
-                        Player(index).Character(TempPlayer(index).CurChar).RandInv(n).Rarity = RarityType.RARITY_COMMON
-                        Player(index).Character(TempPlayer(index).CurChar).RandInv(n).Damage = Item(Classes(ClassNum).StartItem(n)).Data2
-                        Player(index).Character(TempPlayer(index).CurChar).RandInv(n).Speed = Item(Classes(ClassNum).StartItem(n)).Speed
+                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Prefix = ""
+                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Suffix = ""
+                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Rarity = RarityType.RARITY_COMMON
+                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Damage = Item(Classes(ClassNum).StartItem(n)).Data2
+                        Player(index).Character(TempPlayer(index).CurChar).Inv(n).Speed = Item(Classes(ClassNum).StartItem(n)).Speed
                         For i = 1 To StatType.Count - 1
-                            Player(index).Character(TempPlayer(index).CurChar).RandInv(n).Stat(i) = Item(Classes(ClassNum).StartItem(n)).Add_Stat(i)
+                            Player(index).Character(TempPlayer(index).CurChar).Inv(n).Stat(i) = Item(Classes(ClassNum).StartItem(n)).Add_Stat(i)
                         Next
                     End If
                 End If
