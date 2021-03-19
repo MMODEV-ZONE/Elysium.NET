@@ -195,7 +195,7 @@ Module C_Trade
                 If itempic > 0 AndAlso itempic <= NumItems Then
 
                     If ItemsGfxInfo(itempic).IsLoaded = False Then
-                        LoadTexture(itempic, 4)
+                        LoadTexture(itempic, TextureType.Items)
                     End If
 
                     'vendo que ainda vamos utilizar, atualizar contador
@@ -251,7 +251,7 @@ Module C_Trade
 
                 If itempic > 0 AndAlso itempic <= NumItems Then
                     If ItemsGfxInfo(itempic).IsLoaded = False Then
-                        LoadTexture(itempic, 4)
+                        LoadTexture(itempic, TextureType.Items)
                     End If
 
                     'vendo que ainda vamos utilizar, atualizar contador

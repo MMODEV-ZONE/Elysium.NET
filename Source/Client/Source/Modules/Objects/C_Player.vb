@@ -1134,7 +1134,7 @@ Module C_Player
                 itempic = Item(itemnum).Pic
 
                 If ItemsGfxInfo(itempic).IsLoaded = False Then
-                    LoadTexture(itempic, 4)
+                    LoadTexture(itempic, TextureType.Items)
                 End If
 
                 'Vendo que ainda vamos utilizar, atualizar temporizador

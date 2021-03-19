@@ -304,6 +304,27 @@ Module C_Graphics
 
 #End Region
 
+#Region "Enumerators"
+
+    Enum TextureType As Byte
+        Tilesets = 1
+        Characters
+        Paperdoll
+        Items
+        Resources
+        Animations
+        Faces
+        Fogs
+        SkillIcons
+        Furnitures
+        Projectiles
+        Emotes
+        Panoramas
+        Parallax
+    End Enum
+
+#End Region
+
 #Region "initialisation"
 
     Sub InitGraphics()
@@ -747,9 +768,9 @@ Module C_Graphics
         End If
     End Sub
 
-    Friend Sub LoadTexture(index As Integer, texType As Byte)
+    Friend Sub LoadTexture(index As Integer, texType As TextureType)
 
-        If texType = 1 Then 'tilesets
+        If texType = TextureType.Tilesets Then
             If index < 0 OrElse index > NumTileSets Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -764,7 +785,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 2 Then 'characters
+        ElseIf texType = TextureType.Characters Then
             If index < 0 OrElse index > NumCharacters Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -779,7 +800,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 3 Then 'paperdoll
+        ElseIf texType = TextureType.Paperdoll Then
             If index < 0 OrElse index > NumPaperdolls Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -794,9 +815,8 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 4 Then 'items
+        ElseIf texType = TextureType.Items Then
             If index <= 0 OrElse index > NumItems Then Exit Sub
-
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
             ItemsGfx(index) = New Texture(Path.Graphics & "Itens\" & index & GfxExt)
@@ -810,7 +830,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 5 Then 'resources
+        ElseIf texType = TextureType.Resources Then
             If index < 0 OrElse index > NumResources Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -825,7 +845,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 6 Then 'animations
+        ElseIf texType = TextureType.Animations Then
             If index <= 0 OrElse index > NumAnimations Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -840,7 +860,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 7 Then 'faces
+        ElseIf texType = TextureType.Faces Then
             If index < 0 OrElse index > NumFaces Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -855,7 +875,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 8 Then 'fogs
+        ElseIf texType = TextureType.Fogs Then
             If index < 0 OrElse index > NumFogs Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -870,7 +890,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 9 Then 'skill icons
+        ElseIf texType = TextureType.SkillIcons Then
             If index <= 0 OrElse index > NumSkillIcons Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -885,7 +905,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 10 Then 'furniture
+        ElseIf texType = TextureType.Furnitures Then
             If index < 0 OrElse index > NumFurniture Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -900,7 +920,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 11 Then 'projectiles
+        ElseIf texType = TextureType.Projectiles Then
             If index < 0 OrElse index > NumProjectiles Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -915,7 +935,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 12 Then 'emotes
+        ElseIf texType = TextureType.Emotes Then
             If index < 0 OrElse index > NumEmotes Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -930,7 +950,7 @@ Module C_Graphics
                 .TextureTimer = GetTickCount() + 100000
             End With
 
-        ElseIf texType = 13 Then 'Panoramas
+        ElseIf texType = TextureType.Panoramas Then
             If index < 0 OrElse index > NumPanorama Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -944,7 +964,7 @@ Module C_Graphics
                 .IsLoaded = True
                 .TextureTimer = GetTickCount() + 100000
             End With
-        ElseIf texType = 14 Then 'Parallax
+        ElseIf texType = TextureType.Parallax Then
             If index < 0 OrElse index > NumParallax Then Exit Sub
 
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
@@ -972,7 +992,7 @@ Module C_Graphics
         If sprite < 1 OrElse sprite > NumEmotes Then Exit Sub
 
         If EmotesGfxInfo(sprite).IsLoaded = False Then
-            LoadTexture(sprite, 12)
+            LoadTexture(sprite, TextureType.Emotes)
         End If
 
         'vendo que ainda vamos usar, atualizar contador
@@ -1117,7 +1137,7 @@ Module C_Graphics
         If sprite < 1 OrElse sprite > NumPaperdolls Then Exit Sub
 
         If PaperDollGfxInfo(sprite).IsLoaded = False Then
-            LoadTexture(sprite, 3)
+            LoadTexture(sprite, TextureType.Paperdoll)
         End If
 
         ' usamos, atualizar contador
@@ -1243,7 +1263,7 @@ Module C_Graphics
         If picNum < 1 OrElse picNum > NumItems Then Exit Sub
 
         If ItemsGfxInfo(picNum).IsLoaded = False Then
-            LoadTexture(picNum, 4)
+            LoadTexture(picNum, TextureType.Items)
         End If
 
         'vendo que ainda vamos utilizar, atualizar contador
@@ -1280,7 +1300,7 @@ Module C_Graphics
         If sprite < 1 OrElse sprite > NumCharacters Then Exit Sub
 
         If CharacterGfxInfo(sprite).IsLoaded = False Then
-            LoadTexture(sprite, 2)
+            LoadTexture(sprite, TextureType.Characters)
         End If
 
         'vamos utilizar, atualizar contador
@@ -1935,7 +1955,7 @@ Module C_Graphics
         If index < 1 OrElse index > NumParallax Then Exit Sub
 
         If PanoramasGfxInfo(index).IsLoaded = False Then
-            LoadTexture(index, 13)
+            LoadTexture(index, TextureType.Panoramas)
         End If
 
         ' usamos, vamos atualizar contador
@@ -1960,7 +1980,7 @@ Module C_Graphics
         If index < 1 OrElse index > NumParallax Then Exit Sub
 
         If ParallaxGfxInfo(index).IsLoaded = False Then
-            LoadTexture(index, 14)
+            LoadTexture(index, TextureType.Parallax)
         End If
 
         ' usamos, vamos atualizar contador
@@ -2308,7 +2328,7 @@ Module C_Graphics
             Dim tmpSprite As Sprite = New Sprite(FacesGfx(Player(Myindex).Sprite))
 
             If FacesGfxInfo(Player(Myindex).Sprite).IsLoaded = False Then
-                LoadTexture(Player(Myindex).Sprite, 7)
+                LoadTexture(Player(Myindex).Sprite, TextureType.Faces)
             End If
 
             'ainda usamos, vamos atualizar o contador
@@ -2427,7 +2447,7 @@ Module C_Graphics
             If itempic = 0 Then Exit Sub
 
             If ItemsGfxInfo(itempic).IsLoaded = False Then
-                LoadTexture(itempic, 4)
+                LoadTexture(itempic, TextureType.Items)
             End If
 
             'atualizar contador
@@ -2465,7 +2485,7 @@ Module C_Graphics
                 If itempic = 0 Then GoTo NextLoop
 
                 If ItemsGfxInfo(itempic).IsLoaded = False Then
-                    LoadTexture(itempic, 4)
+                    LoadTexture(itempic, TextureType.Items)
                 End If
 
                 'atualizar contador
@@ -2634,7 +2654,7 @@ NextLoop:
             If skillpic = 0 Then Exit Sub
 
             If SkillIconsGfxInfo(skillpic).IsLoaded = False Then
-                LoadTexture(skillpic, 9)
+                LoadTexture(skillpic, TextureType.SkillIcons)
             End If
 
             'atualizar contador
@@ -2671,7 +2691,7 @@ NextLoop:
                 If skillicon > 0 AndAlso skillicon <= NumSkillIcons Then
 
                     If SkillIconsGfxInfo(skillicon).IsLoaded = False Then
-                        LoadTexture(skillicon, 9)
+                        LoadTexture(skillicon, TextureType.SkillIcons)
                     End If
 
                     'atualizar contador
@@ -3085,7 +3105,7 @@ NextLoop:
         End If
 
         If FurnitureGfxInfo(Furniturenum).IsLoaded = False Then
-            LoadTexture(Furniturenum, 10)
+            LoadTexture(Furniturenum, TextureType.Furnitures)
         End If
 
         'atualizar contador
@@ -3194,7 +3214,7 @@ NextLoop:
         End If
 
         If SkillIconsGfxInfo(iconnum).IsLoaded = False Then
-            LoadTexture(iconnum, 9)
+            LoadTexture(iconnum, TextureType.SkillIcons)
         End If
 
         'atualizar contador
@@ -3235,7 +3255,7 @@ NextLoop:
             EditorAnimation_Anim1.Display()
         Else
             If AnimationsGfxInfo(Animationnum).IsLoaded = False Then
-                LoadTexture(Animationnum, 6)
+                LoadTexture(Animationnum, TextureType.Animations)
             End If
 
             'atualizar contador
@@ -3296,7 +3316,7 @@ NextLoop:
             EditorAnimation_Anim2.Display()
         Else
             If AnimationsGfxInfo(Animationnum).IsLoaded = False Then
-                LoadTexture(Animationnum, 6)
+                LoadTexture(Animationnum, TextureType.Animations)
             End If
 
             'atualizar contador

@@ -421,7 +421,7 @@ Friend Module C_Crafting
 
         If PicProductindex > 0 Then
             If ItemsGfxInfo(PicProductindex).IsLoaded = False Then
-                LoadTexture(PicProductindex, 4)
+                LoadTexture(PicProductindex, TextureType.Items)
             End If
 
             'vendo que ainda vmaos utilizar, atualizar contador
@@ -441,7 +441,7 @@ Friend Module C_Crafting
         For i = 1 To MAX_INGREDIENT
             If PicMaterialIndex(i) > 0 Then
                 If ItemsGfxInfo(PicMaterialIndex(i)).IsLoaded = False Then
-                    LoadTexture(PicMaterialIndex(i), 4)
+                    LoadTexture(PicMaterialIndex(i), TextureType.Items)
                 End If
 
                 'vendo que ainda vmaos utilizar, atualizar contador

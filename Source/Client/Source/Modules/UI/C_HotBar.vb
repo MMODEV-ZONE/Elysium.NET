@@ -101,7 +101,7 @@ Friend Module C_HotBar
                     pic = Skill(num).Icon
 
                     If SkillIconsGfxInfo(pic).IsLoaded = False Then
-                        LoadTexture(pic, 9)
+                        LoadTexture(pic, TextureType.SkillIcons)
                     End If
 
                     'Ver se ainda usamos, vamos atualizar o temporizador
@@ -138,7 +138,7 @@ Friend Module C_HotBar
                     pic = Item(num).Pic
 
                     If ItemsGfxInfo(pic).IsLoaded = False Then
-                        LoadTexture(pic, 4)
+                        LoadTexture(pic, TextureType.Items)
                     End If
 
                     'Vendo se ainda vamos utilizar, atualizar temporizador

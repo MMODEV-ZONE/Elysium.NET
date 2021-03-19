@@ -814,7 +814,7 @@ Module C_Maps
             ' Pular tile se a tileset não estiver setadas
             If Map.Tile(x, y).Layer(i).Tileset > 0 AndAlso Map.Tile(x, y).Layer(i).Tileset <= NumTileSets Then
                 If TileSetTextureInfo(Map.Tile(x, y).Layer(i).Tileset).IsLoaded = False Then
-                    LoadTexture(Map.Tile(x, y).Layer(i).Tileset, 1)
+                    LoadTexture(Map.Tile(x, y).Layer(i).Tileset, TextureType.Tilesets)
                 End If
                 ' Usamos, então atualizar temporizador
                 With TileSetTextureInfo(Map.Tile(x, y).Layer(i).Tileset)
@@ -856,7 +856,7 @@ Module C_Maps
             ' Pular tile se a tileset não estiver setadas
             If Map.Tile(x, y).Layer(i).Tileset > 0 AndAlso Map.Tile(x, y).Layer(i).Tileset <= NumTileSets Then
                 If TileSetTextureInfo(Map.Tile(x, y).Layer(i).Tileset).IsLoaded = False Then
-                    LoadTexture(Map.Tile(x, y).Layer(i).Tileset, 1)
+                    LoadTexture(Map.Tile(x, y).Layer(i).Tileset, TextureType.Tilesets)
                 End If
 
                 ' Usamos, então atualizar temporizador

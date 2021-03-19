@@ -692,7 +692,7 @@ Public Class FrmEditor_MapEditor
         LastTileset = 1
 
         If TileSetTextureInfo(LastTileset).IsLoaded = False Then
-            LoadTexture(LastTileset, 1)
+            LoadTexture(LastTileset, TextureType.Tilesets)
         End If
         ' atualizar contador
         With TileSetTextureInfo(LastTileset)
@@ -1185,7 +1185,7 @@ Public Class FrmEditor_MapEditor
         }
 
         If TileSetTextureInfo(tileset).IsLoaded = False Then
-            LoadTexture(tileset, 1)
+            LoadTexture(tileset, TextureType.Tilesets)
         End If
         ' atualizar contador
         With TileSetTextureInfo(tileset)
@@ -1301,7 +1301,7 @@ Public Class FrmEditor_MapEditor
             rec2.Size = New Vector2f(rec.Width, rec.Height)
         Else
             If TileSetTextureInfo(Me.cmbTileSets.SelectedIndex + 1).IsLoaded = False Then
-                LoadTexture(Me.cmbTileSets.SelectedIndex + 1, 1)
+                LoadTexture(Me.cmbTileSets.SelectedIndex + 1, TextureType.Tilesets)
             End If
             ' atualizar contador
             With TileSetTextureInfo(Me.cmbTileSets.SelectedIndex + 1)

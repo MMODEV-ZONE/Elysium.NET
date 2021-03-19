@@ -120,7 +120,7 @@ Module C_Banks
                 sprite = Item(itemnum).Pic
 
                 If ItemsGfxInfo(sprite).IsLoaded = False Then
-                    LoadTexture(sprite, 4)
+                    LoadTexture(sprite, TextureType.Items)
                 End If
 
                 'se ainda utilizar, atualizar contador
@@ -179,7 +179,7 @@ Module C_Banks
         If itemnum > 0 AndAlso itemnum <= MAX_ITEMS Then
 
             If ItemsGfxInfo(sprite).IsLoaded = False Then
-                LoadTexture(sprite, 4)
+                LoadTexture(sprite, TextureType.Items)
             End If
 
             'Vendo que ainda vamos utilizar, atualizar contador

@@ -119,7 +119,7 @@ Module C_Resources
         If rec.Width < 0 OrElse rec.Height < 0 Then Exit Sub
 
         If ResourcesGfxInfo(resource).IsLoaded = False Then
-            LoadTexture(resource, 5)
+            LoadTexture(resource, TextureType.Resources)
         End If
 
         'Vendo que ainda vamos utilizar isso, atualizar o temporizador

@@ -424,7 +424,7 @@
         Item(Editorindex).Data2 = nudFurniture.Value
 
         If FurnitureGFXInfo(nudFurniture.Value).IsLoaded = False Then
-            LoadTexture(nudFurniture.Value, 10)
+            LoadTexture(nudFurniture.Value, TextureType.Furnitures)
         End If
 
         'atualizar contador

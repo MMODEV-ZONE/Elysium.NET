@@ -116,7 +116,7 @@ Module C_Shops
         If Shop(InShop).Face > 0 Then
             'renderizar rosto
             If FacesGfxInfo(Shop(InShop).Face).IsLoaded = False Then
-                LoadTexture(Shop(InShop).Face, 7)
+                LoadTexture(Shop(InShop).Face, TextureType.Faces)
             End If
 
             'se estivermos utilizando, atualizar contador
@@ -163,7 +163,7 @@ Module C_Shops
                 If itempic > 0 AndAlso itempic <= NumItems Then
 
                     If ItemsGfxInfo(itempic).IsLoaded = False Then
-                        LoadTexture(itempic, 4)
+                        LoadTexture(itempic, TextureType.Items)
                     End If
 
                     'se estivermos utilizando, atualizar contador

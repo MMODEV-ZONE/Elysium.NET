@@ -292,7 +292,7 @@ Friend Module C_Housing
         i = Item(itemNum).Data2
 
         If FurnitureGfxInfo(i).IsLoaded = False Then
-            LoadTexture(i, 10)
+            LoadTexture(i, TextureType.Furnitures)
         End If
 
         'vendo que ainda vamos usar, atualizar contador

@@ -538,7 +538,7 @@ Module C_Pets
                     skillpic = Skill(skillnum).Icon
 
                     If SkillIconsGfxInfo(skillpic).IsLoaded = False Then
-                        LoadTexture(skillpic, 9)
+                        LoadTexture(skillpic, TextureType.SkillIcons)
                     End If
 
                     'Vendo que ainda utilizamos isso, atualizemos o contador

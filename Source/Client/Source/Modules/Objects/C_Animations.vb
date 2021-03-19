@@ -155,7 +155,7 @@ Module C_Animations
         If sprite < 1 OrElse sprite > NumAnimations Then Exit Sub
 
         If AnimationsGfxInfo(sprite).IsLoaded = False Then
-            LoadTexture(sprite, 6)
+            LoadTexture(sprite, TextureType.Animations)
         End If
 
         frameCount = Animation(AnimInstance(index).Animation).Frames(layer)

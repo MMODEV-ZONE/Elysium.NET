@@ -82,7 +82,7 @@ Friend Module C_Weather
         If fogNum <= 0 OrElse fogNum > NumFogs Then Exit Sub
 
         If FogGfxInfo(fogNum).IsLoaded = False Then
-            LoadTexture(fogNum, 8)
+            LoadTexture(fogNum, TextureType.Fogs)
         End If
 
         'Vendo que ainda vamos utilizar, atualizar contador

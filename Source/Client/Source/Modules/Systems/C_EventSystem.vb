@@ -2936,7 +2936,7 @@ newlist:
                 Case 1
                     If Map.Events(i).Pages(1).Graphic > 0 AndAlso Map.Events(i).Pages(1).Graphic <= NumCharacters Then
                         If CharacterGfxInfo(Map.Events(i).Pages(1).Graphic).IsLoaded = False Then
-                            LoadTexture(Map.Events(i).Pages(1).Graphic, 2)
+                            LoadTexture(Map.Events(i).Pages(1).Graphic, TextureType.Characters)
                         End If
 
                         'vendo que ainda vamos utilizar, atulizar contador
@@ -2982,7 +2982,7 @@ newlist:
                         End With
 
                         If TileSetTextureInfo(Map.Events(i).Pages(1).Graphic).IsLoaded = False Then
-                            LoadTexture(Map.Events(i).Pages(1).Graphic, 1)
+                            LoadTexture(Map.Events(i).Pages(1).Graphic, TextureType.Tilesets)
                         End If
                         ' ainda usamos, vamos atualizar contador
                         With TileSetTextureInfo(Map.Events(i).Pages(1).Graphic)
@@ -3107,7 +3107,7 @@ nextevent:
                 End If
 
                 If TileSetTextureInfo(Map.MapEvents(id).GraphicNum).IsLoaded = False Then
-                    LoadTexture(Map.MapEvents(id).GraphicNum, 1)
+                    LoadTexture(Map.MapEvents(id).GraphicNum, TextureType.Tilesets)
                 End If
                 ' vamos usar, então atualizar contador
                 With TileSetTextureInfo(Map.MapEvents(id).GraphicNum)
@@ -3150,7 +3150,7 @@ nextevent:
             If EventChatFace > 0 AndAlso EventChatFace < NumFaces Then
                 'renderizar rosto
                 If FacesGfxInfo(EventChatFace).IsLoaded = False Then
-                    LoadTexture(EventChatFace, 7)
+                    LoadTexture(EventChatFace, TextureType.Faces)
                 End If
 
                 'vamos usar, atualizar contador
