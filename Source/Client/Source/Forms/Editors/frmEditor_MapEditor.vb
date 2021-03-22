@@ -775,14 +775,17 @@ Public Class FrmEditor_MapEditor
     Public Sub MapEditorDrag(ByVal Button As Integer, ByVal X As Single, ByVal Y As Single)
 
         If Button = MouseButtons.Left Then 'botao esquerdo do mouse
+            Dim MaxWidth As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.X / PicX
+            Dim MaxHeight As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.Y / PicY
+
             ' converter o numero do pixel para o numero do tile
             X = (X \ PicX) + 1
             Y = (Y \ PicY) + 1
             ' ver se nao está fora dos limites
             If X < 0 Then X = 0
-            If X > picBackSelect.Width / PicX Then X = picBackSelect.Width / PicX
+            If X > MaxWidth Then X = MaxWidth
             If Y < 0 Then Y = 0
-            If Y > picBackSelect.Height / PicY Then Y = picBackSelect.Height / PicY
+            If Y > MaxHeight Then Y = MaxHeight
             ' descobrir qual deve ser o comprimento + altura 
             If X > EditorTileX Then ' drag right
                 'EditorTileWidth = X
@@ -1277,6 +1280,14 @@ Public Class FrmEditor_MapEditor
     End Sub
 
     Private Sub cmbTileSets_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cmbTileSets.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub picBackSelect_Click(sender As Object, e As EventArgs) Handles picBackSelect.Click
+
+    End Sub
+
+    Private Sub scrlPictureX_Scroll(sender As Object, e As ScrollEventArgs) Handles scrlPictureX.Scroll
 
     End Sub
 
