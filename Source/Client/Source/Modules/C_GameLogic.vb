@@ -864,24 +864,27 @@ Continue1:
 
 
     Friend Sub UpdateDescWindow(itemnum As Integer, amount As Integer, invNum As Integer, windowType As Byte)
-        Dim theName As String = "", tmpRarity As Integer
+        Dim theName As String = "", tmpRarity As Integer, referenceSlot As New PlayerInvStruct
 
         If Item(itemnum).Randomize <> 0 AndAlso invNum <> 0 Then
-            If windowType = 0 Then ' inventario
+            If windowType = 0 Then ' inventário
                 theName = GetItemName(PlayerInv(invNum))
                 tmpRarity = PlayerInv(invNum).Rarity
+                referenceSlot = PlayerInv(invNum)
             ElseIf windowType = 1 Then ' equips
                 theName = GetItemName(Player(Myindex).Equipment(invNum))
                 tmpRarity = Player(Myindex).Equipment(invNum).Rarity
+                referenceSlot = Player(Myindex).Equipment(invNum)
             ElseIf windowType = 2 Then ' banco
                 theName = GetItemName(Bank.Item(invNum))
                 tmpRarity = Bank.Item(invNum).Rarity
+                referenceSlot = Bank.Item(invNum)
             ElseIf windowType = 3 Then ' loja
-                theName = GetItemName(Player(Myindex).Equipment(invNum))
-                tmpRarity = Player(Myindex).Equipment(invNum).Rarity
+                theName = Trim$(Item(itemnum).Name)
+                tmpRarity = Item(itemnum).Rarity
             ElseIf windowType = 4 Then ' troca
-                theName = GetItemName(Player(Myindex).Equipment(invNum))
-                tmpRarity = Player(Myindex).Equipment(invNum).Rarity
+                theName = Trim$(Item(itemnum).Name)
+                tmpRarity = Item(itemnum).Rarity
             End If
         Else
             theName = Trim$(Item(itemnum).Name)
@@ -896,7 +899,7 @@ Continue1:
 
         ' setar o nome
         Select Case tmpRarity
-            Case 0 ' Brabco
+            Case 0 ' Branco
                 ItemDescRarityColor = ItemRarityColor0
                 ItemDescRarityBackColor = SFML.Graphics.Color.Black
             Case 1 ' Verde
@@ -1014,59 +1017,30 @@ Continue1:
             Exit Sub
         End If
 
-        ' Coisas de Equpiamento
-        If Item(itemnum).Randomize <> 0 Then
-            If windowType = 0 Then
-
-                If Item(itemnum).SubType = EquipmentType.Weapon Then
-                    ItemDescSpeed = PlayerInv(invNum).Speed / 1000 & Language.ItemDescription.Seconds
-                End If
-                If PlayerInv(invNum).Stat(StatType.Strength) > 0 Then
-                    ItemDescStr = "+" & PlayerInv(invNum).Stat(StatType.Strength)
-                End If
-                If PlayerInv(invNum).Stat(StatType.Vitality) > 0 Then
-                    ItemDescVit = "+" & PlayerInv(invNum).Stat(StatType.Vitality)
-                End If
-                If PlayerInv(invNum).Stat(StatType.Intelligence) > 0 Then
-                    ItemDescInt = "+" & PlayerInv(invNum).Stat(StatType.Intelligence)
-                End If
-                If PlayerInv(invNum).Stat(StatType.Endurance) > 0 Then
-                    ItemDescEnd = "+" & PlayerInv(invNum).Stat(StatType.Endurance)
-                End If
-                If PlayerInv(invNum).Stat(StatType.Luck) > 0 Then
-                    ItemDescLuck = "+" & PlayerInv(invNum).Stat(StatType.Luck)
-                End If
-                If PlayerInv(invNum).Stat(StatType.Spirit) > 0 Then
-                    ItemDescSpr = "+" & PlayerInv(invNum).Stat(StatType.Spirit)
-                End If
-
-            Else
-
-                If Item(itemnum).SubType = EquipmentType.Weapon Then
-                    ItemDescSpeed = Player(Myindex).Equipment(invNum).Speed / 1000 & Language.ItemDescription.Seconds
-                End If
-                If Player(Myindex).Equipment(invNum).Stat(StatType.Strength) > 0 Then
-                    ItemDescStr = "+" & Player(Myindex).Equipment(invNum).Stat(StatType.Strength)
-                End If
-                If Player(Myindex).Equipment(invNum).Stat(StatType.Vitality) > 0 Then
-                    ItemDescVit = "+" & Player(Myindex).Equipment(invNum).Stat(StatType.Vitality)
-                End If
-                If Player(Myindex).Equipment(invNum).Stat(StatType.Intelligence) > 0 Then
-                    ItemDescInt = "+" & Player(Myindex).Equipment(invNum).Stat(StatType.Intelligence)
-                End If
-                If Player(Myindex).Equipment(invNum).Stat(StatType.Endurance) > 0 Then
-                    ItemDescEnd = "+" & Player(Myindex).Equipment(invNum).Stat(StatType.Endurance)
-                End If
-                If Player(Myindex).Equipment(invNum).Stat(StatType.Luck) > 0 Then
-                    ItemDescLuck = "+" & Player(Myindex).Equipment(invNum).Stat(StatType.Luck)
-                End If
-                If Player(Myindex).Equipment(invNum).Stat(StatType.Spirit) > 0 Then
-                    ItemDescSpr = "+" & Player(Myindex).Equipment(invNum).Stat(StatType.Spirit)
-                End If
-
+        ' Coisas de Equipamento
+        If Item(itemnum).Randomize <> 0 And referenceSlot.Num > 0 Then
+            If Item(itemnum).SubType = EquipmentType.Weapon Then
+                ItemDescSpeed = referenceSlot.Speed / 1000 & Language.ItemDescription.Seconds
+            End If
+            If referenceSlot.Stat(StatType.Strength) > 0 Then
+                ItemDescStr = "+" & referenceSlot.Stat(StatType.Strength)
+            End If
+            If referenceSlot.Stat(StatType.Vitality) > 0 Then
+                ItemDescVit = "+" & referenceSlot.Stat(StatType.Vitality)
+            End If
+            If referenceSlot.Stat(StatType.Intelligence) > 0 Then
+                ItemDescInt = "+" & referenceSlot.Stat(StatType.Intelligence)
+            End If
+            If referenceSlot.Stat(StatType.Endurance) > 0 Then
+                ItemDescEnd = "+" & referenceSlot.Stat(StatType.Endurance)
+            End If
+            If referenceSlot.Stat(StatType.Luck) > 0 Then
+                ItemDescLuck = "+" & PlayerInv(invNum).Stat(StatType.Luck)
+            End If
+            If referenceSlot.Stat(StatType.Spirit) > 0 Then
+                ItemDescSpr = "+" & referenceSlot.Stat(StatType.Spirit)
             End If
         Else
-
             If Item(itemnum).SubType = EquipmentType.Weapon Then
                 ItemDescSpeed = Item(itemnum).Speed / 1000 & Language.ItemDescription.Seconds
             End If
@@ -1088,7 +1062,6 @@ Continue1:
             If Item(itemnum).Add_Stat(StatType.Spirit) > 0 Then
                 ItemDescSpr = "+" & Item(itemnum).Add_Stat(StatType.Spirit)
             End If
-
         End If
 
     End Sub
