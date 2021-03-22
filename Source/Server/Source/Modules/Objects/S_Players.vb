@@ -1770,7 +1770,7 @@ Module S_Players
                                     Msg = MapItem(mapNum, i).ItemData.Value & " " & Trim$(Item(GetPlayerInvItemNum(index, n)).Name)
                                 Else
                                     SetPlayerInvItemValue(index, n, 0)
-                                    Msg = CheckGrammar(Trim$(Item(GetPlayerInvItemNum(index, n)).Name), 1)
+                                    Msg = CheckGrammar(Trim$(GetItemName(GetPlayerInvItem(index, n))), 1)
                                 End If
 
                                 ' Apagar item do mapa
@@ -1926,13 +1926,13 @@ Module S_Players
                             MapItem(GetPlayerMap(index), i).ItemData.Value = Amount
                             SetPlayerInvItemValue(index, InvNum, GetPlayerInvItemValue(index, InvNum) - Amount)
                         End If
-                        MapMsg(GetPlayerMap(index), String.Format("{0} largou {1} ({2}x).", GetPlayerName(index), CheckGrammar(Trim$(Item(GetPlayerInvItemNum(index, InvNum)).Name)), Amount), ColorType.Yellow)
+                        MapMsg(GetPlayerMap(index), String.Format("{0} largou {1} ({2}x).", GetPlayerName(index), CheckGrammar(Trim$(GetItemName(GetPlayerInvItem(index, InvNum)))), Amount), ColorType.Yellow)
                     Else
                         ' Não é moeda então é fácil
                         MapItem(GetPlayerMap(index), i).ItemData.Value = 0
                         ' Enviar mensagem
 
-                        MapMsg(GetPlayerMap(index), String.Format("{0} largou {1}.", GetPlayerName(index), CheckGrammar(Trim$(Item(GetPlayerInvItemNum(index, InvNum)).Name))), ColorType.Yellow)
+                        MapMsg(GetPlayerMap(index), String.Format("{0} largou {1}.", GetPlayerName(index), CheckGrammar(Trim$(GetItemName(GetPlayerInvItem(index, InvNum))))), ColorType.Yellow)
                         SetPlayerInvItemNum(index, InvNum, 0)
                         SetPlayerInvItemValue(index, InvNum, 0)
                     End If
