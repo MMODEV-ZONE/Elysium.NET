@@ -1,48 +1,7 @@
 ﻿Module S_RandomItems
 
-    Friend Sub ClearRandBank(index As Integer, BankNum As Integer)
-        Dim i As Integer
-
-        Bank(index).Item(BankNum).Prefix = ""
-        Bank(index).Item(BankNum).Suffix = ""
-        Bank(index).Item(BankNum).Damage = 0
-        Bank(index).Item(BankNum).Speed = 0
-        Bank(index).Item(BankNum).Rarity = 0
-
-        For i = 1 To StatType.Count - 1
-            Bank(index).Item(BankNum).Stat(i) = 0
-        Next i
-    End Sub
-
     Friend Sub ClearInvSlot(index As Integer, InvNum As Integer)
         Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Clear()
-    End Sub
-    Friend Sub ClearRandInv(index As Integer, InvNum As Integer)
-        Dim i As Integer
-
-        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Prefix = ""
-        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Suffix = ""
-        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Damage = 0
-        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Speed = 0
-        Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Rarity = 0
-
-        For i = 1 To StatType.Count - 1
-            Player(index).Character(TempPlayer(index).CurChar).Inv(InvNum).Stat(i) = 0
-        Next i
-    End Sub
-
-    Friend Sub ClearRandEq(index As Integer, Equipment As EquipmentType)
-        Dim i As Integer
-
-        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Prefix = ""
-        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Suffix = ""
-        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Damage = 0
-        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Speed = 0
-        Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Rarity = 0
-
-        For i = 1 To StatType.Count - 1
-            Player(index).Character(TempPlayer(index).CurChar).Equipment(Equipment).Stat(i) = 0
-        Next i
     End Sub
 
     Friend Sub GivePlayerRandomItem(index As Integer, itemnum As Integer, invslot As Integer)

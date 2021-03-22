@@ -516,9 +516,8 @@ Module modDatabase
     End Sub
 
     Sub ClearMapItem(index As Integer, mapNum As Integer)
+        MapItem(mapNum, index).ItemData.Clear()
         MapItem(mapNum, index) = Nothing
-        MapItem(mapNum, index).ItemData.Prefix = ""
-        MapItem(mapNum, index).ItemData.Suffix = ""
     End Sub
 
     Sub ClearMapItems()
@@ -905,19 +904,7 @@ Module modDatabase
         ReDim Bank(index).Item(MAX_BANK)
 
         For i = 1 To MAX_BANK
-
-            Bank(index).Item(i).Num = 0
-            Bank(index).Item(i).Value = 0
-            Bank(index).Item(i).Prefix = ""
-            Bank(index).Item(i).Suffix = ""
-            Bank(index).Item(i).Rarity = 0
-            Bank(index).Item(i).Damage = 0
-            Bank(index).Item(i).Speed = 0
-
-            ReDim Bank(index).Item(i).Stat(StatType.Count - 1)
-            For x = 1 To StatType.Count - 1
-                Bank(index).Item(i).Stat(x) = 0
-            Next
+            Bank(index).Item(i).Clear()
         Next
     End Sub
 
@@ -1016,30 +1003,12 @@ Module modDatabase
         'Itens aleatórios
         ReDim Player(index).Character(CharNum).Inv(MAX_INV)
         For i = 1 To MAX_INV
-            Player(index).Character(CharNum).Inv(i).Prefix = ""
-            Player(index).Character(CharNum).Inv(i).Suffix = ""
-            Player(index).Character(CharNum).Inv(i).Rarity = 0
-            Player(index).Character(CharNum).Inv(i).Damage = 0
-            Player(index).Character(CharNum).Inv(i).Speed = 0
-
-            ReDim Player(index).Character(CharNum).Inv(i).Stat(StatType.Count - 1)
-            For x = 1 To StatType.Count - 1
-                Player(index).Character(CharNum).Inv(i).Stat(x) = 0
-            Next
+            Player(index).Character(CharNum).Inv(i).Clear()
         Next
 
         ReDim Player(index).Character(CharNum).Equipment(EquipmentType.Count - 1)
         For i = 1 To EquipmentType.Count - 1
-            Player(index).Character(CharNum).Equipment(i).Prefix = ""
-            Player(index).Character(CharNum).Equipment(i).Suffix = ""
-            Player(index).Character(CharNum).Equipment(i).Rarity = 0
-            Player(index).Character(CharNum).Equipment(i).Damage = 0
-            Player(index).Character(CharNum).Equipment(i).Speed = 0
-
-            ReDim Player(index).Character(CharNum).Equipment(i).Stat(StatType.Count - 1)
-            For x = 1 To StatType.Count - 1
-                Player(index).Character(CharNum).Equipment(i).Stat(x) = 0
-            Next
+            Player(index).Character(CharNum).Equipment(i).Clear()
         Next
 
         'pets

@@ -2302,77 +2302,22 @@ Module S_Players
         End If
     End Sub
 
-    Sub PlayerSwitchInvSlots(index As Integer, OldSlot As Integer, NewSlot As Integer)
-        Dim OldNum As Integer, OldValue As Integer, OldRarity As Integer, OldPrefix As String
-        Dim OldSuffix As String, OldSpeed As Integer, OldDamage As Integer
-        Dim NewNum As Integer, NewValue As Integer, NewRarity As Integer, NewPrefix As String
-        Dim NewSuffix As String, NewSpeed As Integer, NewDamage As Integer
-        Dim NewStats(StatType.Count - 1) As Integer
-        Dim OldStats(StatType.Count - 1) As Integer
+    Sub SwitchSlots(ByRef OldSlot As PlayerInvStruct, ByRef NewSlot As PlayerInvStruct)
+        If OldSlot.Num = NewSlot.Num AndAlso Item(NewSlot.Num).Stackable = 1 Then ' mesmo item, se puder empilhar, façamos :P
+            NewSlot.Value += OldSlot.Value
+            OldSlot.Clear()
+        Else
+            Dim TempItem As PlayerInvStruct
+            TempItem = OldSlot.Clone()
+            OldSlot = NewSlot.Clone()
+            NewSlot = TempItem
+        End If
+    End Sub
 
+    Sub PlayerSwitchInvSlots(index As Integer, OldSlot As Integer, NewSlot As Integer)
         If OldSlot = 0 OrElse NewSlot = 0 Then Exit Sub
 
-        OldNum = GetPlayerInvItemNum(index, OldSlot)
-        OldValue = GetPlayerInvItemValue(index, OldSlot)
-        NewNum = GetPlayerInvItemNum(index, NewSlot)
-        NewValue = GetPlayerInvItemValue(index, NewSlot)
-
-        If OldNum = NewNum AndAlso Item(NewNum).Stackable = 1 Then ' mesmo item, se puder empilhar, façamos :P
-            SetPlayerInvItemNum(index, NewSlot, NewNum)
-            SetPlayerInvItemValue(index, NewSlot, OldValue + NewValue)
-            SetPlayerInvItemNum(index, OldSlot, 0)
-            SetPlayerInvItemValue(index, OldSlot, 0)
-        Else
-            SetPlayerInvItemNum(index, NewSlot, OldNum)
-            SetPlayerInvItemValue(index, NewSlot, OldValue)
-            SetPlayerInvItemNum(index, OldSlot, NewNum)
-            SetPlayerInvItemValue(index, OldSlot, NewValue)
-        End If
-
-        ' RandomInv
-        With Player(index).Character(TempPlayer(index).CurChar).Inv(NewSlot)
-            NewPrefix = .Prefix
-            NewSuffix = .Suffix
-            NewDamage = .Damage
-            NewSpeed = .Speed
-            NewRarity = .Rarity
-            For i = 1 To StatType.Count - 1
-                NewStats(i) = .Stat(i)
-            Next i
-        End With
-
-        With Player(index).Character(TempPlayer(index).CurChar).Inv(OldSlot)
-            OldPrefix = .Prefix
-            OldSuffix = .Suffix
-            OldDamage = .Damage
-            OldSpeed = .Speed
-            OldRarity = .Rarity
-            For i = 1 To StatType.Count - 1
-                OldStats(i) = .Stat(i)
-            Next i
-        End With
-
-        With Player(index).Character(TempPlayer(index).CurChar).Inv(NewSlot)
-            .Prefix = OldPrefix
-            .Suffix = OldSuffix
-            .Damage = OldDamage
-            .Speed = OldSpeed
-            .Rarity = OldRarity
-            For i = 1 To StatType.Count - 1
-                .Stat(i) = OldStats(i)
-            Next i
-        End With
-
-        With Player(index).Character(TempPlayer(index).CurChar).Inv(OldSlot)
-            .Prefix = NewPrefix
-            .Suffix = NewSuffix
-            .Damage = NewDamage
-            .Speed = NewSpeed
-            .Rarity = NewRarity
-            For i = 1 To StatType.Count - 1
-                .Stat(i) = NewStats(i)
-            Next i
-        End With
+        SwitchSlots(Player(index).Character(TempPlayer(index).CurChar).Inv(OldSlot), Player(index).Character(TempPlayer(index).CurChar).Inv(NewSlot))
 
         SendInventory(index)
     End Sub
@@ -2419,29 +2364,21 @@ Module S_Players
     End Sub
 
     Sub PlayerUnequipItem(index As Integer, EqSlot As Integer)
-        Dim i As Integer, m As Integer, itemnum As Integer
+        Dim i As Integer, m As Integer, Equipment As PlayerInvStruct
 
         If EqSlot <= 0 OrElse EqSlot > EquipmentType.Count - 1 Then Exit Sub ' sair mais cedo se tiver erro
 
         If FindOpenInvSlot(index, GetPlayerEquipment(index, EqSlot)) > 0 Then
-            itemnum = GetPlayerEquipment(index, EqSlot)
+            Equipment = GetPlayerEquipmentSlot(index, EqSlot)
 
-            m = FindOpenInvSlot(index, Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Num)
-            SetPlayerInvItemNum(index, m, Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Num)
-            SetPlayerInvItemValue(index, m, 0)
+            m = FindOpenInvSlot(index, Equipment.Num)
 
-            Player(index).Character(TempPlayer(index).CurChar).Inv(m).Prefix = Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Prefix
-            Player(index).Character(TempPlayer(index).CurChar).Inv(m).Suffix = Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Suffix
-            Player(index).Character(TempPlayer(index).CurChar).Inv(m).Damage = Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Damage
-            Player(index).Character(TempPlayer(index).CurChar).Inv(m).Speed = Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Speed
-            Player(index).Character(TempPlayer(index).CurChar).Inv(m).Rarity = Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Rarity
-            For i = 1 To StatType.Count - 1
-                Player(index).Character(TempPlayer(index).CurChar).Inv(m).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Equipment(EqSlot).Stat(i)
-            Next
+            Player(index).Character(TempPlayer(index).CurChar).Inv(m) = Equipment.Clone()
 
-            ClearRandEq(index, EqSlot)
+            PlayerMsg(index, "Você desequipou " & CheckGrammar(GetItemName(Equipment)), ColorType.Yellow)
 
-            PlayerMsg(index, "Você desequipou " & CheckGrammar(GetItemName(GetPlayerEquipmentSlot(index, EqSlot))), ColorType.Yellow)
+            Equipment.Clear()
+
             ' remover equipamento
             SetPlayerEquipment(index, 0, EqSlot)
             SendWornEquipment(index)
@@ -2932,31 +2869,16 @@ Module S_Players
                     TakeInvItem(index, GetPlayerInvItemNum(index, InvSlot), Amount)
                 End If
             Else
-                If GetPlayerBankItemNum(index, BankSlot) = GetPlayerInvItemNum(index, InvSlot) AndAlso Item(itemnum).Randomize = 0 Then
-                    SetPlayerBankItemValue(index, BankSlot, GetPlayerBankItemValue(index, BankSlot) + 1)
-                    TakeInvItem(index, GetPlayerInvItemNum(index, InvSlot), 0)
-                Else
-                    Bank(index).Item(BankSlot).Prefix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Prefix
-                    Bank(index).Item(BankSlot).Suffix = Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Suffix
-                    Bank(index).Item(BankSlot).Rarity = Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Rarity
-                    Bank(index).Item(BankSlot).Damage = Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Damage
-                    Bank(index).Item(BankSlot).Speed = Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Speed
+                Bank(index).Item(BankSlot) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Clone()
 
-                    For i = 1 To StatType.Count - 1
-                        Bank(index).Item(BankSlot).Stat(i) = Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Stat(i)
-                    Next
-
-                    SetPlayerBankItemNum(index, BankSlot, itemnum)
-                    SetPlayerBankItemValue(index, BankSlot, 1)
-                    ClearRandInv(index, InvSlot)
-                    TakeInvItem(index, GetPlayerInvItemNum(index, InvSlot), 0)
-                End If
+                TakeInvSlot(index, InvSlot, 1)
             End If
         End If
 
         SaveBank(index)
         SavePlayer(index)
         SendBank(index)
+        SendInventory(index)
 
     End Sub
 
@@ -3020,28 +2942,8 @@ Module S_Players
                     SetPlayerBankItemValue(index, BankSlot, 0)
                 End If
             Else
-                If GetPlayerBankItemNum(index, BankSlot) = GetPlayerInvItemNum(index, invSlot) AndAlso Item(GetPlayerBankItemNum(index, BankSlot)).Randomize = 0 Then
-                    If GetPlayerBankItemValue(index, BankSlot) > 1 Then
-                        GiveInvItem(index, GetPlayerBankItemNum(index, BankSlot), 0)
-                        SetPlayerBankItemValue(index, BankSlot, GetPlayerBankItemValue(index, BankSlot) - 1)
-
-                    End If
-                Else
-                    Player(index).Character(TempPlayer(index).CurChar).Inv(invSlot).Prefix = Bank(index).Item(BankSlot).Prefix
-                    Player(index).Character(TempPlayer(index).CurChar).Inv(invSlot).Suffix = Bank(index).Item(BankSlot).Suffix
-                    Player(index).Character(TempPlayer(index).CurChar).Inv(invSlot).Rarity = Bank(index).Item(BankSlot).Rarity
-                    Player(index).Character(TempPlayer(index).CurChar).Inv(invSlot).Damage = Bank(index).Item(BankSlot).Damage
-                    Player(index).Character(TempPlayer(index).CurChar).Inv(invSlot).Speed = Bank(index).Item(BankSlot).Speed
-                    For i = 1 To StatType.Count - 1
-                        Player(index).Character(TempPlayer(index).CurChar).Inv(invSlot).Stat(i) = Bank(index).Item(BankSlot).Stat(i)
-                    Next i
-
-                    GiveInvItem(index, GetPlayerBankItemNum(index, BankSlot), 0)
-                    SetPlayerBankItemNum(index, BankSlot, 0)
-                    SetPlayerBankItemValue(index, BankSlot, 0)
-                    ClearRandBank(index, BankSlot)
-
-                End If
+                Player(index).Character(TempPlayer(index).CurChar).Inv(invSlot) = Bank(index).Item(BankSlot).Clone()
+                Bank(index).Item(BankSlot).Clear()
             End If
 
         End If
@@ -3049,75 +2951,14 @@ Module S_Players
         SaveBank(index)
         SavePlayer(index)
         SendBank(index)
+        SendInventory(index)
 
     End Sub
 
     Sub PlayerSwitchBankSlots(index As Integer, OldSlot As Integer, NewSlot As Integer)
-        Dim OldNum As Integer, OldValue As Integer, NewNum As Integer, NewValue As Integer
-        Dim i As Integer, NewStats() As Integer, OldStats() As Integer
-        Dim NewRarity As Integer, OldRarity As Integer, NewPrefix As String, OldPrefix As String, NewSuffix As String
-        Dim OldSuffix As String, NewSpeed As Integer, OldSpeed As Integer, NewDamage As Integer, OldDamage As Integer
-
         If OldSlot = 0 OrElse NewSlot = 0 Then Exit Sub
 
-        OldNum = GetPlayerBankItemNum(index, OldSlot)
-        OldValue = GetPlayerBankItemValue(index, OldSlot)
-        NewNum = GetPlayerBankItemNum(index, NewSlot)
-        NewValue = GetPlayerBankItemValue(index, NewSlot)
-
-        SetPlayerBankItemNum(index, NewSlot, OldNum)
-        SetPlayerBankItemValue(index, NewSlot, OldValue)
-
-        SetPlayerBankItemNum(index, OldSlot, NewNum)
-        SetPlayerBankItemValue(index, OldSlot, NewValue)
-
-        ReDim OldStats(StatType.Count - 1)
-        ReDim NewStats(StatType.Count - 1)
-
-        ' RandomInv
-        With Bank(index).Item(NewSlot)
-            NewPrefix = .Prefix
-            NewSuffix = .Suffix
-            NewDamage = .Damage
-            NewSpeed = .Speed
-            NewRarity = .Rarity
-            For i = 1 To StatType.Count - 1
-                NewStats(i) = .Stat(i)
-            Next i
-        End With
-
-        With Bank(index).Item(OldSlot)
-            OldPrefix = .Prefix
-            OldSuffix = .Suffix
-            OldDamage = .Damage
-            OldSpeed = .Speed
-            OldRarity = .Rarity
-            For i = 1 To StatType.Count - 1
-                OldStats(i) = .Stat(i)
-            Next i
-        End With
-
-        With Bank(index).Item(NewSlot)
-            .Prefix = OldPrefix
-            .Suffix = OldSuffix
-            .Damage = OldDamage
-            .Speed = OldSpeed
-            .Rarity = OldRarity
-            For i = 1 To StatType.Count - 1
-                .Stat(i) = OldStats(i)
-            Next i
-        End With
-
-        With Bank(index).Item(OldSlot)
-            .Prefix = NewPrefix
-            .Suffix = NewSuffix
-            .Damage = NewDamage
-            .Speed = NewSpeed
-            .Rarity = NewRarity
-            For i = 1 To StatType.Count - 1
-                .Stat(i) = NewStats(i)
-            Next i
-        End With
+        SwitchSlots(Bank(index).Item(OldSlot), Bank(index).Item(NewSlot))
 
         SendBank(index)
     End Sub
