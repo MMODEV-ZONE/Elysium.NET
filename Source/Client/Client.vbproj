@@ -661,7 +661,7 @@
     <None Include="Dados\Graficos\Itens\130.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Itens\131.png">
+    <None Include="Dados\Graficos\Itens\1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Dados\Graficos\Itens\14.png">
@@ -1036,9 +1036,6 @@
     <None Include="Dados\Graficos\Tilesets\6.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Dados\Graficos\Itens\1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Dados\Interface\Actionbar\ActionBar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
