@@ -178,27 +178,17 @@ Module S_NetworkSend
     End Sub
 
     Sub SendInventory(index As Integer)
-        Dim i As Integer, n As Integer
         Dim buffer As New ByteStream(4)
 
         buffer.WriteInt32(ServerPackets.SPlayerInv)
+
+        buffer.WriteBlock(SerializeData(Player(index).Character(TempPlayer(index).CurChar).Inv))
+
+        Socket.SendDataTo(index, buffer.Data, buffer.Head)
+
 #If DEBUG Then
         AddDebug("Enviada SMSG: SPlayerInv")
 #End If
-        For i = 1 To MAX_INV
-            buffer.WriteInt32(GetPlayerInvItemNum(index, i))
-            buffer.WriteInt32(GetPlayerInvItemValue(index, i))
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(i).Prefix.Trim))
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(i).Suffix.Trim))
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Rarity)
-            For n = 1 To StatType.Count - 1
-                buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Stat(n))
-            Next
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Damage)
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(i).Speed)
-        Next
-
-        Socket.SendDataTo(index, buffer.Data, buffer.Head)
 
         buffer.Dispose()
     End Sub
@@ -433,25 +423,14 @@ Module S_NetworkSend
         Dim buffer As New ByteStream(4)
 
         buffer.WriteInt32(ServerPackets.SPlayerWornEq)
+
+        buffer.WriteBlock(SerializeData(Player(index).Character(TempPlayer(index).CurChar).Equipment))
+
+        Socket.SendDataTo(index, buffer.Data, buffer.Head)
+
 #If DEBUG Then
         AddDebug("Enviada SMSG: SPlayerWornEq")
 #End If
-        For i = 1 To EquipmentType.Count - 1
-            buffer.WriteInt32(GetPlayerEquipment(index, i))
-        Next
-
-        For i = 1 To EquipmentType.Count - 1
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Prefix.Trim))
-            buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Suffix.Trim))
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Damage)
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Speed)
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Rarity)
-            For n = 1 To StatType.Count - 1
-                buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Equipment(i).Stat(n))
-            Next
-        Next
-
-        Socket.SendDataTo(index, buffer.Data, buffer.Head)
 
         buffer.Dispose()
     End Sub
@@ -971,26 +950,16 @@ Module S_NetworkSend
     End Sub
 
     Sub SendInventoryUpdate(index As Integer, InvSlot As Integer)
-        Dim buffer As New ByteStream(4), n As Integer
+        Dim buffer As New ByteStream(4)
 
         buffer.WriteInt32(ServerPackets.SPlayerInvUpdate)
         buffer.WriteInt32(InvSlot)
-        buffer.WriteInt32(GetPlayerInvItemNum(index, InvSlot))
-        buffer.WriteInt32(GetPlayerInvItemValue(index, InvSlot))
+        buffer.WriteBlock(SerializeData(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot)))
+        Socket.SendDataTo(index, buffer.Data, buffer.Head)
+
 #If DEBUG Then
         AddDebug("Enviada SMSG: SPlayerInvUpdate")
 #End If
-
-        buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Prefix.Trim))
-        buffer.WriteString((Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Suffix.Trim))
-        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Rarity)
-        For n = 1 To StatType.Count - 1
-            buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Stat(n))
-        Next n
-        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Damage)
-        buffer.WriteInt32(Player(index).Character(TempPlayer(index).CurChar).Inv(InvSlot).Speed)
-
-        Socket.SendDataTo(index, buffer.Data, buffer.Head)
 
         buffer.Dispose()
     End Sub

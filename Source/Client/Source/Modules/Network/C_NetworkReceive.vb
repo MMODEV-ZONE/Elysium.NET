@@ -284,23 +284,9 @@ Module C_NetworkReceive
     End Sub
 
     Private Sub Packet_PlayerInv(ByRef data() As Byte)
-        Dim i As Integer, invNum As Integer, amount As Integer
         Dim buffer As New ByteStream(data)
-        For i = 1 To MAX_INV
-            invNum = buffer.ReadInt32
-            amount = buffer.ReadInt32
-            SetPlayerInvItemNum(Myindex, i, invNum)
-            SetPlayerInvItemValue(Myindex, i, amount)
 
-            PlayerInv(i).Prefix = buffer.ReadString
-            PlayerInv(i).Suffix = buffer.ReadString
-            PlayerInv(i).Rarity = buffer.ReadInt32
-            For n = 1 To StatType.Count - 1
-                PlayerInv(i).Stat(n) = buffer.ReadInt32
-            Next
-            PlayerInv(i).Damage = buffer.ReadInt32
-            PlayerInv(i).Speed = buffer.ReadInt32
-        Next
+        PlayerInv = DeserializeData(buffer)
 
         ' Muda para o inventário, precisa limpar qualquer outro drop menu
         FrmGame.pnlCurrency.Visible = False
@@ -312,20 +298,10 @@ Module C_NetworkReceive
     End Sub
 
     Private Sub Packet_PlayerInvUpdate(ByRef data() As Byte)
-        Dim n As Integer, i As Integer
+        Dim n As Integer
         Dim buffer As New ByteStream(data)
         n = buffer.ReadInt32
-        SetPlayerInvItemNum(Myindex, n, buffer.ReadInt32)
-        SetPlayerInvItemValue(Myindex, n, buffer.ReadInt32)
-
-        PlayerInv(n).Prefix = buffer.ReadString
-        PlayerInv(n).Suffix = buffer.ReadString
-        PlayerInv(n).Rarity = buffer.ReadInt32
-        For i = 1 To StatType.Count - 1
-            PlayerInv(n).Stat(i) = buffer.ReadInt32
-        Next
-        PlayerInv(n).Damage = buffer.ReadInt32
-        PlayerInv(n).Speed = buffer.ReadInt32
+        PlayerInv(n) = DeserializeData(buffer)
 
         ' Mudanças, limpar qualquer drop menu
         FrmGame.pnlCurrency.Visible = False
@@ -337,23 +313,8 @@ Module C_NetworkReceive
     End Sub
 
     Private Sub Packet_PlayerWornEquipment(ByRef data() As Byte)
-        Dim i As Integer, n As Integer
         Dim buffer As New ByteStream(data)
-        For i = 1 To EquipmentType.Count - 1
-            SetPlayerEquipment(Myindex, buffer.ReadInt32, i)
-        Next
-
-        For i = 1 To EquipmentType.Count - 1
-            Player(Myindex).Equipment(i).Prefix = buffer.ReadString
-            Player(Myindex).Equipment(i).Suffix = buffer.ReadString
-            Player(Myindex).Equipment(i).Damage = buffer.ReadInt32
-            Player(Myindex).Equipment(i).Speed = buffer.ReadInt32
-            Player(Myindex).Equipment(i).Rarity = buffer.ReadInt32
-
-            For n = 1 To StatType.Count - 1
-                Player(Myindex).Equipment(i).Stat(n) = buffer.ReadInt32
-            Next
-        Next
+        Player(Myindex).Equipment = DeserializeData(buffer)
 
         ' mudanças no inventário, limpar qualquer drop menu
 
