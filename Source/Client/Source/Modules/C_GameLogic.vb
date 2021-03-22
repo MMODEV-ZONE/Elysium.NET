@@ -458,7 +458,11 @@ Module C_GameLogic
     End Sub
 
     Friend Function IsDirBlocked(ByRef blockvar As Byte, ByRef dir As Byte) As Boolean
-        Return Not (Not blockvar AndAlso (2 ^ dir))
+        If Not blockvar And (2 ^ dir) Then
+            IsDirBlocked = False
+        Else
+            IsDirBlocked = True
+        End If
     End Function
 
     Friend Function ConvertCurrency(amount As Integer) As String
