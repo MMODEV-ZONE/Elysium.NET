@@ -215,7 +215,7 @@
     Friend CancelButtonY As Integer = 130
 
     'bank window Coordinates
-    Friend BankWindowX As Integer = 319
+    Friend BankWindowX As Integer = 192
     Friend BankWindowY As Integer = 105
 
     ' Bank constants

@@ -40,6 +40,7 @@ Module C_Banks
         Bank = DeserializeData(buffer)
 
         NeedToOpenBank = True
+        If Not PnlInventoryVisible Then PnlInventoryVisible = True
 
         buffer.Dispose()
     End Sub
