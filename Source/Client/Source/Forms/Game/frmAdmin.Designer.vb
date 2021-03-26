@@ -441,17 +441,17 @@ Partial Class FrmAdmin
         Me.btnPetEditor.Name = "btnPetEditor"
         Me.btnPetEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnPetEditor.TabIndex = 68
-        Me.btnPetEditor.Text = "Editor de Pets"
+        Me.btnPetEditor.Text = "Pets"
         Me.btnPetEditor.UseVisualStyleBackColor = True
         '
         'btnAutoMapper
         '
-        Me.btnAutoMapper.Location = New System.Drawing.Point(9, 200)
+        Me.btnAutoMapper.Location = New System.Drawing.Point(195, 296)
         Me.btnAutoMapper.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAutoMapper.Name = "btnAutoMapper"
         Me.btnAutoMapper.Size = New System.Drawing.Size(168, 38)
         Me.btnAutoMapper.TabIndex = 67
-        Me.btnAutoMapper.Text = "Gerador de Mapas"
+        Me.btnAutoMapper.Text = "Mapeamento automático"
         Me.btnAutoMapper.UseVisualStyleBackColor = True
         '
         'btnClassEditor
@@ -461,7 +461,7 @@ Partial Class FrmAdmin
         Me.btnClassEditor.Name = "btnClassEditor"
         Me.btnClassEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnClassEditor.TabIndex = 66
-        Me.btnClassEditor.Text = "Editor de Classes"
+        Me.btnClassEditor.Text = "Classes"
         Me.btnClassEditor.UseVisualStyleBackColor = True
         '
         'btnRecipeEditor
@@ -471,7 +471,7 @@ Partial Class FrmAdmin
         Me.btnRecipeEditor.Name = "btnRecipeEditor"
         Me.btnRecipeEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnRecipeEditor.TabIndex = 65
-        Me.btnRecipeEditor.Text = "Editor de Receitas"
+        Me.btnRecipeEditor.Text = "Receitas"
         Me.btnRecipeEditor.UseVisualStyleBackColor = True
         '
         'btnProjectiles
@@ -481,7 +481,7 @@ Partial Class FrmAdmin
         Me.btnProjectiles.Name = "btnProjectiles"
         Me.btnProjectiles.Size = New System.Drawing.Size(168, 38)
         Me.btnProjectiles.TabIndex = 64
-        Me.btnProjectiles.Text = "Editor de Projéteis"
+        Me.btnProjectiles.Text = "Projéteis"
         Me.btnProjectiles.UseVisualStyleBackColor = True
         '
         'btnQuest
@@ -491,7 +491,7 @@ Partial Class FrmAdmin
         Me.btnQuest.Name = "btnQuest"
         Me.btnQuest.Size = New System.Drawing.Size(168, 38)
         Me.btnQuest.TabIndex = 62
-        Me.btnQuest.Text = "Editor de Tarefas"
+        Me.btnQuest.Text = "Tarefas"
         Me.btnQuest.UseVisualStyleBackColor = True
         '
         'btnhouseEditor
@@ -501,17 +501,17 @@ Partial Class FrmAdmin
         Me.btnhouseEditor.Name = "btnhouseEditor"
         Me.btnhouseEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnhouseEditor.TabIndex = 63
-        Me.btnhouseEditor.Text = "Editor de Moradias"
+        Me.btnhouseEditor.Text = "Moradias"
         Me.btnhouseEditor.UseVisualStyleBackColor = True
         '
         'btnMapEditor
         '
-        Me.btnMapEditor.Location = New System.Drawing.Point(9, 248)
+        Me.btnMapEditor.Location = New System.Drawing.Point(9, 297)
         Me.btnMapEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnMapEditor.Name = "btnMapEditor"
         Me.btnMapEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnMapEditor.TabIndex = 55
-        Me.btnMapEditor.Text = "Editor de Mapas"
+        Me.btnMapEditor.Text = "Mapeamento manual"
         Me.btnMapEditor.UseVisualStyleBackColor = True
         '
         'btnItemEditor
@@ -521,7 +521,7 @@ Partial Class FrmAdmin
         Me.btnItemEditor.Name = "btnItemEditor"
         Me.btnItemEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnItemEditor.TabIndex = 56
-        Me.btnItemEditor.Text = "Editor de Itens"
+        Me.btnItemEditor.Text = "Itens"
         Me.btnItemEditor.UseVisualStyleBackColor = True
         '
         'btnResourceEditor
@@ -531,27 +531,27 @@ Partial Class FrmAdmin
         Me.btnResourceEditor.Name = "btnResourceEditor"
         Me.btnResourceEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnResourceEditor.TabIndex = 57
-        Me.btnResourceEditor.Text = "Editor de Recursos"
+        Me.btnResourceEditor.Text = "Recursos"
         Me.btnResourceEditor.UseVisualStyleBackColor = True
         '
         'btnNPCEditor
         '
-        Me.btnNPCEditor.Location = New System.Drawing.Point(9, 295)
+        Me.btnNPCEditor.Location = New System.Drawing.Point(9, 248)
         Me.btnNPCEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnNPCEditor.Name = "btnNPCEditor"
-        Me.btnNPCEditor.Size = New System.Drawing.Size(168, 70)
+        Me.btnNPCEditor.Size = New System.Drawing.Size(168, 39)
         Me.btnNPCEditor.TabIndex = 58
-        Me.btnNPCEditor.Text = "Editor de NPCs"
+        Me.btnNPCEditor.Text = "NPCs"
         Me.btnNPCEditor.UseVisualStyleBackColor = True
         '
         'btnSkillEditor
         '
-        Me.btnSkillEditor.Location = New System.Drawing.Point(195, 295)
+        Me.btnSkillEditor.Location = New System.Drawing.Point(9, 200)
         Me.btnSkillEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSkillEditor.Name = "btnSkillEditor"
-        Me.btnSkillEditor.Size = New System.Drawing.Size(168, 70)
+        Me.btnSkillEditor.Size = New System.Drawing.Size(168, 39)
         Me.btnSkillEditor.TabIndex = 59
-        Me.btnSkillEditor.Text = "Editor de Habilidades"
+        Me.btnSkillEditor.Text = "Habilidades"
         Me.btnSkillEditor.UseVisualStyleBackColor = True
         '
         'btnShopEditor
@@ -561,7 +561,7 @@ Partial Class FrmAdmin
         Me.btnShopEditor.Name = "btnShopEditor"
         Me.btnShopEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnShopEditor.TabIndex = 60
-        Me.btnShopEditor.Text = "Editor de Lojas"
+        Me.btnShopEditor.Text = "Lojas"
         Me.btnShopEditor.UseVisualStyleBackColor = True
         '
         'btnAnimationEditor
@@ -571,7 +571,7 @@ Partial Class FrmAdmin
         Me.btnAnimationEditor.Name = "btnAnimationEditor"
         Me.btnAnimationEditor.Size = New System.Drawing.Size(168, 38)
         Me.btnAnimationEditor.TabIndex = 61
-        Me.btnAnimationEditor.Text = "Editor de Animações"
+        Me.btnAnimationEditor.Text = "Animações"
         Me.btnAnimationEditor.UseVisualStyleBackColor = True
         '
         'FrmAdmin

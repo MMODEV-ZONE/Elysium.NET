@@ -645,7 +645,8 @@
         End If
 
         If Adminvisible = True Then
-            FrmAdmin.Visible = Not FrmAdmin.Visible
+            FrmAdmin.Visible = True
+            FrmAdmin.Activate()
             Adminvisible = False
         End If
 
