@@ -2590,7 +2590,6 @@ NextLoop:
                 itempic = Item(itemnum).Pic
                 If itempic > 0 AndAlso itempic <= NumItems Then
                     If ItemsGfxInfo(itempic).Width >= 64 Then
-
                         maxFrames = (ItemsGfxInfo(itempic).Width) / 32 ' Ver quantos frames tem.
 
                         If GetTickCount() > tmr100 Then
@@ -2599,7 +2598,6 @@ NextLoop:
                             Else
                                 InvItemFrame(i) = 0
                             End If
-                            If i = MAX_INV Then tmr100 = GetTickCount() + 100
                         End If
 
                         With rec
@@ -2633,12 +2631,12 @@ NextLoop:
                             amount = CStr(GetPlayerInvItemValue(Myindex, i))
                             ' Desenhar moedas, mas com k, m, b, usando uma função
                             DrawText(x, y, ConvertCurrency(amount), SFML.Graphics.Color.Yellow, SFML.Graphics.Color.Black, GameWindow)
-
                         End If
                     End If
                 End If
             End If
 
+            If i = MAX_INV And tmr100 < GetTickCount() Then tmr100 = GetTickCount() + 100
         Next
     End Sub
 
