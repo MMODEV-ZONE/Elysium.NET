@@ -1148,8 +1148,8 @@ Module C_Graphics
         With rec
             .Y = spritetop * (PaperDollGfxInfo(sprite).Height / 4)
             .Height = (PaperDollGfxInfo(sprite).Height / 4)
-            .X = anim * (PaperDollGfxInfo(sprite).Width / 4)
-            .Width = (PaperDollGfxInfo(sprite).Width / 4)
+            .X = anim * (PaperDollGfxInfo(sprite).Width / 3)
+            .Width = (PaperDollGfxInfo(sprite).Width / 3)
         End With
 
         x = ConvertMapX(x2)
@@ -1158,7 +1158,6 @@ Module C_Graphics
         height = (rec.Bottom - rec.Top)
 
         RenderSprite(PaperDollSprite(sprite), GameWindow, x, y, rec.X, rec.Y, rec.Width, rec.Height)
-
     End Sub
 
     Friend Sub DrawNpc(mapNpcNum As Integer)
@@ -1182,12 +1181,12 @@ Module C_Graphics
         attackspeed = 1000
 
         ' Resetar frame
-        anim = 0
+        anim = 1
 
         ' Checar para animação de ataque
         If MapNpc(mapNpcNum).AttackTimer + (attackspeed / 2) > GetTickCount() Then
             If MapNpc(mapNpcNum).Attacking = 1 Then
-                anim = 3
+                anim = 2
             End If
         Else
             ' Se Não atacando, andar normalmente
@@ -1223,10 +1222,10 @@ Module C_Graphics
                 spriteleft = 1
         End Select
 
-        srcrec = New Rectangle((anim) * (CharacterGfxInfo(sprite).Width / 4), spriteleft * (CharacterGfxInfo(sprite).Height / 4), (CharacterGfxInfo(sprite).Width / 4), (CharacterGfxInfo(sprite).Height / 4))
+        srcrec = New Rectangle((anim) * (CharacterGfxInfo(sprite).Width / 3), spriteleft * (CharacterGfxInfo(sprite).Height / 4), (CharacterGfxInfo(sprite).Width / 3), (CharacterGfxInfo(sprite).Height / 4))
 
         ' Calcular o X
-        x = MapNpc(mapNpcNum).X * PicX + MapNpc(mapNpcNum).XOffset - ((CharacterGfxInfo(sprite).Width / 4 - 32) / 2)
+        x = MapNpc(mapNpcNum).X * PicX + MapNpc(mapNpcNum).XOffset - ((CharacterGfxInfo(sprite).Width / 3 - 32) / 2)
 
         ' A altura do jogador é mairo que 32..?
         If (CharacterGfxInfo(sprite).Height / 4) > 32 Then
@@ -1237,7 +1236,7 @@ Module C_Graphics
             y = MapNpc(mapNpcNum).Y * PicY + MapNpc(mapNpcNum).YOffset
         End If
 
-        destrec = New Rectangle(x, y, CharacterGfxInfo(sprite).Width / 4, CharacterGfxInfo(sprite).Height / 4)
+        destrec = New Rectangle(x, y, CharacterGfxInfo(sprite).Width / 3, CharacterGfxInfo(sprite).Height / 4)
 
         DrawCharacter(sprite, x, y, srcrec)
 

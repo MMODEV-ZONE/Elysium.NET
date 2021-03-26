@@ -562,19 +562,19 @@ Module C_Player
             If GetPlayerDir(index) = DirectionType.Right OrElse GetPlayerDir(index) = DirectionType.Down Then
                 If (Player(index).XOffset >= 0) AndAlso (Player(index).YOffset >= 0) Then
                     Player(index).Moving = 0
-                    If Player(index).Steps = 1 Then
-                        Player(index).Steps = 3
+                    If Player(index).Steps = 0 Then
+                        Player(index).Steps = 2
                     Else
-                        Player(index).Steps = 1
+                        Player(index).Steps = 0
                     End If
                 End If
             Else
                 If (Player(index).XOffset <= 0) AndAlso (Player(index).YOffset <= 0) Then
                     Player(index).Moving = 0
-                    If Player(index).Steps = 1 Then
-                        Player(index).Steps = 3
+                    If Player(index).Steps = 0 Then
+                        Player(index).Steps = 2
                     Else
-                        Player(index).Steps = 1
+                        Player(index).Steps = 0
                     End If
                 End If
             End If
@@ -934,12 +934,10 @@ Module C_Player
     Friend Sub DrawPlayer(index As Integer)
         Dim anim As Byte, x As Integer, y As Integer
         Dim spritenum As Integer, spriteleft As Integer
-        Dim attackspeed As Integer, attackSprite As Byte
+        Dim attackspeed As Integer
         Dim srcrec As Rectangle
 
         spritenum = GetPlayerSprite(index)
-
-        attackSprite = 0
 
         If spritenum < 1 OrElse spritenum > NumCharacters Then Exit Sub
 
@@ -951,16 +949,12 @@ Module C_Player
         End If
 
         ' Resetar frame
-        anim = 0
+        anim = 1
 
         ' Verificar pela animação de ataque
         If Player(index).AttackTimer + (attackspeed / 2) > GetTickCount() Then
             If Player(index).Attacking = 1 Then
-                If attackSprite = 1 Then
-                    anim = 4
-                Else
-                    anim = 3
-                End If
+                anim = 2
             End If
         Else
             ' Se não estiver atacando, andar normalmente
@@ -978,7 +972,6 @@ Module C_Player
 
                     If (Player(index).XOffset < -8) Then anim = Player(index).Steps
             End Select
-
         End If
 
         ' Ver se queremos parar de fazê-lo atacar 
@@ -987,7 +980,6 @@ Module C_Player
                 .Attacking = 0
                 .AttackTimer = 0
             End If
-
         End With
 
         ' Setar a esquerda
@@ -1002,18 +994,10 @@ Module C_Player
                 spriteleft = 1
         End Select
 
-        If attackSprite = 1 Then
-            srcrec = New Rectangle((anim) * (CharacterGfxInfo(spritenum).Width / 5), spriteleft * (CharacterGfxInfo(spritenum).Height / 4), (CharacterGfxInfo(spritenum).Width / 5), (CharacterGfxInfo(spritenum).Height / 4))
-        Else
-            srcrec = New Rectangle((anim) * (CharacterGfxInfo(spritenum).Width / 4), spriteleft * (CharacterGfxInfo(spritenum).Height / 4), (CharacterGfxInfo(spritenum).Width / 4), (CharacterGfxInfo(spritenum).Height / 4))
-        End If
+        srcrec = New Rectangle((anim) * (CharacterGfxInfo(spritenum).Width / 3), spriteleft * (CharacterGfxInfo(spritenum).Height / 4), (CharacterGfxInfo(spritenum).Width / 3), (CharacterGfxInfo(spritenum).Height / 4))
 
         ' Calcular o X
-        If attackSprite = 1 Then
-            x = GetPlayerX(index) * PicX + Player(index).XOffset - ((CharacterGfxInfo(spritenum).Width / 5 - 32) / 2)
-        Else
-            x = GetPlayerX(index) * PicX + Player(index).XOffset - ((CharacterGfxInfo(spritenum).Width / 4 - 32) / 2)
-        End If
+        x = GetPlayerX(index) * PicX + Player(index).XOffset - ((CharacterGfxInfo(spritenum).Width / 3 - 32) / 2)
 
         ' Se a altura do jogador é maior que 32...
         If (CharacterGfxInfo(spritenum).Height) > 32 Then

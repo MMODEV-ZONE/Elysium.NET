@@ -102,7 +102,7 @@
             cmbSubType.Items.Add("Nenhum")
 
             cmbSubType.Items.Add("Arma")
-            cmbSubType.Items.Add("Armdura")
+            cmbSubType.Items.Add("Armadura")
             cmbSubType.Items.Add("Capacete")
             cmbSubType.Items.Add("Escudo")
             cmbSubType.Items.Add("Calçados")

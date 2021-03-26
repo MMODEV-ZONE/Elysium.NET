@@ -232,7 +232,7 @@ Friend Class FrmMenu
 
                 Dim charsprite As Bitmap = New Bitmap(filename)
 
-                charwidth = charsprite.Width / 4
+                charwidth = charsprite.Width / 3
                 charheight = charsprite.Height / 4
 
                 srcRect = New Rectangle(0, 0, charwidth, charheight)

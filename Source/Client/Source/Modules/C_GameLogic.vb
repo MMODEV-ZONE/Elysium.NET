@@ -363,19 +363,19 @@ Module C_GameLogic
                 If MapNpc(mapNpcNum).Dir = DirectionType.Right OrElse MapNpc(mapNpcNum).Dir = DirectionType.Down Then
                     If (MapNpc(mapNpcNum).XOffset >= 0) AndAlso (MapNpc(mapNpcNum).YOffset >= 0) Then
                         MapNpc(mapNpcNum).Moving = 0
-                        If MapNpc(mapNpcNum).Steps = 1 Then
-                            MapNpc(mapNpcNum).Steps = 3
+                        If MapNpc(mapNpcNum).Steps = 0 Then
+                            MapNpc(mapNpcNum).Steps = 2
                         Else
-                            MapNpc(mapNpcNum).Steps = 1
+                            MapNpc(mapNpcNum).Steps = 0
                         End If
                     End If
                 Else
                     If (MapNpc(mapNpcNum).XOffset <= 0) AndAlso (MapNpc(mapNpcNum).YOffset <= 0) Then
                         MapNpc(mapNpcNum).Moving = 0
-                        If MapNpc(mapNpcNum).Steps = 1 Then
-                            MapNpc(mapNpcNum).Steps = 3
+                        If MapNpc(mapNpcNum).Steps = 0 Then
+                            MapNpc(mapNpcNum).Steps = 2
                         Else
-                            MapNpc(mapNpcNum).Steps = 1
+                            MapNpc(mapNpcNum).Steps = 0
                         End If
                     End If
                 End If
