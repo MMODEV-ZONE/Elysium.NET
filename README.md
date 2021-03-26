@@ -1,12 +1,10 @@
 # Elysium.NET - Git de Desenvolvimento
 
 ## O que é?
-A Elysium.NET é um motor de jogos onlines 2D (ORPGs) escrito em Visual Basic .NET. 
+A Elysium.NET é um motor de jogos onlines 2D (ORPGs) escrito em Visual Basic.NET. 
 
 # Qual o estágio atual do desenvolvimento?
-Inicial, com as traduções parcialmente realizadas no servidor e no cliente. A parte de experiência de usuário ainda precisa de ajustes.
-
-<img src="https://raw.githubusercontent.com/raijenki/elysium/master/cliente.jpg" width=300 align=right><img src="https://raw.githubusercontent.com/raijenki/elysium/master/servidor.jpg" width=300 align=left>
+Inicial, com as traduções parcialmente realizadas no servidor e no cliente.
 
 ## O que norteia o desenvolvimento deste motor?
 A frase "Fácil, mas poderoso" guia o desenvolvimento da Elysium.NET. Tal frase pode ser desmembrada nos seguintes princípios:
@@ -24,4 +22,4 @@ Sim. A Elysium.NET pode ser considerada uma sucessora espiritual para a Elysium 
 Basta criar uma *branch* para você adicionar suas modificações e, posteriormente, mandar um *pull request* para o repositório principal.
 
 ## Dúvidas?
-O suporte oficial deste repositório é no www.forum.MMODEV.com.br.
+O suporte oficial deste repositório é no fórum https://mmodev.zone/.
