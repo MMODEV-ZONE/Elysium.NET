@@ -2635,9 +2635,9 @@ NextLoop:
                     End If
                 End If
             End If
-
-            If i = MAX_INV And tmr100 < GetTickCount() Then tmr100 = GetTickCount() + 100
         Next
+
+        If tmr100 < GetTickCount() Then tmr100 = GetTickCount() + 100
     End Sub
 
     Friend Sub DrawSkillItem(x As Integer, y As Integer)
