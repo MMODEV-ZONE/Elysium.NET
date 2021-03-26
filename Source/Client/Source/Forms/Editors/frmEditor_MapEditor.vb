@@ -397,19 +397,28 @@ Public Class FrmEditor_MapEditor
 #Region "Npc's"
 
     Private Sub LstMapNpc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstMapNpc.SelectedIndexChanged
-        cmbNpcList.SelectedItem = lstMapNpc.SelectedItem
+        If lstMapNpc.SelectedItems.Count = 1 Then
+            cmbNpcList.SelectedIndex = Map.Npc(lstMapNpc.SelectedIndices.Item(0) + 1)
+        End If
     End Sub
 
     Private Sub CmbNpcList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNpcList.SelectedIndexChanged
-        If lstMapNpc.SelectedIndex > -1 Then
-            If cmbNpcList.SelectedIndex > 0 Then
-                Map.Npc(lstMapNpc.SelectedIndex + 1) = cmbNpcList.SelectedIndex
-                lstMapNpc.Items.Item(lstMapNpc.SelectedIndex) = (lstMapNpc.SelectedIndex + 1) & ": " & Npc(cmbNpcList.SelectedIndex).Name
-            Else
-                Map.Npc(lstMapNpc.SelectedIndex + 1) = 0
-                lstMapNpc.Items.Item(lstMapNpc.SelectedIndex) = "Nenhum NPC"
-            End If
+        If lstMapNpc.SelectedItems.Count > 0 Then
+            Dim selectedIndices As New List(Of Integer)
 
+            For Each Index In lstMapNpc.SelectedIndices
+                selectedIndices.Add(Index)
+            Next
+
+            For Each Index In selectedIndices
+                Map.Npc(Index + 1) = cmbNpcList.SelectedIndex
+
+                If cmbNpcList.SelectedIndex > 0 Then
+                    lstMapNpc.Items.Item(Index) = (Index + 1) & ": " & Npc(cmbNpcList.SelectedIndex).Name
+                Else
+                    lstMapNpc.Items.Item(Index) = "Nenhum NPC"
+                End If
+            Next
         End If
     End Sub
 

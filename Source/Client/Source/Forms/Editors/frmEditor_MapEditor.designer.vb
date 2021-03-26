@@ -1272,6 +1272,7 @@ Partial Class FrmEditor_MapEditor
         Me.lstMapNpc.Location = New System.Drawing.Point(14, 69)
         Me.lstMapNpc.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.lstMapNpc.Name = "lstMapNpc"
+        Me.lstMapNpc.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.lstMapNpc.Size = New System.Drawing.Size(270, 564)
         Me.lstMapNpc.TabIndex = 69
         '
