@@ -370,7 +370,7 @@ Partial Class FrmAdmin
         Me.tabMapList.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tabMapList.Size = New System.Drawing.Size(379, 375)
         Me.tabMapList.TabIndex = 2
-        Me.tabMapList.Text = "Lista de Mapas"
+        Me.tabMapList.Text = "Mapas"
         Me.tabMapList.UseVisualStyleBackColor = True
         '
         'tabMapTools
@@ -388,7 +388,7 @@ Partial Class FrmAdmin
         Me.tabMapTools.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tabMapTools.Size = New System.Drawing.Size(379, 375)
         Me.tabMapTools.TabIndex = 3
-        Me.tabMapTools.Text = "Ferramentas de Mapa"
+        Me.tabMapTools.Text = "Ferramentas"
         Me.tabMapTools.UseVisualStyleBackColor = True
         '
         'nudSpawnItemAmount
