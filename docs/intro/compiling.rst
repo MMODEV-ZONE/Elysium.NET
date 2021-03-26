@@ -17,7 +17,7 @@ Você pode optar por baixar o .NET Framework através do próprio instalador do 
 
 Pegando o Código-Fonte da Elysium.NET
 ###########################################
-O código-fonte da Elysium.NET encontra-se no `GitHub <https://github.com/raijenki/elysium/releases>`_ de desenvolvimento. Escolha uma das versões lançadas e baixe o *Source Code*, indiferente do formato (.zip ou .tar.gz).
+O código-fonte da Elysium.NET encontra-se no `GitHub <https://github.com/MMODEV-ZONE/Elysium.NET>`_ de desenvolvimento. Escolha uma das versões lançadas e baixe o *Source Code*, indiferente do formato (.zip ou .tar.gz).
 
 .. image:: images/git_init.jpg
     :width: 600px

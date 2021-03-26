@@ -82,7 +82,7 @@ Configurações de uma ação
 
 Publicando um plugin
 #########################
-Após concluir o plugin, o usuário pode optar por compartilhá-lo com a comunidade da MMODEV. Para isso, o link https://www.plugins.mmodev.com.br/ é disponibilizado ao público para submeter seus respectivos plugins.
+Após concluir o plugin, o usuário pode optar por compartilhá-lo com a comunidade da MMODEV. Para isso, esta `seção <https://mmodev.zone/forums/plugins.12/>`_ é disponibilizada ao público para submeter seus respectivos plugins.
 
 Recomendações para publicação
 **********************

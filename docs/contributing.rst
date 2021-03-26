@@ -13,4 +13,4 @@ Há muitas maneiras de contribuir com a Elysium.NET. Aqui estão algumas delas:
 * Escreva patches para novas funcionalidades ou correções de bugs.
 
 * Responda perguntas na nossa 
-  `comunidade <https://forum.mmodev.com.br>`__.
+  `comunidade <https://mmodev.zone>`__.

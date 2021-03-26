@@ -1,7 +1,7 @@
 .. _topics-index:
 
 =========================================
-Documentação da Elysium.NET 1.0
+Documentação da Elysium.NET
 =========================================
 
 .. image:: intro/images/Logo.png
@@ -24,8 +24,8 @@ Mesmo olhando a tabela abaixo, ainda está com problemas? Gostaríamos de ajudar
 * Faça uma pergunta no nosso canal no `Discord`_,
 * Utilize nossa `comunidade`_ para procurar/fazer dúvidas mais técnicas ou reportar bugs.
 
-.. _Discord: https://discord.gg/9UPAwN
-.. _comunidade: https://forum.mmodev.com.br
+.. _Discord: https://discord.gg/YFDj6M9nxV
+.. _comunidade: https://mmodev.zone
 
 Introdução
 ===========

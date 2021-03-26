@@ -30,8 +30,9 @@ Lista de Desenvolvedores
 ###########################
 Em ordem alfabética, segue a lista das pessoas que fazem contribuições períodicas para a Elysium.NET ou a comunidade MMODEV como um todo:
 
-* Andrei Duarte (andreidl)
-* Daniel Araújo (raijenki)
+* Allyson Souza Bacon (Terabin)
 * Lucas Tardivo (boasfesta)
 
- 
+Contribuidores anteriores:
+* Andrei Duarte (andreidl)
+* Daniel Araújo (raijenki)
