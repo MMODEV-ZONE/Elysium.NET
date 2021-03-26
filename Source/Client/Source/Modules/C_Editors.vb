@@ -699,12 +699,6 @@ Module C_Editors
                     frmEditor_Item.chkRandomize.Checked = False
                 End If
 
-                'If .RandomMin = 0 Then .RandomMin = 1
-                'frmEditor_Item.numMin.Value = .RandomMin
-
-                'If .RandomMax <= 1 Then .RandomMax = 2
-                'frmEditor_Item.numMax.Value = .RandomMax
-
                 frmEditor_Item.nudPaperdoll.Value = .Paperdoll
 
                 frmEditor_Item.cmbProjectile.SelectedIndex = .Projectile
@@ -771,11 +765,7 @@ Module C_Editors
             frmEditor_Item.cmbBind.SelectedIndex = .BindType
             frmEditor_Item.nudRarity.Value = .Rarity
 
-            If .Stackable = 1 Then
-                frmEditor_Item.chkStackable.Checked = True
-            Else
-                frmEditor_Item.chkStackable.Checked = False
-            End If
+            frmEditor_Item.chkStackable.Checked = (.Stackable = 1)
 
             Editorindex = frmEditor_Item.lstIndex.SelectedIndex + 1
         End With
