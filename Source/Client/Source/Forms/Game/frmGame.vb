@@ -219,8 +219,6 @@ Friend Class FrmGame
 
         CheckGuiMouseDown(e.X, e.Y, e)
 
-        If Not FrmAdmin.Visible OrElse Not FrmOptions.Visible Then Focus()
-
     End Sub
 
     Private Sub Picscreen_DoubleClick(sender As Object, e As MouseEventArgs) Handles picscreen.DoubleClick
