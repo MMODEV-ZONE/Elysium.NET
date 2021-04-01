@@ -379,23 +379,7 @@ Friend Module C_GuiFunctions
 
             'Painel o inventário
         ElseIf PnlInventoryVisible Then
-            If AboveInvpanel(x, y) Then
-                invNum = IsInvItem(e.Location.X, e.Location.Y)
-
-                If e.Button = MouseButtons.Left Then
-                    If invNum <> 0 Then
-                        If InTrade Then Exit Function
-                        If InBank OrElse InShop Then Exit Function
-
-                        If Item(GetPlayerInvItemNum(Myindex, invNum)).Type = ItemType.Furniture Then
-                            PlaySound("Click.ogg")
-                            FurnitureSelected = invNum
-                            CheckGuiClick = True
-                        End If
-
-                    End If
-                End If
-            End If
+            If AboveInvpanel(x, y) Then CheckGuiClick = True
         End If
 
         If DialogPanelVisible Then
