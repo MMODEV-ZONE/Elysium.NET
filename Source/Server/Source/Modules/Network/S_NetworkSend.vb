@@ -996,9 +996,7 @@ Module S_NetworkSend
 #If DEBUG Then
         AddDebug("Enviada SMSG: SBank")
 #End If
-        For i = 1 To MAX_BANK
-            buffer.WriteBlock(SerializeData(Bank(index)))
-        Next
+        buffer.WriteBlock(SerializeData(Bank(index)))
 
         Socket.SendDataTo(index, buffer.Data, buffer.Head)
 
