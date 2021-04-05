@@ -326,7 +326,7 @@ Module C_Player
             Else
 
                 ' Ver se podem transportar para um novo mapa
-                If Map.Up > 0 Then
+                If Map.Up > 0 And Not IsDirBlocked(Map.Tile(GetPlayerX(Myindex), GetPlayerY(Myindex)).DirBlock, DirectionType.Up + 1) Then
                     SendPlayerRequestNewMap()
                     GettingMap = True
                     CanMoveNow = False
@@ -345,7 +345,7 @@ Module C_Player
                 If CheckDirection(DirectionType.Down) Then
                     CanMove = False
 
-                    '  Setar nova direção se não estiverem olhadno para ela  
+                    '  Setar nova direção se não estiverem olhando para ela  
                     If d <> DirectionType.Down Then
                         SendPlayerDir()
                     End If
@@ -353,9 +353,8 @@ Module C_Player
                     Exit Function
                 End If
             Else
-
                 ' Ver se podem teleportar para o novo mapa
-                If Map.Down > 0 Then
+                If Map.Down > 0 And Not IsDirBlocked(Map.Tile(GetPlayerX(Myindex), GetPlayerY(Myindex)).DirBlock, DirectionType.Down + 1) Then
                     SendPlayerRequestNewMap()
                     GettingMap = True
                     CanMoveNow = False
@@ -374,7 +373,7 @@ Module C_Player
                 If CheckDirection(DirectionType.Left) Then
                     CanMove = False
 
-                    ' Setar nova direção se não estiverem olhadno para ela
+                    ' Setar nova direção se não estiverem olhando para ela
                     If d <> DirectionType.Left Then
                         SendPlayerDir()
                     End If
@@ -384,7 +383,7 @@ Module C_Player
             Else
 
                 ' Ver se podem teleportar para o novo mapa
-                If Map.Left > 0 Then
+                If Map.Left > 0 And Not IsDirBlocked(Map.Tile(GetPlayerX(Myindex), GetPlayerY(Myindex)).DirBlock, DirectionType.Left + 1) Then
                     SendPlayerRequestNewMap()
                     GettingMap = True
                     CanMoveNow = False
@@ -403,7 +402,7 @@ Module C_Player
                 If CheckDirection(DirectionType.Right) Then
                     CanMove = False
 
-                    ' Setar nova direção se não estiverem olhadno para ela
+                    ' Setar nova direção se não estiverem olhando para ela
                     If d <> DirectionType.Right Then
                         SendPlayerDir()
                     End If
@@ -413,7 +412,7 @@ Module C_Player
             Else
 
                 ' Ver se podem teleportar para o novo mapa
-                If Map.Right > 0 Then
+                If Map.Right > 0 And Not IsDirBlocked(Map.Tile(GetPlayerX(Myindex), GetPlayerY(Myindex)).DirBlock, DirectionType.Right + 1) Then
                     SendPlayerRequestNewMap()
                     GettingMap = True
                     CanMoveNow = False
