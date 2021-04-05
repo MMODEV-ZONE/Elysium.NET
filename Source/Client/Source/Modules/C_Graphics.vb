@@ -1853,7 +1853,7 @@ Module C_Graphics
             DrawGrid()
         End If
 
-        If FrmEditor_MapEditor.tabpages.SelectedTab Is FrmEditor_MapEditor.tpDirBlock Then
+        If FrmEditor_MapEditor.tabpages.SelectedTab Is FrmEditor_MapEditor.tpDirBlock AndAlso InMapEditor Then
             For x = TileView.Left To TileView.Right
                 For y = TileView.Top To TileView.Bottom
                     If IsValidMapPoint(x, y) Then
