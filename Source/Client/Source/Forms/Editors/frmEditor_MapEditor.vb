@@ -28,6 +28,7 @@ Public Class FrmEditor_MapEditor
 #Region "Toolbar"
 
     Private Sub TsbSave_Click(sender As Object, e As EventArgs) Handles tsbSave.Click
+        SaveSettings()
         MapEditorSend()
         GettingMap = True
     End Sub
@@ -425,8 +426,7 @@ Public Class FrmEditor_MapEditor
 #End Region
 
 #Region "Settings"
-
-    Private Sub BtnSaveSettings_Click(sender As Object, e As EventArgs) Handles btnSaveSettings.Click
+    Private Sub SaveSettings()
         Dim X As Integer, x2 As Integer
         Dim Y As Integer, y2 As Integer
         Dim tempArr(,) As TileStruct
@@ -484,8 +484,11 @@ Public Class FrmEditor_MapEditor
             Next
 
             ClearTempTile()
-            MapEditorSend()
         End With
+    End Sub
+
+    Private Sub BtnSaveSettings_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub BtnPreview_Click(sender As Object, e As EventArgs) Handles btnPreview.Click
