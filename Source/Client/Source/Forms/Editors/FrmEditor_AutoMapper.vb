@@ -16,6 +16,36 @@ Friend Class frmEditor_AutoMapper
 
         Width = 540
 
+        Dim cf = Path.Contents & "\AutoMapper.ini"
+
+        If Not String.IsNullOrEmpty(Ini.Read(cf, "GERAL", "MapStart")) Then
+            txtMapStart.Text = Ini.Read(cf, "GERAL", "MapStart")
+        End If
+
+        If Not String.IsNullOrEmpty(Ini.Read(cf, "GERAL", "MapSize")) Then
+            txtMapSize.Text = Ini.Read(cf, "GERAL", "MapSize")
+        End If
+
+        If Not String.IsNullOrEmpty(Ini.Read(cf, "GERAL", "MapX")) Then
+            txtMapX.Text = Ini.Read(cf, "GERAL", "MapX")
+        End If
+
+        If Not String.IsNullOrEmpty(Ini.Read(cf, "GERAL", "MapY")) Then
+            txtMapY.Text = Ini.Read(cf, "GERAL", "MapY")
+        End If
+
+        If Not String.IsNullOrEmpty(Ini.Read(cf, "GERAL", "SandBorder")) Then
+            txtSandBorder.Text = Ini.Read(cf, "GERAL", "SandBorder")
+        End If
+
+        If Not String.IsNullOrEmpty(Ini.Read(cf, "GERAL", "Detail")) Then
+            txtDetail.Text = Ini.Read(cf, "GERAL", "Detail")
+        End If
+
+        If Not String.IsNullOrEmpty(Ini.Read(cf, "GERAL", "ResourceFreq")) Then
+            txtResourceFreq.Text = Ini.Read(cf, "GERAL", "ResourceFreq")
+        End If
+
         cmbDetailTileset.Items.Clear()
         For i = 1 To NumTileSets
             cmbDetailTileset.Items.Add("Tileset " & i)
@@ -51,6 +81,15 @@ Friend Class frmEditor_AutoMapper
         SandBorder = Val(txtSandBorder.Text)
         DetailFreq = Val(txtDetail.Text)
         ResourceFreq = Val(txtResourceFreq.Text)
+
+        Dim cf = Path.Contents & "\AutoMapper.ini"
+        Ini.WriteOrCreate(cf, "GERAL", "MapStart", txtMapStart.Text)
+        Ini.WriteOrCreate(cf, "GERAL", "MapSize", txtMapSize.Text)
+        Ini.WriteOrCreate(cf, "GERAL", "MapX", txtMapX.Text)
+        Ini.WriteOrCreate(cf, "GERAL", "MapY", txtMapY.Text)
+        Ini.WriteOrCreate(cf, "GERAL", "SandBorder", txtSandBorder.Text)
+        Ini.WriteOrCreate(cf, "GERAL", "Detail", txtDetail.Text)
+        Ini.WriteOrCreate(cf, "GERAL", "ResourceFreq", txtResourceFreq.Text)
 
         SendSaveAutoMapper()
 
@@ -315,6 +354,34 @@ Friend Class frmEditor_AutoMapper
         Else
             Tile(Prefab).Type = TileType.None
         End If
+    End Sub
+
+    Private Sub txtResourceFreq_TextChanged(sender As Object, e As EventArgs) Handles txtResourceFreq.TextChanged
+
+    End Sub
+
+    Private Sub txtDetail_TextChanged(sender As Object, e As EventArgs) Handles txtDetail.TextChanged
+
+    End Sub
+
+    Private Sub txtSandBorder_TextChanged(sender As Object, e As EventArgs) Handles txtSandBorder.TextChanged
+
+    End Sub
+
+    Private Sub txtMapY_TextChanged(sender As Object, e As EventArgs) Handles txtMapY.TextChanged
+
+    End Sub
+
+    Private Sub txtMapX_TextChanged(sender As Object, e As EventArgs) Handles txtMapX.TextChanged
+
+    End Sub
+
+    Private Sub txtMapSize_TextChanged(sender As Object, e As EventArgs) Handles txtMapSize.TextChanged
+
+    End Sub
+
+    Private Sub txtMapStart_TextChanged(sender As Object, e As EventArgs) Handles txtMapStart.TextChanged
+
     End Sub
 
 #End Region
