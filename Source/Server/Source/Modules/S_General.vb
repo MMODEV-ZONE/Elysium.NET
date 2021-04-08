@@ -28,7 +28,7 @@ Module S_General
 
         LoadSettings()
 
-        Console.Title = "Elysium.NET v1.0 - Servidor"
+        Console.Title = "Elysium.NET v" & Application.ProductVersion & " - Servidor"
         Console.SetWindowSize(120, 20)
 
         handler = New ConsoleEventDelegate(AddressOf ConsoleEventCallback)
@@ -205,7 +205,7 @@ Module S_General
         Console.WriteLine("| |___| | |_| \__ \ | |_| | | | | | |_| |\  || |___  | |  ")
         Console.WriteLine("\____/|_|\__, |___/_|\__,_|_| |_| |_(_)_| \_/\____/  \_/  ")
         Console.WriteLine("          __/ |                                           ")
-        Console.WriteLine("         |___/                                            ")
+        Console.WriteLine("         |___/     v" & Application.ProductVersion & "    ")
 
         Console.WriteLine("")
 
