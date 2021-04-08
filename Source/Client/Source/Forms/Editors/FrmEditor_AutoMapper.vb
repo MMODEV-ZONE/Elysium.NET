@@ -3,6 +3,8 @@
 Friend Class frmEditor_AutoMapper
 
 #Region "Frm Code"
+    Private Prefab As Integer
+    Private Layer As Integer
 
     Private Sub FrmAutoMapper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         pnlResources.Top = 0
@@ -117,8 +119,6 @@ Friend Class frmEditor_AutoMapper
     End Sub
 
     Private Sub CmbLayer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbLayer.SelectedIndexChanged
-        Dim Prefab As Integer
-        Dim Layer As Integer
         Prefab = cmbPrefab.SelectedIndex + 1
         Layer = cmbLayer.SelectedIndex + 1
         txtTileset.Text = Tile(Prefab).Layer(Layer).Tileset
@@ -139,7 +139,7 @@ Friend Class frmEditor_AutoMapper
 
     Private Sub BtnTileSetSave_Click(sender As Object, e As EventArgs) Handles btnTileSetSave.Click
         Dim Prefab As Integer, Layer As Integer
-        Dim cf = Path.Contents & "AutoMapper.ini"
+        Dim cf = Path.Contents & "\AutoMapper.ini"
 
         Prefab = cmbPrefab.SelectedIndex + 1
 
@@ -265,7 +265,7 @@ Friend Class frmEditor_AutoMapper
 
     Private Sub btnSaveDetail_Click(sender As Object, e As EventArgs) Handles btnSaveDetail.Click
         Dim TileDetail As Integer
-        Dim cf = Path.Contents & "AutoMapper.ini"
+        Dim cf = Path.Contents & "\AutoMapper.ini"
 
         For TileDetail = 0 To UBound(Detail) - 1
             Ini.WriteOrCreate(cf, "Detail" & TileDetail, "Prefab", Val(Detail(TileDetail).DetailBase))
@@ -279,6 +279,42 @@ Friend Class frmEditor_AutoMapper
         Ini.WriteOrCreate(cf, "Details", "DetailCount", Val(UBound(Detail)))
 
         pnlDetails.Visible = False
+    End Sub
+
+    Private Sub txtTileset_TextChanged(sender As Object, e As EventArgs) Handles txtTileset.TextChanged
+        Dim tileset As Byte
+        If Byte.TryParse(txtTileset.Text, tileset) Then
+            Tile(Prefab).Layer(Layer).Tileset = tileset
+        End If
+    End Sub
+
+    Private Sub txtTileX_TextChanged(sender As Object, e As EventArgs) Handles txtTileX.TextChanged
+        Dim X As Byte
+        If Byte.TryParse(txtTileX.Text, X) Then
+            Tile(Prefab).Layer(Layer).X = X
+        End If
+    End Sub
+
+    Private Sub txtTileY_TextChanged(sender As Object, e As EventArgs) Handles txtTileY.TextChanged
+        Dim Y As Byte
+        If Byte.TryParse(txtTileY.Text, Y) Then
+            Tile(Prefab).Layer(Layer).Y = Y
+        End If
+    End Sub
+
+    Private Sub txtAutotile_TextChanged(sender As Object, e As EventArgs) Handles txtAutotile.TextChanged
+        Dim autotile As Byte
+        If Byte.TryParse(txtAutotile.Text, autotile) Then
+            Tile(Prefab).Layer(Layer).AutoTile = autotile
+        End If
+    End Sub
+
+    Private Sub chkBlocked_CheckedChanged(sender As Object, e As EventArgs) Handles chkBlocked.CheckedChanged
+        If chkBlocked.Checked Then
+            Tile(Prefab).Type = TileType.Blocked
+        Else
+            Tile(Prefab).Type = TileType.None
+        End If
     End Sub
 
 #End Region

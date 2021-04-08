@@ -32,6 +32,22 @@ Partial Class frmEditor_AutoMapper
         Me.DarkLabel8 = New System.Windows.Forms.Label()
         Me.lstResources = New System.Windows.Forms.ListBox()
         Me.pnlTileConfig = New System.Windows.Forms.Panel()
+        Me.btnTileSetSave = New System.Windows.Forms.Button()
+        Me.btnTileSetClose = New System.Windows.Forms.Button()
+        Me.DarkLabel10 = New System.Windows.Forms.Label()
+        Me.DarkLabel9 = New System.Windows.Forms.Label()
+        Me.cmbLayer = New System.Windows.Forms.ComboBox()
+        Me.cmbPrefab = New System.Windows.Forms.ComboBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtAutotile = New System.Windows.Forms.TextBox()
+        Me.txtTileY = New System.Windows.Forms.TextBox()
+        Me.txtTileX = New System.Windows.Forms.TextBox()
+        Me.txtTileset = New System.Windows.Forms.TextBox()
+        Me.chkBlocked = New System.Windows.Forms.CheckBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.pnlDetails = New System.Windows.Forms.Panel()
         Me.btnDetailHelper = New System.Windows.Forms.Button()
         Me.cmbDetailPrefab = New System.Windows.Forms.ComboBox()
@@ -51,22 +67,6 @@ Partial Class frmEditor_AutoMapper
         Me.btnAddDetail = New System.Windows.Forms.Button()
         Me.btnDeleteDetail = New System.Windows.Forms.Button()
         Me.lstDetails = New System.Windows.Forms.ListBox()
-        Me.btnTileSetSave = New System.Windows.Forms.Button()
-        Me.btnTileSetClose = New System.Windows.Forms.Button()
-        Me.DarkLabel10 = New System.Windows.Forms.Label()
-        Me.DarkLabel9 = New System.Windows.Forms.Label()
-        Me.cmbLayer = New System.Windows.Forms.ComboBox()
-        Me.cmbPrefab = New System.Windows.Forms.ComboBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtAutotile = New System.Windows.Forms.TextBox()
-        Me.txtTileY = New System.Windows.Forms.TextBox()
-        Me.txtTileX = New System.Windows.Forms.TextBox()
-        Me.txtTileset = New System.Windows.Forms.TextBox()
-        Me.chkBlocked = New System.Windows.Forms.CheckBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.DarkMenu = New System.Windows.Forms.MenuStrip()
         Me.ConfigurationsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TilesetsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -96,8 +96,8 @@ Partial Class frmEditor_AutoMapper
         Me.btnStart = New System.Windows.Forms.Button()
         Me.pnlResources.SuspendLayout()
         Me.pnlTileConfig.SuspendLayout()
-        Me.pnlDetails.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.pnlDetails.SuspendLayout()
         Me.DarkMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -227,6 +227,195 @@ Partial Class frmEditor_AutoMapper
         Me.pnlTileConfig.Size = New System.Drawing.Size(508, 332)
         Me.pnlTileConfig.TabIndex = 25
         Me.pnlTileConfig.Visible = False
+        '
+        'btnTileSetSave
+        '
+        Me.btnTileSetSave.BackColor = System.Drawing.SystemColors.Control
+        Me.btnTileSetSave.Location = New System.Drawing.Point(397, 284)
+        Me.btnTileSetSave.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnTileSetSave.Name = "btnTileSetSave"
+        Me.btnTileSetSave.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
+        Me.btnTileSetSave.Size = New System.Drawing.Size(100, 39)
+        Me.btnTileSetSave.TabIndex = 45
+        Me.btnTileSetSave.Text = "Salvar"
+        Me.btnTileSetSave.UseVisualStyleBackColor = False
+        '
+        'btnTileSetClose
+        '
+        Me.btnTileSetClose.BackColor = System.Drawing.SystemColors.Control
+        Me.btnTileSetClose.Location = New System.Drawing.Point(9, 284)
+        Me.btnTileSetClose.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnTileSetClose.Name = "btnTileSetClose"
+        Me.btnTileSetClose.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
+        Me.btnTileSetClose.Size = New System.Drawing.Size(100, 41)
+        Me.btnTileSetClose.TabIndex = 44
+        Me.btnTileSetClose.Text = "Fechar"
+        Me.btnTileSetClose.UseVisualStyleBackColor = False
+        '
+        'DarkLabel10
+        '
+        Me.DarkLabel10.AutoSize = True
+        Me.DarkLabel10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.DarkLabel10.Location = New System.Drawing.Point(9, 46)
+        Me.DarkLabel10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.DarkLabel10.Name = "DarkLabel10"
+        Me.DarkLabel10.Size = New System.Drawing.Size(128, 17)
+        Me.DarkLabel10.TabIndex = 43
+        Me.DarkLabel10.Text = "Escolha a camada:"
+        '
+        'DarkLabel9
+        '
+        Me.DarkLabel9.AutoSize = True
+        Me.DarkLabel9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.DarkLabel9.Location = New System.Drawing.Point(9, 12)
+        Me.DarkLabel9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.DarkLabel9.Name = "DarkLabel9"
+        Me.DarkLabel9.Size = New System.Drawing.Size(120, 17)
+        Me.DarkLabel9.TabIndex = 43
+        Me.DarkLabel9.Text = "Escolha o Prefab:"
+        '
+        'cmbLayer
+        '
+        Me.cmbLayer.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.cmbLayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbLayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbLayer.ForeColor = System.Drawing.Color.Gainsboro
+        Me.cmbLayer.FormattingEnabled = True
+        Me.cmbLayer.Items.AddRange(New Object() {"Chão", "Máscara", "Máscara 2", "Franja", "Franja 2"})
+        Me.cmbLayer.Location = New System.Drawing.Point(153, 42)
+        Me.cmbLayer.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbLayer.Name = "cmbLayer"
+        Me.cmbLayer.Size = New System.Drawing.Size(335, 24)
+        Me.cmbLayer.TabIndex = 43
+        '
+        'cmbPrefab
+        '
+        Me.cmbPrefab.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.cmbPrefab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPrefab.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmbPrefab.ForeColor = System.Drawing.Color.Gainsboro
+        Me.cmbPrefab.FormattingEnabled = True
+        Me.cmbPrefab.Items.AddRange(New Object() {"Água", "Areia", "Grama", "Passeio", "Sobre-grama", "Rio", "Montanha"})
+        Me.cmbPrefab.Location = New System.Drawing.Point(153, 9)
+        Me.cmbPrefab.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbPrefab.Name = "cmbPrefab"
+        Me.cmbPrefab.Size = New System.Drawing.Size(335, 24)
+        Me.cmbPrefab.TabIndex = 43
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.txtAutotile)
+        Me.GroupBox1.Controls.Add(Me.txtTileY)
+        Me.GroupBox1.Controls.Add(Me.txtTileX)
+        Me.GroupBox1.Controls.Add(Me.txtTileset)
+        Me.GroupBox1.Controls.Add(Me.chkBlocked)
+        Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.Label13)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Gainsboro
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 82)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(488, 193)
+        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Configurações de Tile"
+        '
+        'txtAutotile
+        '
+        Me.txtAutotile.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
+        Me.txtAutotile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtAutotile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.txtAutotile.Location = New System.Drawing.Point(144, 121)
+        Me.txtAutotile.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtAutotile.Name = "txtAutotile"
+        Me.txtAutotile.Size = New System.Drawing.Size(335, 22)
+        Me.txtAutotile.TabIndex = 47
+        '
+        'txtTileY
+        '
+        Me.txtTileY.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
+        Me.txtTileY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtTileY.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.txtTileY.Location = New System.Drawing.Point(144, 89)
+        Me.txtTileY.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtTileY.Name = "txtTileY"
+        Me.txtTileY.Size = New System.Drawing.Size(335, 22)
+        Me.txtTileY.TabIndex = 46
+        '
+        'txtTileX
+        '
+        Me.txtTileX.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
+        Me.txtTileX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtTileX.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.txtTileX.Location = New System.Drawing.Point(144, 57)
+        Me.txtTileX.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtTileX.Name = "txtTileX"
+        Me.txtTileX.Size = New System.Drawing.Size(335, 22)
+        Me.txtTileX.TabIndex = 45
+        '
+        'txtTileset
+        '
+        Me.txtTileset.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
+        Me.txtTileset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtTileset.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.txtTileset.Location = New System.Drawing.Point(144, 25)
+        Me.txtTileset.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtTileset.Name = "txtTileset"
+        Me.txtTileset.Size = New System.Drawing.Size(335, 22)
+        Me.txtTileset.TabIndex = 44
+        '
+        'chkBlocked
+        '
+        Me.chkBlocked.AutoSize = True
+        Me.chkBlocked.Location = New System.Drawing.Point(11, 162)
+        Me.chkBlocked.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkBlocked.Name = "chkBlocked"
+        Me.chkBlocked.Size = New System.Drawing.Size(137, 21)
+        Me.chkBlocked.TabIndex = 43
+        Me.chkBlocked.Text = "Está bloqueado?"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(14, 123)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(64, 17)
+        Me.Label14.TabIndex = 6
+        Me.Label14.Text = "AutoTile:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(14, 91)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(69, 17)
+        Me.Label13.TabIndex = 4
+        Me.Label13.Text = "TileSet Y:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(14, 59)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(69, 17)
+        Me.Label12.TabIndex = 2
+        Me.Label12.Text = "TileSet X:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(14, 27)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(130, 17)
+        Me.Label11.TabIndex = 0
+        Me.Label11.Text = "Número do TileSet:"
         '
         'pnlDetails
         '
@@ -433,195 +622,6 @@ Partial Class frmEditor_AutoMapper
         Me.lstDetails.Name = "lstDetails"
         Me.lstDetails.Size = New System.Drawing.Size(496, 132)
         Me.lstDetails.TabIndex = 1
-        '
-        'btnTileSetSave
-        '
-        Me.btnTileSetSave.BackColor = System.Drawing.SystemColors.Control
-        Me.btnTileSetSave.Location = New System.Drawing.Point(397, 284)
-        Me.btnTileSetSave.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnTileSetSave.Name = "btnTileSetSave"
-        Me.btnTileSetSave.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
-        Me.btnTileSetSave.Size = New System.Drawing.Size(100, 39)
-        Me.btnTileSetSave.TabIndex = 45
-        Me.btnTileSetSave.Text = "Salvar"
-        Me.btnTileSetSave.UseVisualStyleBackColor = False
-        '
-        'btnTileSetClose
-        '
-        Me.btnTileSetClose.BackColor = System.Drawing.SystemColors.Control
-        Me.btnTileSetClose.Location = New System.Drawing.Point(9, 284)
-        Me.btnTileSetClose.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnTileSetClose.Name = "btnTileSetClose"
-        Me.btnTileSetClose.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
-        Me.btnTileSetClose.Size = New System.Drawing.Size(100, 41)
-        Me.btnTileSetClose.TabIndex = 44
-        Me.btnTileSetClose.Text = "Fechar"
-        Me.btnTileSetClose.UseVisualStyleBackColor = False
-        '
-        'DarkLabel10
-        '
-        Me.DarkLabel10.AutoSize = True
-        Me.DarkLabel10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.DarkLabel10.Location = New System.Drawing.Point(9, 46)
-        Me.DarkLabel10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.DarkLabel10.Name = "DarkLabel10"
-        Me.DarkLabel10.Size = New System.Drawing.Size(128, 17)
-        Me.DarkLabel10.TabIndex = 43
-        Me.DarkLabel10.Text = "Escolha a camada:"
-        '
-        'DarkLabel9
-        '
-        Me.DarkLabel9.AutoSize = True
-        Me.DarkLabel9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.DarkLabel9.Location = New System.Drawing.Point(9, 12)
-        Me.DarkLabel9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.DarkLabel9.Name = "DarkLabel9"
-        Me.DarkLabel9.Size = New System.Drawing.Size(120, 17)
-        Me.DarkLabel9.TabIndex = 43
-        Me.DarkLabel9.Text = "Escolha o Prefab:"
-        '
-        'cmbLayer
-        '
-        Me.cmbLayer.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.cmbLayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbLayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbLayer.ForeColor = System.Drawing.Color.Gainsboro
-        Me.cmbLayer.FormattingEnabled = True
-        Me.cmbLayer.Items.AddRange(New Object() {"Chão", "Máscara", "Máscara 2", "Franja", "Franja 2"})
-        Me.cmbLayer.Location = New System.Drawing.Point(153, 42)
-        Me.cmbLayer.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmbLayer.Name = "cmbLayer"
-        Me.cmbLayer.Size = New System.Drawing.Size(335, 24)
-        Me.cmbLayer.TabIndex = 43
-        '
-        'cmbPrefab
-        '
-        Me.cmbPrefab.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.cmbPrefab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbPrefab.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmbPrefab.ForeColor = System.Drawing.Color.Gainsboro
-        Me.cmbPrefab.FormattingEnabled = True
-        Me.cmbPrefab.Items.AddRange(New Object() {"Água", "Areia", "Grama", "Passeio", "Sobre-grama", "Rio", "Montanha"})
-        Me.cmbPrefab.Location = New System.Drawing.Point(153, 9)
-        Me.cmbPrefab.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmbPrefab.Name = "cmbPrefab"
-        Me.cmbPrefab.Size = New System.Drawing.Size(335, 24)
-        Me.cmbPrefab.TabIndex = 43
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.txtAutotile)
-        Me.GroupBox1.Controls.Add(Me.txtTileY)
-        Me.GroupBox1.Controls.Add(Me.txtTileX)
-        Me.GroupBox1.Controls.Add(Me.txtTileset)
-        Me.GroupBox1.Controls.Add(Me.chkBlocked)
-        Me.GroupBox1.Controls.Add(Me.Label14)
-        Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.Gainsboro
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 82)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(488, 193)
-        Me.GroupBox1.TabIndex = 4
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Configurações de Tile"
-        '
-        'txtAutotile
-        '
-        Me.txtAutotile.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.txtAutotile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtAutotile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.txtAutotile.Location = New System.Drawing.Point(144, 121)
-        Me.txtAutotile.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtAutotile.Name = "txtAutotile"
-        Me.txtAutotile.Size = New System.Drawing.Size(335, 22)
-        Me.txtAutotile.TabIndex = 47
-        '
-        'txtTileY
-        '
-        Me.txtTileY.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.txtTileY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtTileY.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.txtTileY.Location = New System.Drawing.Point(144, 89)
-        Me.txtTileY.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtTileY.Name = "txtTileY"
-        Me.txtTileY.Size = New System.Drawing.Size(335, 22)
-        Me.txtTileY.TabIndex = 46
-        '
-        'txtTileX
-        '
-        Me.txtTileX.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.txtTileX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtTileX.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.txtTileX.Location = New System.Drawing.Point(144, 57)
-        Me.txtTileX.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtTileX.Name = "txtTileX"
-        Me.txtTileX.Size = New System.Drawing.Size(335, 22)
-        Me.txtTileX.TabIndex = 45
-        '
-        'txtTileset
-        '
-        Me.txtTileset.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.txtTileset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtTileset.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.txtTileset.Location = New System.Drawing.Point(144, 25)
-        Me.txtTileset.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtTileset.Name = "txtTileset"
-        Me.txtTileset.Size = New System.Drawing.Size(335, 22)
-        Me.txtTileset.TabIndex = 44
-        '
-        'chkBlocked
-        '
-        Me.chkBlocked.AutoSize = True
-        Me.chkBlocked.Location = New System.Drawing.Point(11, 162)
-        Me.chkBlocked.Margin = New System.Windows.Forms.Padding(4)
-        Me.chkBlocked.Name = "chkBlocked"
-        Me.chkBlocked.Size = New System.Drawing.Size(137, 21)
-        Me.chkBlocked.TabIndex = 43
-        Me.chkBlocked.Text = "Está bloqueado?"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(14, 123)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(64, 17)
-        Me.Label14.TabIndex = 6
-        Me.Label14.Text = "AutoTile:"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(14, 91)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(69, 17)
-        Me.Label13.TabIndex = 4
-        Me.Label13.Text = "TileSet Y:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(14, 59)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(69, 17)
-        Me.Label12.TabIndex = 2
-        Me.Label12.Text = "TileSet X:"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(14, 27)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(130, 17)
-        Me.Label11.TabIndex = 0
-        Me.Label11.Text = "Número do TileSet:"
         '
         'DarkMenu
         '
@@ -909,7 +909,6 @@ Partial Class frmEditor_AutoMapper
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1584, 364)
-        Me.Controls.Add(Me.pnlDetails)
         Me.Controls.Add(Me.pnlResources)
         Me.Controls.Add(Me.btnStart)
         Me.Controls.Add(Me.txtResourceFreq)
@@ -928,6 +927,7 @@ Partial Class frmEditor_AutoMapper
         Me.Controls.Add(Me.DarkLabel1)
         Me.Controls.Add(Me.pnlTileConfig)
         Me.Controls.Add(Me.DarkMenu)
+        Me.Controls.Add(Me.pnlDetails)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmEditor_AutoMapper"
@@ -936,10 +936,10 @@ Partial Class frmEditor_AutoMapper
         Me.pnlResources.PerformLayout()
         Me.pnlTileConfig.ResumeLayout(False)
         Me.pnlTileConfig.PerformLayout()
-        Me.pnlDetails.ResumeLayout(False)
-        Me.pnlDetails.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.pnlDetails.ResumeLayout(False)
+        Me.pnlDetails.PerformLayout()
         Me.DarkMenu.ResumeLayout(False)
         Me.DarkMenu.PerformLayout()
         Me.ResumeLayout(False)
