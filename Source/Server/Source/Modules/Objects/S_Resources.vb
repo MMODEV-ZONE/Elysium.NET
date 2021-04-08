@@ -292,7 +292,7 @@ Friend Module S_Resources
 
 #Region "Outgoing Packets"
 
-    Sub SendResourceCacheTo(index As Integer, Resource_num As long)
+    Sub SendMapResourcesTo(index As Integer)
         Dim i As Integer, mapnum As Integer
         Dim buffer As New ByteStream(4)
 
@@ -301,17 +301,35 @@ Friend Module S_Resources
         buffer.WriteInt32(ServerPackets.SResourceCache)
         buffer.WriteInt32(ResourceCache(mapnum).ResourceCount)
 #If DEBUG Then
-        AddDebug("Enviada SMSG: SResourcesCache")
+        AddDebug("Enviada SMSG: SMapResourcesCache")
 #End If
         If ResourceCache(mapnum).ResourceCount > 0 Then
-
             For i = 0 To ResourceCache(mapnum).ResourceCount
                 buffer.WriteInt32(ResourceCache(mapnum).ResourceData(i).ResourceState)
                 buffer.WriteInt32(ResourceCache(mapnum).ResourceData(i).X)
                 buffer.WriteInt32(ResourceCache(mapnum).ResourceData(i).Y)
             Next
-
         End If
+
+        Socket.SendDataTo(index, buffer.Data, buffer.Head)
+        buffer.Dispose()
+    End Sub
+
+    Sub SendResourceCacheTo(index As Integer, Resource_num As long)
+        Dim i As Integer, mapnum As Integer
+        Dim buffer As New ByteStream(4)
+
+        mapnum = GetPlayerMap(index)
+
+        buffer.WriteInt32(ServerPackets.SResourceCache)
+        buffer.WriteInt32(Resource_num)
+#If DEBUG Then
+        AddDebug("Enviada SMSG: SResourcesCache")
+#End If
+
+        buffer.WriteInt32(ResourceCache(mapnum).ResourceData(Resource_num).ResourceState)
+        buffer.WriteInt32(ResourceCache(mapnum).ResourceData(Resource_num).X)
+        buffer.WriteInt32(ResourceCache(mapnum).ResourceData(Resource_num).Y)
 
         Socket.SendDataTo(index, buffer.Data, buffer.Head)
         buffer.Dispose()
@@ -322,19 +340,14 @@ Friend Module S_Resources
         Dim buffer As New ByteStream(4)
 
         buffer.WriteInt32(ServerPackets.SResourceCache)
-        buffer.WriteInt32(ResourceCache(mapNum).ResourceCount)
+        buffer.WriteInt32(Resource_num)
 #If DEBUG Then
         AddDebug("Enviada SMSG: SResourceCache")
 #End If
-        If ResourceCache(mapNum).ResourceCount > 0 Then
 
-            For i = 0 To ResourceCache(mapNum).ResourceCount
-                buffer.WriteInt32(ResourceCache(mapNum).ResourceData(i).ResourceState)
-                buffer.WriteInt32(ResourceCache(mapNum).ResourceData(i).X)
-                buffer.WriteInt32(ResourceCache(mapNum).ResourceData(i).Y)
-            Next
-
-        End If
+        buffer.WriteInt32(ResourceCache(mapNum).ResourceData(Resource_num).ResourceState)
+        buffer.WriteInt32(ResourceCache(mapNum).ResourceData(Resource_num).X)
+        buffer.WriteInt32(ResourceCache(mapNum).ResourceData(Resource_num).Y)
 
         SendDataToMap(mapNum, buffer.Data, buffer.Head)
         buffer.Dispose()

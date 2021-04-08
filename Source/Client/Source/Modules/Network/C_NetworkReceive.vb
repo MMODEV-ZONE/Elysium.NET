@@ -164,6 +164,7 @@ Module C_NetworkReceive
         Socket.PacketId(ServerPackets.SClassEditor) = AddressOf Packet_ClassEditor
         Socket.PacketId(ServerPackets.SAutoMapper) = AddressOf Packet_AutoMapper
         Socket.PacketId(ServerPackets.SPetEditor) = AddressOf Packet_PetEditor
+        Socket.PacketId(ServerPackets.SMapResourcesCache) = AddressOf Packet_MapResourcesCache
     End Sub
 
     Private Sub Packet_AlertMSG(ByRef data() As Byte)
