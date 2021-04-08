@@ -15,6 +15,7 @@ Public Class FrmEditor_MapEditor
         pnlAttributes.Left = 4
         pnlAttributes.Top = 28
         Me.Width = 525
+        Me.Height = tpTiles.Height + 100
         optBlocked.Checked = True
         tabpages.SelectedIndex = 0
 
@@ -1306,6 +1307,8 @@ Public Class FrmEditor_MapEditor
     Friend Sub DrawTileOutline()
         Dim rec As Rectangle
         If Me.tabpages.SelectedTab Is Me.tpDirBlock Then Exit Sub
+
+        lblCoordinate.Text = "X: " & EditorTileSelStart.X & "Y: " & EditorTileSelStart.Y
 
         With rec
             .Y = 0

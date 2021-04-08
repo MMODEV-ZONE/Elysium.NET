@@ -187,6 +187,7 @@ Partial Class FrmEditor_MapEditor
         Me.lblFogIndex = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.cmbWeather = New System.Windows.Forms.ComboBox()
+        Me.lblCoordinate = New System.Windows.Forms.Label()
         Me.pnlBack.SuspendLayout()
         CType(Me.picBackSelect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAttributes.SuspendLayout()
@@ -243,7 +244,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optHouse.AutoSize = True
         Me.optHouse.Location = New System.Drawing.Point(427, 60)
-        Me.optHouse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optHouse.Margin = New System.Windows.Forms.Padding(4)
         Me.optHouse.Name = "optHouse"
         Me.optHouse.Size = New System.Drawing.Size(138, 21)
         Me.optHouse.TabIndex = 15
@@ -254,7 +255,7 @@ Partial Class FrmEditor_MapEditor
         'btnClearAttribute
         '
         Me.btnClearAttribute.Location = New System.Drawing.Point(427, 538)
-        Me.btnClearAttribute.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnClearAttribute.Margin = New System.Windows.Forms.Padding(4)
         Me.btnClearAttribute.Name = "btnClearAttribute"
         Me.btnClearAttribute.Size = New System.Drawing.Size(220, 30)
         Me.btnClearAttribute.TabIndex = 14
@@ -265,7 +266,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optTrap.AutoSize = True
         Me.optTrap.Location = New System.Drawing.Point(135, 105)
-        Me.optTrap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optTrap.Margin = New System.Windows.Forms.Padding(4)
         Me.optTrap.Name = "optTrap"
         Me.optTrap.Size = New System.Drawing.Size(92, 21)
         Me.optTrap.TabIndex = 12
@@ -277,7 +278,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optHeal.AutoSize = True
         Me.optHeal.Location = New System.Drawing.Point(13, 105)
-        Me.optHeal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optHeal.Margin = New System.Windows.Forms.Padding(4)
         Me.optHeal.Name = "optHeal"
         Me.optHeal.Size = New System.Drawing.Size(59, 21)
         Me.optHeal.TabIndex = 11
@@ -289,7 +290,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optBank.AutoSize = True
         Me.optBank.Location = New System.Drawing.Point(572, 60)
-        Me.optBank.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optBank.Margin = New System.Windows.Forms.Padding(4)
         Me.optBank.Name = "optBank"
         Me.optBank.Size = New System.Drawing.Size(69, 21)
         Me.optBank.TabIndex = 10
@@ -301,7 +302,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optShop.AutoSize = True
         Me.optShop.Location = New System.Drawing.Point(546, 18)
-        Me.optShop.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optShop.Margin = New System.Windows.Forms.Padding(4)
         Me.optShop.Name = "optShop"
         Me.optShop.Size = New System.Drawing.Size(56, 21)
         Me.optShop.TabIndex = 9
@@ -313,7 +314,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optNPCSpawn.AutoSize = True
         Me.optNPCSpawn.Location = New System.Drawing.Point(427, 18)
-        Me.optNPCSpawn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optNPCSpawn.Margin = New System.Windows.Forms.Padding(4)
         Me.optNPCSpawn.Name = "optNPCSpawn"
         Me.optNPCSpawn.Size = New System.Drawing.Size(98, 21)
         Me.optNPCSpawn.TabIndex = 8
@@ -325,7 +326,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optDoor.AutoSize = True
         Me.optDoor.Location = New System.Drawing.Point(135, 62)
-        Me.optDoor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optDoor.Margin = New System.Windows.Forms.Padding(4)
         Me.optDoor.Name = "optDoor"
         Me.optDoor.Size = New System.Drawing.Size(63, 21)
         Me.optDoor.TabIndex = 7
@@ -337,7 +338,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optResource.AutoSize = True
         Me.optResource.Location = New System.Drawing.Point(13, 62)
-        Me.optResource.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optResource.Margin = New System.Windows.Forms.Padding(4)
         Me.optResource.Name = "optResource"
         Me.optResource.Size = New System.Drawing.Size(82, 21)
         Me.optResource.TabIndex = 6
@@ -349,7 +350,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optKeyOpen.AutoSize = True
         Me.optKeyOpen.Location = New System.Drawing.Point(316, 62)
-        Me.optKeyOpen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optKeyOpen.Margin = New System.Windows.Forms.Padding(4)
         Me.optKeyOpen.Name = "optKeyOpen"
         Me.optKeyOpen.Size = New System.Drawing.Size(103, 21)
         Me.optKeyOpen.TabIndex = 5
@@ -361,7 +362,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optKey.AutoSize = True
         Me.optKey.Location = New System.Drawing.Point(231, 62)
-        Me.optKey.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optKey.Margin = New System.Windows.Forms.Padding(4)
         Me.optKey.Name = "optKey"
         Me.optKey.Size = New System.Drawing.Size(69, 21)
         Me.optKey.TabIndex = 4
@@ -373,7 +374,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optNPCAvoid.AutoSize = True
         Me.optNPCAvoid.Location = New System.Drawing.Point(316, 18)
-        Me.optNPCAvoid.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optNPCAvoid.Margin = New System.Windows.Forms.Padding(4)
         Me.optNPCAvoid.Name = "optNPCAvoid"
         Me.optNPCAvoid.Size = New System.Drawing.Size(97, 21)
         Me.optNPCAvoid.TabIndex = 3
@@ -385,7 +386,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optItem.AutoSize = True
         Me.optItem.Location = New System.Drawing.Point(231, 18)
-        Me.optItem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optItem.Margin = New System.Windows.Forms.Padding(4)
         Me.optItem.Name = "optItem"
         Me.optItem.Size = New System.Drawing.Size(55, 21)
         Me.optItem.TabIndex = 2
@@ -397,7 +398,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optWarp.AutoSize = True
         Me.optWarp.Location = New System.Drawing.Point(135, 18)
-        Me.optWarp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optWarp.Margin = New System.Windows.Forms.Padding(4)
         Me.optWarp.Name = "optWarp"
         Me.optWarp.Size = New System.Drawing.Size(90, 21)
         Me.optWarp.TabIndex = 1
@@ -409,7 +410,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optBlocked.AutoSize = True
         Me.optBlocked.Location = New System.Drawing.Point(13, 18)
-        Me.optBlocked.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optBlocked.Margin = New System.Windows.Forms.Padding(4)
         Me.optBlocked.Name = "optBlocked"
         Me.optBlocked.Size = New System.Drawing.Size(97, 21)
         Me.optBlocked.TabIndex = 0
@@ -421,7 +422,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.pnlBack.Controls.Add(Me.picBackSelect)
         Me.pnlBack.Location = New System.Drawing.Point(8, 10)
-        Me.pnlBack.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnlBack.Margin = New System.Windows.Forms.Padding(4)
         Me.pnlBack.Name = "pnlBack"
         Me.pnlBack.Size = New System.Drawing.Size(613, 489)
         Me.pnlBack.TabIndex = 9
@@ -430,7 +431,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.picBackSelect.BackColor = System.Drawing.Color.Black
         Me.picBackSelect.Location = New System.Drawing.Point(0, 0)
-        Me.picBackSelect.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.picBackSelect.Margin = New System.Windows.Forms.Padding(4)
         Me.picBackSelect.Name = "picBackSelect"
         Me.picBackSelect.Size = New System.Drawing.Size(613, 489)
         Me.picBackSelect.TabIndex = 1
@@ -439,7 +440,7 @@ Partial Class FrmEditor_MapEditor
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(104, 521)
+        Me.Label1.Location = New System.Drawing.Point(8, 525)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(309, 17)
@@ -459,7 +460,7 @@ Partial Class FrmEditor_MapEditor
         Me.pnlAttributes.Controls.Add(Me.fraMapItem)
         Me.pnlAttributes.Controls.Add(Me.fraTrap)
         Me.pnlAttributes.Location = New System.Drawing.Point(674, 38)
-        Me.pnlAttributes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pnlAttributes.Margin = New System.Windows.Forms.Padding(4)
         Me.pnlAttributes.Name = "pnlAttributes"
         Me.pnlAttributes.Size = New System.Drawing.Size(669, 604)
         Me.pnlAttributes.TabIndex = 12
@@ -475,9 +476,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraMapWarp.Controls.Add(Me.lblMapWarpX)
         Me.fraMapWarp.Controls.Add(Me.lblMapWarpMap)
         Me.fraMapWarp.Location = New System.Drawing.Point(12, 455)
-        Me.fraMapWarp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapWarp.Margin = New System.Windows.Forms.Padding(4)
         Me.fraMapWarp.Name = "fraMapWarp"
-        Me.fraMapWarp.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapWarp.Padding = New System.Windows.Forms.Padding(4)
         Me.fraMapWarp.Size = New System.Drawing.Size(336, 146)
         Me.fraMapWarp.TabIndex = 0
         Me.fraMapWarp.TabStop = False
@@ -486,7 +487,7 @@ Partial Class FrmEditor_MapEditor
         'btnMapWarp
         '
         Me.btnMapWarp.Location = New System.Drawing.Point(107, 108)
-        Me.btnMapWarp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnMapWarp.Margin = New System.Windows.Forms.Padding(4)
         Me.btnMapWarp.Name = "btnMapWarp"
         Me.btnMapWarp.Size = New System.Drawing.Size(120, 34)
         Me.btnMapWarp.TabIndex = 6
@@ -550,9 +551,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraBuyHouse.Controls.Add(Me.scrlBuyHouse)
         Me.fraBuyHouse.Controls.Add(Me.lblHouseName)
         Me.fraBuyHouse.Location = New System.Drawing.Point(448, 7)
-        Me.fraBuyHouse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraBuyHouse.Margin = New System.Windows.Forms.Padding(4)
         Me.fraBuyHouse.Name = "fraBuyHouse"
-        Me.fraBuyHouse.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraBuyHouse.Padding = New System.Windows.Forms.Padding(4)
         Me.fraBuyHouse.Size = New System.Drawing.Size(219, 139)
         Me.fraBuyHouse.TabIndex = 17
         Me.fraBuyHouse.TabStop = False
@@ -561,7 +562,7 @@ Partial Class FrmEditor_MapEditor
         'btnHouseTileOk
         '
         Me.btnHouseTileOk.Location = New System.Drawing.Point(52, 94)
-        Me.btnHouseTileOk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnHouseTileOk.Margin = New System.Windows.Forms.Padding(4)
         Me.btnHouseTileOk.Name = "btnHouseTileOk"
         Me.btnHouseTileOk.Size = New System.Drawing.Size(120, 34)
         Me.btnHouseTileOk.TabIndex = 6
@@ -594,9 +595,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraKeyOpen.Controls.Add(Me.scrlKeyX)
         Me.fraKeyOpen.Controls.Add(Me.lblKeyX)
         Me.fraKeyOpen.Location = New System.Drawing.Point(354, 455)
-        Me.fraKeyOpen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraKeyOpen.Margin = New System.Windows.Forms.Padding(4)
         Me.fraKeyOpen.Name = "fraKeyOpen"
-        Me.fraKeyOpen.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraKeyOpen.Padding = New System.Windows.Forms.Padding(4)
         Me.fraKeyOpen.Size = New System.Drawing.Size(267, 144)
         Me.fraKeyOpen.TabIndex = 9
         Me.fraKeyOpen.TabStop = False
@@ -622,7 +623,7 @@ Partial Class FrmEditor_MapEditor
         'btnMapKeyOpen
         '
         Me.btnMapKeyOpen.Location = New System.Drawing.Point(68, 94)
-        Me.btnMapKeyOpen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnMapKeyOpen.Margin = New System.Windows.Forms.Padding(4)
         Me.btnMapKeyOpen.Name = "btnMapKeyOpen"
         Me.btnMapKeyOpen.Size = New System.Drawing.Size(120, 34)
         Me.btnMapKeyOpen.TabIndex = 6
@@ -654,9 +655,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraMapKey.Controls.Add(Me.scrlMapKey)
         Me.fraMapKey.Controls.Add(Me.lblMapKey)
         Me.fraMapKey.Location = New System.Drawing.Point(244, 309)
-        Me.fraMapKey.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapKey.Margin = New System.Windows.Forms.Padding(4)
         Me.fraMapKey.Name = "fraMapKey"
-        Me.fraMapKey.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapKey.Padding = New System.Windows.Forms.Padding(4)
         Me.fraMapKey.Size = New System.Drawing.Size(221, 139)
         Me.fraMapKey.TabIndex = 8
         Me.fraMapKey.TabStop = False
@@ -668,7 +669,7 @@ Partial Class FrmEditor_MapEditor
         Me.chkMapKey.Checked = True
         Me.chkMapKey.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkMapKey.Location = New System.Drawing.Point(12, 71)
-        Me.chkMapKey.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkMapKey.Margin = New System.Windows.Forms.Padding(4)
         Me.chkMapKey.Name = "chkMapKey"
         Me.chkMapKey.Size = New System.Drawing.Size(180, 21)
         Me.chkMapKey.TabIndex = 8
@@ -679,7 +680,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.picMapKey.BackColor = System.Drawing.Color.Black
         Me.picMapKey.Location = New System.Drawing.Point(23, 94)
-        Me.picMapKey.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.picMapKey.Margin = New System.Windows.Forms.Padding(4)
         Me.picMapKey.Name = "picMapKey"
         Me.picMapKey.Size = New System.Drawing.Size(43, 39)
         Me.picMapKey.TabIndex = 7
@@ -688,7 +689,7 @@ Partial Class FrmEditor_MapEditor
         'btnMapKey
         '
         Me.btnMapKey.Location = New System.Drawing.Point(73, 98)
-        Me.btnMapKey.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnMapKey.Margin = New System.Windows.Forms.Padding(4)
         Me.btnMapKey.Name = "btnMapKey"
         Me.btnMapKey.Size = New System.Drawing.Size(120, 34)
         Me.btnMapKey.TabIndex = 6
@@ -719,9 +720,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraNpcSpawn.Controls.Add(Me.scrlNpcDir)
         Me.fraNpcSpawn.Controls.Add(Me.lblNpcDir)
         Me.fraNpcSpawn.Location = New System.Drawing.Point(4, 7)
-        Me.fraNpcSpawn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraNpcSpawn.Margin = New System.Windows.Forms.Padding(4)
         Me.fraNpcSpawn.Name = "fraNpcSpawn"
-        Me.fraNpcSpawn.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraNpcSpawn.Padding = New System.Windows.Forms.Padding(4)
         Me.fraNpcSpawn.Size = New System.Drawing.Size(232, 139)
         Me.fraNpcSpawn.TabIndex = 11
         Me.fraNpcSpawn.TabStop = False
@@ -732,7 +733,7 @@ Partial Class FrmEditor_MapEditor
         Me.lstNpc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.lstNpc.FormattingEnabled = True
         Me.lstNpc.Location = New System.Drawing.Point(8, 20)
-        Me.lstNpc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstNpc.Margin = New System.Windows.Forms.Padding(4)
         Me.lstNpc.Name = "lstNpc"
         Me.lstNpc.Size = New System.Drawing.Size(205, 24)
         Me.lstNpc.TabIndex = 37
@@ -740,7 +741,7 @@ Partial Class FrmEditor_MapEditor
         'btnNpcSpawn
         '
         Me.btnNpcSpawn.Location = New System.Drawing.Point(52, 94)
-        Me.btnNpcSpawn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnNpcSpawn.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNpcSpawn.Name = "btnNpcSpawn"
         Me.btnNpcSpawn.Size = New System.Drawing.Size(120, 34)
         Me.btnNpcSpawn.TabIndex = 6
@@ -773,9 +774,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraHeal.Controls.Add(Me.cmbHeal)
         Me.fraHeal.Controls.Add(Me.btnHeal)
         Me.fraHeal.Location = New System.Drawing.Point(4, 309)
-        Me.fraHeal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraHeal.Margin = New System.Windows.Forms.Padding(4)
         Me.fraHeal.Name = "fraHeal"
-        Me.fraHeal.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraHeal.Padding = New System.Windows.Forms.Padding(4)
         Me.fraHeal.Size = New System.Drawing.Size(232, 139)
         Me.fraHeal.TabIndex = 15
         Me.fraHeal.TabStop = False
@@ -804,7 +805,7 @@ Partial Class FrmEditor_MapEditor
         Me.cmbHeal.FormattingEnabled = True
         Me.cmbHeal.Items.AddRange(New Object() {"Heal HP", "Heal MP"})
         Me.cmbHeal.Location = New System.Drawing.Point(8, 23)
-        Me.cmbHeal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbHeal.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbHeal.Name = "cmbHeal"
         Me.cmbHeal.Size = New System.Drawing.Size(205, 24)
         Me.cmbHeal.TabIndex = 37
@@ -812,7 +813,7 @@ Partial Class FrmEditor_MapEditor
         'btnHeal
         '
         Me.btnHeal.Location = New System.Drawing.Point(50, 94)
-        Me.btnHeal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnHeal.Margin = New System.Windows.Forms.Padding(4)
         Me.btnHeal.Name = "btnHeal"
         Me.btnHeal.Size = New System.Drawing.Size(120, 34)
         Me.btnHeal.TabIndex = 6
@@ -824,9 +825,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraShop.Controls.Add(Me.cmbShop)
         Me.fraShop.Controls.Add(Me.btnShop)
         Me.fraShop.Location = New System.Drawing.Point(448, 154)
-        Me.fraShop.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraShop.Margin = New System.Windows.Forms.Padding(4)
         Me.fraShop.Name = "fraShop"
-        Me.fraShop.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraShop.Padding = New System.Windows.Forms.Padding(4)
         Me.fraShop.Size = New System.Drawing.Size(196, 148)
         Me.fraShop.TabIndex = 12
         Me.fraShop.TabStop = False
@@ -837,7 +838,7 @@ Partial Class FrmEditor_MapEditor
         Me.cmbShop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbShop.FormattingEnabled = True
         Me.cmbShop.Location = New System.Drawing.Point(8, 23)
-        Me.cmbShop.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbShop.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbShop.Name = "cmbShop"
         Me.cmbShop.Size = New System.Drawing.Size(176, 24)
         Me.cmbShop.TabIndex = 37
@@ -845,7 +846,7 @@ Partial Class FrmEditor_MapEditor
         'btnShop
         '
         Me.btnShop.Location = New System.Drawing.Point(39, 105)
-        Me.btnShop.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnShop.Margin = New System.Windows.Forms.Padding(4)
         Me.btnShop.Name = "btnShop"
         Me.btnShop.Size = New System.Drawing.Size(120, 34)
         Me.btnShop.TabIndex = 6
@@ -858,9 +859,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraResource.Controls.Add(Me.scrlResource)
         Me.fraResource.Controls.Add(Me.lblResource)
         Me.fraResource.Location = New System.Drawing.Point(244, 7)
-        Me.fraResource.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraResource.Margin = New System.Windows.Forms.Padding(4)
         Me.fraResource.Name = "fraResource"
-        Me.fraResource.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraResource.Padding = New System.Windows.Forms.Padding(4)
         Me.fraResource.Size = New System.Drawing.Size(196, 139)
         Me.fraResource.TabIndex = 10
         Me.fraResource.TabStop = False
@@ -869,7 +870,7 @@ Partial Class FrmEditor_MapEditor
         'btnResourceOk
         '
         Me.btnResourceOk.Location = New System.Drawing.Point(37, 94)
-        Me.btnResourceOk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnResourceOk.Margin = New System.Windows.Forms.Padding(4)
         Me.btnResourceOk.Name = "btnResourceOk"
         Me.btnResourceOk.Size = New System.Drawing.Size(120, 34)
         Me.btnResourceOk.TabIndex = 6
@@ -901,9 +902,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraMapItem.Controls.Add(Me.scrlMapItem)
         Me.fraMapItem.Controls.Add(Me.lblMapItem)
         Me.fraMapItem.Location = New System.Drawing.Point(4, 155)
-        Me.fraMapItem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapItem.Margin = New System.Windows.Forms.Padding(4)
         Me.fraMapItem.Name = "fraMapItem"
-        Me.fraMapItem.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapItem.Padding = New System.Windows.Forms.Padding(4)
         Me.fraMapItem.Size = New System.Drawing.Size(232, 146)
         Me.fraMapItem.TabIndex = 7
         Me.fraMapItem.TabStop = False
@@ -913,7 +914,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.picMapItem.BackColor = System.Drawing.Color.Black
         Me.picMapItem.Location = New System.Drawing.Point(178, 44)
-        Me.picMapItem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.picMapItem.Margin = New System.Windows.Forms.Padding(4)
         Me.picMapItem.Name = "picMapItem"
         Me.picMapItem.Size = New System.Drawing.Size(43, 39)
         Me.picMapItem.TabIndex = 7
@@ -922,7 +923,7 @@ Partial Class FrmEditor_MapEditor
         'btnMapItem
         '
         Me.btnMapItem.Location = New System.Drawing.Point(52, 103)
-        Me.btnMapItem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnMapItem.Margin = New System.Windows.Forms.Padding(4)
         Me.btnMapItem.Name = "btnMapItem"
         Me.btnMapItem.Size = New System.Drawing.Size(120, 34)
         Me.btnMapItem.TabIndex = 6
@@ -959,9 +960,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraTrap.Controls.Add(Me.scrlTrap)
         Me.fraTrap.Controls.Add(Me.lblTrap)
         Me.fraTrap.Location = New System.Drawing.Point(244, 154)
-        Me.fraTrap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraTrap.Margin = New System.Windows.Forms.Padding(4)
         Me.fraTrap.Name = "fraTrap"
-        Me.fraTrap.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraTrap.Padding = New System.Windows.Forms.Padding(4)
         Me.fraTrap.Size = New System.Drawing.Size(196, 148)
         Me.fraTrap.TabIndex = 16
         Me.fraTrap.TabStop = False
@@ -970,7 +971,7 @@ Partial Class FrmEditor_MapEditor
         'btnTrap
         '
         Me.btnTrap.Location = New System.Drawing.Point(37, 105)
-        Me.btnTrap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnTrap.Margin = New System.Windows.Forms.Padding(4)
         Me.btnTrap.Name = "btnTrap"
         Me.btnTrap.Size = New System.Drawing.Size(120, 34)
         Me.btnTrap.TabIndex = 42
@@ -1066,7 +1067,7 @@ Partial Class FrmEditor_MapEditor
         Me.tabpages.Controls.Add(Me.tpEvents)
         Me.tabpages.Controls.Add(Me.TabPage1)
         Me.tabpages.Location = New System.Drawing.Point(5, 34)
-        Me.tabpages.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tabpages.Margin = New System.Windows.Forms.Padding(4)
         Me.tabpages.Name = "tabpages"
         Me.tabpages.SelectedIndex = 0
         Me.tabpages.Size = New System.Drawing.Size(665, 608)
@@ -1074,6 +1075,7 @@ Partial Class FrmEditor_MapEditor
         '
         'tpTiles
         '
+        Me.tpTiles.Controls.Add(Me.lblCoordinate)
         Me.tpTiles.Controls.Add(Me.cmbAutoTile)
         Me.tpTiles.Controls.Add(Me.Label11)
         Me.tpTiles.Controls.Add(Me.Label10)
@@ -1085,9 +1087,9 @@ Partial Class FrmEditor_MapEditor
         Me.tpTiles.Controls.Add(Me.scrlPictureX)
         Me.tpTiles.Controls.Add(Me.scrlPictureY)
         Me.tpTiles.Location = New System.Drawing.Point(4, 25)
-        Me.tpTiles.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpTiles.Margin = New System.Windows.Forms.Padding(4)
         Me.tpTiles.Name = "tpTiles"
-        Me.tpTiles.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpTiles.Padding = New System.Windows.Forms.Padding(4)
         Me.tpTiles.Size = New System.Drawing.Size(657, 579)
         Me.tpTiles.TabIndex = 0
         Me.tpTiles.Text = "Tiles"
@@ -1099,7 +1101,7 @@ Partial Class FrmEditor_MapEditor
         Me.cmbAutoTile.FormattingEnabled = True
         Me.cmbAutoTile.Items.AddRange(New Object() {"Normal", "AutoTile (VX)", "Fake (VX)", "Animated (VX)", "Cliff (VX)", "Waterfall (VX)"})
         Me.cmbAutoTile.Location = New System.Drawing.Point(488, 546)
-        Me.cmbAutoTile.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbAutoTile.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbAutoTile.Name = "cmbAutoTile"
         Me.cmbAutoTile.Size = New System.Drawing.Size(157, 24)
         Me.cmbAutoTile.TabIndex = 17
@@ -1130,7 +1132,7 @@ Partial Class FrmEditor_MapEditor
         Me.cmbLayers.FormattingEnabled = True
         Me.cmbLayers.Items.AddRange(New Object() {"Ground", "Mask", "Mask 2", "Fringe", "Fringe 2"})
         Me.cmbLayers.Location = New System.Drawing.Point(245, 546)
-        Me.cmbLayers.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbLayers.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbLayers.Name = "cmbLayers"
         Me.cmbLayers.Size = New System.Drawing.Size(160, 24)
         Me.cmbLayers.TabIndex = 14
@@ -1150,7 +1152,7 @@ Partial Class FrmEditor_MapEditor
         Me.cmbTileSets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbTileSets.FormattingEnabled = True
         Me.cmbTileSets.Location = New System.Drawing.Point(71, 546)
-        Me.cmbTileSets.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbTileSets.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbTileSets.Name = "cmbTileSets"
         Me.cmbTileSets.Size = New System.Drawing.Size(109, 24)
         Me.cmbTileSets.TabIndex = 12
@@ -1175,9 +1177,9 @@ Partial Class FrmEditor_MapEditor
         Me.tpAttributes.Controls.Add(Me.optKeyOpen)
         Me.tpAttributes.Controls.Add(Me.optResource)
         Me.tpAttributes.Location = New System.Drawing.Point(4, 25)
-        Me.tpAttributes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpAttributes.Margin = New System.Windows.Forms.Padding(4)
         Me.tpAttributes.Name = "tpAttributes"
-        Me.tpAttributes.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpAttributes.Padding = New System.Windows.Forms.Padding(4)
         Me.tpAttributes.Size = New System.Drawing.Size(657, 579)
         Me.tpAttributes.TabIndex = 3
         Me.tpAttributes.Text = "Atributos"
@@ -1187,7 +1189,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optLight.AutoSize = True
         Me.optLight.Location = New System.Drawing.Point(339, 105)
-        Me.optLight.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optLight.Margin = New System.Windows.Forms.Padding(4)
         Me.optLight.Name = "optLight"
         Me.optLight.Size = New System.Drawing.Size(52, 21)
         Me.optLight.TabIndex = 18
@@ -1199,7 +1201,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.optCraft.AutoSize = True
         Me.optCraft.Location = New System.Drawing.Point(231, 105)
-        Me.optCraft.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.optCraft.Margin = New System.Windows.Forms.Padding(4)
         Me.optCraft.Name = "optCraft"
         Me.optCraft.Size = New System.Drawing.Size(98, 21)
         Me.optCraft.TabIndex = 17
@@ -1211,9 +1213,9 @@ Partial Class FrmEditor_MapEditor
         '
         Me.tpNpcs.Controls.Add(Me.fraNpcs)
         Me.tpNpcs.Location = New System.Drawing.Point(4, 25)
-        Me.tpNpcs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpNpcs.Margin = New System.Windows.Forms.Padding(4)
         Me.tpNpcs.Name = "tpNpcs"
-        Me.tpNpcs.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpNpcs.Padding = New System.Windows.Forms.Padding(4)
         Me.tpNpcs.Size = New System.Drawing.Size(657, 579)
         Me.tpNpcs.TabIndex = 1
         Me.tpNpcs.Text = "Npcs"
@@ -1227,9 +1229,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraNpcs.Controls.Add(Me.lstMapNpc)
         Me.fraNpcs.Controls.Add(Me.ComboBox23)
         Me.fraNpcs.Location = New System.Drawing.Point(8, 10)
-        Me.fraNpcs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraNpcs.Margin = New System.Windows.Forms.Padding(4)
         Me.fraNpcs.Name = "fraNpcs"
-        Me.fraNpcs.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraNpcs.Padding = New System.Windows.Forms.Padding(4)
         Me.fraNpcs.Size = New System.Drawing.Size(638, 524)
         Me.fraNpcs.TabIndex = 11
         Me.fraNpcs.TabStop = False
@@ -1259,7 +1261,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.cmbNpcList.FormattingEnabled = True
         Me.cmbNpcList.Location = New System.Drawing.Point(348, 55)
-        Me.cmbNpcList.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbNpcList.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbNpcList.Name = "cmbNpcList"
         Me.cmbNpcList.Size = New System.Drawing.Size(283, 24)
         Me.cmbNpcList.TabIndex = 70
@@ -1269,7 +1271,7 @@ Partial Class FrmEditor_MapEditor
         Me.lstMapNpc.FormattingEnabled = True
         Me.lstMapNpc.ItemHeight = 16
         Me.lstMapNpc.Location = New System.Drawing.Point(12, 55)
-        Me.lstMapNpc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstMapNpc.Margin = New System.Windows.Forms.Padding(4)
         Me.lstMapNpc.Name = "lstMapNpc"
         Me.lstMapNpc.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.lstMapNpc.Size = New System.Drawing.Size(240, 452)
@@ -1280,7 +1282,7 @@ Partial Class FrmEditor_MapEditor
         Me.ComboBox23.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox23.FormattingEnabled = True
         Me.ComboBox23.Location = New System.Drawing.Point(455, 578)
-        Me.ComboBox23.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox23.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox23.Name = "ComboBox23"
         Me.ComboBox23.Size = New System.Drawing.Size(176, 24)
         Me.ComboBox23.TabIndex = 68
@@ -1295,9 +1297,9 @@ Partial Class FrmEditor_MapEditor
         Me.tpSettings.Controls.Add(Me.txtName)
         Me.tpSettings.Controls.Add(Me.Label6)
         Me.tpSettings.Location = New System.Drawing.Point(4, 25)
-        Me.tpSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.tpSettings.Name = "tpSettings"
-        Me.tpSettings.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpSettings.Padding = New System.Windows.Forms.Padding(4)
         Me.tpSettings.Size = New System.Drawing.Size(657, 579)
         Me.tpSettings.TabIndex = 2
         Me.tpSettings.Text = "Configurações"
@@ -1309,9 +1311,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraMapSettings.Controls.Add(Me.Label8)
         Me.fraMapSettings.Controls.Add(Me.cmbMoral)
         Me.fraMapSettings.Location = New System.Drawing.Point(8, 39)
-        Me.fraMapSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.fraMapSettings.Name = "fraMapSettings"
-        Me.fraMapSettings.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapSettings.Padding = New System.Windows.Forms.Padding(4)
         Me.fraMapSettings.Size = New System.Drawing.Size(309, 84)
         Me.fraMapSettings.TabIndex = 15
         Me.fraMapSettings.TabStop = False
@@ -1321,7 +1323,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.chkInstance.AutoSize = True
         Me.chkInstance.Location = New System.Drawing.Point(8, 55)
-        Me.chkInstance.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkInstance.Margin = New System.Windows.Forms.Padding(4)
         Me.chkInstance.Name = "chkInstance"
         Me.chkInstance.Size = New System.Drawing.Size(110, 21)
         Me.chkInstance.TabIndex = 40
@@ -1344,7 +1346,7 @@ Partial Class FrmEditor_MapEditor
         Me.cmbMoral.FormattingEnabled = True
         Me.cmbMoral.Items.AddRange(New Object() {"None", "Safe Zone", "Indoors"})
         Me.cmbMoral.Location = New System.Drawing.Point(60, 14)
-        Me.cmbMoral.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbMoral.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbMoral.Name = "cmbMoral"
         Me.cmbMoral.Size = New System.Drawing.Size(240, 24)
         Me.cmbMoral.TabIndex = 37
@@ -1357,9 +1359,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraMapLinks.Controls.Add(Me.txtRight)
         Me.fraMapLinks.Controls.Add(Me.txtUp)
         Me.fraMapLinks.Location = New System.Drawing.Point(8, 130)
-        Me.fraMapLinks.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapLinks.Margin = New System.Windows.Forms.Padding(4)
         Me.fraMapLinks.Name = "fraMapLinks"
-        Me.fraMapLinks.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMapLinks.Padding = New System.Windows.Forms.Padding(4)
         Me.fraMapLinks.Size = New System.Drawing.Size(309, 138)
         Me.fraMapLinks.TabIndex = 14
         Me.fraMapLinks.TabStop = False
@@ -1368,7 +1370,7 @@ Partial Class FrmEditor_MapEditor
         'txtDown
         '
         Me.txtDown.Location = New System.Drawing.Point(120, 106)
-        Me.txtDown.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtDown.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDown.Name = "txtDown"
         Me.txtDown.Size = New System.Drawing.Size(65, 22)
         Me.txtDown.TabIndex = 6
@@ -1377,7 +1379,7 @@ Partial Class FrmEditor_MapEditor
         'txtLeft
         '
         Me.txtLeft.Location = New System.Drawing.Point(9, 58)
-        Me.txtLeft.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtLeft.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLeft.Name = "txtLeft"
         Me.txtLeft.Size = New System.Drawing.Size(56, 22)
         Me.txtLeft.TabIndex = 5
@@ -1396,7 +1398,7 @@ Partial Class FrmEditor_MapEditor
         'txtRight
         '
         Me.txtRight.Location = New System.Drawing.Point(236, 58)
-        Me.txtRight.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtRight.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRight.Name = "txtRight"
         Me.txtRight.Size = New System.Drawing.Size(65, 22)
         Me.txtRight.TabIndex = 3
@@ -1405,7 +1407,7 @@ Partial Class FrmEditor_MapEditor
         'txtUp
         '
         Me.txtUp.Location = New System.Drawing.Point(119, 12)
-        Me.txtUp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtUp.Margin = New System.Windows.Forms.Padding(4)
         Me.txtUp.Name = "txtUp"
         Me.txtUp.Size = New System.Drawing.Size(65, 22)
         Me.txtUp.TabIndex = 1
@@ -1420,9 +1422,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraBootSettings.Controls.Add(Me.txtBootX)
         Me.fraBootSettings.Controls.Add(Me.Label4)
         Me.fraBootSettings.Location = New System.Drawing.Point(8, 276)
-        Me.fraBootSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraBootSettings.Margin = New System.Windows.Forms.Padding(4)
         Me.fraBootSettings.Name = "fraBootSettings"
-        Me.fraBootSettings.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraBootSettings.Padding = New System.Windows.Forms.Padding(4)
         Me.fraBootSettings.Size = New System.Drawing.Size(309, 112)
         Me.fraBootSettings.TabIndex = 13
         Me.fraBootSettings.TabStop = False
@@ -1431,7 +1433,7 @@ Partial Class FrmEditor_MapEditor
         'txtBootMap
         '
         Me.txtBootMap.Location = New System.Drawing.Point(235, 14)
-        Me.txtBootMap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBootMap.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBootMap.Name = "txtBootMap"
         Me.txtBootMap.Size = New System.Drawing.Size(65, 22)
         Me.txtBootMap.TabIndex = 5
@@ -1450,7 +1452,7 @@ Partial Class FrmEditor_MapEditor
         'txtBootY
         '
         Me.txtBootY.Location = New System.Drawing.Point(235, 78)
-        Me.txtBootY.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBootY.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBootY.Name = "txtBootY"
         Me.txtBootY.Size = New System.Drawing.Size(65, 22)
         Me.txtBootY.TabIndex = 3
@@ -1469,7 +1471,7 @@ Partial Class FrmEditor_MapEditor
         'txtBootX
         '
         Me.txtBootX.Location = New System.Drawing.Point(235, 46)
-        Me.txtBootX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtBootX.Margin = New System.Windows.Forms.Padding(4)
         Me.txtBootX.Name = "txtBootX"
         Me.txtBootX.Size = New System.Drawing.Size(65, 22)
         Me.txtBootX.TabIndex = 1
@@ -1492,9 +1494,9 @@ Partial Class FrmEditor_MapEditor
         Me.fraMaxSizes.Controls.Add(Me.txtMaxX)
         Me.fraMaxSizes.Controls.Add(Me.Label7)
         Me.fraMaxSizes.Location = New System.Drawing.Point(325, 276)
-        Me.fraMaxSizes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMaxSizes.Margin = New System.Windows.Forms.Padding(4)
         Me.fraMaxSizes.Name = "fraMaxSizes"
-        Me.fraMaxSizes.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.fraMaxSizes.Padding = New System.Windows.Forms.Padding(4)
         Me.fraMaxSizes.Size = New System.Drawing.Size(322, 96)
         Me.fraMaxSizes.TabIndex = 12
         Me.fraMaxSizes.TabStop = False
@@ -1503,7 +1505,7 @@ Partial Class FrmEditor_MapEditor
         'txtMaxY
         '
         Me.txtMaxY.Location = New System.Drawing.Point(165, 52)
-        Me.txtMaxY.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtMaxY.Margin = New System.Windows.Forms.Padding(4)
         Me.txtMaxY.Name = "txtMaxY"
         Me.txtMaxY.Size = New System.Drawing.Size(65, 22)
         Me.txtMaxY.TabIndex = 3
@@ -1522,7 +1524,7 @@ Partial Class FrmEditor_MapEditor
         'txtMaxX
         '
         Me.txtMaxX.Location = New System.Drawing.Point(165, 20)
-        Me.txtMaxX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtMaxX.Margin = New System.Windows.Forms.Padding(4)
         Me.txtMaxX.Name = "txtMaxX"
         Me.txtMaxX.Size = New System.Drawing.Size(65, 22)
         Me.txtMaxX.TabIndex = 1
@@ -1543,9 +1545,9 @@ Partial Class FrmEditor_MapEditor
         Me.GroupBox2.Controls.Add(Me.btnPreview)
         Me.GroupBox2.Controls.Add(Me.lstMusic)
         Me.GroupBox2.Location = New System.Drawing.Point(325, 4)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(322, 266)
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
@@ -1556,7 +1558,7 @@ Partial Class FrmEditor_MapEditor
         Me.btnPreview.Image = CType(resources.GetObject("btnPreview.Image"), System.Drawing.Image)
         Me.btnPreview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnPreview.Location = New System.Drawing.Point(66, 222)
-        Me.btnPreview.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnPreview.Margin = New System.Windows.Forms.Padding(4)
         Me.btnPreview.Name = "btnPreview"
         Me.btnPreview.Size = New System.Drawing.Size(185, 36)
         Me.btnPreview.TabIndex = 4
@@ -1568,7 +1570,7 @@ Partial Class FrmEditor_MapEditor
         Me.lstMusic.FormattingEnabled = True
         Me.lstMusic.ItemHeight = 16
         Me.lstMusic.Location = New System.Drawing.Point(8, 23)
-        Me.lstMusic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstMusic.Margin = New System.Windows.Forms.Padding(4)
         Me.lstMusic.Name = "lstMusic"
         Me.lstMusic.ScrollAlwaysVisible = True
         Me.lstMusic.Size = New System.Drawing.Size(304, 196)
@@ -1577,7 +1579,7 @@ Partial Class FrmEditor_MapEditor
         'txtName
         '
         Me.txtName.Location = New System.Drawing.Point(71, 7)
-        Me.txtName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(246, 22)
         Me.txtName.TabIndex = 10
@@ -1596,9 +1598,9 @@ Partial Class FrmEditor_MapEditor
         '
         Me.tpDirBlock.Controls.Add(Me.Label12)
         Me.tpDirBlock.Location = New System.Drawing.Point(4, 25)
-        Me.tpDirBlock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpDirBlock.Margin = New System.Windows.Forms.Padding(4)
         Me.tpDirBlock.Name = "tpDirBlock"
-        Me.tpDirBlock.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpDirBlock.Padding = New System.Windows.Forms.Padding(4)
         Me.tpDirBlock.Size = New System.Drawing.Size(657, 579)
         Me.tpDirBlock.TabIndex = 4
         Me.tpDirBlock.Text = "Bloqueio Direcional"
@@ -1624,9 +1626,9 @@ Partial Class FrmEditor_MapEditor
         Me.tpEvents.Controls.Add(Me.Label15)
         Me.tpEvents.Controls.Add(Me.Label13)
         Me.tpEvents.Location = New System.Drawing.Point(4, 25)
-        Me.tpEvents.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpEvents.Margin = New System.Windows.Forms.Padding(4)
         Me.tpEvents.Name = "tpEvents"
-        Me.tpEvents.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tpEvents.Padding = New System.Windows.Forms.Padding(4)
         Me.tpEvents.Size = New System.Drawing.Size(657, 579)
         Me.tpEvents.TabIndex = 5
         Me.tpEvents.Text = "Eventos"
@@ -1655,7 +1657,7 @@ Partial Class FrmEditor_MapEditor
         'btnPasteEvent
         '
         Me.btnPasteEvent.Location = New System.Drawing.Point(30, 204)
-        Me.btnPasteEvent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnPasteEvent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnPasteEvent.Name = "btnPasteEvent"
         Me.btnPasteEvent.Size = New System.Drawing.Size(100, 28)
         Me.btnPasteEvent.TabIndex = 4
@@ -1676,7 +1678,7 @@ Partial Class FrmEditor_MapEditor
         'btnCopyEvent
         '
         Me.btnCopyEvent.Location = New System.Drawing.Point(30, 132)
-        Me.btnCopyEvent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCopyEvent.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCopyEvent.Name = "btnCopyEvent"
         Me.btnCopyEvent.Size = New System.Drawing.Size(110, 28)
         Me.btnCopyEvent.TabIndex = 2
@@ -1710,9 +1712,9 @@ Partial Class FrmEditor_MapEditor
         Me.TabPage1.Controls.Add(Me.GroupBox3)
         Me.TabPage1.Controls.Add(Me.GroupBox1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(4)
         Me.TabPage1.Size = New System.Drawing.Size(657, 579)
         Me.TabPage1.TabIndex = 6
         Me.TabPage1.Text = "Efeitos de Mapa"
@@ -1723,9 +1725,9 @@ Partial Class FrmEditor_MapEditor
         Me.GroupBox5.Controls.Add(Me.Label20)
         Me.GroupBox5.Controls.Add(Me.cmbParallax)
         Me.GroupBox5.Location = New System.Drawing.Point(338, 204)
-        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Size = New System.Drawing.Size(315, 66)
         Me.GroupBox5.TabIndex = 21
         Me.GroupBox5.TabStop = False
@@ -1745,7 +1747,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.cmbParallax.FormattingEnabled = True
         Me.cmbParallax.Location = New System.Drawing.Point(93, 23)
-        Me.cmbParallax.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbParallax.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbParallax.Name = "cmbParallax"
         Me.cmbParallax.Size = New System.Drawing.Size(212, 24)
         Me.cmbParallax.TabIndex = 0
@@ -1755,9 +1757,9 @@ Partial Class FrmEditor_MapEditor
         Me.GroupBox4.Controls.Add(Me.Label19)
         Me.GroupBox4.Controls.Add(Me.cmbPanorama)
         Me.GroupBox4.Location = New System.Drawing.Point(8, 204)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Size = New System.Drawing.Size(322, 66)
         Me.GroupBox4.TabIndex = 20
         Me.GroupBox4.TabStop = False
@@ -1777,7 +1779,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.cmbPanorama.FormattingEnabled = True
         Me.cmbPanorama.Location = New System.Drawing.Point(93, 23)
-        Me.cmbPanorama.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbPanorama.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbPanorama.Name = "cmbPanorama"
         Me.cmbPanorama.Size = New System.Drawing.Size(219, 24)
         Me.cmbPanorama.TabIndex = 0
@@ -1794,9 +1796,9 @@ Partial Class FrmEditor_MapEditor
         Me.GroupBox3.Controls.Add(Me.scrlMapGreen)
         Me.GroupBox3.Controls.Add(Me.scrlMapRed)
         Me.GroupBox3.Location = New System.Drawing.Point(338, 7)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(315, 190)
         Me.GroupBox3.TabIndex = 19
         Me.GroupBox3.TabStop = False
@@ -1806,7 +1808,7 @@ Partial Class FrmEditor_MapEditor
         '
         Me.chkUseTint.AutoSize = True
         Me.chkUseTint.Location = New System.Drawing.Point(8, 23)
-        Me.chkUseTint.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.chkUseTint.Margin = New System.Windows.Forms.Padding(4)
         Me.chkUseTint.Name = "chkUseTint"
         Me.chkUseTint.Size = New System.Drawing.Size(118, 21)
         Me.chkUseTint.TabIndex = 18
@@ -1902,9 +1904,9 @@ Partial Class FrmEditor_MapEditor
         Me.GroupBox1.Controls.Add(Me.Label14)
         Me.GroupBox1.Controls.Add(Me.cmbWeather)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 7)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(322, 190)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
@@ -1998,10 +2000,21 @@ Partial Class FrmEditor_MapEditor
         Me.cmbWeather.FormattingEnabled = True
         Me.cmbWeather.Items.AddRange(New Object() {"None", "Rain", "Snow", "Hail", "Sand Storm", "Storm", "Fog"})
         Me.cmbWeather.Location = New System.Drawing.Point(120, 27)
-        Me.cmbWeather.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbWeather.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbWeather.Name = "cmbWeather"
         Me.cmbWeather.Size = New System.Drawing.Size(192, 24)
         Me.cmbWeather.TabIndex = 0
+        '
+        'lblCoordinate
+        '
+        Me.lblCoordinate.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lblCoordinate.AutoSize = True
+        Me.lblCoordinate.Location = New System.Drawing.Point(567, 525)
+        Me.lblCoordinate.Name = "lblCoordinate"
+        Me.lblCoordinate.Size = New System.Drawing.Size(54, 17)
+        Me.lblCoordinate.TabIndex = 18
+        Me.lblCoordinate.Text = "X:0 Y:0"
+        Me.lblCoordinate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'FrmEditor_MapEditor
         '
@@ -2013,7 +2026,7 @@ Partial Class FrmEditor_MapEditor
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.pnlAttributes)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "FrmEditor_MapEditor"
         Me.Text = "Editor de Mapa"
@@ -2243,4 +2256,5 @@ Partial Class FrmEditor_MapEditor
     Friend WithEvents GroupBox4 As Windows.Forms.GroupBox
     Friend WithEvents Label19 As Windows.Forms.Label
     Friend WithEvents cmbPanorama As Windows.Forms.ComboBox
+    Friend WithEvents lblCoordinate As Label
 End Class
