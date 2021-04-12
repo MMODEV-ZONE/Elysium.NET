@@ -724,6 +724,17 @@ Public Class FrmEditor_MapEditor
         cmbTileSets.SelectedIndex = 0
         cmbLayers.SelectedIndex = 0
 
+        If Map.HasMapTint = 1 Then
+            chkUseTint.Checked = True
+            scrlMapRed.Value = Map.MapTintR
+            scrlMapBlue.Value = Map.MapTintG
+            scrlMapGreen.Value = Map.MapTintB
+            scrlMapAlpha.Value = Map.MapTintA
+        End If
+
+        scrlFogSpeed.Value = Map.FogSpeed
+        scrlFogAlpha.Value = Map.FogAlpha
+
         InitMapProperties = True
 
         If MapData = True Then GettingMap = False
