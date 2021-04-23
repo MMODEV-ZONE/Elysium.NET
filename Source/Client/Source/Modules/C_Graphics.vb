@@ -410,9 +410,9 @@ Module C_Graphics
         End If
 
         DoorGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Door" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Porta" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
-            DoorGfx = New Texture(Path.Graphics & "Misc\Door" & GfxExt)
+            DoorGfx = New Texture(Path.Graphics & "Misc\Porta" & GfxExt)
             DoorSprite = New Sprite(DoorGfx)
 
             'Botar em cache o comprimento e a altura
@@ -421,9 +421,9 @@ Module C_Graphics
         End If
 
         BloodGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Blood" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Sangue" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
-            BloodGfx = New Texture(Path.Graphics & "Misc\Blood" & GfxExt)
+            BloodGfx = New Texture(Path.Graphics & "Misc\Sangue" & GfxExt)
             BloodSprite = New Sprite(BloodGfx)
 
             'Botar em cache o comprimento e a altura
@@ -432,9 +432,9 @@ Module C_Graphics
         End If
 
         DirectionsGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Direction" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Direção" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
-            DirectionsGfx = New Texture(Path.Graphics & "Misc\Direction" & GfxExt)
+            DirectionsGfx = New Texture(Path.Graphics & "Misc\Direção" & GfxExt)
             DirectionsSprite = New Sprite(DirectionsGfx)
 
             'Botar em cache o comprimento e a altura
@@ -443,7 +443,7 @@ Module C_Graphics
         End If
 
         WeatherGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Weather" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Clima" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
             WeatherGfx = New Texture(Path.Graphics & "Misc\Clima" & GfxExt)
             WeatherSprite = New Sprite(WeatherGfx)
@@ -748,8 +748,8 @@ Module C_Graphics
         End If
 
         LightGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Light" & GfxExt) Then
-            LightGfx = New Texture(Path.Graphics & "Misc\Light" & GfxExt)
+        If File.Exists(Path.Graphics & "Misc\Iluminação" & GfxExt) Then
+            LightGfx = New Texture(Path.Graphics & "Misc\Iluminação" & GfxExt)
             LightSprite = New Sprite(LightGfx)
 
             'Botar em cache o comprimento e a altura
@@ -758,8 +758,8 @@ Module C_Graphics
         End If
 
         ShadowGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Shadow" & GfxExt) Then
-            ShadowGfx = New Texture(Path.Graphics & "Misc\Shadow" & GfxExt)
+        If File.Exists(Path.Graphics & "Misc\Sombra" & GfxExt) Then
+            ShadowGfx = New Texture(Path.Graphics & "Misc\Sombra" & GfxExt)
             ShadowSprite = New Sprite(ShadowGfx)
 
             'Botar em cache o comprimento e a altura

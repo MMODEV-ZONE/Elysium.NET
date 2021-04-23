@@ -937,7 +937,7 @@
     <None Include="Dados\Graficos\Itens\99.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Blood.png">
+    <None Include="Dados\Graficos\Misc\Sangue.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Dados\Graficos\Misc\ChatBubble.png">
@@ -946,16 +946,16 @@
     <None Include="Dados\Graficos\Misc\Cursor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Direction.png">
+    <None Include="Dados\Graficos\Misc\Direção.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Door.png">
+    <None Include="Dados\Graficos\Misc\Porta.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Light.png">
+    <None Include="Dados\Graficos\Misc\Iluminação.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Shadow.png">
+    <None Include="Dados\Graficos\Misc\Sombra.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Dados\Graficos\Misc\Target.png">
