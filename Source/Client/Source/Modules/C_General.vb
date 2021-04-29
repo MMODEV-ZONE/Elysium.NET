@@ -5,13 +5,15 @@ Imports System.Windows.Forms
 Module C_General
 
     Friend Started As Boolean
+    Friend myStopWatch As New Stopwatch()
 
-    Friend Function GetTickCount() As Integer
-        Return Environment.TickCount
+    Friend Function GetTickCount() As Long
+        Return myStopWatch.ElapsedMilliseconds
     End Function
 
     Sub Startup()
         SFML.Portable.Activate()
+        myStopWatch.Start()
         LoadSettings()
         LoadLanguage()
         LoadInputs()
