@@ -742,7 +742,7 @@ Public Class FrmEditor_Events
 #Region "Conditions"
 
     Private Sub ChkPlayerVar_CheckedChanged(sender As Object, e As EventArgs) Handles chkPlayerVar.CheckedChanged
-        If chkPlayerVar.Checked = True Then
+        If chkPlayerVar.Checked = False Then
             cmbPlayerVar.Enabled = False
             nudPlayerVariable.Enabled = False
             cmbPlayervarCompare.Enabled = False

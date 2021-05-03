@@ -2736,7 +2736,7 @@ newlist:
                 Case 1
                     If FrmEditor_Events.nudGraphic.Value > 0 AndAlso FrmEditor_Events.nudGraphic.Value <= NumCharacters Then
                         'Carregar personagem da pasta de Contents para nosso sourceBitmap
-                        sourceBitmap = New Bitmap(Application.StartupPath & "/Data/graphics/characters/" & FrmEditor_Events.nudGraphic.Value & ".png")
+                        sourceBitmap = New Bitmap(Path.Graphics & "Personagens\" & FrmEditor_Events.nudGraphic.Value & ".png")
                         targetBitmap = New Bitmap(sourceBitmap.Width, sourceBitmap.Height) 'Criar nosso bitmap alvo
 
                         g = Graphics.FromImage(targetBitmap)
@@ -2763,7 +2763,7 @@ newlist:
                 Case 2
                     If FrmEditor_Events.nudGraphic.Value > 0 AndAlso FrmEditor_Events.nudGraphic.Value <= NumTileSets Then
                         'Carregar  tilesheet de Contents no nosso bitmap fonte
-                        sourceBitmap = New Bitmap(Application.StartupPath & "/Data/graphics/tilesets/" & FrmEditor_Events.nudGraphic.Value & ".png")
+                        sourceBitmap = New Bitmap(Path.Graphics & "Tilesets\" & FrmEditor_Events.nudGraphic.Value & ".png")
                         targetBitmap = New Bitmap(sourceBitmap.Width, sourceBitmap.Height) 'Criar o Bitmap alvo
 
                         If TmpEvent.Pages(CurPageNum).GraphicX2 = 0 AndAlso TmpEvent.Pages(CurPageNum).GraphicY2 = 0 Then
