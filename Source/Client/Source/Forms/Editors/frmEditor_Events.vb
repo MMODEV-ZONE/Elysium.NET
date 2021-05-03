@@ -269,7 +269,7 @@ Public Class FrmEditor_Events
                 fraAddText.Visible = True
                 fraCommands.Visible = False
             'chat bubble
-            Case "Mostrar Bolha de Char"
+            Case "Mostrar Bolha de Chat"
                 txtChatbubbleText.Text = ""
                 cmbChatBubbleTargetType.SelectedIndex = 0
                 cmbChatBubbleTarget.Visible = False
@@ -348,7 +348,7 @@ Public Class FrmEditor_Events
                 fraCommands.Visible = False
                 fraDialogue.Visible = False
             'Restaurar Mp
-            Case "Restaurar Mp"
+            Case "Restaurar MP"
                 AddCommand(EventType.EvRestoreMp)
                 fraCommands.Visible = False
                 fraDialogue.Visible = False
@@ -358,7 +358,7 @@ Public Class FrmEditor_Events
                 fraCommands.Visible = False
                 fraDialogue.Visible = False
             'Alterar nível
-            Case "Alterar nível"
+            Case "Alterar Nível"
                 nudChangeLevel.Value = 1
                 fraDialogue.Visible = True
                 fraChangeLevel.Visible = True
@@ -539,7 +539,7 @@ Public Class FrmEditor_Events
                 fraSetFog.Visible = True
                 fraCommands.Visible = False
             'Setar Tempo
-            Case "Setar Tempo"
+            Case "Setar Clima"
                 CmbWeather.SelectedIndex = 0
                 nudWeatherIntensity.Value = 0
                 fraDialogue.Visible = True
@@ -602,18 +602,18 @@ Public Class FrmEditor_Events
             'Loja, banco, etc
 
             'Abrir banco
-            Case "Abrir banco"
+            Case "Abrir Banco"
                 AddCommand(EventType.EvOpenBank)
                 fraCommands.Visible = False
                 fraDialogue.Visible = False
             'Abrir loja
-            Case "Abrir loja"
+            Case "Abrir Loja"
                 fraDialogue.Visible = True
                 fraOpenShop.Visible = True
                 cmbOpenShop.SelectedIndex = 0
                 fraCommands.Visible = False
             'Abrir Correio
-            Case 45
+            Case "Correio"
                 AddCommand(EventType.EvOpenMail)
                 fraCommands.Visible = False
                 fraDialogue.Visible = False
@@ -630,12 +630,12 @@ Public Class FrmEditor_Events
                 fraCommands.Visible = False
                 fraDialogue.Visible = False
             'Piscar em branco
-            Case 48
+            Case "Flash"
                 AddCommand(EventType.EvFlashWhite)
                 fraCommands.Visible = False
                 fraDialogue.Visible = False
             'Mostrar imagem
-            Case 49
+            Case "Aparecer"
                 cmbPicIndex.SelectedIndex = 0
                 nudShowPicture.Value = 1
                 cmbPicLoc.SelectedIndex = 0
@@ -645,7 +645,7 @@ Public Class FrmEditor_Events
                 fraShowPic.Visible = True
                 fraCommands.Visible = False
             'Esconder imagem
-            Case 50
+            Case "Esmaecer"
                 nudHidePic.Value = 0
                 fraDialogue.Visible = True
                 fraHidePic.Visible = True
