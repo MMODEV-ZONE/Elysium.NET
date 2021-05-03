@@ -1509,6 +1509,7 @@ newlist:
 
         i = FrmEditor_Events.lstCommands.SelectedIndex
         If i = -1 Then Exit Sub
+        If EventList Is Nothing Then Exit Sub
         If i > UBound(EventList) Then Exit Sub
 
         FrmEditor_Events.fraConditionalBranch.Visible = False
