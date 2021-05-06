@@ -25,6 +25,7 @@ Friend Module S_Events
 
 #Region "Structures"
 
+    <Serializable>
     Structure MoveRouteStruct
         Dim Index As Integer
         Dim Data1 As Integer
@@ -77,6 +78,7 @@ Friend Module S_Events
         Dim Events() As GlobalEventStruct
     End Structure
 
+    <Serializable>
     Friend Structure ConditionalBranchStruct
         Dim Condition As Integer
         Dim Data1 As Integer
@@ -86,6 +88,7 @@ Friend Module S_Events
         Dim ElseCommandList As Integer
     End Structure
 
+    <Serializable>
     Structure EventCommandStruct
         Dim Index As Byte
         Dim Text1 As String
@@ -104,12 +107,14 @@ Friend Module S_Events
         Dim MoveRoute() As MoveRouteStruct
     End Structure
 
+    <Serializable>
     Structure CommandListStruct
         Dim CommandCount As Integer
         Dim ParentList As Integer
         Dim Commands() As EventCommandStruct
     End Structure
 
+    <Serializable>
     Structure EventPageStruct
         'Estas são variáveis de condições que decidem se o evento ao menos aparece ao jogador.
         Dim ChkVariable As Integer

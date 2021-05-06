@@ -672,7 +672,11 @@ Module C_Maps
         If Map.EventCount > 0 Then
             For i = 1 To Map.EventCount
                 With Map.Events(i)
-                    buffer.WriteString((.Name.Trim))
+                    If String.IsNullOrEmpty(.Name) Then
+                        buffer.WriteString(String.Empty)
+                    Else
+                        buffer.WriteString(.Name.Trim)
+                    End If
                     buffer.WriteInt32(.Globals)
                     buffer.WriteInt32(.X)
                     buffer.WriteInt32(.Y)
