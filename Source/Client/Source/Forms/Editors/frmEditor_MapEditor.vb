@@ -1016,6 +1016,8 @@ Public Class FrmEditor_MapEditor
         InMapEditor = False
         Visible = False
         GettingMap = True
+
+        If FrmEditor_Events.Visible Then FrmEditor_Events.Dispose()
     End Sub
 
     Public Sub MapEditorSend()
@@ -1023,6 +1025,8 @@ Public Class FrmEditor_MapEditor
         InMapEditor = False
         Visible = False
         GettingMap = True
+
+        If FrmEditor_Events.Visible Then FrmEditor_Events.Dispose()
     End Sub
 
     Public Sub MapEditorSetTile(ByVal X As Integer, ByVal Y As Integer, ByVal CurLayer As Integer, Optional ByVal multitile As Boolean = False, Optional ByVal theAutotile As Byte = 0)

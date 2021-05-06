@@ -2489,7 +2489,7 @@ Partial Class FrmEditor_Events
         'cmbPlayAnimEvent
         '
         Me.cmbPlayAnimEvent.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbPlayAnimEvent.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPlayAnimEvent.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbPlayAnimEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPlayAnimEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPlayAnimEvent.ForeColor = System.Drawing.Color.Gainsboro
@@ -2514,7 +2514,7 @@ Partial Class FrmEditor_Events
         'cmbAnimTargetType
         '
         Me.cmbAnimTargetType.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbAnimTargetType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbAnimTargetType.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbAnimTargetType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAnimTargetType.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbAnimTargetType.ForeColor = System.Drawing.Color.Gainsboro
@@ -2560,7 +2560,7 @@ Partial Class FrmEditor_Events
         'cmbPlayAnim
         '
         Me.cmbPlayAnim.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbPlayAnim.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPlayAnim.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbPlayAnim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPlayAnim.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPlayAnim.ForeColor = System.Drawing.Color.Gainsboro
@@ -2623,7 +2623,7 @@ Partial Class FrmEditor_Events
         'cmbMoveWait
         '
         Me.cmbMoveWait.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbMoveWait.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbMoveWait.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbMoveWait.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMoveWait.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbMoveWait.ForeColor = System.Drawing.Color.Gainsboro
@@ -2768,7 +2768,7 @@ Partial Class FrmEditor_Events
         'CmbWeather
         '
         Me.CmbWeather.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.CmbWeather.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.CmbWeather.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.CmbWeather.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbWeather.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbWeather.ForeColor = System.Drawing.Color.Gainsboro
@@ -2820,7 +2820,7 @@ Partial Class FrmEditor_Events
         'cmbSpawnNpc
         '
         Me.cmbSpawnNpc.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbSpawnNpc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSpawnNpc.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbSpawnNpc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSpawnNpc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSpawnNpc.ForeColor = System.Drawing.Color.Gainsboro
@@ -2931,7 +2931,7 @@ Partial Class FrmEditor_Events
         'cmbEndQuest
         '
         Me.cmbEndQuest.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbEndQuest.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbEndQuest.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbEndQuest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbEndQuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbEndQuest.ForeColor = System.Drawing.Color.Gainsboro
@@ -2982,7 +2982,7 @@ Partial Class FrmEditor_Events
         'cmbSetAccess
         '
         Me.cmbSetAccess.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbSetAccess.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSetAccess.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbSetAccess.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSetAccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSetAccess.ForeColor = System.Drawing.Color.Gainsboro
@@ -3206,7 +3206,7 @@ Partial Class FrmEditor_Events
         'cmbPicLoc
         '
         Me.cmbPicLoc.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbPicLoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPicLoc.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbPicLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPicLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPicLoc.ForeColor = System.Drawing.Color.Gainsboro
@@ -3242,7 +3242,7 @@ Partial Class FrmEditor_Events
         'cmbPicIndex
         '
         Me.cmbPicIndex.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbPicIndex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPicIndex.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbPicIndex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPicIndex.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPicIndex.ForeColor = System.Drawing.Color.Gainsboro
@@ -3304,7 +3304,7 @@ Partial Class FrmEditor_Events
         'cmbOpenShop
         '
         Me.cmbOpenShop.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbOpenShop.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbOpenShop.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbOpenShop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOpenShop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbOpenShop.ForeColor = System.Drawing.Color.Gainsboro
@@ -3594,7 +3594,7 @@ Partial Class FrmEditor_Events
         'cmbBeginQuest
         '
         Me.cmbBeginQuest.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbBeginQuest.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbBeginQuest.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbBeginQuest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbBeginQuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbBeginQuest.ForeColor = System.Drawing.Color.Gainsboro
@@ -3976,7 +3976,7 @@ Partial Class FrmEditor_Events
         'cmbVariable
         '
         Me.cmbVariable.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbVariable.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbVariable.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbVariable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbVariable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbVariable.ForeColor = System.Drawing.Color.Gainsboro
@@ -4123,7 +4123,7 @@ Partial Class FrmEditor_Events
         'cmbSetSelfSwitchTo
         '
         Me.cmbSetSelfSwitchTo.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbSetSelfSwitchTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSetSelfSwitchTo.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbSetSelfSwitchTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSetSelfSwitchTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSetSelfSwitchTo.ForeColor = System.Drawing.Color.Gainsboro
@@ -4149,7 +4149,7 @@ Partial Class FrmEditor_Events
         'cmbSetSelfSwitch
         '
         Me.cmbSetSelfSwitch.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbSetSelfSwitch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSetSelfSwitch.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbSetSelfSwitch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSetSelfSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSetSelfSwitch.ForeColor = System.Drawing.Color.Gainsboro
@@ -4347,7 +4347,7 @@ Partial Class FrmEditor_Events
         'cmbChatBubbleTarget
         '
         Me.cmbChatBubbleTarget.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbChatBubbleTarget.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbChatBubbleTarget.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbChatBubbleTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbChatBubbleTarget.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbChatBubbleTarget.ForeColor = System.Drawing.Color.Gainsboro
@@ -4361,7 +4361,7 @@ Partial Class FrmEditor_Events
         'cmbChatBubbleTargetType
         '
         Me.cmbChatBubbleTargetType.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbChatBubbleTargetType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbChatBubbleTargetType.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbChatBubbleTargetType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbChatBubbleTargetType.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbChatBubbleTargetType.ForeColor = System.Drawing.Color.Gainsboro
@@ -4446,7 +4446,7 @@ Partial Class FrmEditor_Events
         'cmbPlaySound
         '
         Me.cmbPlaySound.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbPlaySound.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPlaySound.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbPlaySound.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPlaySound.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPlaySound.ForeColor = System.Drawing.Color.Gainsboro
@@ -4497,7 +4497,7 @@ Partial Class FrmEditor_Events
         'cmbSetPK
         '
         Me.cmbSetPK.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbSetPK.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSetPK.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbSetPK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSetPK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSetPK.ForeColor = System.Drawing.Color.Gainsboro
@@ -4610,7 +4610,7 @@ Partial Class FrmEditor_Events
         'cmbChangeClass
         '
         Me.cmbChangeClass.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbChangeClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbChangeClass.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbChangeClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbChangeClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbChangeClass.ForeColor = System.Drawing.Color.Gainsboro
@@ -4697,7 +4697,7 @@ Partial Class FrmEditor_Events
         'cmbChangeSkills
         '
         Me.cmbChangeSkills.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbChangeSkills.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbChangeSkills.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbChangeSkills.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbChangeSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbChangeSkills.ForeColor = System.Drawing.Color.Gainsboro
@@ -4795,7 +4795,7 @@ Partial Class FrmEditor_Events
         'cmbCompleteQuest
         '
         Me.cmbCompleteQuest.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbCompleteQuest.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbCompleteQuest.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbCompleteQuest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCompleteQuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbCompleteQuest.ForeColor = System.Drawing.Color.Gainsboro
@@ -4864,7 +4864,7 @@ Partial Class FrmEditor_Events
         'cmbWarpPlayerDir
         '
         Me.cmbWarpPlayerDir.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbWarpPlayerDir.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbWarpPlayerDir.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbWarpPlayerDir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbWarpPlayerDir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbWarpPlayerDir.ForeColor = System.Drawing.Color.Gainsboro
@@ -5293,7 +5293,7 @@ Partial Class FrmEditor_Events
         'cmbPlayerSwitchSet
         '
         Me.cmbPlayerSwitchSet.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbPlayerSwitchSet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPlayerSwitchSet.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbPlayerSwitchSet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPlayerSwitchSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPlayerSwitchSet.ForeColor = System.Drawing.Color.Gainsboro
@@ -5319,7 +5319,7 @@ Partial Class FrmEditor_Events
         'cmbSwitch
         '
         Me.cmbSwitch.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbSwitch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSwitch.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbSwitch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSwitch.ForeColor = System.Drawing.Color.Gainsboro
@@ -5429,7 +5429,7 @@ Partial Class FrmEditor_Events
         'cmbChangeItemIndex
         '
         Me.cmbChangeItemIndex.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbChangeItemIndex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbChangeItemIndex.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbChangeItemIndex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbChangeItemIndex.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbChangeItemIndex.ForeColor = System.Drawing.Color.Gainsboro
@@ -5491,7 +5491,7 @@ Partial Class FrmEditor_Events
         'cmbPlayBGM
         '
         Me.cmbPlayBGM.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbPlayBGM.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPlayBGM.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbPlayBGM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPlayBGM.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPlayBGM.ForeColor = System.Drawing.Color.Gainsboro
