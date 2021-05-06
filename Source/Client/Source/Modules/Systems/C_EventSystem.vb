@@ -2742,9 +2742,9 @@ newlist:
 
                         g = Graphics.FromImage(targetBitmap)
                         'Esta é a seção que estamos puxando no gráfico fonte  
-                        Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 4, sourceBitmap.Height / 4)
+                        Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 3, sourceBitmap.Height / 4)
                         'Este é o retângulo no gráfico alvo que queremos renderizar 
-                        Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 4, targetBitmap.Height / 4)
+                        Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 3, targetBitmap.Height / 4)
 
                         g.DrawImage(sourceBitmap, destRect, sourceRect, GraphicsUnit.Pixel)
 
@@ -2829,8 +2829,8 @@ newlist:
 
                             g = Graphics.FromImage(targetBitmap)
 
-                            Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 4, sourceBitmap.Height / 4)
-                            Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 4, targetBitmap.Height / 4)
+                            Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 3, sourceBitmap.Height / 4)
+                            Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 3, targetBitmap.Height / 4)
 
                             g.DrawImage(sourceBitmap, destRect, sourceRect, GraphicsUnit.Pixel)
 
@@ -2947,7 +2947,7 @@ newlist:
                         With rec
                             .Y = (Map.Events(i).Pages(1).GraphicY * (CharacterGfxInfo(Map.Events(i).Pages(1).Graphic).Height / 4))
                             .Height = .Y + PicY
-                            .X = (Map.Events(i).Pages(1).GraphicX * (CharacterGfxInfo(Map.Events(i).Pages(1).Graphic).Width / 4))
+                            .X = (Map.Events(i).Pages(1).GraphicX * (CharacterGfxInfo(Map.Events(i).Pages(1).Graphic).Width / 3))
                             .Width = .X + PicX
                         End With
 
@@ -3062,12 +3062,12 @@ nextevent:
                 If Map.MapEvents(id).WalkAnim = 1 Then anim = 0
                 If Map.MapEvents(id).Moving = 0 Then anim = Map.MapEvents(id).GraphicX
 
-                width = CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4
+                width = CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3
                 height = CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4
 
-                sRect = New Rectangle((anim) * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4), spritetop * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4))
+                sRect = New Rectangle((anim) * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3), spritetop * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4))
                 ' Calcular o X
-                x = Map.MapEvents(id).X * PicX + Map.MapEvents(id).XOffset - ((CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4 - 32) / 2)
+                x = Map.MapEvents(id).X * PicX + Map.MapEvents(id).XOffset - ((CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3 - 32) / 2)
 
                 ' Altura do jogador é mairo que 32..?
                 If (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height * 4) > 32 Then
