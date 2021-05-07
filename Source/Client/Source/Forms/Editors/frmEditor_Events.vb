@@ -226,6 +226,7 @@ Public Class FrmEditor_Events
     End Sub
 
     Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        FrmEditor_MapEditor.Visible = True
         Dispose()
     End Sub
 

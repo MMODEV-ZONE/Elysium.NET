@@ -762,6 +762,7 @@
             End With
             ' mostrar o editor
             FrmEditor_Events.Show()
+            FrmEditor_MapEditor.Visible = False
 
             InitEventEditorForm = False
         End If

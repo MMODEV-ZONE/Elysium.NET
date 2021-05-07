@@ -587,6 +587,7 @@ Friend Module C_EventSystem
         ' copiar os dados do evento do evento temp
 
         Map.Events(EditorEvent) = TmpEvent
+        FrmEditor_MapEditor.Visible = True
         ' descarregar formulario
         FrmEditor_Events.Dispose()
 
