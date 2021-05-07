@@ -725,7 +725,7 @@ Partial Class frmEditor_Quest
         'cmbResource
         '
         Me.cmbResource.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbResource.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbResource.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbResource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbResource.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbResource.ForeColor = System.Drawing.Color.Gainsboro
@@ -739,7 +739,7 @@ Partial Class frmEditor_Quest
         'cmbMap
         '
         Me.cmbMap.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbMap.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbMap.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbMap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbMap.ForeColor = System.Drawing.Color.Gainsboro
@@ -753,7 +753,7 @@ Partial Class frmEditor_Quest
         'cmbItem
         '
         Me.cmbItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbItem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbItem.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbItem.ForeColor = System.Drawing.Color.Gainsboro
@@ -767,7 +767,7 @@ Partial Class frmEditor_Quest
         'cmbNpc
         '
         Me.cmbNpc.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.cmbNpc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbNpc.DrawMode = System.Windows.Forms.DrawMode.Normal
         Me.cmbNpc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbNpc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbNpc.ForeColor = System.Drawing.Color.Gainsboro
