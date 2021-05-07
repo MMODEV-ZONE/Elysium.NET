@@ -2964,6 +2964,7 @@ NextLoop:
 
         If PnlShopVisible = True Then
             DrawShop()
+            If ShowItemDesc = True Then DrawItemDesc()
         End If
 
         If PnlTradeVisible = True Then
