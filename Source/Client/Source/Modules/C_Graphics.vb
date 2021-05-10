@@ -2026,7 +2026,7 @@ Module C_Graphics
                 If Map.Npc Is Nothing Then Exit Sub
                 If Map.Npc(i) > 0 Then
                     If Npc(MapNpc(i).Num).Behaviour = NpcBehavior.AttackOnSight OrElse Npc(MapNpc(i).Num).Behaviour = NpcBehavior.AttackWhenAttacked OrElse Npc(MapNpc(i).Num).Behaviour = NpcBehavior.Guard Then
-                        ' fcoar no npc
+                        ' focar no npc
                         tmpX = MapNpc(i).X * PicX + MapNpc(i).XOffset
                         tmpY = MapNpc(i).Y * PicY + MapNpc(i).YOffset + CharacterGfxInfo(Npc(MapNpc(i).Num).Sprite).Height / 2
                         If MapNpc(i).Vital(VitalType.HP) > 0 Then
