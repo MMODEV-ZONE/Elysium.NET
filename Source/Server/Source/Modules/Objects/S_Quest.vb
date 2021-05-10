@@ -687,7 +687,7 @@ Friend Module S_Quest
         End If
 
         'Ver se quest é repetível, setar como completa
-        If Quest(QuestNum).Repeat = True Then
+        If Quest(QuestNum).Repeat = 1 Then
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Repeatable
         Else
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Completed
