@@ -2028,7 +2028,7 @@ Module C_Graphics
                     If Npc(MapNpc(i).Num).Behaviour = NpcBehavior.AttackOnSight OrElse Npc(MapNpc(i).Num).Behaviour = NpcBehavior.AttackWhenAttacked OrElse Npc(MapNpc(i).Num).Behaviour = NpcBehavior.Guard Then
                         ' fcoar no npc
                         tmpX = MapNpc(i).X * PicX + MapNpc(i).XOffset
-                        tmpY = MapNpc(i).Y * PicY + MapNpc(i).YOffset + 35
+                        tmpY = MapNpc(i).Y * PicY + MapNpc(i).YOffset + CharacterGfxInfo(Npc(MapNpc(i).Num).Sprite).Height / 2
                         If MapNpc(i).Vital(VitalType.HP) > 0 Then
                             ' calcular comprimento para preencher
                             barWidth = ((MapNpc(i).Vital(VitalType.HP) / (Npc(MapNpc(i).Num).Hp) * 32))
