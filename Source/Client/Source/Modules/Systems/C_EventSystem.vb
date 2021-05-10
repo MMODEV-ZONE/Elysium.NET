@@ -1466,11 +1466,11 @@ newlist:
 
             Case EventType.EvBeginQuest
                 TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Index = Index
-                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbBeginQuest.SelectedIndex + 1
+                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbBeginQuest.SelectedIndex
 
             Case EventType.EvEndQuest
                 TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Index = Index
-                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbEndQuest.SelectedIndex + 1
+                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbEndQuest.SelectedIndex
 
             Case EventType.EvQuestTask
                 TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Index = Index
