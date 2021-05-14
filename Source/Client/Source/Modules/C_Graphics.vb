@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Linq
 Imports SFML.Graphics
 Imports SFML.Window
 
@@ -2766,6 +2767,10 @@ NextLoop:
         RenderSprite(TargetSprite, GameWindow, x, y, rec.X, rec.Y, rec.Width, rec.Height)
     End Sub
 
+    Friend Function CanShowText(text As String) As Boolean
+        Return text <> Language.ItemDescription.NotAvailable And Not String.IsNullOrEmpty(text)
+    End Function
+
     Friend Sub DrawItemDesc()
         Dim xoffset As Integer, yoffset As Integer, y As Integer
 
@@ -2802,42 +2807,39 @@ NextLoop:
             y += 15
         Next
 
-        DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 44, "Shift para detalhes", SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+        Dim DescList As New Dictionary(Of String, String) From {
+            {ItemDescInfo, ItemDescInfo},
+            {"Velocidade", ItemDescSpeed},
+            {"Nível Necessário", ItemDescLevel},
+            {"=Bônus=", String.Empty},
+            {"Força", ItemDescStr},
+            {"Vitalidade", ItemDescVit},
+            {"Inteligência", ItemDescInt},
+            {"Resistência", ItemDescEnd},
+            {"Sorte", ItemDescLuck},
+            {"Espírito", ItemDescSpr}
+        }
 
-        If ShiftDown OrElse VbKeyShift = True Then
-            'info
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 56, ItemDescInfo, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+        Dim HasMoreDetails As Boolean = DescList.Values.Any(Function(x) x <> Language.ItemDescription.NotAvailable And Not String.IsNullOrEmpty(x))
 
-            'custo
-            'DrawText(Xoffset - DescriptionGFXInfo.width + 10, Yoffset + 74, "Worth: " & ItemDescCost, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'type
-            'DrawText(Xoffset - DescriptionGFXInfo.width + 10, Yoffset + 90, "Type: " & ItemDescType, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Velocidade
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 74, "Velocidade: " & ItemDescSpeed, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'nível
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 90, "Nível Necessário: " & ItemDescLevel, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'bonus
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 118, "=Bônus=", SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Força
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 134, "Força: " & ItemDescStr, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Vitalidade
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 150, "Vitalidade: " & ItemDescVit, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Inteligência
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 166, "Inteligência: " & ItemDescInt, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Resistência
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 182, "Resistência: " & ItemDescEnd, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Sorte
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 198, "Sorte: " & ItemDescLuck, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Espírito
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 214, "Espírito: " & ItemDescSpr, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+        If HasMoreDetails And (ShiftDown OrElse VbKeyShift) Then
+            Dim BonusOffset As Integer = 56
+
+            For Each Description In DescList
+                If Description.Value <> Language.ItemDescription.NotAvailable And (Not String.IsNullOrEmpty(Description.Value) Or Description.Key = "=Bônus=") Then
+                    DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + BonusOffset, Description.Key & If(Description.Value <> Description.Key And Not String.IsNullOrEmpty(Description.Value), ": " & Description.Value, String.Empty), SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+                    BonusOffset += 16
+                End If
+            Next
         Else
+            If HasMoreDetails Then DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 44, "Shift para detalhes", SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+
             For Each str As String In WordWrap(ItemDescDescription, 22, WrapMode.Characters, WrapType.BreakWord)
                 'descrição
                 DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 44 + y, str, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
                 y += 15
             Next
         End If
-
     End Sub
 
     Friend Sub DrawSkillDesc()
