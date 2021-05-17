@@ -269,6 +269,7 @@ Module C_GameLogic
                     End If
 
                     If InMapEditor Then FrmEditor_MapEditor.EditorMap_DrawTileset()
+                    If frmEditor_AutoMapper.Visible Then frmEditor_AutoMapper.Automapper_DrawTileset()
 
                     Application.DoEvents()
 

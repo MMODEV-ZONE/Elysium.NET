@@ -9,6 +9,7 @@ Module C_Graphics
 
     Friend GameWindow As RenderWindow
     Friend TilesetWindow As RenderWindow
+    Friend AutomapperTilesetWindow As RenderWindow
 
     Friend EditorItem_Furniture As RenderWindow
     Friend EditorSkill_Icon As RenderWindow
@@ -332,6 +333,7 @@ Module C_Graphics
 
         GameWindow = New RenderWindow(FrmGame.picscreen.Handle)
         TilesetWindow = New RenderWindow(FrmEditor_MapEditor.picBackSelect.Handle)
+        AutomapperTilesetWindow = New RenderWindow(frmEditor_AutoMapper.picBackSelect.Handle)
 
         EditorItem_Furniture = New RenderWindow(frmEditor_Item.picFurniture.Handle)
         EditorSkill_Icon = New RenderWindow(frmEditor_Skill.picSprite.Handle)

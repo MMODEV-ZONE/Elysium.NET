@@ -222,6 +222,7 @@ Module S_AutoMap
     Sub Packet_SaveAutoMap(index As Integer, ByRef data() As Byte)
         Dim Layer As Integer
         Dim DetailCount As Long
+        Dim Start As Byte
         Dim buffer As New ByteStream(data)
         Dim cf = Path.Database & "AutoMapper.ini"
 #If DEBUG Then
@@ -229,6 +230,7 @@ Module S_AutoMap
 #End If
         If GetPlayerAccess(index) = AdminType.Player Then Exit Sub
 
+        Start = buffer.ReadByte
         MapStart = buffer.ReadInt32
         MapSize = buffer.ReadInt32
         MapX = buffer.ReadInt32
@@ -264,7 +266,7 @@ Module S_AutoMap
 
         buffer.Dispose()
 
-        StartAutomapper(MapStart, MapSize, MapX, MapY)
+        If Start = 1 Then StartAutomapper(MapStart, MapSize, MapX, MapY)
 
     End Sub
 

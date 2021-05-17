@@ -105,6 +105,7 @@ Partial Class FrmEditor_MapEditor
         Me.tsbClear = New System.Windows.Forms.ToolStripButton()
         Me.tabpages = New System.Windows.Forms.TabControl()
         Me.tpTiles = New System.Windows.Forms.TabPage()
+        Me.lblCoordinate = New System.Windows.Forms.Label()
         Me.cmbAutoTile = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -187,7 +188,6 @@ Partial Class FrmEditor_MapEditor
         Me.lblFogIndex = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.cmbWeather = New System.Windows.Forms.ComboBox()
-        Me.lblCoordinate = New System.Windows.Forms.Label()
         Me.pnlBack.SuspendLayout()
         CType(Me.picBackSelect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAttributes.SuspendLayout()
@@ -1094,6 +1094,17 @@ Partial Class FrmEditor_MapEditor
         Me.tpTiles.TabIndex = 0
         Me.tpTiles.Text = "Tiles"
         Me.tpTiles.UseVisualStyleBackColor = True
+        '
+        'lblCoordinate
+        '
+        Me.lblCoordinate.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lblCoordinate.AutoSize = True
+        Me.lblCoordinate.Location = New System.Drawing.Point(567, 525)
+        Me.lblCoordinate.Name = "lblCoordinate"
+        Me.lblCoordinate.Size = New System.Drawing.Size(54, 17)
+        Me.lblCoordinate.TabIndex = 18
+        Me.lblCoordinate.Text = "X:0 Y:0"
+        Me.lblCoordinate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmbAutoTile
         '
@@ -2004,17 +2015,6 @@ Partial Class FrmEditor_MapEditor
         Me.cmbWeather.Name = "cmbWeather"
         Me.cmbWeather.Size = New System.Drawing.Size(192, 24)
         Me.cmbWeather.TabIndex = 0
-        '
-        'lblCoordinate
-        '
-        Me.lblCoordinate.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.lblCoordinate.AutoSize = True
-        Me.lblCoordinate.Location = New System.Drawing.Point(567, 525)
-        Me.lblCoordinate.Name = "lblCoordinate"
-        Me.lblCoordinate.Size = New System.Drawing.Size(54, 17)
-        Me.lblCoordinate.TabIndex = 18
-        Me.lblCoordinate.Text = "X:0 Y:0"
-        Me.lblCoordinate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'FrmEditor_MapEditor
         '

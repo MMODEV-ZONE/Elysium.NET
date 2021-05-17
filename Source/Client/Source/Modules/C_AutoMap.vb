@@ -226,13 +226,14 @@ Module C_AutoMap
         buffer.Dispose()
     End Sub
 
-    Friend Sub SendSaveAutoMapper()
+    Friend Sub SendSaveAutoMapper(StartAutomapper As Boolean)
         Dim detailCount As Long
         Dim cf = Path.Contents & "\AutoMapper.ini"
         Dim buffer As New ASFW.ByteStream(4)
 
         buffer.WriteInt32(ClientPackets.CSaveAutoMap)
 
+        buffer.WriteByte(If(StartAutomapper, Byte.Parse(1), Byte.Parse(0)))
         buffer.WriteInt32(MapStart)
         buffer.WriteInt32(MapSize)
         buffer.WriteInt32(MapX)

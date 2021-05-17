@@ -1319,6 +1319,10 @@ Public Class FrmEditor_MapEditor
 
     End Sub
 
+    Private Sub scrlPictureY_Scroll(sender As Object, e As ScrollEventArgs) Handles scrlPictureY.Scroll
+
+    End Sub
+
     Friend Sub DrawTileOutline()
         Dim rec As Rectangle
         If Me.tabpages.SelectedTab Is Me.tpDirBlock Then Exit Sub
