@@ -238,4 +238,7 @@ Module C_Variables
     Friend Const EDITOR_HOUSE As Byte = 8
     Friend Const EDITOR_RECIPE As Byte = 9
     Friend Const EDITOR_CLASSES As Byte = 10
+
+    ' Variáveis de edição de maap
+    Friend BlockEdit As Boolean = False
 End Module

@@ -802,6 +802,8 @@ Public Class FrmEditor_MapEditor
             Dim MaxWidth As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.X / PicX
             Dim MaxHeight As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.Y / PicY
 
+            BlockEdit = True
+
             ' converter o numero do pixel para o numero do tile
             X = (X \ PicX) + 1
             Y = (Y \ PicY) + 1
@@ -836,7 +838,7 @@ Public Class FrmEditor_MapEditor
 
         CurLayer = cmbLayers.SelectedIndex + 1
 
-        If Not IsInBounds() Then Exit Sub
+        If Not IsInBounds() Or BlockEdit Then Exit Sub
         If Button = MouseButtons.Left Then
             If tabpages.SelectedTab Is tpTiles Then
                 If EditorTileWidth = 1 AndAlso EditorTileHeight = 1 Then 'unica tile
@@ -1321,6 +1323,10 @@ Public Class FrmEditor_MapEditor
 
     Private Sub scrlPictureY_Scroll(sender As Object, e As ScrollEventArgs) Handles scrlPictureY.Scroll
 
+    End Sub
+
+    Private Sub picBackSelect_MouseUp(sender As Object, e As MouseEventArgs) Handles picBackSelect.MouseUp
+        BlockEdit = False
     End Sub
 
     Friend Sub DrawTileOutline()
