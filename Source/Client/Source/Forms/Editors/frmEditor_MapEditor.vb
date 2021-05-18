@@ -799,14 +799,14 @@ Public Class FrmEditor_MapEditor
     Public Sub MapEditorDrag(ByVal Button As Integer, ByVal X As Single, ByVal Y As Single)
 
         If Button = MouseButtons.Left Then 'botao esquerdo do mouse
-            Dim MaxWidth As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.X / PicX
-            Dim MaxHeight As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.Y / PicY
+            Dim MaxWidth As Integer = (TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.X / PicX)
+            Dim MaxHeight As Integer = (TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.Y / PicY)
 
             BlockEdit = True
 
             ' converter o numero do pixel para o numero do tile
-            X = (X \ PicX) + 1
-            Y = (Y \ PicY) + 1
+            X = (picbackleft \ PicX) + (X \ PicX) + 1
+            Y = (picbacktop \ PicX) + (Y \ PicY) + 1
             ' ver se nao está fora dos limites
             If X < 0 Then X = 0
             If X > MaxWidth Then X = MaxWidth
