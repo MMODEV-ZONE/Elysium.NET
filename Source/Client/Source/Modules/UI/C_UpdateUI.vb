@@ -368,7 +368,7 @@
 
         If InitPetEditor = True Then
             With frmEditor_Pet
-                Editor = EDITOR_PET
+                Editor = Editors.PET
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -414,7 +414,7 @@
 
         If InitAnimationEditor = True Then
             With FrmEditor_Animation
-                Editor = EDITOR_ANIMATION
+                Editor = Editors.ANIMATION
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -453,7 +453,7 @@
             Dim i As Integer
 
             With frmEditor_Resource
-                Editor = EDITOR_RESOURCE
+                Editor = Editors.RESOURCE
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -473,7 +473,7 @@
 
         If InitNPCEditor = True Then
             With frmEditor_NPC
-                Editor = EDITOR_NPC
+                Editor = Editors.NPC
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -490,7 +490,7 @@
 
         If InitSkillEditor = True Then
             With frmEditor_Skill
-                Editor = EDITOR_SKILL
+                Editor = Editors.SKILL
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -507,7 +507,7 @@
 
         If InitShopEditor = True Then
             With frmEditor_Shop
-                Editor = EDITOR_SHOP
+                Editor = Editors.SHOP
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -524,7 +524,7 @@
 
         If InitAnimationEditor = True Then
             With FrmEditor_Animation
-                Editor = EDITOR_ANIMATION
+                Editor = Editors.ANIMATION
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -541,7 +541,7 @@
 
         If HouseEdit = True Then
             With frmEditor_House
-                Editor = EDITOR_HOUSE
+                Editor = Editors.HOUSE
                 .lstIndex.Items.Clear()
 
                 ' Adcionar nomes
@@ -654,7 +654,7 @@
             DialogMsg1 = "Quest: " & Trim$(Quest(QuestNum).Name)
             DialogMsg2 = QuestMessage
 
-            DialogType = DialogueTypeQuest
+            DialogType = DialogueType.Quest
 
             If QuestNumForStart > 0 AndAlso QuestNumForStart <= MaxQuests Then
                 QuestAcceptTag = QuestNumForStart
@@ -671,15 +671,15 @@
         End If
 
         If UpdateDialog = True Then
-            If DialogType = DialogueTypeBuyhome OrElse DialogType = DialogueTypeVisit Then 'house offer & visit
+            If DialogType = DialogueType.BuyHome OrElse DialogType = DialogueType.Visit Then 'house offer & visit
                 DialogButton1Text = "Aceitar"
                 DialogButton2Text = "Recusar"
                 DialogPanelVisible = True
-            ElseIf DialogType = DialogueTypeParty OrElse DialogType = DialogueTypeTrade Then
+            ElseIf DialogType = DialogueType.Party OrElse DialogType = DialogueType.Trade Then
                 DialogButton1Text = "Aceitar"
                 DialogButton2Text = "Recusar"
                 DialogPanelVisible = True
-            ElseIf DialogType = DialogueTypeQuest Then
+            ElseIf DialogType = DialogueType.Quest Then
                 DialogButton1Text = "Aceitar"
                 DialogButton2Text = "Certo"
                 If QuestAcceptTag > 0 Then

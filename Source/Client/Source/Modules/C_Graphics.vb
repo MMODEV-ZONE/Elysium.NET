@@ -2897,7 +2897,7 @@ NextLoop:
             DrawText(DialogPanelX + 60, DialogPanelY + 50, Trim(DialogMsg3), SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
         End If
 
-        If DialogType = DialogueTypeQuest Then
+        If DialogType = DialogueType.Quest Then
             If QuestAcceptTag > 0 Then
                 'renderizar botao de aceitar
                 DrawButton(DialogButton1Text, DialogPanelX + OkButtonX, DialogPanelY + OkButtonY, 0)

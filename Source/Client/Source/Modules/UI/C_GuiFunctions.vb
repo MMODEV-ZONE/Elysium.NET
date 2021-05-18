@@ -3,6 +3,15 @@ Imports System.Windows.Forms
 Imports ASFW
 
 Friend Module C_GuiFunctions
+#Region "Enumerators"
+    Enum DialogueType As Byte
+        BuyHome = 1
+        Visit
+        Party
+        Quest
+        Trade
+    End Enum
+#End Region
 
     Friend Sub CheckGuiMove(x As Integer, y As Integer)
         Dim eqNum As Integer, invNum As Integer, skillslot As Integer
@@ -390,19 +399,19 @@ Friend Module C_GuiFunctions
                 VbKeyLeft = False
                 VbKeyRight = False
 
-                If DialogType = DialogueTypeBuyhome Then 'Oferta de Moradia
+                If DialogType = DialogueType.BuyHome Then 'Oferta de Moradia
                     SendBuyHouse(1)
-                ElseIf DialogType = DialogueTypeVisit Then
+                ElseIf DialogType = DialogueType.Visit Then
                     SendVisit(1)
-                ElseIf DialogType = DialogueTypeParty Then
+                ElseIf DialogType = DialogueType.Party Then
                     SendAcceptParty()
-                ElseIf DialogType = DialogueTypeQuest Then
+                ElseIf DialogType = DialogueType.Quest Then
                     If QuestAcceptTag > 0 Then
                         PlayerHandleQuest(QuestAcceptTag, 1)
                         QuestAcceptTag = 0
                         RefreshQuestLog()
                     End If
-                ElseIf DialogType = DialogueTypeTrade Then
+                ElseIf DialogType = DialogueType.Trade Then
                     SendTradeInviteAccept(1)
                 End If
 
@@ -416,15 +425,15 @@ Friend Module C_GuiFunctions
                 VbKeyLeft = False
                 VbKeyRight = False
 
-                If DialogType = DialogueTypeBuyhome Then 'Oferta de Moradia recusada
+                If DialogType = DialogueType.BuyHome Then 'Oferta de Moradia recusada
                     SendBuyHouse(0)
-                ElseIf DialogueTypeVisit Then 'Visita recusada
+                ElseIf DialogueType.Visit Then 'Visita recusada
                     SendVisit(0)
-                ElseIf DialogueTypeParty Then 'Equipe recusada
+                ElseIf DialogueType.Party Then 'Equipe recusada
                     SendLeaveParty()
-                ElseIf DialogueTypeQuest Then 'quest recusada
+                ElseIf DialogueType.Quest Then 'quest recusada
                     QuestAcceptTag = 0
-                ElseIf DialogType = DialogueTypeTrade Then
+                ElseIf DialogType = DialogueType.Trade Then
                     SendTradeInviteAccept(0)
                 End If
                 PlaySound("Click.ogg")

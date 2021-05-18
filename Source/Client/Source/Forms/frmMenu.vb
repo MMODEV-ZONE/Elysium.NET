@@ -501,7 +501,7 @@ Friend Class FrmMenu
     ''' </summary>
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         If IsLoginLegal(txtLogin.Text, txtPassword.Text) Then
-            MenuState(MenuStateLogin)
+            SetMenuState(MenuState.Login)
         End If
     End Sub
 
@@ -538,7 +538,7 @@ Friend Class FrmMenu
 
             If Not IsStringLegal(name) Then Exit Sub
 
-            MenuState(MenuStateNewaccount)
+            SetMenuState(MenuState.NewAccount)
         End If
     End Sub
 
@@ -560,7 +560,7 @@ Friend Class FrmMenu
     ''' Lida com o botão de criar personagem.
     ''' </summary>
     Private Sub BtnCreateCharacter_Click(sender As Object, e As EventArgs) Handles btnCreateCharacter.Click
-        MenuState(MenuStateAddchar)
+        SetMenuState(MenuState.AddChar)
     End Sub
 
     ''' <summary>

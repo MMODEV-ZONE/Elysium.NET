@@ -218,7 +218,7 @@ Friend Module C_Crafting
         Dim i As Integer
 
         With frmEditor_Recipe
-            Editor = EDITOR_RECIPE
+            Editor = Editors.RECIPE
             .lstIndex.Items.Clear()
 
             ' Adicionar os nomes

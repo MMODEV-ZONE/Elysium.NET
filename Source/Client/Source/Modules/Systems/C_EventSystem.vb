@@ -346,6 +346,15 @@ Friend Module C_EventSystem
         EvReleasePlayer
     End Enum
 
+    Enum EffectType As Integer
+        Fadein = 1
+        Fadeout
+        Flash
+        Fog
+        Weather
+        Tint
+    End Enum
+
 #End Region
 
 #Region "EventEditor"
@@ -2655,29 +2664,29 @@ newlist:
     End Sub
 
     Sub Packet_SpecialEffect(ByRef data() As Byte)
-        Dim effectType As Integer
+        Dim effectTypeNum As Integer
         Dim buffer As New ByteStream(data)
-        effectType = buffer.ReadInt32
+        effectTypeNum = buffer.ReadInt32
 
-        Select Case effectType
-            Case EffectTypeFadein
+        Select Case effectTypeNum
+            Case EffectType.Fadein
                 UseFade = True
                 FadeType = 1
                 FadeAmount = 0
-            Case EffectTypeFadeout
+            Case EffectType.Fadeout
                 UseFade = True
                 FadeType = 0
                 FadeAmount = 255
-            Case EffectTypeFlash
+            Case EffectType.Flash
                 FlashTimer = GetTickCount() + 150
-            Case EffectTypeFog
+            Case EffectType.Fog
                 CurrentFog = buffer.ReadInt32
                 CurrentFogSpeed = buffer.ReadInt32
                 CurrentFogOpacity = buffer.ReadInt32
-            Case EffectTypeWeather
+            Case EffectType.Weather
                 CurrentWeather = buffer.ReadInt32
                 CurrentWeatherIntensity = buffer.ReadInt32
-            Case EffectTypeTint
+            Case EffectType.Tint
                 Map.HasMapTint = 1
                 CurrentTintR = buffer.ReadInt32
                 CurrentTintG = buffer.ReadInt32
