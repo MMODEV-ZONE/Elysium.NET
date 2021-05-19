@@ -4,9 +4,13 @@
     Private Sub FrmEditor_Quest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Width = 980
 
-        fraRequirements.Location = fraQuestList.Location
+        fraRequirements.Location = fraQuestConfig.Location
         fraRequirements.Visible = False
-        fraTasks.Location = fraQuestList.Location
+        fraRequirements.Width = fraQuestConfig.Width
+        fraRequirements.Height = fraQuestConfig.Height
+        fraTasks.Location = fraQuestConfig.Location
+        fraTasks.Width = fraQuestConfig.Width
+        fraTasks.Height = fraQuestConfig.Height
         fraTasks.Visible = False
 
         nudAmount.Maximum = 999999
@@ -177,7 +181,8 @@
         If lstTasks.SelectedIndex < 0 Then Exit Sub
 
         SelectedTask = lstTasks.SelectedIndex + 1
-        LoadTask(Editorindex, SelectedTask)
+        LoadTaskDefaultValues(Editorindex, SelectedTask)
+        LoadTaskElements(Editorindex, SelectedTask)
         fraTasks.Visible = True
         fraTasks.BringToFront()
     End Sub
@@ -189,7 +194,7 @@
 
         SelectedTask = Quest(Editorindex).TaskCount
 
-        LoadTask(Editorindex, SelectedTask)
+        LoadTaskElements(Editorindex, SelectedTask)
 
         fraTasks.Visible = True
         fraTasks.BringToFront()
@@ -201,23 +206,28 @@
         If lstTasks.SelectedIndex < 0 Then Exit Sub
         If Quest(Editorindex).TaskCount <= 0 Then Exit Sub
 
-        ReDim tmptask(Quest(Editorindex).TaskCount - 1)
+        If Quest(Editorindex).TaskCount = 1 Then
+            Quest(Editorindex).TaskCount = 0
+            ReDim Quest(Editorindex).Task(1)
+        Else
+            ReDim tmptask(Quest(Editorindex).TaskCount - 1)
 
-        For i = 1 To Quest(Editorindex).TaskCount
-            If Not i = lstTasks.SelectedIndex + 1 Then
-                tmptask(i) = Quest(Editorindex).Task(i)
-            End If
-        Next
+            For i = 1 To Quest(Editorindex).TaskCount
+                If Not i = lstTasks.SelectedIndex + 1 Then
+                    tmptask(i) = Quest(Editorindex).Task(i)
+                End If
+            Next
 
-        Quest(Editorindex).TaskCount = Quest(Editorindex).TaskCount - 1
+            Quest(Editorindex).TaskCount = Quest(Editorindex).TaskCount - 1
 
-        ReDim Quest(Editorindex).Task(Quest(Editorindex).TaskCount)
+            ReDim Quest(Editorindex).Task(Quest(Editorindex).TaskCount)
 
-        For i = 1 To Quest(Editorindex).TaskCount
-            If Not i = lstTasks.SelectedIndex + 1 Then
-                Quest(Editorindex).Task(i) = tmptask(i)
-            End If
-        Next
+            For i = 1 To Quest(Editorindex).TaskCount
+                If Not i = lstTasks.SelectedIndex + 1 Then
+                    Quest(Editorindex).Task(i) = tmptask(i)
+                End If
+            Next
+        End If
 
         lstTasks.Items.Clear()
         For i = 1 To Quest(Editorindex).TaskCount
@@ -228,10 +238,8 @@
 
     Private Sub BtnSaveTask_Click(sender As Object, e As EventArgs) Handles btnSaveTask.Click
 
-        If lstTasks.SelectedIndex < 0 Then
+        If SelectedTask < 0 Or SelectedTask > Quest(Editorindex).TaskCount Then
             SelectedTask = Quest(Editorindex).TaskCount
-        Else
-            SelectedTask = lstTasks.SelectedIndex + 1
         End If
 
         Quest(Editorindex).Task(SelectedTask).TaskLog = Trim$(txtTaskLog.Text)
@@ -288,7 +296,7 @@
         If optTask0.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 0
             Quest(Editorindex).Task(SelectedTask).TaskType = 0
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
         End If
     End Sub
 
@@ -296,7 +304,7 @@
         If optTask1.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 1
             Quest(Editorindex).Task(SelectedTask).TaskType = QuestType.Slay
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
             cmbNpc.Enabled = True
         Else
             cmbNpc.Enabled = False
@@ -307,7 +315,7 @@
         If optTask2.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 2
             Quest(Editorindex).Task(SelectedTask).TaskType = QuestType.Collect
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
             cmbItem.Enabled = True
         Else
             cmbItem.Enabled = False
@@ -318,7 +326,7 @@
         If optTask3.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 3
             Quest(Editorindex).Task(SelectedTask).TaskType = QuestType.Talk
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
             cmbNpc.Enabled = True
         Else
             cmbNpc.Enabled = False
@@ -329,7 +337,7 @@
         If optTask4.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 4
             Quest(Editorindex).Task(SelectedTask).TaskType = QuestType.Reach
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
             cmbMap.Enabled = True
         Else
             cmbMap.Enabled = False
@@ -340,7 +348,7 @@
         If optTask5.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 5
             Quest(Editorindex).Task(SelectedTask).TaskType = QuestType.Give
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
             cmbItem.Enabled = True
         Else
             cmbItem.Enabled = False
@@ -351,7 +359,7 @@
         If optTask6.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 6
             Quest(Editorindex).Task(SelectedTask).TaskType = QuestType.Kill
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
             cmbResource.Enabled = True
             nudAmount.Enabled = True
         Else
@@ -363,7 +371,7 @@
         If optTask7.Checked = True Then
             Quest(Editorindex).Task(SelectedTask).Order = 7
             Quest(Editorindex).Task(SelectedTask).TaskType = QuestType.Gather
-            LoadTask(Editorindex, SelectedTask)
+            LoadTaskElements(Editorindex, SelectedTask)
             cmbNpc.Enabled = True
         Else
             cmbNpc.Enabled = False
@@ -493,6 +501,10 @@
 
     Private Sub RdbClassReq_CheckedChanged(sender As Object, e As EventArgs) Handles rdbClassReq.CheckedChanged
         cmbClassReq.Enabled = True
+    End Sub
+
+    Private Sub lstTasks_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstTasks.SelectedIndexChanged
+
     End Sub
 
 #End Region
