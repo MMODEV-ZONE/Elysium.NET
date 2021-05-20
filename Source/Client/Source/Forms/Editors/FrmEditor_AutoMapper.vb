@@ -238,7 +238,7 @@ Friend Class frmEditor_AutoMapper
         If cmbPrefab.SelectedIndex >= 0 Then
             For i = 0 To UBound(Detail) - 1
                 If Detail(i).DetailBase = cmbPrefab.SelectedIndex Then
-                    lstDetails.Items.Add(String.Format("Detalhe (Tileset={0} | Loc={1},{2} | Area={3},{4})", Detail(i).Tileset, Detail(i).StartX, Detail(i).StartY, Detail(i).EndX, Detail(i).EndY))
+                    lstDetails.Items.Add(String.Format("Detalhe (Tileset={0} | Loc={1},{2} | Area={3},{4})", Detail(i).Tileset + 1, Detail(i).StartX, Detail(i).StartY, Detail(i).EndX, Detail(i).EndY))
                 End If
             Next
         End If
@@ -247,7 +247,7 @@ Friend Class frmEditor_AutoMapper
     Private Sub lstDetails_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstDetails.SelectedIndexChanged
         If lstDetails.SelectedIndex >= 0 Then
             Dim index As Long = GetDetailIndex(lstDetails.SelectedIndex)
-            cmbTileset.SelectedIndex = Detail(index).Tileset - 1
+            cmbTileset.SelectedIndex = Detail(index).Tileset
             EditorTileX = Detail(index).StartX
             EditorTileY = Detail(index).StartY
             EditorTileWidth = Detail(index).EndX + 1
@@ -527,7 +527,7 @@ Friend Class frmEditor_AutoMapper
 
     Sub SaveDetail(Index As Integer)
         Detail(Index).DetailBase = cmbPrefab.SelectedIndex
-        Detail(Index).Tileset = cmbTileset.SelectedIndex + 1
+        Detail(Index).Tileset = cmbTileset.SelectedIndex
         Detail(Index).StartX = EditorTileX
         Detail(Index).StartY = EditorTileY
         Detail(Index).EndX = EditorTileWidth - 1
