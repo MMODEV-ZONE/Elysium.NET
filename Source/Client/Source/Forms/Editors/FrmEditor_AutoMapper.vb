@@ -472,9 +472,6 @@ Friend Class frmEditor_AutoMapper
                         EditorTileHeight = 1
                 End Select
             End If
-        Else
-            EditorTileWidth = 1
-            EditorTileHeight = 1
         End If
     End Sub
 
@@ -492,13 +489,13 @@ Friend Class frmEditor_AutoMapper
 
     Public Sub AutomapperEditorDrag(ByVal Button As Integer, ByVal X As Single, ByVal Y As Single)
 
-        If Button = MouseButtons.Left And tbControl.SelectedTab Is tbDetails Then 'botao esquerdo do mouse
+        If Button = MouseButtons.Left And tbControl.SelectedTab Is tbDetails And Me.cmbTileset.SelectedIndex > 0 Then 'botao esquerdo do mouse
             Dim MaxWidth As Integer = TileSetSprite(Me.cmbTileset.SelectedIndex + 1).Texture.Size.X / PicX
             Dim MaxHeight As Integer = TileSetSprite(Me.cmbTileset.SelectedIndex + 1).Texture.Size.Y / PicY
 
             ' converter o numero do pixel para o numero do tile
-            X = (X \ PicX) + 1
-            Y = (Y \ PicY) + 1
+            X = (picBackLeft \ PicX) + (X \ PicX) + 1
+            Y = (picBackTop \ PicY) + (Y \ PicY) + 1
             ' ver se nao está fora dos limites
             If X < 0 Then X = 0
             If X > MaxWidth Then X = MaxWidth
