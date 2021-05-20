@@ -205,10 +205,10 @@ Public Class FrmEditor_Events
 
     Private Sub FrmEditor_Events_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Width = 1083
-        fraDialogue.Width = Width
-        fraDialogue.Height = Height
-        fraDialogue.Top = 0
-        fraDialogue.Left = 0
+        fraDialogue.Width = pnlTabPage.Width
+        fraDialogue.Height = pnlTabPage.Height
+        fraDialogue.Top = pnlTabPage.Top
+        fraDialogue.Left = pnlTabPage.Left
 
         fraMoveRoute.Width = Width
         fraMoveRoute.Height = Height
@@ -241,13 +241,10 @@ Public Class FrmEditor_Events
         Dim x As Integer
 
         fraCommands.Visible = False
-        fraDialogue.Width = Me.Width
-        fraDialogue.Height = Me.Height
         fraDialogue.BringToFront()
 
         Select Case tvCommands.SelectedNode.Text
            'Mensagens
-
             'mostras texto
             Case "Mostrar Texto"
                 txtShowText.Text = ""
