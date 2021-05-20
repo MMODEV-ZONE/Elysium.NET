@@ -230,15 +230,20 @@ Public Class FrmEditor_Events
         Dispose()
     End Sub
 
+    Private Sub ShowGroupBox(ByRef groupBox As GroupBox)
+        fraDialogue.Visible = True
+        groupBox.Visible = True
+        groupBox.Top = fraDialogue.Height / 2 - groupBox.Height / 2
+        groupBox.Left = fraDialogue.Width / 2 - groupBox.Width / 2
+    End Sub
+
     Private Sub TvCommands_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles tvCommands.AfterSelect
         Dim x As Integer
 
+        fraCommands.Visible = False
         fraDialogue.Width = Me.Width
         fraDialogue.Height = Me.Height
-
         fraDialogue.BringToFront()
-
-        'MsgBox(tvCommands.SelectedNode.Text)
 
         Select Case tvCommands.SelectedNode.Text
            'Mensagens
@@ -246,11 +251,10 @@ Public Class FrmEditor_Events
             'mostras texto
             Case "Mostrar Texto"
                 txtShowText.Text = ""
-                fraDialogue.Visible = True
-                fraShowText.Visible = True
                 nudShowTextFace.Value = 0
                 nudShowTextFace.Maximum = NumFaces
-                fraCommands.Visible = False
+                ShowGroupBox(fraShowText)
+
             'mostra escolhas
             Case "Mostrar Escolhas"
                 txtChoicePrompt.Text = ""
@@ -259,24 +263,21 @@ Public Class FrmEditor_Events
                 txtChoices3.Text = ""
                 txtChoices4.Text = ""
                 nudShowChoicesFace.Value = 0
-                fraDialogue.Visible = True
-                fraShowChoices.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraShowChoices)
+
             'texto de chatbox
             Case "Adicionar Texto de Caixa de Chat"
                 txtAddText_Text.Text = ""
                 optAddText_Player.Checked = True
-                fraDialogue.Visible = True
-                fraAddText.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraAddText)
+
             'chat bubble
             Case "Mostrar Bolha de Chat"
                 txtChatbubbleText.Text = ""
                 cmbChatBubbleTargetType.SelectedIndex = 0
                 cmbChatBubbleTarget.Visible = False
-                fraDialogue.Visible = True
-                fraShowChatBubble.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraShowChatBubble)
+
         'event progression
             'player variable
             Case "Setar Variável de Jogador"
@@ -288,51 +289,44 @@ Public Class FrmEditor_Events
 
                 cmbVariable.SelectedIndex = 0
                 optVariableAction0.Checked = True
-                fraDialogue.Visible = True
-                fraPlayerVariable.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraPlayerVariable)
+
             'player switch
             Case "Setar Switch de Jogador"
                 cmbPlayerSwitchSet.SelectedIndex = 0
                 cmbSwitch.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraPlayerSwitch.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraPlayerSwitch)
+
             'auto-switch
             Case "Setar Auto Switch"
                 cmbSetSelfSwitchTo.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraSetSelfSwitch.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraSetSelfSwitch)
+
         'controle de fluxo
 
             'ramo de condição
             Case "Ramo de Condição"
-                fraDialogue.Visible = True
-                fraConditionalBranch.Visible = True
                 optCondition0.Checked = True
                 ClearConditionFrame()
                 cmbCondition_PlayerVarIndex.Enabled = True
                 cmbCondition_PlayerVarCompare.Enabled = True
                 nudCondition_PlayerVarCondition.Enabled = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraConditionalBranch)
+
             'Parar Processameno e Evento
             Case "Parar Processamento de Evento"
                 AddCommand(EventType.EvExitProcess)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Marcador
             Case "Marcador"
                 txtLabelName.Text = ""
-                fraCreateLabel.Visible = True
-                fraCommands.Visible = False
-                fraDialogue.Visible = True
+                ShowGroupBox(fraCreateLabel)
+
             'Ir para Marcador
             Case "Ir para Marcador"
                 txtGotoLabel.Text = ""
-                fraGoToLabel.Visible = True
-                fraCommands.Visible = False
-                fraDialogue.Visible = True
+                ShowGroupBox(fraGoToLabel)
         'Controle de Jogador
 
             'Mudar Itens
@@ -340,36 +334,33 @@ Public Class FrmEditor_Events
                 cmbChangeItemIndex.SelectedIndex = 0
                 optChangeItemSet.Checked = True
                 nudChangeItemsAmount.Value = 0
-                fraDialogue.Visible = True
-                fraChangeItems.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraChangeItems)
+
             'Restaurar HP
             Case "Restaurar HP"
                 AddCommand(EventType.EvRestoreHp)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Restaurar Mp
             Case "Restaurar MP"
                 AddCommand(EventType.EvRestoreMp)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Subir de Nível
             Case "Subir de Nível"
                 AddCommand(EventType.EvLevelUp)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Alterar nível
             Case "Alterar Nível"
                 nudChangeLevel.Value = 1
-                fraDialogue.Visible = True
-                fraChangeLevel.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraChangeLevel)
+
             'Alterar Habilidades
             Case "Alterar Habilidades"
                 cmbChangeSkills.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraChangeSkills.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraChangeSkills)
+
             'Alterar Classe
             Case "Alterar Classe"
                 If MAX_CLASSES > 0 Then
@@ -382,44 +373,37 @@ Public Class FrmEditor_Events
                         cmbChangeClass.SelectedIndex = 0
                     End If
                 End If
-                fraDialogue.Visible = True
-                fraChangeClass.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraChangeClass)
+
             'Alterar Sprite
             Case "Alterar Sprite"
                 nudChangeSprite.Value = 1
-                fraDialogue.Visible = True
-                fraChangeSprite.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraChangeSprite)
+
             'Alterar Sexo
             Case "Alterar Sexo"
                 optChangeSexMale.Checked = True
-                fraDialogue.Visible = True
-                fraChangeGender.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraChangeGender)
+
             'Alterar PK
             Case "Alterar PK"
                 cmbSetPK.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraChangePK.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraChangePK)
+
             'Dar Experiência
             Case "Dar Experiência"
                 nudGiveExp.Value = 0
-                fraDialogue.Visible = True
-                fraGiveExp.Visible = True
-                fraCommands.Visible = False
-        'Movimento
+                ShowGroupBox(fraGiveExp)
 
+        'Movimento
             'Teleportar Jogador
             Case "Teleportar Jogador"
                 nudWPMap.Value = 0
                 nudWPX.Value = 0
                 nudWPY.Value = 0
                 cmbWarpPlayerDir.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraPlayerWarp.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraPlayerWarp)
+
             'Setar Rota de Movimento
             Case "Setar Rota de Movimento"
                 fraMoveRoute.Visible = True
@@ -444,7 +428,7 @@ Public Class FrmEditor_Events
                 ReDim TempMoveRoute(0)
                 fraMoveRoute.Visible = True
                 fraMoveRoute.BringToFront()
-                fraCommands.Visible = False
+
             'Wait for Route Completion
             Case "Esperar pela Rota ser Completada"
                 cmbMoveWait.Items.Clear()
@@ -460,9 +444,8 @@ Public Class FrmEditor_Events
                         ListOfEvents(x) = i
                     End If
                 Next
-                fraDialogue.Visible = True
-                fraMoveRouteWait.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraMoveRouteWait)
+
             'Forçar Gerar NPC
             Case "Forçar Gerar NPC"
                 'Popular a Combobox
@@ -471,21 +454,19 @@ Public Class FrmEditor_Events
                     cmbSpawnNpc.Items.Add(Trim(Npc(i).Name))
                 Next
                 cmbSpawnNpc.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraSpawnNpc.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraSpawnNpc)
+
             'Segurar Jogador
             Case "Segurar Jogador"
                 AddCommand(EventType.EvHoldPlayer)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Soltar Jogador
             Case "Soltar Jogador"
                 AddCommand(EventType.EvReleasePlayer)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
-        'Animação
 
+        'Animação
             'Tocar Animação
             Case "Tocar Animação"
                 cmbPlayAnimEvent.Items.Clear()
@@ -500,141 +481,122 @@ Public Class FrmEditor_Events
                 nudPlayAnimTileY.Value = 0
                 nudPlayAnimTileX.Maximum = Map.MaxX
                 nudPlayAnimTileY.Maximum = Map.MaxY
-                fraDialogue.Visible = True
-                fraPlayAnimation.Visible = True
-                fraCommands.Visible = False
+
                 lblPlayAnimX.Visible = False
                 lblPlayAnimY.Visible = False
                 nudPlayAnimTileX.Visible = False
                 nudPlayAnimTileY.Visible = False
                 cmbPlayAnimEvent.Visible = False
-        'Tarefas
+                ShowGroupBox(fraPlayAnimation)
 
+        'Tarefas
             'Iniciar Tarefa
             Case "Iniciar Tarefa"
                 cmbBeginQuest.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraBeginQuest.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraBeginQuest)
+
             'Completar Subtarefa
             Case "Completar Subtarefa"
                 cmbCompleteQuest.SelectedIndex = 0
                 nudCompleteQuestTask.Value = 0
-                fraDialogue.Visible = True
-                fraCompleteTask.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraCompleteTask)
+
             'Finalizar
             Case "Finalizar Tarefa"
                 cmbEndQuest.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraEndQuest.Visible = True
-                fraCommands.Visible = False
-        'Funções do Mapa
+                ShowGroupBox(fraEndQuest)
 
+        'Funções do Mapa
             'Setar nevoa
             Case "Setar Névoa"
                 nudFogData0.Value = 0
                 nudFogData1.Value = 0
                 nudFogData2.Value = 0
-                fraDialogue.Visible = True
-                fraSetFog.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraSetFog)
+
             'Setar Tempo
             Case "Setar Clima"
                 CmbWeather.SelectedIndex = 0
                 nudWeatherIntensity.Value = 0
-                fraDialogue.Visible = True
-                fraSetWeather.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraSetWeather)
+
             'Setar Coloração do Mapa
             Case "Setar Coloração do Mapa"
                 nudMapTintData0.Value = 0
                 nudMapTintData1.Value = 0
                 nudMapTintData2.Value = 0
                 nudMapTintData3.Value = 0
-                fraDialogue.Visible = True
-                fraMapTint.Visible = True
-                fraCommands.Visible = False
-        'Som e música
+                ShowGroupBox(fraMapTint)
 
+        'Som e música
             'Tocar BGM
             Case "Tocar música"
                 cmbPlayBGM.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraPlayBGM.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraPlayBGM)
+
             'Parar BGM
             Case "Parar música"
                 AddCommand(EventType.EvFadeoutBgm)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Tocar Som
             Case "Tocar Som"
                 cmbPlaySound.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraPlaySound.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraPlaySound)
+
             'Parar Sons
             Case "Parar Sons"
                 AddCommand(EventType.EvStopSound)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
-        'Etc...
 
+        'Etc...
             'Esperar...
             Case "Esperar..."
                 nudWaitAmount.Value = 1
-                fraDialogue.Visible = True
-                fraSetWait.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraSetWait)
+
             'Setar Acesso
             Case "Setar Acesso"
                 cmbSetAccess.SelectedIndex = 0
-                fraDialogue.Visible = True
-                fraSetAccess.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraSetAccess)
+
             'Script Customizado
             Case "Script Customizado"
                 nudCustomScript.Value = 0
-                fraDialogue.Visible = True
-                fraCustomScript.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraCustomScript)
 
-            'Loja, banco, etc
-
+         'Loja, banco, etc
             'Abrir banco
             Case "Abrir Banco"
                 AddCommand(EventType.EvOpenBank)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Abrir loja
             Case "Abrir Loja"
-                fraDialogue.Visible = True
-                fraOpenShop.Visible = True
                 cmbOpenShop.SelectedIndex = 0
-                fraCommands.Visible = False
+                ShowGroupBox(fraOpenShop)
+
             'Abrir Correio
             Case "Correio"
                 AddCommand(EventType.EvOpenMail)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
-        'opções de cutscenes
 
+        'opções de cutscenes
             'Transição
             Case "Transição de Entrada"
                 AddCommand(EventType.EvFadeIn)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Esmeacemento
             Case "Esmaecer"
                 AddCommand(EventType.EvFadeOut)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Piscar em branco
             Case "Flash"
                 AddCommand(EventType.EvFlashWhite)
-                fraCommands.Visible = False
                 fraDialogue.Visible = False
+
             'Mostrar imagem
             Case "Aparecer"
                 cmbPicIndex.SelectedIndex = 0
@@ -642,15 +604,12 @@ Public Class FrmEditor_Events
                 cmbPicLoc.SelectedIndex = 0
                 nudPicOffsetX.Value = 0
                 nudPicOffsetY.Value = 0
-                fraDialogue.Visible = True
-                fraShowPic.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraShowPic)
+
             'Esconder imagem
             Case "Esmaecer"
                 nudHidePic.Value = 0
-                fraDialogue.Visible = True
-                fraHidePic.Visible = True
-                fraCommands.Visible = False
+                ShowGroupBox(fraHidePic)
 
         End Select
     End Sub
