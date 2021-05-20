@@ -950,7 +950,7 @@ Partial Class FrmEditor_Events
         Me.btnClearCommand.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnClearCommand.Size = New System.Drawing.Size(100, 28)
         Me.btnClearCommand.TabIndex = 3
-        Me.btnClearCommand.Text = "Clear"
+        Me.btnClearCommand.Text = "Limpar"
         '
         'btnDeleteCommand
         '
@@ -960,7 +960,7 @@ Partial Class FrmEditor_Events
         Me.btnDeleteCommand.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnDeleteCommand.Size = New System.Drawing.Size(100, 28)
         Me.btnDeleteCommand.TabIndex = 2
-        Me.btnDeleteCommand.Text = "Delete"
+        Me.btnDeleteCommand.Text = "Deletar"
         '
         'btnEditCommand
         '
@@ -970,7 +970,7 @@ Partial Class FrmEditor_Events
         Me.btnEditCommand.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnEditCommand.Size = New System.Drawing.Size(100, 28)
         Me.btnEditCommand.TabIndex = 1
-        Me.btnEditCommand.Text = "Edit"
+        Me.btnEditCommand.Text = "Editar"
         '
         'btnAddCommand
         '
@@ -980,7 +980,7 @@ Partial Class FrmEditor_Events
         Me.btnAddCommand.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnAddCommand.Size = New System.Drawing.Size(100, 28)
         Me.btnAddCommand.TabIndex = 0
-        Me.btnAddCommand.Text = "Add"
+        Me.btnAddCommand.Text = "Adicionar"
         '
         'lstCommands
         '
@@ -1571,7 +1571,7 @@ Partial Class FrmEditor_Events
         Me.btnMoveRouteCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnMoveRouteCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnMoveRouteCancel.TabIndex = 6
-        Me.btnMoveRouteCancel.Text = "Cancel"
+        Me.btnMoveRouteCancel.Text = "Cancelar"
         '
         'chkRepeatRoute
         '
@@ -1748,7 +1748,7 @@ Partial Class FrmEditor_Events
         Me.fraGraphic.Size = New System.Drawing.Size(156, 94)
         Me.fraGraphic.TabIndex = 9
         Me.fraGraphic.TabStop = False
-        Me.fraGraphic.Text = "Graphic Selection"
+        Me.fraGraphic.Text = "Selecionar gráfico"
         Me.fraGraphic.Visible = False
         '
         'pnlGraphicSel
@@ -1789,7 +1789,7 @@ Partial Class FrmEditor_Events
         Me.btnGraphicCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnGraphicCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnGraphicCancel.TabIndex = 7
-        Me.btnGraphicCancel.Text = "Cancel"
+        Me.btnGraphicCancel.Text = "Cancelar"
         '
         'DarkLabel13
         '
@@ -1800,7 +1800,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel13.Name = "DarkLabel13"
         Me.DarkLabel13.Size = New System.Drawing.Size(211, 17)
         Me.DarkLabel13.TabIndex = 6
-        Me.DarkLabel13.Text = "Hold Shift to select multiple tiles."
+        Me.DarkLabel13.Text = "Segure shift para selecionar múltiplas tiles."
         '
         'nudGraphic
         '
@@ -1821,7 +1821,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel12.Name = "DarkLabel12"
         Me.DarkLabel12.Size = New System.Drawing.Size(62, 17)
         Me.DarkLabel12.TabIndex = 2
-        Me.DarkLabel12.Text = "Number:"
+        Me.DarkLabel12.Text = "Número:"
         '
         'cmbGraphic
         '
@@ -1830,7 +1830,7 @@ Partial Class FrmEditor_Events
         Me.cmbGraphic.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbGraphic.ForeColor = System.Drawing.Color.White
         Me.cmbGraphic.FormattingEnabled = True
-        Me.cmbGraphic.Items.AddRange(New Object() {"None", "Character", "Tileset"})
+        Me.cmbGraphic.Items.AddRange(New Object() {"None", "Personagem", "Tileset"})
         Me.cmbGraphic.Location = New System.Drawing.Point(139, 22)
         Me.cmbGraphic.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbGraphic.Name = "cmbGraphic"
@@ -1846,7 +1846,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel11.Name = "DarkLabel11"
         Me.DarkLabel11.Size = New System.Drawing.Size(105, 17)
         Me.DarkLabel11.TabIndex = 0
-        Me.DarkLabel11.Text = "Graphics Type:"
+        Me.DarkLabel11.Text = "Tipo de gráfico:"
         '
         'fraDialogue
         '
@@ -2441,7 +2441,7 @@ Partial Class FrmEditor_Events
         Me.fraPlayAnimation.Size = New System.Drawing.Size(331, 199)
         Me.fraPlayAnimation.TabIndex = 36
         Me.fraPlayAnimation.TabStop = False
-        Me.fraPlayAnimation.Text = "Play Animation"
+        Me.fraPlayAnimation.Text = "Executar animação"
         Me.fraPlayAnimation.Visible = False
         '
         'btnPlayAnimationOk
@@ -2462,7 +2462,7 @@ Partial Class FrmEditor_Events
         Me.btnPlayAnimationCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnPlayAnimationCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnPlayAnimationCancel.TabIndex = 35
-        Me.btnPlayAnimationCancel.Text = "Cancel"
+        Me.btnPlayAnimationCancel.Text = "Cancelar"
         '
         'lblPlayAnimY
         '
@@ -2473,7 +2473,7 @@ Partial Class FrmEditor_Events
         Me.lblPlayAnimY.Name = "lblPlayAnimY"
         Me.lblPlayAnimY.Size = New System.Drawing.Size(79, 17)
         Me.lblPlayAnimY.TabIndex = 34
-        Me.lblPlayAnimY.Text = "Map Tile Y:"
+        Me.lblPlayAnimY.Text = "Y:"
         '
         'lblPlayAnimX
         '
@@ -2484,7 +2484,7 @@ Partial Class FrmEditor_Events
         Me.lblPlayAnimX.Name = "lblPlayAnimX"
         Me.lblPlayAnimX.Size = New System.Drawing.Size(79, 17)
         Me.lblPlayAnimX.TabIndex = 33
-        Me.lblPlayAnimX.Text = "Map Tile X:"
+        Me.lblPlayAnimX.Text = "X:"
         '
         'cmbPlayAnimEvent
         '
@@ -2509,7 +2509,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel62.Name = "DarkLabel62"
         Me.DarkLabel62.Size = New System.Drawing.Size(86, 17)
         Me.DarkLabel62.TabIndex = 31
-        Me.DarkLabel62.Text = "Target Type"
+        Me.DarkLabel62.Text = "Tipo de alvo"
         '
         'cmbAnimTargetType
         '
@@ -2555,7 +2555,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel61.Name = "DarkLabel61"
         Me.DarkLabel61.Size = New System.Drawing.Size(74, 17)
         Me.DarkLabel61.TabIndex = 1
-        Me.DarkLabel61.Text = "Animation:"
+        Me.DarkLabel61.Text = "Animação:"
         '
         'cmbPlayAnim
         '
@@ -2586,7 +2586,7 @@ Partial Class FrmEditor_Events
         Me.fraMoveRouteWait.Size = New System.Drawing.Size(331, 92)
         Me.fraMoveRouteWait.TabIndex = 48
         Me.fraMoveRouteWait.TabStop = False
-        Me.fraMoveRouteWait.Text = "Move Route Wait"
+        Me.fraMoveRouteWait.Text = "Esperar rota de movimento"
         Me.fraMoveRouteWait.Visible = False
         '
         'btnMoveWaitCancel
@@ -2597,7 +2597,7 @@ Partial Class FrmEditor_Events
         Me.btnMoveWaitCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnMoveWaitCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnMoveWaitCancel.TabIndex = 26
-        Me.btnMoveWaitCancel.Text = "Cancel"
+        Me.btnMoveWaitCancel.Text = "Cancelar"
         '
         'btnMoveWaitOk
         '
@@ -2618,7 +2618,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel79.Name = "DarkLabel79"
         Me.DarkLabel79.Size = New System.Drawing.Size(48, 17)
         Me.DarkLabel79.TabIndex = 1
-        Me.DarkLabel79.Text = "Event:"
+        Me.DarkLabel79.Text = "Evento:"
         '
         'cmbMoveWait
         '
@@ -2649,7 +2649,7 @@ Partial Class FrmEditor_Events
         Me.fraCustomScript.Size = New System.Drawing.Size(331, 117)
         Me.fraCustomScript.TabIndex = 47
         Me.fraCustomScript.TabStop = False
-        Me.fraCustomScript.Text = "Execute Custom Script"
+        Me.fraCustomScript.Text = "Executar Script"
         Me.fraCustomScript.Visible = False
         '
         'nudCustomScript
@@ -2671,7 +2671,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel78.Name = "DarkLabel78"
         Me.DarkLabel78.Size = New System.Drawing.Size(44, 17)
         Me.DarkLabel78.TabIndex = 0
-        Me.DarkLabel78.Text = "Case:"
+        Me.DarkLabel78.Text = "Caso:"
         '
         'btnCustomScriptCancel
         '
@@ -2681,7 +2681,7 @@ Partial Class FrmEditor_Events
         Me.btnCustomScriptCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnCustomScriptCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCustomScriptCancel.TabIndex = 24
-        Me.btnCustomScriptCancel.Text = "Cancel"
+        Me.btnCustomScriptCancel.Text = "Cancelar"
         '
         'btnCustomScriptOk
         '
@@ -2710,7 +2710,7 @@ Partial Class FrmEditor_Events
         Me.fraSetWeather.Size = New System.Drawing.Size(331, 117)
         Me.fraSetWeather.TabIndex = 44
         Me.fraSetWeather.TabStop = False
-        Me.fraSetWeather.Text = "Set Weather"
+        Me.fraSetWeather.Text = "Alterar clima"
         Me.fraSetWeather.Visible = False
         '
         'btnSetWeatherOk
@@ -2731,7 +2731,7 @@ Partial Class FrmEditor_Events
         Me.btnSetWeatherCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnSetWeatherCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnSetWeatherCancel.TabIndex = 33
-        Me.btnSetWeatherCancel.Text = "Cancel"
+        Me.btnSetWeatherCancel.Text = "Cancelar"
         '
         'DarkLabel76
         '
@@ -2742,7 +2742,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel76.Name = "DarkLabel76"
         Me.DarkLabel76.Size = New System.Drawing.Size(64, 17)
         Me.DarkLabel76.TabIndex = 32
-        Me.DarkLabel76.Text = "Intensity:"
+        Me.DarkLabel76.Text = "Intensidade:"
         '
         'nudWeatherIntensity
         '
@@ -2763,7 +2763,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel75.Name = "DarkLabel75"
         Me.DarkLabel75.Size = New System.Drawing.Size(98, 17)
         Me.DarkLabel75.TabIndex = 1
-        Me.DarkLabel75.Text = "Weather Type"
+        Me.DarkLabel75.Text = "Clima"
         '
         'CmbWeather
         '
@@ -2773,7 +2773,7 @@ Partial Class FrmEditor_Events
         Me.CmbWeather.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbWeather.ForeColor = System.Drawing.Color.Gainsboro
         Me.CmbWeather.FormattingEnabled = True
-        Me.CmbWeather.Items.AddRange(New Object() {"None", "Rain", "Snow", "Hail", "Sand Storm", "Storm"})
+        Me.CmbWeather.Items.AddRange(New Object() {"None", "Chuva", "Neve", "Garoa", "Tempestade de areia", "Tempestade"})
         Me.CmbWeather.Location = New System.Drawing.Point(115, 18)
         Me.CmbWeather.Margin = New System.Windows.Forms.Padding(4)
         Me.CmbWeather.Name = "CmbWeather"
@@ -2794,7 +2794,7 @@ Partial Class FrmEditor_Events
         Me.fraSpawnNpc.Size = New System.Drawing.Size(331, 94)
         Me.fraSpawnNpc.TabIndex = 46
         Me.fraSpawnNpc.TabStop = False
-        Me.fraSpawnNpc.Text = "Spawn Npc"
+        Me.fraSpawnNpc.Text = "Nascer Npc"
         Me.fraSpawnNpc.Visible = False
         '
         'btnSpawnNpcOk
@@ -2815,7 +2815,7 @@ Partial Class FrmEditor_Events
         Me.btnSpawnNpcCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnSpawnNpcCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnSpawnNpcCancel.TabIndex = 26
-        Me.btnSpawnNpcCancel.Text = "Cancel"
+        Me.btnSpawnNpcCancel.Text = "Cancelar"
         '
         'cmbSpawnNpc
         '
@@ -2846,7 +2846,7 @@ Partial Class FrmEditor_Events
         Me.fraGiveExp.Size = New System.Drawing.Size(331, 90)
         Me.fraGiveExp.TabIndex = 45
         Me.fraGiveExp.TabStop = False
-        Me.fraGiveExp.Text = "Give Experience"
+        Me.fraGiveExp.Text = "Dar Experiência"
         Me.fraGiveExp.Visible = False
         '
         'btnGiveExpOk
@@ -2867,7 +2867,7 @@ Partial Class FrmEditor_Events
         Me.btnGiveExpCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnGiveExpCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnGiveExpCancel.TabIndex = 26
-        Me.btnGiveExpCancel.Text = "Cancel"
+        Me.btnGiveExpCancel.Text = "Cancelar"
         '
         'nudGiveExp
         '
@@ -2889,7 +2889,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel77.Name = "DarkLabel77"
         Me.DarkLabel77.Size = New System.Drawing.Size(68, 17)
         Me.DarkLabel77.TabIndex = 0
-        Me.DarkLabel77.Text = "Give Exp:"
+        Me.DarkLabel77.Text = "Dar Exp:"
         '
         'fraEndQuest
         '
@@ -2905,7 +2905,7 @@ Partial Class FrmEditor_Events
         Me.fraEndQuest.Size = New System.Drawing.Size(331, 90)
         Me.fraEndQuest.TabIndex = 43
         Me.fraEndQuest.TabStop = False
-        Me.fraEndQuest.Text = "End Quest"
+        Me.fraEndQuest.Text = "Finalizar Missão"
         Me.fraEndQuest.Visible = False
         '
         'btnEndQuestOk
@@ -2926,7 +2926,7 @@ Partial Class FrmEditor_Events
         Me.btnEndQuestCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnEndQuestCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnEndQuestCancel.TabIndex = 29
-        Me.btnEndQuestCancel.Text = "Cancel"
+        Me.btnEndQuestCancel.Text = "Cancelar"
         '
         'cmbEndQuest
         '
@@ -2956,7 +2956,7 @@ Partial Class FrmEditor_Events
         Me.fraSetAccess.Size = New System.Drawing.Size(331, 98)
         Me.fraSetAccess.TabIndex = 42
         Me.fraSetAccess.TabStop = False
-        Me.fraSetAccess.Text = "Set Access"
+        Me.fraSetAccess.Text = "Setar Acesso"
         Me.fraSetAccess.Visible = False
         '
         'btnSetAccessOk
@@ -2977,7 +2977,7 @@ Partial Class FrmEditor_Events
         Me.btnSetAccessCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnSetAccessCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnSetAccessCancel.TabIndex = 26
-        Me.btnSetAccessCancel.Text = "Cancel"
+        Me.btnSetAccessCancel.Text = "Cancelar"
         '
         'cmbSetAccess
         '
@@ -2987,7 +2987,7 @@ Partial Class FrmEditor_Events
         Me.cmbSetAccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSetAccess.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbSetAccess.FormattingEnabled = True
-        Me.cmbSetAccess.Items.AddRange(New Object() {"0: Player", "1: Monitor", "2: Mapper", "3: Developer", "4: Creator"})
+        Me.cmbSetAccess.Items.AddRange(New Object() {"0: Jogador", "1: Monitor", "2: Mapper", "3: Desenvolvedor", "4: Criador"})
         Me.cmbSetAccess.Location = New System.Drawing.Point(44, 23)
         Me.cmbSetAccess.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbSetAccess.Name = "cmbSetAccess"
@@ -3011,7 +3011,7 @@ Partial Class FrmEditor_Events
         Me.fraSetWait.Size = New System.Drawing.Size(331, 110)
         Me.fraSetWait.TabIndex = 41
         Me.fraSetWait.TabStop = False
-        Me.fraSetWait.Text = "Wait..."
+        Me.fraSetWait.Text = "Esperar..."
         Me.fraSetWait.Visible = False
         '
         'btnSetWaitOk
@@ -3032,7 +3032,7 @@ Partial Class FrmEditor_Events
         Me.btnSetWaitCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnSetWaitCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnSetWaitCancel.TabIndex = 36
-        Me.btnSetWaitCancel.Text = "Cancel"
+        Me.btnSetWaitCancel.Text = "Cancelar"
         '
         'DarkLabel74
         '
@@ -3043,7 +3043,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel74.Name = "DarkLabel74"
         Me.DarkLabel74.Size = New System.Drawing.Size(147, 17)
         Me.DarkLabel74.TabIndex = 35
-        Me.DarkLabel74.Text = "Hint: 1000 Ms = 1 Sec"
+        Me.DarkLabel74.Text = "Dica: 1000 Ms = 1 Seg"
         '
         'DarkLabel72
         '
@@ -3065,7 +3065,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel73.Name = "DarkLabel73"
         Me.DarkLabel73.Size = New System.Drawing.Size(36, 17)
         Me.DarkLabel73.TabIndex = 33
-        Me.DarkLabel73.Text = "Wait"
+        Me.DarkLabel73.Text = "Esperar"
         '
         'nudWaitAmount
         '
@@ -3103,7 +3103,7 @@ Partial Class FrmEditor_Events
         Me.fraShowPic.Size = New System.Drawing.Size(331, 274)
         Me.fraShowPic.TabIndex = 40
         Me.fraShowPic.TabStop = False
-        Me.fraShowPic.Text = "Show Picture"
+        Me.fraShowPic.Text = "Mostrar imagem"
         Me.fraShowPic.Visible = False
         '
         'btnShowPicOk
@@ -3124,7 +3124,7 @@ Partial Class FrmEditor_Events
         Me.btnShowPicCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnShowPicCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnShowPicCancel.TabIndex = 54
-        Me.btnShowPicCancel.Text = "Cancel"
+        Me.btnShowPicCancel.Text = "Cancelar"
         '
         'DarkLabel71
         '
@@ -3135,7 +3135,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel71.Name = "DarkLabel71"
         Me.DarkLabel71.Size = New System.Drawing.Size(140, 17)
         Me.DarkLabel71.TabIndex = 53
-        Me.DarkLabel71.Text = "Offset from Location:"
+        Me.DarkLabel71.Text = "Margem da localização:"
         '
         'DarkLabel70
         '
@@ -3146,7 +3146,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel70.Name = "DarkLabel70"
         Me.DarkLabel70.Size = New System.Drawing.Size(62, 17)
         Me.DarkLabel70.TabIndex = 52
-        Me.DarkLabel70.Text = "Location"
+        Me.DarkLabel70.Text = "Localização"
         '
         'DarkLabel67
         '
@@ -3201,7 +3201,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel69.Name = "DarkLabel69"
         Me.DarkLabel69.Size = New System.Drawing.Size(56, 17)
         Me.DarkLabel69.TabIndex = 47
-        Me.DarkLabel69.Text = "Picture:"
+        Me.DarkLabel69.Text = "Imagem:"
         '
         'cmbPicLoc
         '
@@ -3211,7 +3211,7 @@ Partial Class FrmEditor_Events
         Me.cmbPicLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPicLoc.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbPicLoc.FormattingEnabled = True
-        Me.cmbPicLoc.Items.AddRange(New Object() {"Top Left of Screen", "Center Screen", "Centered on Player"})
+        Me.cmbPicLoc.Items.AddRange(New Object() {"Canto superior esquerdo", "Centralizar na tela", "Centralizar no jogador"})
         Me.cmbPicLoc.Location = New System.Drawing.Point(153, 121)
         Me.cmbPicLoc.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbPicLoc.Name = "cmbPicLoc"
@@ -3262,7 +3262,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel66.Name = "DarkLabel66"
         Me.DarkLabel66.Size = New System.Drawing.Size(93, 17)
         Me.DarkLabel66.TabIndex = 0
-        Me.DarkLabel66.Text = "Picture Index:"
+        Me.DarkLabel66.Text = "Imagem:"
         '
         'fraOpenShop
         '
@@ -3278,7 +3278,7 @@ Partial Class FrmEditor_Events
         Me.fraOpenShop.Size = New System.Drawing.Size(328, 98)
         Me.fraOpenShop.TabIndex = 39
         Me.fraOpenShop.TabStop = False
-        Me.fraOpenShop.Text = "Open Shop"
+        Me.fraOpenShop.Text = "Abrir Loja"
         Me.fraOpenShop.Visible = False
         '
         'btnOpenShopOk
@@ -3299,7 +3299,7 @@ Partial Class FrmEditor_Events
         Me.btnOpenShopCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnOpenShopCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnOpenShopCancel.TabIndex = 26
-        Me.btnOpenShopCancel.Text = "Cancel"
+        Me.btnOpenShopCancel.Text = "Cancelar"
         '
         'cmbOpenShop
         '
@@ -3330,7 +3330,7 @@ Partial Class FrmEditor_Events
         Me.fraChangeLevel.Size = New System.Drawing.Size(331, 89)
         Me.fraChangeLevel.TabIndex = 38
         Me.fraChangeLevel.TabStop = False
-        Me.fraChangeLevel.Text = "Change Level"
+        Me.fraChangeLevel.Text = "Mudar nível"
         Me.fraChangeLevel.Visible = False
         '
         'btnChangeLevelOk
@@ -3351,7 +3351,7 @@ Partial Class FrmEditor_Events
         Me.btnChangeLevelCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnChangeLevelCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnChangeLevelCancel.TabIndex = 26
-        Me.btnChangeLevelCancel.Text = "Cancel"
+        Me.btnChangeLevelCancel.Text = "Cancelar"
         '
         'DarkLabel65
         '
@@ -3362,7 +3362,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel65.Name = "DarkLabel65"
         Me.DarkLabel65.Size = New System.Drawing.Size(46, 17)
         Me.DarkLabel65.TabIndex = 24
-        Me.DarkLabel65.Text = "Level:"
+        Me.DarkLabel65.Text = "Nível:"
         '
         'nudChangeLevel
         '
@@ -3389,7 +3389,7 @@ Partial Class FrmEditor_Events
         Me.fraChangeGender.Size = New System.Drawing.Size(331, 89)
         Me.fraChangeGender.TabIndex = 37
         Me.fraChangeGender.TabStop = False
-        Me.fraChangeGender.Text = "Change Player Gender"
+        Me.fraChangeGender.Text = "Mudar sexo"
         Me.fraChangeGender.Visible = False
         '
         'btnChangeGenderOk
@@ -3410,7 +3410,7 @@ Partial Class FrmEditor_Events
         Me.btnChangeGenderCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnChangeGenderCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnChangeGenderCancel.TabIndex = 26
-        Me.btnChangeGenderCancel.Text = "Cancel"
+        Me.btnChangeGenderCancel.Text = "Cancelar"
         '
         'optChangeSexFemale
         '
@@ -3421,7 +3421,7 @@ Partial Class FrmEditor_Events
         Me.optChangeSexFemale.Size = New System.Drawing.Size(75, 21)
         Me.optChangeSexFemale.TabIndex = 1
         Me.optChangeSexFemale.TabStop = True
-        Me.optChangeSexFemale.Text = "Female"
+        Me.optChangeSexFemale.Text = "Feminino"
         '
         'optChangeSexMale
         '
@@ -3432,7 +3432,7 @@ Partial Class FrmEditor_Events
         Me.optChangeSexMale.Size = New System.Drawing.Size(59, 21)
         Me.optChangeSexMale.TabIndex = 0
         Me.optChangeSexMale.TabStop = True
-        Me.optChangeSexMale.Text = "Male"
+        Me.optChangeSexMale.Text = "Masculino"
         '
         'fraGoToLabel
         '
@@ -3449,7 +3449,7 @@ Partial Class FrmEditor_Events
         Me.fraGoToLabel.Size = New System.Drawing.Size(331, 90)
         Me.fraGoToLabel.TabIndex = 35
         Me.fraGoToLabel.TabStop = False
-        Me.fraGoToLabel.Text = "GoTo Label"
+        Me.fraGoToLabel.Text = "Ir para marcador"
         Me.fraGoToLabel.Visible = False
         '
         'btnGoToLabelOk
@@ -3470,7 +3470,7 @@ Partial Class FrmEditor_Events
         Me.btnGoToLabelCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnGoToLabelCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnGoToLabelCancel.TabIndex = 26
-        Me.btnGoToLabelCancel.Text = "Cancel"
+        Me.btnGoToLabelCancel.Text = "Cancelar"
         '
         'txtGotoLabel
         '
@@ -3492,7 +3492,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel60.Name = "DarkLabel60"
         Me.DarkLabel60.Size = New System.Drawing.Size(88, 17)
         Me.DarkLabel60.TabIndex = 0
-        Me.DarkLabel60.Text = "Label Name:"
+        Me.DarkLabel60.Text = "Nome do marcador:"
         '
         'fraHidePic
         '
@@ -3509,7 +3509,7 @@ Partial Class FrmEditor_Events
         Me.fraHidePic.Size = New System.Drawing.Size(331, 87)
         Me.fraHidePic.TabIndex = 34
         Me.fraHidePic.TabStop = False
-        Me.fraHidePic.Text = "Hide Picture"
+        Me.fraHidePic.Text = "Esconder imagem"
         Me.fraHidePic.Visible = False
         '
         'btnHidePicOk
@@ -3530,7 +3530,7 @@ Partial Class FrmEditor_Events
         Me.btnHidePicCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnHidePicCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnHidePicCancel.TabIndex = 26
-        Me.btnHidePicCancel.Text = "Cancel"
+        Me.btnHidePicCancel.Text = "Cancelar"
         '
         'nudHidePic
         '
@@ -3551,7 +3551,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel59.Name = "DarkLabel59"
         Me.DarkLabel59.Size = New System.Drawing.Size(93, 17)
         Me.DarkLabel59.TabIndex = 0
-        Me.DarkLabel59.Text = "Picture Index:"
+        Me.DarkLabel59.Text = "Imagem:"
         '
         'fraBeginQuest
         '
@@ -3568,7 +3568,7 @@ Partial Class FrmEditor_Events
         Me.fraBeginQuest.Size = New System.Drawing.Size(331, 98)
         Me.fraBeginQuest.TabIndex = 33
         Me.fraBeginQuest.TabStop = False
-        Me.fraBeginQuest.Text = "Begin Quest"
+        Me.fraBeginQuest.Text = "Começar Missão"
         Me.fraBeginQuest.Visible = False
         '
         'btnBeginQuestOk
@@ -3589,7 +3589,7 @@ Partial Class FrmEditor_Events
         Me.btnBeginQuestCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnBeginQuestCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnBeginQuestCancel.TabIndex = 26
-        Me.btnBeginQuestCancel.Text = "Cancel"
+        Me.btnBeginQuestCancel.Text = "Cancelar"
         '
         'cmbBeginQuest
         '
@@ -3614,7 +3614,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel58.Name = "DarkLabel58"
         Me.DarkLabel58.Size = New System.Drawing.Size(50, 17)
         Me.DarkLabel58.TabIndex = 0
-        Me.DarkLabel58.Text = "Quest:"
+        Me.DarkLabel58.Text = "Missão:"
         '
         'fraShowChoices
         '
@@ -3642,7 +3642,7 @@ Partial Class FrmEditor_Events
         Me.fraShowChoices.Size = New System.Drawing.Size(331, 410)
         Me.fraShowChoices.TabIndex = 32
         Me.fraShowChoices.TabStop = False
-        Me.fraShowChoices.Text = "Show Choices"
+        Me.fraShowChoices.Text = "Mostrar escolhas"
         Me.fraShowChoices.Visible = False
         '
         'txtChoices4
@@ -3698,7 +3698,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel56.Name = "DarkLabel56"
         Me.DarkLabel56.Size = New System.Drawing.Size(63, 17)
         Me.DarkLabel56.TabIndex = 30
-        Me.DarkLabel56.Text = "Choice 4"
+        Me.DarkLabel56.Text = "Escolha 4"
         '
         'DarkLabel57
         '
@@ -3709,7 +3709,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel57.Name = "DarkLabel57"
         Me.DarkLabel57.Size = New System.Drawing.Size(63, 17)
         Me.DarkLabel57.TabIndex = 29
-        Me.DarkLabel57.Text = "Choice 3"
+        Me.DarkLabel57.Text = "Escolha 3"
         '
         'DarkLabel55
         '
@@ -3720,7 +3720,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel55.Name = "DarkLabel55"
         Me.DarkLabel55.Size = New System.Drawing.Size(63, 17)
         Me.DarkLabel55.TabIndex = 28
-        Me.DarkLabel55.Text = "Choice 2"
+        Me.DarkLabel55.Text = "Escolha 2"
         '
         'DarkLabel54
         '
@@ -3731,7 +3731,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel54.Name = "DarkLabel54"
         Me.DarkLabel54.Size = New System.Drawing.Size(63, 17)
         Me.DarkLabel54.TabIndex = 27
-        Me.DarkLabel54.Text = "Choice 1"
+        Me.DarkLabel54.Text = "Escolha 1"
         '
         'DarkLabel52
         '
@@ -3742,7 +3742,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel52.Name = "DarkLabel52"
         Me.DarkLabel52.Size = New System.Drawing.Size(53, 17)
         Me.DarkLabel52.TabIndex = 26
-        Me.DarkLabel52.Text = "Prompt"
+        Me.DarkLabel52.Text = "Msg:"
         '
         'txtChoicePrompt
         '
@@ -3785,7 +3785,7 @@ Partial Class FrmEditor_Events
         Me.btnShowChoicesCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnShowChoicesCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnShowChoicesCancel.TabIndex = 24
-        Me.btnShowChoicesCancel.Text = "Cancel"
+        Me.btnShowChoicesCancel.Text = "Cancelar"
         '
         'DarkLabel53
         '
@@ -3834,7 +3834,7 @@ Partial Class FrmEditor_Events
         Me.fraPlayerVariable.Size = New System.Drawing.Size(328, 190)
         Me.fraPlayerVariable.TabIndex = 31
         Me.fraPlayerVariable.TabStop = False
-        Me.fraPlayerVariable.Text = "Player Variable"
+        Me.fraPlayerVariable.Text = "Variável de jogador"
         Me.fraPlayerVariable.Visible = False
         '
         'nudVariableData2
@@ -3856,7 +3856,7 @@ Partial Class FrmEditor_Events
         Me.optVariableAction2.Size = New System.Drawing.Size(82, 21)
         Me.optVariableAction2.TabIndex = 28
         Me.optVariableAction2.TabStop = True
-        Me.optVariableAction2.Text = "Subtract"
+        Me.optVariableAction2.Text = "Reduzir"
         '
         'btnPlayerVarOk
         '
@@ -3876,7 +3876,7 @@ Partial Class FrmEditor_Events
         Me.btnPlayerVarCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnPlayerVarCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnPlayerVarCancel.TabIndex = 26
-        Me.btnPlayerVarCancel.Text = "Cancel"
+        Me.btnPlayerVarCancel.Text = "Cancelar"
         '
         'DarkLabel51
         '
@@ -3929,7 +3929,7 @@ Partial Class FrmEditor_Events
         Me.optVariableAction3.Size = New System.Drawing.Size(82, 21)
         Me.optVariableAction3.TabIndex = 12
         Me.optVariableAction3.TabStop = True
-        Me.optVariableAction3.Text = "Random"
+        Me.optVariableAction3.Text = "Aleatório"
         '
         'optVariableAction1
         '
@@ -3940,7 +3940,7 @@ Partial Class FrmEditor_Events
         Me.optVariableAction1.Size = New System.Drawing.Size(54, 21)
         Me.optVariableAction1.TabIndex = 11
         Me.optVariableAction1.TabStop = True
-        Me.optVariableAction1.Text = "Add"
+        Me.optVariableAction1.Text = "Adicionar"
         '
         'nudVariableData1
         '
@@ -3996,7 +3996,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel49.Name = "DarkLabel49"
         Me.DarkLabel49.Size = New System.Drawing.Size(64, 17)
         Me.DarkLabel49.TabIndex = 0
-        Me.DarkLabel49.Text = "Variable:"
+        Me.DarkLabel49.Text = "Variável:"
         '
         'fraChangeSprite
         '
@@ -4014,7 +4014,7 @@ Partial Class FrmEditor_Events
         Me.fraChangeSprite.Size = New System.Drawing.Size(328, 144)
         Me.fraChangeSprite.TabIndex = 30
         Me.fraChangeSprite.TabStop = False
-        Me.fraChangeSprite.Text = "Change Sprite"
+        Me.fraChangeSprite.Text = "Mudar aparência"
         Me.fraChangeSprite.Visible = False
         '
         'btnChangeSpriteOk
@@ -4035,7 +4035,7 @@ Partial Class FrmEditor_Events
         Me.btnChangeSpriteCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnChangeSpriteCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnChangeSpriteCancel.TabIndex = 29
-        Me.btnChangeSpriteCancel.Text = "Cancel"
+        Me.btnChangeSpriteCancel.Text = "Cancelar"
         '
         'DarkLabel48
         '
@@ -4086,7 +4086,7 @@ Partial Class FrmEditor_Events
         Me.fraSetSelfSwitch.Size = New System.Drawing.Size(328, 123)
         Me.fraSetSelfSwitch.TabIndex = 29
         Me.fraSetSelfSwitch.TabStop = False
-        Me.fraSetSelfSwitch.Text = "Self Switches"
+        Me.fraSetSelfSwitch.Text = "Switch próprio"
         Me.fraSetSelfSwitch.Visible = False
         '
         'btnSelfswitchOk
@@ -4107,7 +4107,7 @@ Partial Class FrmEditor_Events
         Me.btnSelfswitchCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnSelfswitchCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnSelfswitchCancel.TabIndex = 26
-        Me.btnSelfswitchCancel.Text = "Cancel"
+        Me.btnSelfswitchCancel.Text = "Cancelar"
         '
         'DarkLabel47
         '
@@ -4118,7 +4118,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel47.Name = "DarkLabel47"
         Me.DarkLabel47.Size = New System.Drawing.Size(50, 17)
         Me.DarkLabel47.TabIndex = 3
-        Me.DarkLabel47.Text = "Set To"
+        Me.DarkLabel47.Text = "Alterar para"
         '
         'cmbSetSelfSwitchTo
         '
@@ -4144,7 +4144,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel46.Name = "DarkLabel46"
         Me.DarkLabel46.Size = New System.Drawing.Size(80, 17)
         Me.DarkLabel46.TabIndex = 1
-        Me.DarkLabel46.Text = "Self Switch:"
+        Me.DarkLabel46.Text = "Switch próprio:"
         '
         'cmbSetSelfSwitch
         '
@@ -4181,7 +4181,7 @@ Partial Class FrmEditor_Events
         Me.fraMapTint.Size = New System.Drawing.Size(328, 178)
         Me.fraMapTint.TabIndex = 28
         Me.fraMapTint.TabStop = False
-        Me.fraMapTint.Text = "Map Tinting"
+        Me.fraMapTint.Text = "Cor do mapa"
         Me.fraMapTint.Visible = False
         '
         'btnMapTintOk
@@ -4202,7 +4202,7 @@ Partial Class FrmEditor_Events
         Me.btnMapTintCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnMapTintCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnMapTintCancel.TabIndex = 44
-        Me.btnMapTintCancel.Text = "Cancel"
+        Me.btnMapTintCancel.Text = "Cancelar"
         '
         'DarkLabel42
         '
@@ -4213,7 +4213,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel42.Name = "DarkLabel42"
         Me.DarkLabel42.Size = New System.Drawing.Size(60, 17)
         Me.DarkLabel42.TabIndex = 43
-        Me.DarkLabel42.Text = "Opacity:"
+        Me.DarkLabel42.Text = "Opacidade:"
         '
         'nudMapTintData3
         '
@@ -4245,7 +4245,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel43.Name = "DarkLabel43"
         Me.DarkLabel43.Size = New System.Drawing.Size(40, 17)
         Me.DarkLabel43.TabIndex = 40
-        Me.DarkLabel43.Text = "Blue:"
+        Me.DarkLabel43.Text = "Azul:"
         '
         'DarkLabel44
         '
@@ -4256,7 +4256,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel44.Name = "DarkLabel44"
         Me.DarkLabel44.Size = New System.Drawing.Size(52, 17)
         Me.DarkLabel44.TabIndex = 39
-        Me.DarkLabel44.Text = "Green:"
+        Me.DarkLabel44.Text = "Verde:"
         '
         'nudMapTintData1
         '
@@ -4289,7 +4289,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel45.Name = "DarkLabel45"
         Me.DarkLabel45.Size = New System.Drawing.Size(38, 17)
         Me.DarkLabel45.TabIndex = 36
-        Me.DarkLabel45.Text = "Red:"
+        Me.DarkLabel45.Text = "Vermelho:"
         '
         'fraShowChatBubble
         '
@@ -4310,7 +4310,7 @@ Partial Class FrmEditor_Events
         Me.fraShowChatBubble.Size = New System.Drawing.Size(328, 174)
         Me.fraShowChatBubble.TabIndex = 27
         Me.fraShowChatBubble.TabStop = False
-        Me.fraShowChatBubble.Text = "Show ChatBubble"
+        Me.fraShowChatBubble.Text = "Mostrar bolha de chat"
         Me.fraShowChatBubble.Visible = False
         '
         'btnShowChatBubbleOk
@@ -4331,7 +4331,7 @@ Partial Class FrmEditor_Events
         Me.btnShowChatBubbleCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnShowChatBubbleCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnShowChatBubbleCancel.TabIndex = 30
-        Me.btnShowChatBubbleCancel.Text = "Cancel"
+        Me.btnShowChatBubbleCancel.Text = "Cancelar"
         '
         'DarkLabel41
         '
@@ -4342,7 +4342,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel41.Name = "DarkLabel41"
         Me.DarkLabel41.Size = New System.Drawing.Size(45, 17)
         Me.DarkLabel41.TabIndex = 29
-        Me.DarkLabel41.Text = "Index:"
+        Me.DarkLabel41.Text = "Número:"
         '
         'cmbChatBubbleTarget
         '
@@ -4366,7 +4366,7 @@ Partial Class FrmEditor_Events
         Me.cmbChatBubbleTargetType.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbChatBubbleTargetType.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbChatBubbleTargetType.FormattingEnabled = True
-        Me.cmbChatBubbleTargetType.Items.AddRange(New Object() {"Player", "Npc", "Event"})
+        Me.cmbChatBubbleTargetType.Items.AddRange(New Object() {"Jogador", "Npc", "Evento"})
         Me.cmbChatBubbleTargetType.Location = New System.Drawing.Point(108, 71)
         Me.cmbChatBubbleTargetType.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbChatBubbleTargetType.Name = "cmbChatBubbleTargetType"
@@ -4382,7 +4382,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel40.Name = "DarkLabel40"
         Me.DarkLabel40.Size = New System.Drawing.Size(90, 17)
         Me.DarkLabel40.TabIndex = 2
-        Me.DarkLabel40.Text = "Target Type:"
+        Me.DarkLabel40.Text = "Tipo do alvo:"
         '
         'txtChatbubbleText
         '
@@ -4404,7 +4404,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel39.Name = "DarkLabel39"
         Me.DarkLabel39.Size = New System.Drawing.Size(112, 17)
         Me.DarkLabel39.TabIndex = 0
-        Me.DarkLabel39.Text = "ChatBubble Text"
+        Me.DarkLabel39.Text = "Texto:"
         '
         'fraPlaySound
         '
@@ -4420,7 +4420,7 @@ Partial Class FrmEditor_Events
         Me.fraPlaySound.Size = New System.Drawing.Size(328, 94)
         Me.fraPlaySound.TabIndex = 26
         Me.fraPlaySound.TabStop = False
-        Me.fraPlaySound.Text = "Play Sound"
+        Me.fraPlaySound.Text = "Tocar som"
         Me.fraPlaySound.Visible = False
         '
         'btnPlaySoundOk
@@ -4441,7 +4441,7 @@ Partial Class FrmEditor_Events
         Me.btnPlaySoundCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnPlaySoundCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnPlaySoundCancel.TabIndex = 26
-        Me.btnPlaySoundCancel.Text = "Cancel"
+        Me.btnPlaySoundCancel.Text = "Cancelar"
         '
         'cmbPlaySound
         '
@@ -4471,7 +4471,7 @@ Partial Class FrmEditor_Events
         Me.fraChangePK.Size = New System.Drawing.Size(328, 92)
         Me.fraChangePK.TabIndex = 25
         Me.fraChangePK.TabStop = False
-        Me.fraChangePK.Text = "Set Player PK"
+        Me.fraChangePK.Text = "Alterar PK"
         Me.fraChangePK.Visible = False
         '
         'btnChangePkOk
@@ -4492,7 +4492,7 @@ Partial Class FrmEditor_Events
         Me.btnChangePkCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnChangePkCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnChangePkCancel.TabIndex = 26
-        Me.btnChangePkCancel.Text = "Cancel"
+        Me.btnChangePkCancel.Text = "Cancelar"
         '
         'cmbSetPK
         '
@@ -4502,7 +4502,7 @@ Partial Class FrmEditor_Events
         Me.cmbSetPK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbSetPK.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbSetPK.FormattingEnabled = True
-        Me.cmbSetPK.Items.AddRange(New Object() {"No", "Yes"})
+        Me.cmbSetPK.Items.AddRange(New Object() {"Não", "Sim"})
         Me.cmbSetPK.Location = New System.Drawing.Point(13, 23)
         Me.cmbSetPK.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbSetPK.Name = "cmbSetPK"
@@ -4524,7 +4524,7 @@ Partial Class FrmEditor_Events
         Me.fraCreateLabel.Size = New System.Drawing.Size(328, 91)
         Me.fraCreateLabel.TabIndex = 24
         Me.fraCreateLabel.TabStop = False
-        Me.fraCreateLabel.Text = "Create Label"
+        Me.fraCreateLabel.Text = "Criar marcador"
         Me.fraCreateLabel.Visible = False
         '
         'btnCreatelabelOk
@@ -4545,7 +4545,7 @@ Partial Class FrmEditor_Events
         Me.btnCreatelabelCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnCreatelabelCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCreatelabelCancel.TabIndex = 26
-        Me.btnCreatelabelCancel.Text = "Cancel"
+        Me.btnCreatelabelCancel.Text = "Cancelar"
         '
         'txtLabelName
         '
@@ -4567,7 +4567,7 @@ Partial Class FrmEditor_Events
         Me.lblLabelName.Name = "lblLabelName"
         Me.lblLabelName.Size = New System.Drawing.Size(88, 17)
         Me.lblLabelName.TabIndex = 0
-        Me.lblLabelName.Text = "Label Name:"
+        Me.lblLabelName.Text = "Nome do marcador:"
         '
         'fraChangeClass
         '
@@ -4584,7 +4584,7 @@ Partial Class FrmEditor_Events
         Me.fraChangeClass.Size = New System.Drawing.Size(328, 94)
         Me.fraChangeClass.TabIndex = 23
         Me.fraChangeClass.TabStop = False
-        Me.fraChangeClass.Text = "Change Player Class"
+        Me.fraChangeClass.Text = "Trocar classe"
         Me.fraChangeClass.Visible = False
         '
         'btnChangeClassOk
@@ -4605,7 +4605,7 @@ Partial Class FrmEditor_Events
         Me.btnChangeClassCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnChangeClassCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnChangeClassCancel.TabIndex = 26
-        Me.btnChangeClassCancel.Text = "Cancel"
+        Me.btnChangeClassCancel.Text = "Cancelar"
         '
         'cmbChangeClass
         '
@@ -4630,7 +4630,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel38.Name = "DarkLabel38"
         Me.DarkLabel38.Size = New System.Drawing.Size(46, 17)
         Me.DarkLabel38.TabIndex = 0
-        Me.DarkLabel38.Text = "Class:"
+        Me.DarkLabel38.Text = "Classe:"
         '
         'fraChangeSkills
         '
@@ -4649,7 +4649,7 @@ Partial Class FrmEditor_Events
         Me.fraChangeSkills.Size = New System.Drawing.Size(328, 121)
         Me.fraChangeSkills.TabIndex = 22
         Me.fraChangeSkills.TabStop = False
-        Me.fraChangeSkills.Text = "Change Player Skills"
+        Me.fraChangeSkills.Text = "Alterar habilidades"
         Me.fraChangeSkills.Visible = False
         '
         'btnChangeSkillsOk
@@ -4670,7 +4670,7 @@ Partial Class FrmEditor_Events
         Me.btnChangeSkillsCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnChangeSkillsCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnChangeSkillsCancel.TabIndex = 26
-        Me.btnChangeSkillsCancel.Text = "Cancel"
+        Me.btnChangeSkillsCancel.Text = "Cancelar"
         '
         'optChangeSkillsRemove
         '
@@ -4681,7 +4681,7 @@ Partial Class FrmEditor_Events
         Me.optChangeSkillsRemove.Size = New System.Drawing.Size(70, 21)
         Me.optChangeSkillsRemove.TabIndex = 3
         Me.optChangeSkillsRemove.TabStop = True
-        Me.optChangeSkillsRemove.Text = "Forget"
+        Me.optChangeSkillsRemove.Text = "Esquecer"
         '
         'optChangeSkillsAdd
         '
@@ -4692,7 +4692,7 @@ Partial Class FrmEditor_Events
         Me.optChangeSkillsAdd.Size = New System.Drawing.Size(69, 21)
         Me.optChangeSkillsAdd.TabIndex = 2
         Me.optChangeSkillsAdd.TabStop = True
-        Me.optChangeSkillsAdd.Text = "Teach"
+        Me.optChangeSkillsAdd.Text = "Aprender"
         '
         'cmbChangeSkills
         '
@@ -4717,7 +4717,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel37.Name = "DarkLabel37"
         Me.DarkLabel37.Size = New System.Drawing.Size(37, 17)
         Me.DarkLabel37.TabIndex = 0
-        Me.DarkLabel37.Text = "Skill:"
+        Me.DarkLabel37.Text = "Habilidade:"
         '
         'fraCompleteTask
         '
@@ -4736,7 +4736,7 @@ Partial Class FrmEditor_Events
         Me.fraCompleteTask.Size = New System.Drawing.Size(328, 123)
         Me.fraCompleteTask.TabIndex = 20
         Me.fraCompleteTask.TabStop = False
-        Me.fraCompleteTask.Text = "Complete Quest Task"
+        Me.fraCompleteTask.Text = "Completar tarefa da missão"
         Me.fraCompleteTask.Visible = False
         '
         'btnCompleteQuestTaskOk
@@ -4757,7 +4757,7 @@ Partial Class FrmEditor_Events
         Me.btnCompleteQuestTaskCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnCompleteQuestTaskCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnCompleteQuestTaskCancel.TabIndex = 26
-        Me.btnCompleteQuestTaskCancel.Text = "Cancel"
+        Me.btnCompleteQuestTaskCancel.Text = "Cancelar"
         '
         'DarkLabel35
         '
@@ -4768,7 +4768,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel35.Name = "DarkLabel35"
         Me.DarkLabel35.Size = New System.Drawing.Size(43, 17)
         Me.DarkLabel35.TabIndex = 23
-        Me.DarkLabel35.Text = "Task:"
+        Me.DarkLabel35.Text = "Tarefa:"
         '
         'DarkLabel36
         '
@@ -4779,7 +4779,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel36.Name = "DarkLabel36"
         Me.DarkLabel36.Size = New System.Drawing.Size(50, 17)
         Me.DarkLabel36.TabIndex = 22
-        Me.DarkLabel36.Text = "Quest:"
+        Me.DarkLabel36.Text = "Missão:"
         '
         'nudCompleteQuestTask
         '
@@ -4827,7 +4827,7 @@ Partial Class FrmEditor_Events
         Me.fraPlayerWarp.Size = New System.Drawing.Size(328, 119)
         Me.fraPlayerWarp.TabIndex = 19
         Me.fraPlayerWarp.TabStop = False
-        Me.fraPlayerWarp.Text = "Warp Player"
+        Me.fraPlayerWarp.Text = "Teleportar jogador"
         Me.fraPlayerWarp.Visible = False
         '
         'btnPlayerWarpOk
@@ -4848,7 +4848,7 @@ Partial Class FrmEditor_Events
         Me.btnPlayerWarpCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnPlayerWarpCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnPlayerWarpCancel.TabIndex = 45
-        Me.btnPlayerWarpCancel.Text = "Cancel"
+        Me.btnPlayerWarpCancel.Text = "Cancelar"
         '
         'DarkLabel31
         '
@@ -4859,7 +4859,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel31.Name = "DarkLabel31"
         Me.DarkLabel31.Size = New System.Drawing.Size(68, 17)
         Me.DarkLabel31.TabIndex = 44
-        Me.DarkLabel31.Text = "Direction:"
+        Me.DarkLabel31.Text = "Direção:"
         '
         'cmbWarpPlayerDir
         '
@@ -4869,7 +4869,7 @@ Partial Class FrmEditor_Events
         Me.cmbWarpPlayerDir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbWarpPlayerDir.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbWarpPlayerDir.FormattingEnabled = True
-        Me.cmbWarpPlayerDir.Items.AddRange(New Object() {"Retain Direction", "Up", "Down", "Left", "Right"})
+        Me.cmbWarpPlayerDir.Items.AddRange(New Object() {"Manter direção", "Cima", "Baixo", "Esquerda", "Direita"})
         Me.cmbWarpPlayerDir.Location = New System.Drawing.Point(128, 50)
         Me.cmbWarpPlayerDir.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbWarpPlayerDir.Name = "cmbWarpPlayerDir"
@@ -4937,7 +4937,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel34.Name = "DarkLabel34"
         Me.DarkLabel34.Size = New System.Drawing.Size(39, 17)
         Me.DarkLabel34.TabIndex = 37
-        Me.DarkLabel34.Text = "Map:"
+        Me.DarkLabel34.Text = "Mapa:"
         '
         'fraSetFog
         '
@@ -4958,7 +4958,7 @@ Partial Class FrmEditor_Events
         Me.fraSetFog.Size = New System.Drawing.Size(328, 118)
         Me.fraSetFog.TabIndex = 18
         Me.fraSetFog.TabStop = False
-        Me.fraSetFog.Text = "Set Fog"
+        Me.fraSetFog.Text = "Alterar neblina"
         Me.fraSetFog.Visible = False
         '
         'btnSetFogOk
@@ -4979,7 +4979,7 @@ Partial Class FrmEditor_Events
         Me.btnSetFogCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnSetFogCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnSetFogCancel.TabIndex = 40
-        Me.btnSetFogCancel.Text = "Cancel"
+        Me.btnSetFogCancel.Text = "Cancelar"
         '
         'DarkLabel30
         '
@@ -4990,7 +4990,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel30.Name = "DarkLabel30"
         Me.DarkLabel30.Size = New System.Drawing.Size(88, 17)
         Me.DarkLabel30.TabIndex = 39
-        Me.DarkLabel30.Text = "Fog Opacity:"
+        Me.DarkLabel30.Text = "Opacidade:"
         '
         'DarkLabel29
         '
@@ -5001,7 +5001,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel29.Name = "DarkLabel29"
         Me.DarkLabel29.Size = New System.Drawing.Size(81, 17)
         Me.DarkLabel29.TabIndex = 38
-        Me.DarkLabel29.Text = "Fog Speed:"
+        Me.DarkLabel29.Text = "Velocidade:"
         '
         'DarkLabel28
         '
@@ -5012,7 +5012,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel28.Name = "DarkLabel28"
         Me.DarkLabel28.Size = New System.Drawing.Size(36, 17)
         Me.DarkLabel28.TabIndex = 37
-        Me.DarkLabel28.Text = "Fog:"
+        Me.DarkLabel28.Text = "Neblina:"
         '
         'nudFogData2
         '
@@ -5063,7 +5063,7 @@ Partial Class FrmEditor_Events
         Me.fraShowText.Size = New System.Drawing.Size(331, 350)
         Me.fraShowText.TabIndex = 17
         Me.fraShowText.TabStop = False
-        Me.fraShowText.Text = "Show Text"
+        Me.fraShowText.Text = "Mostrar texto"
         Me.fraShowText.Visible = False
         '
         'DarkLabel27
@@ -5075,7 +5075,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel27.Name = "DarkLabel27"
         Me.DarkLabel27.Size = New System.Drawing.Size(35, 17)
         Me.DarkLabel27.TabIndex = 26
-        Me.DarkLabel27.Text = "Text"
+        Me.DarkLabel27.Text = "Texto"
         '
         'txtShowText
         '
@@ -5160,7 +5160,7 @@ Partial Class FrmEditor_Events
         Me.fraAddText.Size = New System.Drawing.Size(311, 230)
         Me.fraAddText.TabIndex = 3
         Me.fraAddText.TabStop = False
-        Me.fraAddText.Text = "Add Text"
+        Me.fraAddText.Text = "Adicionar Texto"
         Me.fraAddText.Visible = False
         '
         'btnAddTextOk
@@ -5181,7 +5181,7 @@ Partial Class FrmEditor_Events
         Me.btnAddTextCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnAddTextCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnAddTextCancel.TabIndex = 8
-        Me.btnAddTextCancel.Text = "Cancel"
+        Me.btnAddTextCancel.Text = "Cancelar"
         '
         'optAddText_Global
         '
@@ -5203,7 +5203,7 @@ Partial Class FrmEditor_Events
         Me.optAddText_Map.Size = New System.Drawing.Size(56, 21)
         Me.optAddText_Map.TabIndex = 4
         Me.optAddText_Map.TabStop = True
-        Me.optAddText_Map.Text = "Map"
+        Me.optAddText_Map.Text = "Mapa"
         '
         'optAddText_Player
         '
@@ -5214,7 +5214,7 @@ Partial Class FrmEditor_Events
         Me.optAddText_Player.Size = New System.Drawing.Size(69, 21)
         Me.optAddText_Player.TabIndex = 3
         Me.optAddText_Player.TabStop = True
-        Me.optAddText_Player.Text = "Player"
+        Me.optAddText_Player.Text = "Jogador"
         '
         'DarkLabel25
         '
@@ -5225,7 +5225,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel25.Name = "DarkLabel25"
         Me.DarkLabel25.Size = New System.Drawing.Size(64, 17)
         Me.DarkLabel25.TabIndex = 2
-        Me.DarkLabel25.Text = "Channel:"
+        Me.DarkLabel25.Text = "Canal:"
         '
         'txtAddText_Text
         '
@@ -5248,7 +5248,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel24.Name = "DarkLabel24"
         Me.DarkLabel24.Size = New System.Drawing.Size(35, 17)
         Me.DarkLabel24.TabIndex = 0
-        Me.DarkLabel24.Text = "Text"
+        Me.DarkLabel24.Text = "Texto"
         '
         'fraPlayerSwitch
         '
@@ -5267,7 +5267,7 @@ Partial Class FrmEditor_Events
         Me.fraPlayerSwitch.Size = New System.Drawing.Size(243, 123)
         Me.fraPlayerSwitch.TabIndex = 2
         Me.fraPlayerSwitch.TabStop = False
-        Me.fraPlayerSwitch.Text = "Change Items"
+        Me.fraPlayerSwitch.Text = "Alterar itens"
         Me.fraPlayerSwitch.Visible = False
         '
         'btnSetPlayerSwitchOk
@@ -5298,7 +5298,7 @@ Partial Class FrmEditor_Events
         Me.cmbPlayerSwitchSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbPlayerSwitchSet.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbPlayerSwitchSet.FormattingEnabled = True
-        Me.cmbPlayerSwitchSet.Items.AddRange(New Object() {"False", "True"})
+        Me.cmbPlayerSwitchSet.Items.AddRange(New Object() {"Falso", "Verdadeiro"})
         Me.cmbPlayerSwitchSet.Location = New System.Drawing.Point(68, 50)
         Me.cmbPlayerSwitchSet.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbPlayerSwitchSet.Name = "cmbPlayerSwitchSet"
@@ -5314,7 +5314,7 @@ Partial Class FrmEditor_Events
         Me.DarkLabel23.Name = "DarkLabel23"
         Me.DarkLabel23.Size = New System.Drawing.Size(45, 17)
         Me.DarkLabel23.TabIndex = 2
-        Me.DarkLabel23.Text = "Set to"
+        Me.DarkLabel23.Text = "Alterar para"
         '
         'cmbSwitch
         '
@@ -5360,7 +5360,7 @@ Partial Class FrmEditor_Events
         Me.fraChangeItems.Size = New System.Drawing.Size(249, 148)
         Me.fraChangeItems.TabIndex = 1
         Me.fraChangeItems.TabStop = False
-        Me.fraChangeItems.Text = "Change Items"
+        Me.fraChangeItems.Text = "Alterar itens"
         Me.fraChangeItems.Visible = False
         '
         'btnChangeItemsOk
@@ -5381,7 +5381,7 @@ Partial Class FrmEditor_Events
         Me.btnChangeItemsCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnChangeItemsCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnChangeItemsCancel.TabIndex = 6
-        Me.btnChangeItemsCancel.Text = "Cancel"
+        Me.btnChangeItemsCancel.Text = "Cancelar"
         '
         'nudChangeItemsAmount
         '
@@ -5402,7 +5402,7 @@ Partial Class FrmEditor_Events
         Me.optChangeItemRemove.Size = New System.Drawing.Size(61, 21)
         Me.optChangeItemRemove.TabIndex = 4
         Me.optChangeItemRemove.TabStop = True
-        Me.optChangeItemRemove.Text = "Take"
+        Me.optChangeItemRemove.Text = "Pegar"
         '
         'optChangeItemAdd
         '
@@ -5413,7 +5413,7 @@ Partial Class FrmEditor_Events
         Me.optChangeItemAdd.Size = New System.Drawing.Size(58, 21)
         Me.optChangeItemAdd.TabIndex = 3
         Me.optChangeItemAdd.TabStop = True
-        Me.optChangeItemAdd.Text = "Give"
+        Me.optChangeItemAdd.Text = "Dar"
         '
         'optChangeItemSet
         '
@@ -5424,7 +5424,7 @@ Partial Class FrmEditor_Events
         Me.optChangeItemSet.Size = New System.Drawing.Size(66, 21)
         Me.optChangeItemSet.TabIndex = 2
         Me.optChangeItemSet.TabStop = True
-        Me.optChangeItemSet.Text = "Set to"
+        Me.optChangeItemSet.Text = "Alterar para"
         '
         'cmbChangeItemIndex
         '
@@ -5465,7 +5465,7 @@ Partial Class FrmEditor_Events
         Me.fraPlayBGM.Size = New System.Drawing.Size(328, 92)
         Me.fraPlayBGM.TabIndex = 21
         Me.fraPlayBGM.TabStop = False
-        Me.fraPlayBGM.Text = "Play BGM"
+        Me.fraPlayBGM.Text = "Tocar BGM"
         Me.fraPlayBGM.Visible = False
         '
         'btnPlayBgmOk
@@ -5486,7 +5486,7 @@ Partial Class FrmEditor_Events
         Me.btnPlayBgmCancel.Padding = New System.Windows.Forms.Padding(7, 6, 7, 6)
         Me.btnPlayBgmCancel.Size = New System.Drawing.Size(100, 28)
         Me.btnPlayBgmCancel.TabIndex = 26
-        Me.btnPlayBgmCancel.Text = "Cancel"
+        Me.btnPlayBgmCancel.Text = "Cancelar"
         '
         'cmbPlayBGM
         '
@@ -5525,7 +5525,7 @@ Partial Class FrmEditor_Events
         Me.FraRenaming.Size = New System.Drawing.Size(485, 176)
         Me.FraRenaming.TabIndex = 8
         Me.FraRenaming.TabStop = False
-        Me.FraRenaming.Text = "Renaming Variable/Switch"
+        Me.FraRenaming.Text = "Renomear Variável/Switch"
         Me.FraRenaming.Visible = False
         '
         'btnRename_Cancel
@@ -5536,7 +5536,7 @@ Partial Class FrmEditor_Events
         Me.btnRename_Cancel.Name = "btnRename_Cancel"
         Me.btnRename_Cancel.Size = New System.Drawing.Size(100, 28)
         Me.btnRename_Cancel.TabIndex = 2
-        Me.btnRename_Cancel.Text = "Cancel"
+        Me.btnRename_Cancel.Text = "Cancelar"
         Me.btnRename_Cancel.UseVisualStyleBackColor = True
         '
         'btnRename_Ok
@@ -5562,7 +5562,7 @@ Partial Class FrmEditor_Events
         Me.fraRandom10.Size = New System.Drawing.Size(469, 94)
         Me.fraRandom10.TabIndex = 0
         Me.fraRandom10.TabStop = False
-        Me.fraRandom10.Text = "Editing Variable/Switch"
+        Me.fraRandom10.Text = "Editar Variável/Switch"
         '
         'txtRename
         '
@@ -5580,7 +5580,7 @@ Partial Class FrmEditor_Events
         Me.lblEditing.Name = "lblEditing"
         Me.lblEditing.Size = New System.Drawing.Size(132, 17)
         Me.lblEditing.TabIndex = 0
-        Me.lblEditing.Text = "Naming Variable #1"
+        Me.lblEditing.Text = "Nomeando Variável #1"
         '
         'fraLabeling
         '
@@ -5601,7 +5601,7 @@ Partial Class FrmEditor_Events
         Me.fraLabeling.Size = New System.Drawing.Size(608, 476)
         Me.fraLabeling.TabIndex = 0
         Me.fraLabeling.TabStop = False
-        Me.fraLabeling.Text = "Label Variables and  Switches   "
+        Me.fraLabeling.Text = "Rotular Variáveis e Switches   "
         '
         'lstSwitches
         '
@@ -5637,7 +5637,7 @@ Partial Class FrmEditor_Events
         Me.btnLabel_Cancel.Name = "btnLabel_Cancel"
         Me.btnLabel_Cancel.Size = New System.Drawing.Size(100, 28)
         Me.btnLabel_Cancel.TabIndex = 12
-        Me.btnLabel_Cancel.Text = "Cancel"
+        Me.btnLabel_Cancel.Text = "Cancelar"
         Me.btnLabel_Cancel.UseVisualStyleBackColor = True
         '
         'lblRandomLabel36
@@ -5648,7 +5648,7 @@ Partial Class FrmEditor_Events
         Me.lblRandomLabel36.Name = "lblRandomLabel36"
         Me.lblRandomLabel36.Size = New System.Drawing.Size(107, 17)
         Me.lblRandomLabel36.TabIndex = 5
-        Me.lblRandomLabel36.Text = "Player Switches"
+        Me.lblRandomLabel36.Text = "Switches do Jogador"
         '
         'btnRenameVariable
         '
@@ -5658,7 +5658,7 @@ Partial Class FrmEditor_Events
         Me.btnRenameVariable.Name = "btnRenameVariable"
         Me.btnRenameVariable.Size = New System.Drawing.Size(141, 28)
         Me.btnRenameVariable.TabIndex = 9
-        Me.btnRenameVariable.Text = "Rename Variable"
+        Me.btnRenameVariable.Text = "Renomear Variável"
         Me.btnRenameVariable.UseVisualStyleBackColor = True
         '
         'lblRandomLabel25
@@ -5669,7 +5669,7 @@ Partial Class FrmEditor_Events
         Me.lblRandomLabel25.Name = "lblRandomLabel25"
         Me.lblRandomLabel25.Size = New System.Drawing.Size(111, 17)
         Me.lblRandomLabel25.TabIndex = 4
-        Me.lblRandomLabel25.Text = "Player Variables"
+        Me.lblRandomLabel25.Text = "Variáveis do jogador"
         '
         'btnRenameSwitch
         '
@@ -5679,7 +5679,7 @@ Partial Class FrmEditor_Events
         Me.btnRenameSwitch.Name = "btnRenameSwitch"
         Me.btnRenameSwitch.Size = New System.Drawing.Size(146, 28)
         Me.btnRenameSwitch.TabIndex = 10
-        Me.btnRenameSwitch.Text = "Rename Switch"
+        Me.btnRenameSwitch.Text = "Renomear Switch"
         Me.btnRenameSwitch.UseVisualStyleBackColor = True
         '
         'btnLabel_Ok
