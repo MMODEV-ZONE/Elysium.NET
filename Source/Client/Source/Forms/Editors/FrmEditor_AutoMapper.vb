@@ -247,7 +247,7 @@ Friend Class frmEditor_AutoMapper
     Private Sub lstDetails_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstDetails.SelectedIndexChanged
         If lstDetails.SelectedIndex >= 0 Then
             Dim index As Long = GetDetailIndex(lstDetails.SelectedIndex)
-            cmbTileset.SelectedIndex = Detail(index).Tileset
+            cmbTileset.SelectedIndex = Detail(index).Tileset - 1
             EditorTileX = Detail(index).StartX
             EditorTileY = Detail(index).StartY
             EditorTileWidth = Detail(index).EndX + 1
@@ -437,7 +437,7 @@ Friend Class frmEditor_AutoMapper
 
         If Button = MouseButtons.Left Then
             If Prefab > 0 And Layer > 0 And tbControl.SelectedTab Is tbTilesets Then 'Botao esquerdo do mouse
-                Tile(Prefab).Layer(Layer).Tileset = cmbTileset.SelectedIndex
+                Tile(Prefab).Layer(Layer).Tileset = cmbTileset.SelectedIndex + 1
                 Tile(Prefab).Layer(Layer).X = EditorTileX
                 Tile(Prefab).Layer(Layer).Y = EditorTileY
                 Tile(Prefab).Layer(Layer).AutoTile = cmbAutotile.SelectedIndex
@@ -530,7 +530,7 @@ Friend Class frmEditor_AutoMapper
 
     Sub SaveDetail(Index As Integer)
         Detail(Index).DetailBase = cmbPrefab.SelectedIndex
-        Detail(Index).Tileset = cmbTileset.SelectedIndex
+        Detail(Index).Tileset = cmbTileset.SelectedIndex + 1
         Detail(Index).StartX = EditorTileX
         Detail(Index).StartY = EditorTileY
         Detail(Index).EndX = EditorTileWidth - 1
