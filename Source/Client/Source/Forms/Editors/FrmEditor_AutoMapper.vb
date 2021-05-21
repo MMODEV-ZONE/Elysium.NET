@@ -195,18 +195,18 @@ Friend Class frmEditor_AutoMapper
         Dim Prefab As Integer, Layer As Integer
         Dim cf = Path.Contents & "\AutoMapper.ini"
 
-        Prefab = cmbPrefab.SelectedIndex + 1
+        For Prefab = 1 To TilePrefab.Count - 1
+            For Layer = 1 To 5
+                If Tile(Prefab).Layer(Layer).Tileset > 0 Then
+                    Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Tileset", Val(Tile(Prefab).Layer(Layer).Tileset))
+                    Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "X", Val(Tile(Prefab).Layer(Layer).X))
+                    Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Y", Val(Tile(Prefab).Layer(Layer).Y))
+                    Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Autotile", Val(Tile(Prefab).Layer(Layer).AutoTile))
+                End If
+            Next Layer
 
-        For Layer = 1 To 5
-            If Tile(Prefab).Layer(Layer).Tileset > 0 Then
-                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Tileset", Val(Tile(Prefab).Layer(Layer).Tileset))
-                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "X", Val(Tile(Prefab).Layer(Layer).X))
-                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Y", Val(Tile(Prefab).Layer(Layer).Y))
-                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Autotile", Val(Tile(Prefab).Layer(Layer).AutoTile))
-            End If
-        Next Layer
-
-        Ini.Write(cf, "Prefab" & Prefab, "Type", Val(Tile(Prefab).Type))
+            Ini.Write(cf, "Prefab" & Prefab, "Type", Val(Tile(Prefab).Type))
+        Next Prefab
 
         For TileDetail = 0 To UBound(Detail) - 1
             Ini.WriteOrCreate(cf, "Detail" & TileDetail, "Prefab", Val(Detail(TileDetail).DetailBase))
@@ -329,6 +329,10 @@ Friend Class frmEditor_AutoMapper
 
         scrlPictureY.Maximum = (picBackSelect.Height \ PicY)
         scrlPictureX.Maximum = (picBackSelect.Width \ PicX)
+
+        If Layer > 0 And Prefab > 0 And tbControl.SelectedTab Is tbTilesets Then
+            Tile(Prefab).Layer(Layer).Tileset = cmbTileset.SelectedIndex + 1
+        End If
     End Sub
 
     Public Sub AutomapperEditorTileScroll()
@@ -436,7 +440,7 @@ Friend Class frmEditor_AutoMapper
         UpdateTileSize()
 
         If Button = MouseButtons.Left Then
-            If Prefab > 0 And Layer > 0 And tbControl.SelectedTab Is tbTilesets Then 'Botao esquerdo do mouse
+            If Prefab > 0 And Layer > 0 And tbControl.SelectedTab Is tbTilesets Then
                 Tile(Prefab).Layer(Layer).Tileset = cmbTileset.SelectedIndex + 1
                 Tile(Prefab).Layer(Layer).X = EditorTileX
                 Tile(Prefab).Layer(Layer).Y = EditorTileY
@@ -523,6 +527,12 @@ Friend Class frmEditor_AutoMapper
 
     Private Sub picBackSelect_MouseMove(sender As Object, e As MouseEventArgs) Handles picBackSelect.MouseMove
         AutomapperEditorDrag(e.Button, e.X, e.Y)
+    End Sub
+
+    Private Sub cmbAutotile_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAutotile.SelectedIndexChanged
+        If Layer > 0 And Prefab > 0 Then
+            Tile(Prefab).Layer(Layer).AutoTile = cmbAutotile.SelectedIndex
+        End If
     End Sub
 
     Sub SaveDetail(Index As Integer)

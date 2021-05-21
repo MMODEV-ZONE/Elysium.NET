@@ -496,14 +496,14 @@ Partial Class frmEditor_AutoMapper
         '
         Me.TilesetsToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.TilesetsToolStripMenuItem.Name = "TilesetsToolStripMenuItem"
-        Me.TilesetsToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.TilesetsToolStripMenuItem.Size = New System.Drawing.Size(150, 26)
         Me.TilesetsToolStripMenuItem.Text = "Tilesets"
         '
         'ResourcesToolStripMenuItem
         '
         Me.ResourcesToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.ResourcesToolStripMenuItem.Name = "ResourcesToolStripMenuItem"
-        Me.ResourcesToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.ResourcesToolStripMenuItem.Size = New System.Drawing.Size(150, 26)
         Me.ResourcesToolStripMenuItem.Text = "Recursos"
         '
         'GenerateToolStripMenuItem1
