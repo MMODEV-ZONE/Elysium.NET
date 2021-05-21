@@ -10,7 +10,7 @@
     <StartupObject>Sub Main</StartupObject>
     <RootNamespace>
     </RootNamespace>
-    <AssemblyName>Elysium Server</AssemblyName>
+    <AssemblyName>Servidor Elysium</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -47,7 +47,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\Build\Server\</OutputPath>
+    <OutputPath>..\..\Build\Servidor\</OutputPath>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
