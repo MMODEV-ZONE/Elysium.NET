@@ -346,24 +346,22 @@ Module S_AutoMap
             End If
         Next i
 
-        If prefab = TilePrefab.Grass OrElse prefab = TilePrefab.Sand Then
-            If DetailsChecked = True Then
-                If Random(1, DetailFreq) = 1 Then
-                    Dim detailNum As Integer
-                    Dim details() As Integer
-                    ReDim details(1)
-                    For i = 1 To UBound(Detail)
-                        If Detail(i).DetailBase = prefab Then
-                            ReDim Preserve details(UBound(details) + 1)
-                            details(UBound(details)) = i
-                        End If
-                    Next i
-                    If UBound(details) >= 1 Then
-                        detailNum = details(Random(0, UBound(details) - 1))
-                        If Detail(detailNum).DetailBase = prefab Then
-                            tileDest.Layer(3) = Detail(detailNum).Tile.Layer(3)
-                            tileDest.Type = Detail(detailNum).Tile.Type
-                        End If
+        If DetailsChecked = True Then
+            If Random(1, DetailFreq) = 1 Then
+                Dim detailNum As Integer
+                Dim details() As Integer
+                ReDim details(1)
+                For i = 1 To UBound(Detail)
+                    If Detail(i).DetailBase = prefab Then
+                        ReDim Preserve details(UBound(details) + 1)
+                        details(UBound(details)) = i
+                    End If
+                Next i
+                If UBound(details) >= 1 Then
+                    detailNum = details(Random(0, UBound(details) - 1))
+                    If Detail(detailNum).DetailBase = prefab Then
+                        tileDest.Layer(LayerType.Mask2) = Detail(detailNum).Tile.Layer(LayerType.Mask2)
+                        tileDest.Type = Detail(detailNum).Tile.Type
                     End If
                 End If
             End If
