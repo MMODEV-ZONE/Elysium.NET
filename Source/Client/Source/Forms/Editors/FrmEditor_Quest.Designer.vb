@@ -138,7 +138,7 @@ Partial Class frmEditor_Quest
         Me.fraQuestList.Size = New System.Drawing.Size(283, 612)
         Me.fraQuestList.TabIndex = 0
         Me.fraQuestList.TabStop = False
-        Me.fraQuestList.Text = "Lista de quests"
+        Me.fraQuestList.Text = "Lista de missões"
         '
         'lstIndex
         '
@@ -177,7 +177,7 @@ Partial Class frmEditor_Quest
         Me.fraQuestConfig.Size = New System.Drawing.Size(663, 564)
         Me.fraQuestConfig.TabIndex = 1
         Me.fraQuestConfig.TabStop = False
-        Me.fraQuestConfig.Text = "Configurações basicas"
+        Me.fraQuestConfig.Text = "Configurações básicas"
         '
         'DarkGroupBox4
         '
@@ -461,9 +461,9 @@ Partial Class frmEditor_Quest
         Me.DarkLabel1.Location = New System.Drawing.Point(8, 26)
         Me.DarkLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DarkLabel1.Name = "DarkLabel1"
-        Me.DarkLabel1.Size = New System.Drawing.Size(115, 17)
+        Me.DarkLabel1.Size = New System.Drawing.Size(117, 17)
         Me.DarkLabel1.TabIndex = 0
-        Me.DarkLabel1.Text = "Nome da Tarefa:"
+        Me.DarkLabel1.Text = "Nome da Missão:"
         '
         'DarkGroupBox5
         '
@@ -521,9 +521,9 @@ Partial Class frmEditor_Quest
         Me.DarkLabel8.Location = New System.Drawing.Point(295, 571)
         Me.DarkLabel8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DarkLabel8.Name = "DarkLabel8"
-        Me.DarkLabel8.Size = New System.Drawing.Size(328, 17)
+        Me.DarkLabel8.Size = New System.Drawing.Size(337, 17)
         Me.DarkLabel8.TabIndex = 2
-        Me.DarkLabel8.Text = "Use /resetartarefa # para resetar a quest pra teste"
+        Me.DarkLabel8.Text = "Use /resetartarefa # para resetar a missão pra teste"
         '
         'btnSave
         '
@@ -1191,7 +1191,7 @@ Partial Class frmEditor_Quest
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmEditor_Quest"
-        Me.Text = "Editor de Tarefas"
+        Me.Text = "Editor de Missões"
         Me.fraQuestList.ResumeLayout(False)
         Me.fraQuestConfig.ResumeLayout(False)
         Me.fraQuestConfig.PerformLayout()
