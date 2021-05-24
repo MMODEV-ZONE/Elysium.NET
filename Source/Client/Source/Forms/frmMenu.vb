@@ -423,9 +423,9 @@ Friend Class FrmMenu
     Private Sub LblPrevChar_Click(sender As Object, e As EventArgs) Handles lblPrevChar.Click
         NewCharSprite = NewCharSprite - 1
         If rdoMale.Checked = True Then
-            If NewCharSprite = 0 Then NewCharSprite = Classes(NewCharClass).MaleSprite.Length - 1
+            If NewCharSprite < 0 Then NewCharSprite = Classes(NewCharClass).MaleSprite.Length - 1
         ElseIf rdoFemale.Checked = True Then
-            If NewCharSprite = 0 Then NewCharSprite = Classes(NewCharClass).FemaleSprite.Length - 1
+            If NewCharSprite < 0 Then NewCharSprite = Classes(NewCharClass).FemaleSprite.Length - 1
         End If
         DrawCharacter()
     End Sub
