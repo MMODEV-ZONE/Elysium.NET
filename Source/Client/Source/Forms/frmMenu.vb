@@ -410,9 +410,9 @@ Friend Class FrmMenu
     Private Sub LblNextChar_Click(sender As Object, e As EventArgs) Handles lblNextChar.Click
         NewCharSprite = NewCharSprite + 1
         If rdoMale.Checked = True Then
-            If NewCharSprite > Classes(NewCharClass).MaleSprite.Length - 1 Then NewCharSprite = 1
+            If NewCharSprite > Classes(NewCharClass).MaleSprite.Length - 1 Then NewCharSprite = 0
         ElseIf rdoFemale.Checked = True Then
-            If NewCharSprite > Classes(NewCharClass).FemaleSprite.Length - 1 Then NewCharSprite = 1
+            If NewCharSprite > Classes(NewCharClass).FemaleSprite.Length - 1 Then NewCharSprite = 0
         End If
         DrawCharacter()
     End Sub
