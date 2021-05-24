@@ -180,7 +180,7 @@ Friend Module C_GuiFunctions
     End Sub
 
     Friend Function CheckGuiClick(x As Integer, y As Integer, e As MouseEventArgs) As Boolean
-        Dim eqNum As Integer, invNum As Integer
+        Dim eqNum As Integer
         Dim slotnum As Integer, hotbarslot As Integer
         Dim buffer As ByteStream
 

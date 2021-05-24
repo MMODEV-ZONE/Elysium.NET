@@ -316,17 +316,17 @@ Friend Module S_Resources
     End Sub
 
     Sub SendResourceCacheTo(index As Integer, Resource_num As long)
-        Dim i As Integer, mapnum As Integer
+        Dim mapnum As Integer
         Dim buffer As New ByteStream(4)
+
+#If DEBUG Then
+        AddDebug("Enviada SMSG: SResourcesCache")
+#End If
 
         mapnum = GetPlayerMap(index)
 
         buffer.WriteInt32(ServerPackets.SResourceCache)
         buffer.WriteInt32(Resource_num)
-#If DEBUG Then
-        AddDebug("Enviada SMSG: SResourcesCache")
-#End If
-
         buffer.WriteInt32(ResourceCache(mapnum).ResourceData(Resource_num).ResourceState)
         buffer.WriteInt32(ResourceCache(mapnum).ResourceData(Resource_num).X)
         buffer.WriteInt32(ResourceCache(mapnum).ResourceData(Resource_num).Y)
@@ -336,15 +336,14 @@ Friend Module S_Resources
     End Sub
 
     Sub SendResourceCacheToMap(mapNum As Integer, Resource_num As Integer)
-        Dim i As Integer
         Dim buffer As New ByteStream(4)
 
-        buffer.WriteInt32(ServerPackets.SResourceCache)
-        buffer.WriteInt32(Resource_num)
 #If DEBUG Then
         AddDebug("Enviada SMSG: SResourceCache")
 #End If
 
+        buffer.WriteInt32(ServerPackets.SResourceCache)
+        buffer.WriteInt32(Resource_num)
         buffer.WriteInt32(ResourceCache(mapNum).ResourceData(Resource_num).ResourceState)
         buffer.WriteInt32(ResourceCache(mapNum).ResourceData(Resource_num).X)
         buffer.WriteInt32(ResourceCache(mapNum).ResourceData(Resource_num).Y)

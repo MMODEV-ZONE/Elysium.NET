@@ -944,7 +944,6 @@ Module S_NetworkSend
 
     Sub SendBank(index As Integer)
         Dim buffer As New ByteStream(4)
-        Dim i As Integer
 
         buffer.WriteInt32(ServerPackets.SBank)
 #If DEBUG Then

@@ -50,7 +50,6 @@ Module C_Resources
 #Region "Incoming Packets"
 
     Sub Packet_ResourceCache(ByRef data() As Byte)
-        Dim i As Integer
         Dim buffer As New ByteStream(data)
         ResourceIndex = buffer.ReadInt32
 
