@@ -42,55 +42,9 @@ Module S_NetworkSend
     End Sub
 
     Sub SendNewCharClasses(index As Integer)
-        Dim i As Integer, n As Integer, q As Integer
         Dim buffer As New ByteStream(4)
         buffer.WriteInt32(ServerPackets.SNewCharClasses)
-
-        For i = 1 To Max_Classes
-            buffer.WriteString((GetClassName(i)))
-            buffer.WriteString((Trim$(Classes(i).Desc)))
-
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.HP))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.MP))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.SP))
-
-            ' Setar o tamanho do array da Sprite
-            n = UBound(Classes(i).MaleSprite)
-            ' Mandar o tamanho do array
-            buffer.WriteInt32(n)
-            ' Fazer o loop mandando cada sprite
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).MaleSprite(q))
-            Next
-
-            ' Setar o tamanho do array da Sprite
-            n = UBound(Classes(i).FemaleSprite)
-            ' Mandar o tamanho do array
-            buffer.WriteInt32(n)
-            ' Fazer o loop mandando cada sprite
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).FemaleSprite(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).Stat(StatType.Strength))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Endurance))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Vitality))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Luck))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Intelligence))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Spirit))
-
-            For q = 1 To 5
-                buffer.WriteInt32(Classes(i).StartItem(q))
-                buffer.WriteInt32(Classes(i).StartValue(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).StartMap)
-            buffer.WriteInt32(Classes(i).StartX)
-            buffer.WriteInt32(Classes(i).StartY)
-
-            buffer.WriteInt32(Classes(i).BaseExp)
-        Next
-
+        buffer.WriteBlock(ClassData)
         Socket.SendDataTo(index, buffer.Data, buffer.Head)
         buffer.Dispose()
     End Sub

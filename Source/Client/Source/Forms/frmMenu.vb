@@ -183,7 +183,6 @@ Friend Class FrmMenu
             Dim charheight As Integer
 
             If NewCharClass = 0 Then NewCharClass = 1
-            If NewCharSprite = 0 Then NewCharSprite = 1
 
             If rdoMale.Checked = True Then
                 filename = Path.Graphics & "Personagens\" & Classes(NewCharClass).MaleSprite(NewCharSprite) & GfxExt
@@ -193,7 +192,7 @@ Friend Class FrmMenu
 
             Dim charsprite As Bitmap = New Bitmap(filename)
 
-            charwidth = charsprite.Width / 4
+            charwidth = charsprite.Width / 3
             charheight = charsprite.Height / 4
 
             srcRect = New Rectangle(0, 0, charwidth, charheight)
