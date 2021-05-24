@@ -545,9 +545,9 @@ Partial Class frmEditor_Skill
         Me.chkKnockBack.Location = New System.Drawing.Point(12, 194)
         Me.chkKnockBack.Margin = New System.Windows.Forms.Padding(4)
         Me.chkKnockBack.Name = "chkKnockBack"
-        Me.chkKnockBack.Size = New System.Drawing.Size(104, 21)
+        Me.chkKnockBack.Size = New System.Drawing.Size(126, 21)
         Me.chkKnockBack.TabIndex = 61
-        Me.chkKnockBack.Text = "É rebote de"
+        Me.chkKnockBack.Text = "Empurra o alvo"
         '
         'cmbKnockBackTiles
         '
@@ -556,7 +556,7 @@ Partial Class frmEditor_Skill
         Me.cmbKnockBackTiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbKnockBackTiles.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbKnockBackTiles.FormattingEnabled = True
-        Me.cmbKnockBackTiles.Items.AddRange(New Object() {"No KnockBack", "1 Tile", "2 Tiles", "3 Tiles", "4 Tiles", "5 Tiles"})
+        Me.cmbKnockBackTiles.Items.AddRange(New Object() {"Sem empurrão", "1 Tile", "2 Tiles", "3 Tiles", "4 Tiles", "5 Tiles"})
         Me.cmbKnockBackTiles.Location = New System.Drawing.Point(204, 192)
         Me.cmbKnockBackTiles.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbKnockBackTiles.Name = "cmbKnockBackTiles"
@@ -776,7 +776,7 @@ Partial Class frmEditor_Skill
         Me.cmbType.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbType.ForeColor = System.Drawing.Color.Gainsboro
         Me.cmbType.FormattingEnabled = True
-        Me.cmbType.Items.AddRange(New Object() {"Damage HP", "Damage MP", "Heal HP", "Heal MP", "Warp"})
+        Me.cmbType.Items.AddRange(New Object() {"Danificar HP", "Danificar MP", "Curar HP", "Curar MP", "Teletransporte"})
         Me.cmbType.Location = New System.Drawing.Point(96, 50)
         Me.cmbType.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbType.Name = "cmbType"
