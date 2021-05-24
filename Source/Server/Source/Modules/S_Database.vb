@@ -37,13 +37,13 @@ Module modDatabase
             Classes(i).Desc = Ini.Read(cf, "CLASS" & i, "Desc")
             Classes(i).BaseExp = Val(Ini.Read(cf, "CLASS" & i, "BaseExp"))
 
-            n = Val(Ini.Read(cf, "CLASS" & i, "MaxMaleSprite")) - 1
+            n = Val(Ini.Read(cf, "CLASS" & i, "MaxMaleSprite"))
             ReDim Classes(i).MaleSprite(n)
             For x = 0 To n
                 Classes(i).MaleSprite(x) = Val(Ini.Read(cf, "CLASS" & i, "Sprite_Male" & x))
             Next
 
-            n = Val(Ini.Read(cf, "CLASS" & i, "MaxFemaleSprite")) - 1
+            n = Val(Ini.Read(cf, "CLASS" & i, "MaxFemaleSprite"))
             ReDim Classes(i).FemaleSprite(n)
             For x = 0 To n
                 Classes(i).FemaleSprite(x) = Val(Ini.Read(cf, "CLASS" & i, "Sprite_Female" & x))

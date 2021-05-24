@@ -107,18 +107,18 @@ Module C_Classes
                 ' Pegar tamanho de vetor
                 z = buffer.ReadInt32
                 ' redim vetor
-                ReDim .MaleSprite(z + 1)
+                ReDim .MaleSprite(z)
                 ' loop de recebimento de dados
-                For x = 1 To z + 1
+                For x = 0 To z
                     .MaleSprite(x) = buffer.ReadInt32
                 Next
 
                 ' Pegar tamanho de vetor
                 z = buffer.ReadInt32
                 ' redim vetor
-                ReDim .FemaleSprite(z + 1)
+                ReDim .FemaleSprite(z)
                 ' loop de recebimento de dados
-                For x = 1 To z + 1
+                For x = 0 To z
                     .FemaleSprite(x) = buffer.ReadInt32
                 Next
 
