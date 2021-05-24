@@ -2365,11 +2365,13 @@ Module S_NetworkReceive
     End Sub
 
     Sub Packet_SaveClasses(index As Integer, ByRef data() As Byte)
-        Dim i As Integer, z As Integer, x As Integer
+        Dim i As Integer
         Dim buffer As New ByteStream(data)
+
 #If DEBUG Then
         AddDebug("Recebida EMSG: SaveClasses")
 #End If
+
         ' Prevenir hacking
         If GetPlayerAccess(index) < AdminType.Developer Then Exit Sub
 
@@ -2377,60 +2379,12 @@ Module S_NetworkReceive
             ReDim Classes(i).Stat(StatType.Count - 1)
         Next
 
-        For i = 1 To Max_Classes
-
-            With Classes(i)
-                .Name = buffer.ReadString
-                .Desc = buffer.ReadString
-
-                ' Pegar tamanho do vetor
-                z = buffer.ReadInt32
-
-                ' Redim vetor
-                ReDim .MaleSprite(z)
-                ' loop-receive data
-                For x = 0 To z
-                    .MaleSprite(x) = buffer.ReadInt32
-                Next
-
-                ' Pegar tamanho do vetor
-                z = buffer.ReadInt32
-                ' Redim Vetor
-                ReDim .FemaleSprite(z)
-                ' loop-receive data
-                For x = 0 To z
-                    .FemaleSprite(x) = buffer.ReadInt32
-                Next
-
-                .Stat(StatType.Strength) = buffer.ReadInt32
-                .Stat(StatType.Endurance) = buffer.ReadInt32
-                .Stat(StatType.Vitality) = buffer.ReadInt32
-                .Stat(StatType.Intelligence) = buffer.ReadInt32
-                .Stat(StatType.Luck) = buffer.ReadInt32
-                .Stat(StatType.Spirit) = buffer.ReadInt32
-
-                ReDim .StartItem(5)
-                ReDim .StartValue(5)
-                For q = 1 To 5
-                    .StartItem(q) = buffer.ReadInt32
-                    .StartValue(q) = buffer.ReadInt32
-                Next
-
-                .StartMap = buffer.ReadInt32
-                .StartX = buffer.ReadInt32
-                .StartY = buffer.ReadInt32
-
-                .BaseExp = buffer.ReadInt32
-            End With
-
-        Next
+        Classes = DeserializeData(buffer)
 
         buffer.Dispose()
 
         SaveClasses()
-
         LoadClasses()
-
         SendClassesToAll()
     End Sub
 

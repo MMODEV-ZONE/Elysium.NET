@@ -244,6 +244,7 @@
         Dim CostValue As Integer
     End Structure
 
+    <Serializable>
     Friend Structure ClassStruct
         Dim Name As String
         Dim Desc As String

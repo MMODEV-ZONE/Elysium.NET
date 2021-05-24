@@ -1282,56 +1282,9 @@ Module modDatabase
 #Region "Data Functions"
 
     Function ClassData() As Byte()
-        Dim i As Integer, n As Integer, q As Integer
         Dim buffer As New ByteStream(4)
 
-        For i = 1 To MAX_CLASSES
-            buffer.WriteString((GetClassName(i).Trim))
-            buffer.WriteString((Classes(i).Desc.Trim))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.HP))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.MP))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.SP))
-
-            ' Setar o tamanho do vetor da sprite
-            n = UBound(Classes(i).MaleSprite)
-
-            ' Enviar o tamanho do vetor
-            buffer.WriteInt32(n)
-
-            ' Fazer o loop enviando cada sprte 
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).MaleSprite(q))
-            Next
-
-            ' Setar o tamanho do vetor da sprite 
-            n = UBound(Classes(i).FemaleSprite)
-
-            ' Enviar o tamanho do vetor
-            buffer.WriteInt32(n)
-
-            ' Fazer o loop enviando cada sprte
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).FemaleSprite(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).Stat(StatType.Strength))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Endurance))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Vitality))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Intelligence))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Luck))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Spirit))
-
-            For q = 1 To 5
-                buffer.WriteInt32(Classes(i).StartItem(q))
-                buffer.WriteInt32(Classes(i).StartValue(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).StartMap)
-            buffer.WriteInt32(Classes(i).StartX)
-            buffer.WriteInt32(Classes(i).StartY)
-
-            buffer.WriteInt32(Classes(i).BaseExp)
-        Next
+        buffer.WriteBlock(SerializeData(Classes))
 
         Return buffer.ToArray()
     End Function
