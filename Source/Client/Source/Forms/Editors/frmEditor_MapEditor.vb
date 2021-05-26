@@ -15,6 +15,7 @@ Public Class FrmEditor_MapEditor
         pnlAttributes.Left = 4
         pnlAttributes.Top = 28
         Me.Width = 525
+        Me.Height = tpTiles.Height + 100
         optBlocked.Checked = True
         tabpages.SelectedIndex = 0
 
@@ -28,6 +29,7 @@ Public Class FrmEditor_MapEditor
 #Region "Toolbar"
 
     Private Sub TsbSave_Click(sender As Object, e As EventArgs) Handles tsbSave.Click
+        SaveSettings()
         MapEditorSend()
         GettingMap = True
     End Sub
@@ -425,8 +427,7 @@ Public Class FrmEditor_MapEditor
 #End Region
 
 #Region "Settings"
-
-    Private Sub BtnSaveSettings_Click(sender As Object, e As EventArgs) Handles btnSaveSettings.Click
+    Private Sub SaveSettings()
         Dim X As Integer, x2 As Integer
         Dim Y As Integer, y2 As Integer
         Dim tempArr(,) As TileStruct
@@ -484,8 +485,11 @@ Public Class FrmEditor_MapEditor
             Next
 
             ClearTempTile()
-            MapEditorSend()
         End With
+    End Sub
+
+    Private Sub BtnSaveSettings_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub BtnPreview_Click(sender As Object, e As EventArgs) Handles btnPreview.Click
@@ -733,6 +737,17 @@ Public Class FrmEditor_MapEditor
         cmbTileSets.SelectedIndex = 0
         cmbLayers.SelectedIndex = 0
 
+        If Map.HasMapTint = 1 Then
+            chkUseTint.Checked = True
+            scrlMapRed.Value = Map.MapTintR
+            scrlMapBlue.Value = Map.MapTintG
+            scrlMapGreen.Value = Map.MapTintB
+            scrlMapAlpha.Value = Map.MapTintA
+        End If
+
+        scrlFogSpeed.Value = Map.FogSpeed
+        scrlFogAlpha.Value = Map.FogAlpha
+
         InitMapProperties = True
 
         If MapData = True Then GettingMap = False
@@ -784,12 +799,14 @@ Public Class FrmEditor_MapEditor
     Public Sub MapEditorDrag(ByVal Button As Integer, ByVal X As Single, ByVal Y As Single)
 
         If Button = MouseButtons.Left Then 'botao esquerdo do mouse
-            Dim MaxWidth As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.X / PicX
-            Dim MaxHeight As Integer = TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.Y / PicY
+            Dim MaxWidth As Integer = (TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.X / PicX)
+            Dim MaxHeight As Integer = (TileSetSprite(Me.cmbTileSets.SelectedIndex + 1).Texture.Size.Y / PicY)
+
+            BlockEdit = True
 
             ' converter o numero do pixel para o numero do tile
-            X = (X \ PicX) + 1
-            Y = (Y \ PicY) + 1
+            X = (picbackleft \ PicX) + (X \ PicX) + 1
+            Y = (picbacktop \ PicX) + (Y \ PicY) + 1
             ' ver se nao está fora dos limites
             If X < 0 Then X = 0
             If X > MaxWidth Then X = MaxWidth
@@ -821,7 +838,7 @@ Public Class FrmEditor_MapEditor
 
         CurLayer = cmbLayers.SelectedIndex + 1
 
-        If Not IsInBounds() Then Exit Sub
+        If Not IsInBounds() Or BlockEdit Then Exit Sub
         If Button = MouseButtons.Left Then
             If tabpages.SelectedTab Is tpTiles Then
                 If EditorTileWidth = 1 AndAlso EditorTileHeight = 1 Then 'unica tile
@@ -1012,6 +1029,8 @@ Public Class FrmEditor_MapEditor
         InMapEditor = False
         Visible = False
         GettingMap = True
+
+        If FrmEditor_Events.Visible Then FrmEditor_Events.Dispose()
     End Sub
 
     Public Sub MapEditorSend()
@@ -1019,6 +1038,8 @@ Public Class FrmEditor_MapEditor
         InMapEditor = False
         Visible = False
         GettingMap = True
+
+        If FrmEditor_Events.Visible Then FrmEditor_Events.Dispose()
     End Sub
 
     Public Sub MapEditorSetTile(ByVal X As Integer, ByVal Y As Integer, ByVal CurLayer As Integer, Optional ByVal multitile As Boolean = False, Optional ByVal theAutotile As Byte = 0)
@@ -1300,9 +1321,19 @@ Public Class FrmEditor_MapEditor
 
     End Sub
 
+    Private Sub scrlPictureY_Scroll(sender As Object, e As ScrollEventArgs) Handles scrlPictureY.Scroll
+
+    End Sub
+
+    Private Sub picBackSelect_MouseUp(sender As Object, e As MouseEventArgs) Handles picBackSelect.MouseUp
+        BlockEdit = False
+    End Sub
+
     Friend Sub DrawTileOutline()
         Dim rec As Rectangle
         If Me.tabpages.SelectedTab Is Me.tpDirBlock Then Exit Sub
+
+        lblCoordinate.Text = "X: " & EditorTileSelStart.X & "Y: " & EditorTileSelStart.Y
 
         With rec
             .Y = 0

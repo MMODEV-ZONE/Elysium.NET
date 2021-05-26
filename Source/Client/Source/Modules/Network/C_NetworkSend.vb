@@ -521,55 +521,11 @@ Module C_NetworkSend
     End Sub
 
     Friend Sub SendSaveClasses()
-        Dim i As Integer, n As Integer, q As Integer
         Dim buffer As New ByteStream(4)
 
         buffer.WriteInt32(ClientPackets.CSaveClasses)
 
-        For i = 1 To MAX_CLASSES
-            buffer.WriteString((Trim$(Classes(i).Name)))
-            buffer.WriteString((Trim$(Classes(i).Desc)))
-
-            ' Setar o tamanho do vetor da sprite
-            n = UBound(Classes(i).MaleSprite)
-
-            ' Enviar tamanho do vetor
-            buffer.WriteInt32(n)
-
-            ' Fazer o loop enviando cada sprite 
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).MaleSprite(q))
-            Next
-
-            ' Setar o tamanho do vetor da sprite
-            n = UBound(Classes(i).FemaleSprite)
-
-            ' Enviar tamanho do vetor
-            buffer.WriteInt32(n)
-
-            ' Fazer o loop enviando cada sprite
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).FemaleSprite(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).Stat(StatType.Strength))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Endurance))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Vitality))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Intelligence))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Luck))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Spirit))
-
-            For q = 1 To 5
-                buffer.WriteInt32(Classes(i).StartItem(q))
-                buffer.WriteInt32(Classes(i).StartValue(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).StartMap)
-            buffer.WriteInt32(Classes(i).StartX)
-            buffer.WriteInt32(Classes(i).StartY)
-
-            buffer.WriteInt32(Classes(i).BaseExp)
-        Next
+        buffer.WriteBlock(SerializeData(Classes))
 
         Socket.SendData(buffer.Data, buffer.Head)
         buffer.Dispose()

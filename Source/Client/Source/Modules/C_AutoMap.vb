@@ -226,13 +226,14 @@ Module C_AutoMap
         buffer.Dispose()
     End Sub
 
-    Friend Sub SendSaveAutoMapper()
+    Friend Sub SendSaveAutoMapper(StartAutomapper As Boolean)
         Dim detailCount As Long
         Dim cf = Path.Contents & "\AutoMapper.ini"
         Dim buffer As New ASFW.ByteStream(4)
 
         buffer.WriteInt32(ClientPackets.CSaveAutoMap)
 
+        buffer.WriteByte(If(StartAutomapper, Byte.Parse(1), Byte.Parse(0)))
         buffer.WriteInt32(MapStart)
         buffer.WriteInt32(MapSize)
         buffer.WriteInt32(MapX)
@@ -257,13 +258,10 @@ Module C_AutoMap
 
         For Prefab = 1 To TilePrefab.Count - 1
             For Layer = 1 To LayerType.Count - 1
-                If Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "Tileset")) > 0 Then
-                    buffer.WriteInt32(Layer)
-                    buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "Tileset")))
-                    buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "X")))
-                    buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "Y")))
-                    buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "Autotile")))
-                End If
+                buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "Tileset")))
+                buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "X")))
+                buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "Y")))
+                buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Layer" & Layer & "Autotile")))
             Next
             buffer.WriteInt32(Val(Ini.Read(cf, "Prefab" & Prefab, "Type")))
         Next

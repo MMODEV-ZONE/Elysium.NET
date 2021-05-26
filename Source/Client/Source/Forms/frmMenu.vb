@@ -183,7 +183,6 @@ Friend Class FrmMenu
             Dim charheight As Integer
 
             If NewCharClass = 0 Then NewCharClass = 1
-            If NewCharSprite = 0 Then NewCharSprite = 1
 
             If rdoMale.Checked = True Then
                 filename = Path.Graphics & "Personagens\" & Classes(NewCharClass).MaleSprite(NewCharSprite) & GfxExt
@@ -193,7 +192,7 @@ Friend Class FrmMenu
 
             Dim charsprite As Bitmap = New Bitmap(filename)
 
-            charwidth = charsprite.Width / 4
+            charwidth = charsprite.Width / 3
             charheight = charsprite.Height / 4
 
             srcRect = New Rectangle(0, 0, charwidth, charheight)
@@ -411,9 +410,9 @@ Friend Class FrmMenu
     Private Sub LblNextChar_Click(sender As Object, e As EventArgs) Handles lblNextChar.Click
         NewCharSprite = NewCharSprite + 1
         If rdoMale.Checked = True Then
-            If NewCharSprite > Classes(NewCharClass).MaleSprite.Length - 1 Then NewCharSprite = 1
+            If NewCharSprite > Classes(NewCharClass).MaleSprite.Length - 1 Then NewCharSprite = 0
         ElseIf rdoFemale.Checked = True Then
-            If NewCharSprite > Classes(NewCharClass).FemaleSprite.Length - 1 Then NewCharSprite = 1
+            If NewCharSprite > Classes(NewCharClass).FemaleSprite.Length - 1 Then NewCharSprite = 0
         End If
         DrawCharacter()
     End Sub
@@ -424,9 +423,9 @@ Friend Class FrmMenu
     Private Sub LblPrevChar_Click(sender As Object, e As EventArgs) Handles lblPrevChar.Click
         NewCharSprite = NewCharSprite - 1
         If rdoMale.Checked = True Then
-            If NewCharSprite = 0 Then NewCharSprite = Classes(NewCharClass).MaleSprite.Length - 1
+            If NewCharSprite < 0 Then NewCharSprite = Classes(NewCharClass).MaleSprite.Length - 1
         ElseIf rdoFemale.Checked = True Then
-            If NewCharSprite = 0 Then NewCharSprite = Classes(NewCharClass).FemaleSprite.Length - 1
+            If NewCharSprite < 0 Then NewCharSprite = Classes(NewCharClass).FemaleSprite.Length - 1
         End If
         DrawCharacter()
     End Sub
@@ -501,7 +500,7 @@ Friend Class FrmMenu
     ''' </summary>
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         If IsLoginLegal(txtLogin.Text, txtPassword.Text) Then
-            MenuState(MenuStateLogin)
+            SetMenuState(MenuState.Login)
         End If
     End Sub
 
@@ -538,7 +537,7 @@ Friend Class FrmMenu
 
             If Not IsStringLegal(name) Then Exit Sub
 
-            MenuState(MenuStateNewaccount)
+            SetMenuState(MenuState.NewAccount)
         End If
     End Sub
 
@@ -560,7 +559,7 @@ Friend Class FrmMenu
     ''' Lida com o botão de criar personagem.
     ''' </summary>
     Private Sub BtnCreateCharacter_Click(sender As Object, e As EventArgs) Handles btnCreateCharacter.Click
-        MenuState(MenuStateAddchar)
+        SetMenuState(MenuState.AddChar)
     End Sub
 
     ''' <summary>

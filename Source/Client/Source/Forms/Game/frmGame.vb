@@ -166,6 +166,7 @@ Friend Class FrmGame
         TmpCurrencyItem = 0
         txtCurrency.Text = ""
         CurrencyMenu = 0 ' limpar
+        Focus()
     End Sub
 
 #End Region
@@ -335,6 +336,15 @@ Friend Class FrmGame
 
     Private Sub lblCurrency_Click(sender As Object, e As EventArgs) Handles lblCurrency.Click
 
+    End Sub
+
+    Private Sub lblCurrencyCancel_Click(sender As Object, e As EventArgs) Handles lblCurrencyCancel.Click
+
+        pnlCurrency.Visible = False
+        TmpCurrencyItem = 0
+        txtCurrency.Text = ""
+        CurrencyMenu = 0 ' limpar
+        Focus()
     End Sub
 
 #End Region

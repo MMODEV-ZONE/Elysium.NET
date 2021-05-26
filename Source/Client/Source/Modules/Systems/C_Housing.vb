@@ -147,7 +147,7 @@ Friend Module C_Housing
 
         buffer.Dispose()
 
-        DialogType = DialogueTypeBuyhome
+        DialogType = DialogueType.BuyHome
         If HouseConfig(i).MaxFurniture > 0 Then
             ' pedir para comprar uma casa
             DialogMsg1 = "Você gostaria de comprar a casa: " & Trim$(HouseConfig(i).ConfigName)
@@ -170,7 +170,7 @@ Friend Module C_Housing
         Dim buffer As New ByteStream(data)
         i = buffer.ReadInt32
 
-        DialogType = DialogueTypeVisit
+        DialogType = DialogueType.Visit
 
         DialogMsg1 = "Você foi convidado para vistiar a casa de " & Trim$(GetPlayerName(i))
         DialogMsg2 = ""

@@ -5,13 +5,15 @@ Imports System.Windows.Forms
 Module C_General
 
     Friend Started As Boolean
+    Friend myStopWatch As New Stopwatch()
 
-    Friend Function GetTickCount() As Integer
-        Return Environment.TickCount
+    Friend Function GetTickCount() As Long
+        Return myStopWatch.ElapsedMilliseconds
     End Function
 
     Sub Startup()
         SFML.Portable.Activate()
+        myStopWatch.Start()
         LoadSettings()
         LoadLanguage()
         LoadInputs()
@@ -131,11 +133,11 @@ Module C_General
         FrmMenu.lblStatus.Text = caption
     End Sub
 
-    Friend Sub MenuState(state As Integer)
+    Friend Sub SetMenuState(state As MenuState)
         Pnlloadvisible = True
         Frmmenuvisible = False
         Select Case state
-            Case MenuStateAddchar
+            Case MenuState.AddChar
                 PnlCharCreateVisible = False
                 PnlLoginVisible = False
                 PnlRegisterVisible = False
@@ -151,7 +153,7 @@ Module C_General
                     End If
                 End If
 
-            Case MenuStateNewaccount
+            Case MenuState.NewAccount
                 PnlLoginVisible = False
                 PnlCharCreateVisible = False
                 PnlRegisterVisible = False
@@ -162,7 +164,7 @@ Module C_General
                     SendNewAccount(FrmMenu.txtRuser.Text, FrmMenu.txtRPass.Text)
                 End If
 
-            Case MenuStateLogin
+            Case MenuState.Login
                 PnlLoginVisible = False
                 PnlCharCreateVisible = False
                 PnlRegisterVisible = False

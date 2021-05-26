@@ -614,8 +614,19 @@ Friend Module C_Quest
 
     End Sub
 
+    Friend Sub LoadTaskDefaultValues(QuestNum As Integer, TaskNum As Integer)
+        Dim TaskToLoad As TaskRec
+        TaskToLoad = Quest(QuestNum).Task(TaskNum)
+
+        With frmEditor_Quest
+            'Carregar caixas de textos
+            .txtTaskLog.Text = "" & Trim$(TaskToLoad.TaskLog)
+            .txtTaskSpeech.Text = "" & Trim(TaskToLoad.Speech)
+        End With
+    End Sub
+
     'Subrotina que carrega a tarefa no formulário
-    Friend Sub LoadTask(QuestNum As Integer, TaskNum As Integer)
+    Friend Sub LoadTaskElements(QuestNum As Integer, TaskNum As Integer)
         Dim TaskToLoad As TaskRec
         If TaskNum >= Quest(QuestNum).Task.Length Then Exit Sub
 
@@ -641,10 +652,6 @@ Friend Module C_Quest
                 Case 7
                     .optTask7.Checked = True
             End Select
-
-            'Carregar caixas de textos
-            .txtTaskLog.Text = "" & Trim$(TaskToLoad.TaskLog)
-            .txtTaskSpeech.Text = "" & Trim(TaskToLoad.Speech)
 
             'Encher combo boxes
             .cmbNpc.Items.Clear()

@@ -2364,7 +2364,7 @@ Module S_Players
     End Sub
 
     Sub PlayerUnequipItem(index As Integer, EqSlot As Integer)
-        Dim i As Integer, m As Integer, Equipment As PlayerInvStruct
+        Dim m As Integer, Equipment As PlayerInvStruct
 
         If EqSlot <= 0 OrElse EqSlot > EquipmentType.Count - 1 Then Exit Sub ' sair mais cedo se tiver erro
 
@@ -2401,8 +2401,6 @@ Module S_Players
 #Region "Misc"
 
     Sub JoinGame(index As Integer)
-        Dim i As Integer
-
         ' Enviar a flag para que saibamos que a pessoa está no jogo
         TempPlayer(index).InGame = True
 
@@ -2443,9 +2441,7 @@ Module S_Players
         SendTimeTo(index)
         SendGameClockTo(index)
 
-        For i = 0 To ResourceCache(GetPlayerMap(index)).ResourceCount
-            SendResourceCacheTo(index, i)
-        Next
+        SendMapResourcesTo(index)
 
         SendTotalOnlineToAll()
 

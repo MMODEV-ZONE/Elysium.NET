@@ -287,12 +287,12 @@ Friend Module S_Quest
         Order = buffer.ReadInt32 '1 = aceitar, 2 = cancelar
 
         If Order = 1 Then
-            Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Started '1
+            Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Started
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).ActualTask = 1
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).CurrentCount = 0
             PlayerMsg(index, "Nova quest aceita: " & Trim$(Quest(QuestNum).Name) & "!", ColorType.BrightGreen)
         ElseIf Order = 2 Then
-            Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.NotStarted '2
+            Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.NotStarted
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).ActualTask = 1
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).CurrentCount = 0
 
@@ -300,7 +300,7 @@ Friend Module S_Quest
 
             If GetPlayerAccess(index) > 0 AndAlso QuestNum = 1 Then
                 For I = 1 To MAX_QUESTS
-                    Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(I).Status = QuestStatusType.NotStarted '2
+                    Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(I).Status = QuestStatusType.NotStarted
                     Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(I).ActualTask = 1
                     Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(I).CurrentCount = 0
                 Next
@@ -497,7 +497,7 @@ Friend Module S_Quest
         QuestCompleted = False
         If QuestNum < 1 OrElse QuestNum > MAX_QUESTS Then Exit Function
 
-        If Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = 2 OrElse Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = 3 Then
+        If Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Completed OrElse Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Repeatable Then
             QuestCompleted = True
         End If
     End Function
@@ -687,7 +687,7 @@ Friend Module S_Quest
         End If
 
         'Ver se quest é repetível, setar como completa
-        If Quest(QuestNum).Repeat = True Then
+        If Quest(QuestNum).Repeat = 1 Then
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Repeatable
         Else
             Player(index).Character(TempPlayer(index).CurChar).PlayerQuest(QuestNum).Status = QuestStatusType.Completed

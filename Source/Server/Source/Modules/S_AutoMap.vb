@@ -222,6 +222,7 @@ Module S_AutoMap
     Sub Packet_SaveAutoMap(index As Integer, ByRef data() As Byte)
         Dim Layer As Integer
         Dim DetailCount As Long
+        Dim Start As Byte
         Dim buffer As New ByteStream(data)
         Dim cf = Path.Database & "AutoMapper.ini"
 #If DEBUG Then
@@ -229,6 +230,7 @@ Module S_AutoMap
 #End If
         If GetPlayerAccess(index) = AdminType.Player Then Exit Sub
 
+        Start = buffer.ReadByte
         MapStart = buffer.ReadInt32
         MapSize = buffer.ReadInt32
         MapX = buffer.ReadInt32
@@ -253,18 +255,19 @@ Module S_AutoMap
         For Prefab = 1 To TilePrefab.Count - 1
             ReDim Tile(Prefab).Layer(LayerType.Count - 1)
 
-            Layer = buffer.ReadInt32()
-            Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Tileset", buffer.ReadInt32)
-            Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "X", buffer.ReadInt32)
-            Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Y", buffer.ReadInt32)
-            Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Autotile", buffer.ReadInt32)
+            For Layer = 1 To LayerType.Count - 1
+                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Tileset", buffer.ReadInt32)
+                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "X", buffer.ReadInt32)
+                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Y", buffer.ReadInt32)
+                Ini.Write(cf, "Prefab" & Prefab, "Layer" & Layer & "Autotile", buffer.ReadInt32)
+            Next Layer
 
             Ini.Write(cf, "Prefab" & Prefab, "Type", buffer.ReadInt32)
         Next
 
         buffer.Dispose()
 
-        StartAutomapper(MapStart, MapSize, MapX, MapY)
+        If Start = 1 Then StartAutomapper(MapStart, MapSize, MapX, MapY)
 
     End Sub
 
@@ -343,24 +346,22 @@ Module S_AutoMap
             End If
         Next i
 
-        If prefab = TilePrefab.Grass OrElse prefab = TilePrefab.Sand Then
-            If DetailsChecked = True Then
-                If Random(1, DetailFreq) = 1 Then
-                    Dim detailNum As Integer
-                    Dim details() As Integer
-                    ReDim details(1)
-                    For i = 1 To UBound(Detail)
-                        If Detail(i).DetailBase = prefab Then
-                            ReDim Preserve details(UBound(details) + 1)
-                            details(UBound(details)) = i
-                        End If
-                    Next i
-                    If UBound(details) >= 1 Then
-                        detailNum = details(Random(0, UBound(details) - 1))
-                        If Detail(detailNum).DetailBase = prefab Then
-                            tileDest.Layer(3) = Detail(detailNum).Tile.Layer(3)
-                            tileDest.Type = Detail(detailNum).Tile.Type
-                        End If
+        If DetailsChecked = True Then
+            If Random(1, DetailFreq) = 1 Then
+                Dim detailNum As Integer
+                Dim details() As Integer
+                ReDim details(1)
+                For i = 1 To UBound(Detail)
+                    If Detail(i).DetailBase = prefab Then
+                        ReDim Preserve details(UBound(details) + 1)
+                        details(UBound(details)) = i
+                    End If
+                Next i
+                If UBound(details) >= 1 Then
+                    detailNum = details(Random(0, UBound(details) - 1))
+                    If Detail(detailNum).DetailBase = prefab Then
+                        tileDest.Layer(LayerType.Mask2) = Detail(detailNum).Tile.Layer(LayerType.Mask2)
+                        tileDest.Type = Detail(detailNum).Tile.Type
                     End If
                 End If
             End If

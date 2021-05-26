@@ -50,6 +50,19 @@ Module C_Resources
 #Region "Incoming Packets"
 
     Sub Packet_ResourceCache(ByRef data() As Byte)
+        Dim buffer As New ByteStream(data)
+        ResourceIndex = buffer.ReadInt32
+
+        If ResourceIndex > 0 And ResourcesInit Then
+            MapResource(ResourceIndex).ResourceState = buffer.ReadInt32
+            MapResource(ResourceIndex).X = buffer.ReadInt32
+            MapResource(ResourceIndex).Y = buffer.ReadInt32
+        End If
+
+        buffer.Dispose()
+    End Sub
+
+    Sub Packet_MapResourcesCache(ByRef data() As Byte)
         Dim i As Integer
         Dim buffer As New ByteStream(data)
         ResourceIndex = buffer.ReadInt32

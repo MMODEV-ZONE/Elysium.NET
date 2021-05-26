@@ -13,7 +13,7 @@ A frase "Fácil, mas poderoso" guia o desenvolvimento da Elysium.NET. Tal frase 
 * Uso de tecnologia de ponta sempre que possível.
 
 ## Quais os requisitos para uso?
-O requisito essencial para uso é basicamente ter a plataforma .NET Framework de versão v4.5 ou superior. Caso desejar, a branch server-core possui uma versão do servidor em .NET Core, neste caso, o projeto também necessita da Core SDK para funcionar.
+O requisito essencial para uso é basicamente ter a plataforma .NET Framework de versão v4.5 ou superior.
 
 ## Este programa tem alguma relação com a Elysium Engine Brasil?
 Sim. A Elysium.NET pode ser considerada uma sucessora espiritual para a Elysium Engine Brasil, desenvolvida até 2010 e escrita em Visual Basic 6. Os desenvolvedores se reuniram 10 anos depois para ressuscitar o projeto que visa abrir novas portas para criadores novos ou veteranos, e com isso, nasceu a Elysium.NET.

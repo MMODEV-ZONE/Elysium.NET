@@ -10,7 +10,7 @@
     <StartupObject>My.MyApplication</StartupObject>
     <RootNamespace>
     </RootNamespace>
-    <AssemblyName>Elysium Client</AssemblyName>
+    <AssemblyName>Cliente Elysium</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -54,7 +54,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\Build\Client\</OutputPath>
+    <OutputPath>..\..\Build\Cliente\</OutputPath>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -937,7 +937,7 @@
     <None Include="Dados\Graficos\Itens\99.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Blood.png">
+    <None Include="Dados\Graficos\Misc\Sangue.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Dados\Graficos\Misc\ChatBubble.png">
@@ -946,16 +946,16 @@
     <None Include="Dados\Graficos\Misc\Cursor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Direction.png">
+    <None Include="Dados\Graficos\Misc\Direção.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Door.png">
+    <None Include="Dados\Graficos\Misc\Porta.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Light.png">
+    <None Include="Dados\Graficos\Misc\Iluminação.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Graficos\Misc\Shadow.png">
+    <None Include="Dados\Graficos\Misc\Sombra.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Dados\Graficos\Misc\Target.png">

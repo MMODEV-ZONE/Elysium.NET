@@ -37,13 +37,13 @@ Module modDatabase
             Classes(i).Desc = Ini.Read(cf, "CLASS" & i, "Desc")
             Classes(i).BaseExp = Val(Ini.Read(cf, "CLASS" & i, "BaseExp"))
 
-            n = Val(Ini.Read(cf, "CLASS" & i, "MaxMaleSprite")) - 1
+            n = Val(Ini.Read(cf, "CLASS" & i, "MaxMaleSprite"))
             ReDim Classes(i).MaleSprite(n)
             For x = 0 To n
                 Classes(i).MaleSprite(x) = Val(Ini.Read(cf, "CLASS" & i, "Sprite_Male" & x))
             Next
 
-            n = Val(Ini.Read(cf, "CLASS" & i, "MaxFemaleSprite")) - 1
+            n = Val(Ini.Read(cf, "CLASS" & i, "MaxFemaleSprite"))
             ReDim Classes(i).FemaleSprite(n)
             For x = 0 To n
                 Classes(i).FemaleSprite(x) = Val(Ini.Read(cf, "CLASS" & i, "Sprite_Female" & x))
@@ -202,117 +202,117 @@ Module modDatabase
         If Not File.Exists(cf) Then File.Create(cf).Dispose()
 
         'Isto é para salvar eventos. Está no arquivo .ini porque há valores não limitados (strings) que nao podem ser facilmente carregados da maneira normal.
-        Ini.Write(cf, "Events", "EventCount", Val(Map(mapNum).EventCount))
+        Ini.WriteOrCreate(cf, "Events", "EventCount", Val(Map(mapNum).EventCount))
 
         If Map(mapNum).EventCount > 0 Then
             For i = 1 To Map(mapNum).EventCount
                 With Map(mapNum).Events(i)
-                    Ini.Write(cf, "Event" & i, "Name", .Name)
-                    Ini.Write(cf, "Event" & i, "Global", Val(.Globals))
-                    Ini.Write(cf, "Event" & i, "x", Val(.X))
-                    Ini.Write(cf, "Event" & i, "y", Val(.Y))
-                    Ini.Write(cf, "Event" & i, "PageCount", Val(.PageCount))
+                    Ini.WriteOrCreate(cf, "Event" & i, "Name", .Name)
+                    Ini.WriteOrCreate(cf, "Event" & i, "Global", Val(.Globals))
+                    Ini.WriteOrCreate(cf, "Event" & i, "x", Val(.X))
+                    Ini.WriteOrCreate(cf, "Event" & i, "y", Val(.Y))
+                    Ini.WriteOrCreate(cf, "Event" & i, "PageCount", Val(.PageCount))
 
                 End With
                 If Map(mapNum).Events(i).PageCount > 0 Then
                     For x = 1 To Map(mapNum).Events(i).PageCount
                         With Map(mapNum).Events(i).Pages(x)
-                            Ini.Write(cf, "Event" & i & "Page" & x, "chkVariable", Val(.ChkVariable))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "VariableIndex", Val(.Variableindex))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "VariableCondition", Val(.VariableCondition))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "VariableCompare", Val(.VariableCompare))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "chkVariable", Val(.ChkVariable))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "VariableIndex", Val(.Variableindex))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "VariableCondition", Val(.VariableCondition))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "VariableCompare", Val(.VariableCompare))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "chkSwitch", Val(.ChkSwitch))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "SwitchIndex", Val(.Switchindex))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "SwitchCompare", Val(.SwitchCompare))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "chkSwitch", Val(.ChkSwitch))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "SwitchIndex", Val(.Switchindex))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "SwitchCompare", Val(.SwitchCompare))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "chkHasItem", Val(.ChkHasItem))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "HasItemIndex", Val(.HasItemindex))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "HasItemAmount", Val(.HasItemAmount))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "chkHasItem", Val(.ChkHasItem))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "HasItemIndex", Val(.HasItemindex))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "HasItemAmount", Val(.HasItemAmount))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "chkSelfSwitch", Val(.ChkSelfSwitch))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "SelfSwitchIndex", Val(.SelfSwitchindex))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "SelfSwitchCompare", Val(.SelfSwitchCompare))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "chkSelfSwitch", Val(.ChkSelfSwitch))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "SelfSwitchIndex", Val(.SelfSwitchindex))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "SelfSwitchCompare", Val(.SelfSwitchCompare))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "GraphicType", Val(.GraphicType))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "Graphic", Val(.Graphic))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "GraphicX", Val(.GraphicX))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "GraphicY", Val(.GraphicY))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "GraphicX2", Val(.GraphicX2))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "GraphicY2", Val(.GraphicY2))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "GraphicType", Val(.GraphicType))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "Graphic", Val(.Graphic))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "GraphicX", Val(.GraphicX))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "GraphicY", Val(.GraphicY))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "GraphicX2", Val(.GraphicX2))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "GraphicY2", Val(.GraphicY2))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "MoveType", Val(.MoveType))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "MoveSpeed", Val(.MoveSpeed))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "MoveFreq", Val(.MoveFreq))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveType", Val(.MoveType))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveSpeed", Val(.MoveSpeed))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveFreq", Val(.MoveFreq))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "IgnoreMoveRoute", Val(.IgnoreMoveRoute))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "RepeatMoveRoute", Val(.RepeatMoveRoute))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "IgnoreMoveRoute", Val(.IgnoreMoveRoute))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "RepeatMoveRoute", Val(.RepeatMoveRoute))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "MoveRouteCount", Val(.MoveRouteCount))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRouteCount", Val(.MoveRouteCount))
 
                             If .MoveRouteCount > 0 Then
                                 For y = 1 To .MoveRouteCount
-                                    Ini.Write(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Index", Val(.MoveRoute(y).Index))
-                                    Ini.Write(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data1", Val(.MoveRoute(y).Data1))
-                                    Ini.Write(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data2", Val(.MoveRoute(y).Data2))
-                                    Ini.Write(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data3", Val(.MoveRoute(y).Data3))
-                                    Ini.Write(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data4", Val(.MoveRoute(y).Data4))
-                                    Ini.Write(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data5", Val(.MoveRoute(y).Data5))
-                                    Ini.Write(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data6", Val(.MoveRoute(y).Data6))
+                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Index", Val(.MoveRoute(y).Index))
+                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data1", Val(.MoveRoute(y).Data1))
+                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data2", Val(.MoveRoute(y).Data2))
+                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data3", Val(.MoveRoute(y).Data3))
+                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data4", Val(.MoveRoute(y).Data4))
+                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data5", Val(.MoveRoute(y).Data5))
+                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "MoveRoute" & y & "Data6", Val(.MoveRoute(y).Data6))
                                 Next
                             End If
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "WalkAnim", Val(.WalkAnim))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "DirFix", Val(.DirFix))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "WalkThrough", Val(.WalkThrough))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "ShowName", Val(.ShowName))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "Trigger", Val(.Trigger))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandListCount", Val(.CommandListCount))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "WalkAnim", Val(.WalkAnim))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "DirFix", Val(.DirFix))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "WalkThrough", Val(.WalkThrough))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "ShowName", Val(.ShowName))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "Trigger", Val(.Trigger))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandListCount", Val(.CommandListCount))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "Position", Val(.Position))
-                            Ini.Write(cf, "Event" & i & "Page" & x, "QuestNum", Val(.QuestNum))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "Position", Val(.Position))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "QuestNum", Val(.QuestNum))
 
-                            Ini.Write(cf, "Event" & i & "Page" & x, "PlayerGender", Val(.ChkPlayerGender))
+                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "PlayerGender", Val(.ChkPlayerGender))
 
                         End With
 
                         If Map(mapNum).Events(i).Pages(x).CommandListCount > 0 Then
                             For y = 1 To Map(mapNum).Events(i).Pages(x).CommandListCount
-                                Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "CommandCount", Val(Map(mapNum).Events(i).Pages(x).CommandList(y).CommandCount))
-                                Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "ParentList", Val(Map(mapNum).Events(i).Pages(x).CommandList(y).ParentList))
+                                Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "CommandCount", Val(Map(mapNum).Events(i).Pages(x).CommandList(y).CommandCount))
+                                Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "ParentList", Val(Map(mapNum).Events(i).Pages(x).CommandList(y).ParentList))
 
                                 If Map(mapNum).Events(i).Pages(x).CommandList(y).CommandCount > 0 Then
                                     For z = 1 To Map(mapNum).Events(i).Pages(x).CommandList(y).CommandCount
                                         With Map(mapNum).Events(i).Pages(x).CommandList(y).Commands(z)
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Index", Val(.Index))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text1", .Text1)
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text2", .Text2)
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text3", .Text3)
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text4", .Text4)
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text5", .Text5)
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data1", Val(.Data1))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data2", Val(.Data2))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data3", Val(.Data3))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data4", Val(.Data4))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data5", Val(.Data5))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data6", Val(.Data6))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchCommandList", Val(.ConditionalBranch.CommandList))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchCondition", Val(.ConditionalBranch.Condition))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchData1", Val(.ConditionalBranch.Data1))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchData2", Val(.ConditionalBranch.Data2))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchData3", Val(.ConditionalBranch.Data3))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchElseCommandList", Val(.ConditionalBranch.ElseCommandList))
-                                            Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRouteCount", Val(.MoveRouteCount))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Index", Val(.Index))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text1", .Text1)
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text2", .Text2)
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text3", .Text3)
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text4", .Text4)
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Text5", .Text5)
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data1", Val(.Data1))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data2", Val(.Data2))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data3", Val(.Data3))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data4", Val(.Data4))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data5", Val(.Data5))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "Data6", Val(.Data6))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchCommandList", Val(.ConditionalBranch.CommandList))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchCondition", Val(.ConditionalBranch.Condition))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchData1", Val(.ConditionalBranch.Data1))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchData2", Val(.ConditionalBranch.Data2))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchData3", Val(.ConditionalBranch.Data3))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "ConditionalBranchElseCommandList", Val(.ConditionalBranch.ElseCommandList))
+                                            Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRouteCount", Val(.MoveRouteCount))
 
                                             If .MoveRouteCount > 0 Then
                                                 For w = 1 To .MoveRouteCount
-                                                    Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Index", Val(.MoveRoute(w).Index))
-                                                    Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data1", Val(.MoveRoute(w).Data1))
-                                                    Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data2", Val(.MoveRoute(w).Data2))
-                                                    Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data3", Val(.MoveRoute(w).Data3))
-                                                    Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data4", Val(.MoveRoute(w).Data4))
-                                                    Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data5", Val(.MoveRoute(w).Data5))
-                                                    Ini.Write(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data6", Val(.MoveRoute(w).Data6))
+                                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Index", Val(.MoveRoute(w).Index))
+                                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data1", Val(.MoveRoute(w).Data1))
+                                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data2", Val(.MoveRoute(w).Data2))
+                                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data3", Val(.MoveRoute(w).Data3))
+                                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data4", Val(.MoveRoute(w).Data4))
+                                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data5", Val(.MoveRoute(w).Data5))
+                                                    Ini.WriteOrCreate(cf, "Event" & i & "Page" & x, "CommandList" & y & "Command" & z & "MoveRoute" & w & "Data6", Val(.MoveRoute(w).Data6))
                                                 Next
                                             End If
                                         End With
@@ -1282,56 +1282,9 @@ Module modDatabase
 #Region "Data Functions"
 
     Function ClassData() As Byte()
-        Dim i As Integer, n As Integer, q As Integer
         Dim buffer As New ByteStream(4)
 
-        For i = 1 To MAX_CLASSES
-            buffer.WriteString((GetClassName(i).Trim))
-            buffer.WriteString((Classes(i).Desc.Trim))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.HP))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.MP))
-            buffer.WriteInt32(GetClassMaxVital(i, VitalType.SP))
-
-            ' Setar o tamanho do vetor da sprite
-            n = UBound(Classes(i).MaleSprite)
-
-            ' Enviar o tamanho do vetor
-            buffer.WriteInt32(n)
-
-            ' Fazer o loop enviando cada sprte 
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).MaleSprite(q))
-            Next
-
-            ' Setar o tamanho do vetor da sprite 
-            n = UBound(Classes(i).FemaleSprite)
-
-            ' Enviar o tamanho do vetor
-            buffer.WriteInt32(n)
-
-            ' Fazer o loop enviando cada sprte
-            For q = 0 To n
-                buffer.WriteInt32(Classes(i).FemaleSprite(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).Stat(StatType.Strength))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Endurance))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Vitality))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Intelligence))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Luck))
-            buffer.WriteInt32(Classes(i).Stat(StatType.Spirit))
-
-            For q = 1 To 5
-                buffer.WriteInt32(Classes(i).StartItem(q))
-                buffer.WriteInt32(Classes(i).StartValue(q))
-            Next
-
-            buffer.WriteInt32(Classes(i).StartMap)
-            buffer.WriteInt32(Classes(i).StartX)
-            buffer.WriteInt32(Classes(i).StartY)
-
-            buffer.WriteInt32(Classes(i).BaseExp)
-        Next
+        buffer.WriteBlock(SerializeData(Classes))
 
         Return buffer.ToArray()
     End Function

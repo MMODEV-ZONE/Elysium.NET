@@ -346,6 +346,15 @@ Friend Module C_EventSystem
         EvReleasePlayer
     End Enum
 
+    Enum EffectType As Integer
+        Fadein = 1
+        Fadeout
+        Flash
+        Fog
+        Weather
+        Tint
+    End Enum
+
 #End Region
 
 #Region "EventEditor"
@@ -587,6 +596,7 @@ Friend Module C_EventSystem
         ' copiar os dados do evento do evento temp
 
         Map.Events(EditorEvent) = TmpEvent
+        FrmEditor_MapEditor.Visible = True
         ' descarregar formulario
         FrmEditor_Events.Dispose()
 
@@ -1465,11 +1475,11 @@ newlist:
 
             Case EventType.EvBeginQuest
                 TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Index = Index
-                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbBeginQuest.SelectedIndex + 1
+                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbBeginQuest.SelectedIndex
 
             Case EventType.EvEndQuest
                 TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Index = Index
-                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbEndQuest.SelectedIndex + 1
+                TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Data1 = FrmEditor_Events.cmbEndQuest.SelectedIndex
 
             Case EventType.EvQuestTask
                 TmpEvent.Pages(CurPageNum).CommandList(curlist).Commands(curslot).Index = Index
@@ -1509,6 +1519,7 @@ newlist:
 
         i = FrmEditor_Events.lstCommands.SelectedIndex
         If i = -1 Then Exit Sub
+        If EventList Is Nothing Then Exit Sub
         If i > UBound(EventList) Then Exit Sub
 
         FrmEditor_Events.fraConditionalBranch.Visible = False
@@ -2653,29 +2664,29 @@ newlist:
     End Sub
 
     Sub Packet_SpecialEffect(ByRef data() As Byte)
-        Dim effectType As Integer
+        Dim effectTypeNum As Integer
         Dim buffer As New ByteStream(data)
-        effectType = buffer.ReadInt32
+        effectTypeNum = buffer.ReadInt32
 
-        Select Case effectType
-            Case EffectTypeFadein
+        Select Case effectTypeNum
+            Case EffectType.Fadein
                 UseFade = True
                 FadeType = 1
                 FadeAmount = 0
-            Case EffectTypeFadeout
+            Case EffectType.Fadeout
                 UseFade = True
                 FadeType = 0
                 FadeAmount = 255
-            Case EffectTypeFlash
+            Case EffectType.Flash
                 FlashTimer = GetTickCount() + 150
-            Case EffectTypeFog
+            Case EffectType.Fog
                 CurrentFog = buffer.ReadInt32
                 CurrentFogSpeed = buffer.ReadInt32
                 CurrentFogOpacity = buffer.ReadInt32
-            Case EffectTypeWeather
+            Case EffectType.Weather
                 CurrentWeather = buffer.ReadInt32
                 CurrentWeatherIntensity = buffer.ReadInt32
-            Case EffectTypeTint
+            Case EffectType.Tint
                 Map.HasMapTint = 1
                 CurrentTintR = buffer.ReadInt32
                 CurrentTintG = buffer.ReadInt32
@@ -2736,14 +2747,14 @@ newlist:
                 Case 1
                     If FrmEditor_Events.nudGraphic.Value > 0 AndAlso FrmEditor_Events.nudGraphic.Value <= NumCharacters Then
                         'Carregar personagem da pasta de Contents para nosso sourceBitmap
-                        sourceBitmap = New Bitmap(Application.StartupPath & "/Data/graphics/characters/" & FrmEditor_Events.nudGraphic.Value & ".png")
+                        sourceBitmap = New Bitmap(Path.Graphics & "Personagens\" & FrmEditor_Events.nudGraphic.Value & ".png")
                         targetBitmap = New Bitmap(sourceBitmap.Width, sourceBitmap.Height) 'Criar nosso bitmap alvo
 
                         g = Graphics.FromImage(targetBitmap)
                         'Esta é a seção que estamos puxando no gráfico fonte  
-                        Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 4, sourceBitmap.Height / 4)
+                        Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 3, sourceBitmap.Height / 4)
                         'Este é o retângulo no gráfico alvo que queremos renderizar 
-                        Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 4, targetBitmap.Height / 4)
+                        Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 3, targetBitmap.Height / 4)
 
                         g.DrawImage(sourceBitmap, destRect, sourceRect, GraphicsUnit.Pixel)
 
@@ -2763,7 +2774,7 @@ newlist:
                 Case 2
                     If FrmEditor_Events.nudGraphic.Value > 0 AndAlso FrmEditor_Events.nudGraphic.Value <= NumTileSets Then
                         'Carregar  tilesheet de Contents no nosso bitmap fonte
-                        sourceBitmap = New Bitmap(Application.StartupPath & "/Data/graphics/tilesets/" & FrmEditor_Events.nudGraphic.Value & ".png")
+                        sourceBitmap = New Bitmap(Path.Graphics & "Tilesets\" & FrmEditor_Events.nudGraphic.Value & ".png")
                         targetBitmap = New Bitmap(sourceBitmap.Width, sourceBitmap.Height) 'Criar o Bitmap alvo
 
                         If TmpEvent.Pages(CurPageNum).GraphicX2 = 0 AndAlso TmpEvent.Pages(CurPageNum).GraphicY2 = 0 Then
@@ -2828,8 +2839,8 @@ newlist:
 
                             g = Graphics.FromImage(targetBitmap)
 
-                            Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 4, sourceBitmap.Height / 4)
-                            Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 4, targetBitmap.Height / 4)
+                            Dim sourceRect As New Rectangle(0, 0, sourceBitmap.Width / 3, sourceBitmap.Height / 4)
+                            Dim destRect As New Rectangle(0, 0, targetBitmap.Width / 3, targetBitmap.Height / 4)
 
                             g.DrawImage(sourceBitmap, destRect, sourceRect, GraphicsUnit.Pixel)
 
@@ -2946,7 +2957,7 @@ newlist:
                         With rec
                             .Y = (Map.Events(i).Pages(1).GraphicY * (CharacterGfxInfo(Map.Events(i).Pages(1).Graphic).Height / 4))
                             .Height = .Y + PicY
-                            .X = (Map.Events(i).Pages(1).GraphicX * (CharacterGfxInfo(Map.Events(i).Pages(1).Graphic).Width / 4))
+                            .X = (Map.Events(i).Pages(1).GraphicX * (CharacterGfxInfo(Map.Events(i).Pages(1).Graphic).Width / 3))
                             .Width = .X + PicX
                         End With
 
@@ -3061,12 +3072,12 @@ nextevent:
                 If Map.MapEvents(id).WalkAnim = 1 Then anim = 0
                 If Map.MapEvents(id).Moving = 0 Then anim = Map.MapEvents(id).GraphicX
 
-                width = CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4
+                width = CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3
                 height = CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4
 
-                sRect = New Rectangle((anim) * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4), spritetop * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4))
+                sRect = New Rectangle((anim) * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3), spritetop * (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3), (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height / 4))
                 ' Calcular o X
-                x = Map.MapEvents(id).X * PicX + Map.MapEvents(id).XOffset - ((CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 4 - 32) / 2)
+                x = Map.MapEvents(id).X * PicX + Map.MapEvents(id).XOffset - ((CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Width / 3 - 32) / 2)
 
                 ' Altura do jogador é mairo que 32..?
                 If (CharacterGfxInfo(Map.MapEvents(id).GraphicNum).Height * 4) > 32 Then

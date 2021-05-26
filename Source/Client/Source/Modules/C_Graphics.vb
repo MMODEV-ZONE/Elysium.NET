@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Linq
 Imports SFML.Graphics
 Imports SFML.Window
 
@@ -8,6 +9,7 @@ Module C_Graphics
 
     Friend GameWindow As RenderWindow
     Friend TilesetWindow As RenderWindow
+    Friend AutomapperTilesetWindow As RenderWindow
 
     Friend EditorItem_Furniture As RenderWindow
     Friend EditorSkill_Icon As RenderWindow
@@ -331,6 +333,7 @@ Module C_Graphics
 
         GameWindow = New RenderWindow(FrmGame.picscreen.Handle)
         TilesetWindow = New RenderWindow(FrmEditor_MapEditor.picBackSelect.Handle)
+        AutomapperTilesetWindow = New RenderWindow(frmEditor_AutoMapper.picBackSelect.Handle)
 
         EditorItem_Furniture = New RenderWindow(frmEditor_Item.picFurniture.Handle)
         EditorSkill_Icon = New RenderWindow(frmEditor_Skill.picSprite.Handle)
@@ -410,9 +413,9 @@ Module C_Graphics
         End If
 
         DoorGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Door" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Porta" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
-            DoorGfx = New Texture(Path.Graphics & "Misc\Door" & GfxExt)
+            DoorGfx = New Texture(Path.Graphics & "Misc\Porta" & GfxExt)
             DoorSprite = New Sprite(DoorGfx)
 
             'Botar em cache o comprimento e a altura
@@ -421,9 +424,9 @@ Module C_Graphics
         End If
 
         BloodGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Blood" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Sangue" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
-            BloodGfx = New Texture(Path.Graphics & "Misc\Blood" & GfxExt)
+            BloodGfx = New Texture(Path.Graphics & "Misc\Sangue" & GfxExt)
             BloodSprite = New Sprite(BloodGfx)
 
             'Botar em cache o comprimento e a altura
@@ -432,9 +435,9 @@ Module C_Graphics
         End If
 
         DirectionsGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Direction" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Direção" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
-            DirectionsGfx = New Texture(Path.Graphics & "Misc\Direction" & GfxExt)
+            DirectionsGfx = New Texture(Path.Graphics & "Misc\Direção" & GfxExt)
             DirectionsSprite = New Sprite(DirectionsGfx)
 
             'Botar em cache o comprimento e a altura
@@ -443,7 +446,7 @@ Module C_Graphics
         End If
 
         WeatherGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Weather" & GfxExt) Then
+        If File.Exists(Path.Graphics & "Misc\Clima" & GfxExt) Then
             'primeiramente carregar texturas, não se importar com fluxos de memória (apenas o nome do arquivo)
             WeatherGfx = New Texture(Path.Graphics & "Misc\Clima" & GfxExt)
             WeatherSprite = New Sprite(WeatherGfx)
@@ -748,8 +751,8 @@ Module C_Graphics
         End If
 
         LightGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Light" & GfxExt) Then
-            LightGfx = New Texture(Path.Graphics & "Misc\Light" & GfxExt)
+        If File.Exists(Path.Graphics & "Misc\Iluminação" & GfxExt) Then
+            LightGfx = New Texture(Path.Graphics & "Misc\Iluminação" & GfxExt)
             LightSprite = New Sprite(LightGfx)
 
             'Botar em cache o comprimento e a altura
@@ -758,8 +761,8 @@ Module C_Graphics
         End If
 
         ShadowGfxInfo = New GraphicInfo
-        If File.Exists(Path.Graphics & "Misc\Shadow" & GfxExt) Then
-            ShadowGfx = New Texture(Path.Graphics & "Misc\Shadow" & GfxExt)
+        If File.Exists(Path.Graphics & "Misc\Sombra" & GfxExt) Then
+            ShadowGfx = New Texture(Path.Graphics & "Misc\Sombra" & GfxExt)
             ShadowSprite = New Sprite(ShadowGfx)
 
             'Botar em cache o comprimento e a altura
@@ -1853,7 +1856,7 @@ Module C_Graphics
             DrawGrid()
         End If
 
-        If FrmEditor_MapEditor.tabpages.SelectedTab Is FrmEditor_MapEditor.tpDirBlock Then
+        If FrmEditor_MapEditor.tabpages.SelectedTab Is FrmEditor_MapEditor.tpDirBlock AndAlso InMapEditor Then
             For x = TileView.Left To TileView.Right
                 For y = TileView.Top To TileView.Bottom
                     If IsValidMapPoint(x, y) Then
@@ -2026,9 +2029,9 @@ Module C_Graphics
                 If Map.Npc Is Nothing Then Exit Sub
                 If Map.Npc(i) > 0 Then
                     If Npc(MapNpc(i).Num).Behaviour = NpcBehavior.AttackOnSight OrElse Npc(MapNpc(i).Num).Behaviour = NpcBehavior.AttackWhenAttacked OrElse Npc(MapNpc(i).Num).Behaviour = NpcBehavior.Guard Then
-                        ' fcoar no npc
+                        ' focar no npc
                         tmpX = MapNpc(i).X * PicX + MapNpc(i).XOffset
-                        tmpY = MapNpc(i).Y * PicY + MapNpc(i).YOffset + 35
+                        tmpY = MapNpc(i).Y * PicY + MapNpc(i).YOffset + CharacterGfxInfo(Npc(MapNpc(i).Num).Sprite).Height / 2
                         If MapNpc(i).Vital(VitalType.HP) > 0 Then
                             ' calcular comprimento para preencher
                             barWidth = ((MapNpc(i).Vital(VitalType.HP) / (Npc(MapNpc(i).Num).Hp) * 32))
@@ -2766,6 +2769,10 @@ NextLoop:
         RenderSprite(TargetSprite, GameWindow, x, y, rec.X, rec.Y, rec.Width, rec.Height)
     End Sub
 
+    Friend Function CanShowText(text As String) As Boolean
+        Return text <> Language.ItemDescription.NotAvailable And Not String.IsNullOrEmpty(text)
+    End Function
+
     Friend Sub DrawItemDesc()
         Dim xoffset As Integer, yoffset As Integer, y As Integer
 
@@ -2802,42 +2809,39 @@ NextLoop:
             y += 15
         Next
 
-        DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 44, "Shift para detalhes", SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+        Dim DescList As New Dictionary(Of String, String) From {
+            {ItemDescInfo, ItemDescInfo},
+            {"Velocidade", ItemDescSpeed},
+            {"Nível Necessário", ItemDescLevel},
+            {"=Bônus=", String.Empty},
+            {"Força", ItemDescStr},
+            {"Vitalidade", ItemDescVit},
+            {"Inteligência", ItemDescInt},
+            {"Resistência", ItemDescEnd},
+            {"Sorte", ItemDescLuck},
+            {"Espírito", ItemDescSpr}
+        }
 
-        If ShiftDown OrElse VbKeyShift = True Then
-            'info
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 56, ItemDescInfo, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+        Dim HasMoreDetails As Boolean = DescList.Values.Any(Function(x) x <> Language.ItemDescription.NotAvailable And Not String.IsNullOrEmpty(x))
 
-            'custo
-            'DrawText(Xoffset - DescriptionGFXInfo.width + 10, Yoffset + 74, "Worth: " & ItemDescCost, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'type
-            'DrawText(Xoffset - DescriptionGFXInfo.width + 10, Yoffset + 90, "Type: " & ItemDescType, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Velocidade
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 74, "Velocidade: " & ItemDescSpeed, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'nível
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 90, "Nível Necessário: " & ItemDescLevel, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'bonus
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 118, "=Bônus=", SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Força
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 134, "Força: " & ItemDescStr, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Vitalidade
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 150, "Vitalidade: " & ItemDescVit, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Inteligência
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 166, "Inteligência: " & ItemDescInt, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Resistência
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 182, "Resistência: " & ItemDescEnd, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Sorte
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 198, "Sorte: " & ItemDescLuck, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
-            'Espírito
-            DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 214, "Espírito: " & ItemDescSpr, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+        If HasMoreDetails And (ShiftDown OrElse VbKeyShift) Then
+            Dim BonusOffset As Integer = 56
+
+            For Each Description In DescList
+                If Description.Value <> Language.ItemDescription.NotAvailable And (Not String.IsNullOrEmpty(Description.Value) Or Description.Key = "=Bônus=") Then
+                    DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + BonusOffset, Description.Key & If(Description.Value <> Description.Key And Not String.IsNullOrEmpty(Description.Value), ": " & Description.Value, String.Empty), SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+                    BonusOffset += 16
+                End If
+            Next
         Else
+            If HasMoreDetails Then DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 44, "Shift para detalhes", SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
+
             For Each str As String In WordWrap(ItemDescDescription, 22, WrapMode.Characters, WrapType.BreakWord)
                 'descrição
                 DrawText(xoffset - DescriptionGfxInfo.Width + 10, yoffset + 44 + y, str, SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
                 y += 15
             Next
         End If
-
     End Sub
 
     Friend Sub DrawSkillDesc()
@@ -2893,7 +2897,7 @@ NextLoop:
             DrawText(DialogPanelX + 60, DialogPanelY + 50, Trim(DialogMsg3), SFML.Graphics.Color.White, SFML.Graphics.Color.Black, GameWindow)
         End If
 
-        If DialogType = DialogueTypeQuest Then
+        If DialogType = DialogueType.Quest Then
             If QuestAcceptTag > 0 Then
                 'renderizar botao de aceitar
                 DrawButton(DialogButton1Text, DialogPanelX + OkButtonX, DialogPanelY + OkButtonY, 0)
@@ -2964,6 +2968,7 @@ NextLoop:
 
         If PnlShopVisible = True Then
             DrawShop()
+            If ShowItemDesc = True Then DrawItemDesc()
         End If
 
         If PnlTradeVisible = True Then

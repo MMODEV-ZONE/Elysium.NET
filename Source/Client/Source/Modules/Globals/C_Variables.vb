@@ -226,16 +226,18 @@ Module C_Variables
     Friend InitClassEditor As Boolean
     Friend InitAutoMapper As Boolean
 
-    ' Constantes dos Editores do Jogo
-    Friend Const EDITOR_ITEM As Byte = 1
-    Friend Const EDITOR_NPC As Byte = 2
-    Friend Const EDITOR_SKILL As Byte = 3
-    Friend Const EDITOR_SHOP As Byte = 4
-    Friend Const EDITOR_RESOURCE As Byte = 5
-    Friend Const EDITOR_ANIMATION As Byte = 6
-    Friend Const EDITOR_PET As Byte = 7
-    Friend Const EDITOR_QUEST As Byte = 7
-    Friend Const EDITOR_HOUSE As Byte = 8
-    Friend Const EDITOR_RECIPE As Byte = 9
-    Friend Const EDITOR_CLASSES As Byte = 10
+    ' Variáveis de edição de mapa
+    Public InMapEditor As Boolean
+    Public EditorTileX As Integer
+    Public EditorTileY As Integer
+    Public EditorTileWidth As Integer
+    Public EditorTileHeight As Integer
+    Public EditorWarpMap As Integer
+    Public EditorWarpX As Integer
+    Public EditorWarpY As Integer
+    Public EditorShop As Integer
+    Public EditorTileSelStart As Point
+    Public EditorTileSelEnd As Point
+    Public BlockEdit As Boolean = False
+
 End Module

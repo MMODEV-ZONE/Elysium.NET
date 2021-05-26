@@ -81,40 +81,40 @@ Partial Class FrmAdmin
         '
         'btnRespawn
         '
-        Me.btnRespawn.Location = New System.Drawing.Point(204, 25)
-        Me.btnRespawn.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnRespawn.Location = New System.Drawing.Point(181, 20)
+        Me.btnRespawn.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRespawn.Name = "btnRespawn"
-        Me.btnRespawn.Size = New System.Drawing.Size(159, 34)
+        Me.btnRespawn.Size = New System.Drawing.Size(141, 27)
         Me.btnRespawn.TabIndex = 34
         Me.btnRespawn.Text = "Mapa de Respawn"
         Me.btnRespawn.UseVisualStyleBackColor = True
         '
         'btnMapReport
         '
-        Me.btnMapReport.Location = New System.Drawing.Point(9, 322)
-        Me.btnMapReport.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnMapReport.Location = New System.Drawing.Point(8, 258)
+        Me.btnMapReport.Margin = New System.Windows.Forms.Padding(4)
         Me.btnMapReport.Name = "btnMapReport"
-        Me.btnMapReport.Size = New System.Drawing.Size(357, 34)
+        Me.btnMapReport.Size = New System.Drawing.Size(317, 27)
         Me.btnMapReport.TabIndex = 33
         Me.btnMapReport.Text = "Atualizar lista"
         Me.btnMapReport.UseVisualStyleBackColor = True
         '
         'btnALoc
         '
-        Me.btnALoc.Location = New System.Drawing.Point(21, 25)
-        Me.btnALoc.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnALoc.Location = New System.Drawing.Point(19, 20)
+        Me.btnALoc.Margin = New System.Windows.Forms.Padding(4)
         Me.btnALoc.Name = "btnALoc"
-        Me.btnALoc.Size = New System.Drawing.Size(159, 34)
+        Me.btnALoc.Size = New System.Drawing.Size(141, 27)
         Me.btnALoc.TabIndex = 31
         Me.btnALoc.Text = "Localização"
         Me.btnALoc.UseVisualStyleBackColor = True
         '
         'btnSpawnItem
         '
-        Me.btnSpawnItem.Location = New System.Drawing.Point(21, 223)
-        Me.btnSpawnItem.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnSpawnItem.Location = New System.Drawing.Point(19, 178)
+        Me.btnSpawnItem.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSpawnItem.Name = "btnSpawnItem"
-        Me.btnSpawnItem.Size = New System.Drawing.Size(342, 34)
+        Me.btnSpawnItem.Size = New System.Drawing.Size(304, 27)
         Me.btnSpawnItem.TabIndex = 29
         Me.btnSpawnItem.Text = "Gerar Item"
         Me.btnSpawnItem.UseVisualStyleBackColor = True
@@ -123,39 +123,39 @@ Partial Class FrmAdmin
         '
         Me.lblSpawnItemAmount.AutoSize = True
         Me.lblSpawnItemAmount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblSpawnItemAmount.Location = New System.Drawing.Point(16, 186)
+        Me.lblSpawnItemAmount.Location = New System.Drawing.Point(14, 149)
         Me.lblSpawnItemAmount.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSpawnItemAmount.Name = "lblSpawnItemAmount"
-        Me.lblSpawnItemAmount.Size = New System.Drawing.Size(100, 20)
+        Me.lblSpawnItemAmount.Size = New System.Drawing.Size(90, 17)
         Me.lblSpawnItemAmount.TabIndex = 26
         Me.lblSpawnItemAmount.Text = "Quantidade :"
         '
         'lblItemSpawn
         '
         Me.lblItemSpawn.AutoSize = True
-        Me.lblItemSpawn.Location = New System.Drawing.Point(16, 146)
+        Me.lblItemSpawn.Location = New System.Drawing.Point(14, 117)
         Me.lblItemSpawn.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblItemSpawn.Name = "lblItemSpawn"
-        Me.lblItemSpawn.Size = New System.Drawing.Size(90, 20)
+        Me.lblItemSpawn.Size = New System.Drawing.Size(79, 17)
         Me.lblItemSpawn.TabIndex = 25
         Me.lblItemSpawn.Text = "Gerar Item:"
         '
         'btnAdminSetSprite
         '
-        Me.btnAdminSetSprite.Location = New System.Drawing.Point(201, 317)
-        Me.btnAdminSetSprite.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAdminSetSprite.Location = New System.Drawing.Point(179, 254)
+        Me.btnAdminSetSprite.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdminSetSprite.Name = "btnAdminSetSprite"
-        Me.btnAdminSetSprite.Size = New System.Drawing.Size(162, 37)
+        Me.btnAdminSetSprite.Size = New System.Drawing.Size(144, 30)
         Me.btnAdminSetSprite.TabIndex = 16
         Me.btnAdminSetSprite.Text = "Alterar Sprite"
         Me.btnAdminSetSprite.UseVisualStyleBackColor = True
         '
         'btnAdminWarpTo
         '
-        Me.btnAdminWarpTo.Location = New System.Drawing.Point(201, 271)
-        Me.btnAdminWarpTo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAdminWarpTo.Location = New System.Drawing.Point(179, 217)
+        Me.btnAdminWarpTo.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdminWarpTo.Name = "btnAdminWarpTo"
-        Me.btnAdminWarpTo.Size = New System.Drawing.Size(162, 37)
+        Me.btnAdminWarpTo.Size = New System.Drawing.Size(144, 30)
         Me.btnAdminWarpTo.TabIndex = 15
         Me.btnAdminWarpTo.Text = "Teleporte p/ Mapa"
         Me.btnAdminWarpTo.UseVisualStyleBackColor = True
@@ -163,98 +163,98 @@ Partial Class FrmAdmin
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 325)
+        Me.Label5.Location = New System.Drawing.Point(9, 260)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(55, 20)
+        Me.Label5.Size = New System.Drawing.Size(49, 17)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Sprite:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 280)
+        Me.Label4.Location = New System.Drawing.Point(8, 224)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(96, 20)
+        Me.Label4.Size = New System.Drawing.Size(84, 17)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "ID do Mapa:"
         '
         'btnAdminSetAccess
         '
-        Me.btnAdminSetAccess.Location = New System.Drawing.Point(14, 228)
-        Me.btnAdminSetAccess.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAdminSetAccess.Location = New System.Drawing.Point(12, 182)
+        Me.btnAdminSetAccess.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdminSetAccess.Name = "btnAdminSetAccess"
-        Me.btnAdminSetAccess.Size = New System.Drawing.Size(350, 34)
+        Me.btnAdminSetAccess.Size = New System.Drawing.Size(311, 27)
         Me.btnAdminSetAccess.TabIndex = 9
         Me.btnAdminSetAccess.Text = "Alterar Acesso"
         Me.btnAdminSetAccess.UseVisualStyleBackColor = True
         '
         'btnAdminWarpMe2
         '
-        Me.btnAdminWarpMe2.Location = New System.Drawing.Point(190, 95)
-        Me.btnAdminWarpMe2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAdminWarpMe2.Location = New System.Drawing.Point(169, 76)
+        Me.btnAdminWarpMe2.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdminWarpMe2.Name = "btnAdminWarpMe2"
-        Me.btnAdminWarpMe2.Size = New System.Drawing.Size(172, 34)
+        Me.btnAdminWarpMe2.Size = New System.Drawing.Size(153, 27)
         Me.btnAdminWarpMe2.TabIndex = 8
         Me.btnAdminWarpMe2.Text = "Me Levar Ao Jogador"
         Me.btnAdminWarpMe2.UseVisualStyleBackColor = True
         '
         'btnAdminWarp2Me
         '
-        Me.btnAdminWarp2Me.Location = New System.Drawing.Point(9, 95)
-        Me.btnAdminWarp2Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAdminWarp2Me.Location = New System.Drawing.Point(8, 76)
+        Me.btnAdminWarp2Me.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdminWarp2Me.Name = "btnAdminWarp2Me"
-        Me.btnAdminWarp2Me.Size = New System.Drawing.Size(172, 34)
+        Me.btnAdminWarp2Me.Size = New System.Drawing.Size(153, 27)
         Me.btnAdminWarp2Me.TabIndex = 7
         Me.btnAdminWarp2Me.Text = "Trazer Jogador à Mim"
         Me.btnAdminWarp2Me.UseVisualStyleBackColor = True
         '
         'btnAdminBan
         '
-        Me.btnAdminBan.Location = New System.Drawing.Point(190, 52)
-        Me.btnAdminBan.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAdminBan.Location = New System.Drawing.Point(169, 42)
+        Me.btnAdminBan.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdminBan.Name = "btnAdminBan"
-        Me.btnAdminBan.Size = New System.Drawing.Size(172, 34)
+        Me.btnAdminBan.Size = New System.Drawing.Size(153, 27)
         Me.btnAdminBan.TabIndex = 6
         Me.btnAdminBan.Text = "Banir Jogador"
         Me.btnAdminBan.UseVisualStyleBackColor = True
         '
         'btnAdminKick
         '
-        Me.btnAdminKick.Location = New System.Drawing.Point(9, 52)
-        Me.btnAdminKick.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAdminKick.Location = New System.Drawing.Point(8, 42)
+        Me.btnAdminKick.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdminKick.Name = "btnAdminKick"
-        Me.btnAdminKick.Size = New System.Drawing.Size(172, 34)
+        Me.btnAdminKick.Size = New System.Drawing.Size(153, 27)
         Me.btnAdminKick.TabIndex = 5
         Me.btnAdminKick.Text = "Chutar Jogador"
         Me.btnAdminKick.UseVisualStyleBackColor = True
         '
         'txtAdminName
         '
-        Me.txtAdminName.Location = New System.Drawing.Point(88, 12)
-        Me.txtAdminName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtAdminName.Location = New System.Drawing.Point(78, 10)
+        Me.txtAdminName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtAdminName.Name = "txtAdminName"
-        Me.txtAdminName.Size = New System.Drawing.Size(272, 26)
+        Me.txtAdminName.Size = New System.Drawing.Size(242, 22)
         Me.txtAdminName.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 191)
+        Me.Label3.Location = New System.Drawing.Point(8, 153)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 20)
+        Me.Label3.Size = New System.Drawing.Size(58, 17)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Acesso:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 17)
+        Me.Label2.Location = New System.Drawing.Point(8, 14)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(71, 20)
+        Me.Label2.Size = New System.Drawing.Size(64, 17)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Jogador:"
         '
@@ -265,11 +265,11 @@ Partial Class FrmAdmin
         Me.lstMaps.GridLines = True
         Me.lstMaps.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lstMaps.HideSelection = False
-        Me.lstMaps.Location = New System.Drawing.Point(9, 9)
-        Me.lstMaps.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.lstMaps.Location = New System.Drawing.Point(8, 7)
+        Me.lstMaps.Margin = New System.Windows.Forms.Padding(4)
         Me.lstMaps.MultiSelect = False
         Me.lstMaps.Name = "lstMaps"
-        Me.lstMaps.Size = New System.Drawing.Size(356, 301)
+        Me.lstMaps.Size = New System.Drawing.Size(317, 242)
         Me.lstMaps.TabIndex = 4
         Me.lstMaps.UseCompatibleStateImageBehavior = False
         Me.lstMaps.View = System.Windows.Forms.View.Details
@@ -290,11 +290,11 @@ Partial Class FrmAdmin
         Me.TabControl1.Controls.Add(Me.tabMapList)
         Me.TabControl1.Controls.Add(Me.tabMapTools)
         Me.TabControl1.Controls.Add(Me.tabEditors)
-        Me.TabControl1.Location = New System.Drawing.Point(3, 3)
-        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TabControl1.Location = New System.Drawing.Point(3, 2)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(387, 408)
+        Me.TabControl1.Size = New System.Drawing.Size(344, 326)
         Me.TabControl1.TabIndex = 38
         '
         'tabModeration
@@ -315,37 +315,37 @@ Partial Class FrmAdmin
         Me.tabModeration.Controls.Add(Me.Label5)
         Me.tabModeration.Controls.Add(Me.btnAdminWarpTo)
         Me.tabModeration.Controls.Add(Me.btnAdminSetSprite)
-        Me.tabModeration.Location = New System.Drawing.Point(4, 29)
-        Me.tabModeration.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.tabModeration.Location = New System.Drawing.Point(4, 25)
+        Me.tabModeration.Margin = New System.Windows.Forms.Padding(4)
         Me.tabModeration.Name = "tabModeration"
-        Me.tabModeration.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.tabModeration.Size = New System.Drawing.Size(379, 375)
+        Me.tabModeration.Padding = New System.Windows.Forms.Padding(4)
+        Me.tabModeration.Size = New System.Drawing.Size(336, 297)
         Me.tabModeration.TabIndex = 0
         Me.tabModeration.Text = "Moderação"
         Me.tabModeration.UseVisualStyleBackColor = True
         '
         'nudAdminSprite
         '
-        Me.nudAdminSprite.Location = New System.Drawing.Point(120, 323)
-        Me.nudAdminSprite.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.nudAdminSprite.Location = New System.Drawing.Point(107, 258)
+        Me.nudAdminSprite.Margin = New System.Windows.Forms.Padding(4)
         Me.nudAdminSprite.Name = "nudAdminSprite"
-        Me.nudAdminSprite.Size = New System.Drawing.Size(72, 26)
+        Me.nudAdminSprite.Size = New System.Drawing.Size(64, 22)
         Me.nudAdminSprite.TabIndex = 33
         '
         'nudAdminMap
         '
-        Me.nudAdminMap.Location = New System.Drawing.Point(120, 274)
-        Me.nudAdminMap.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.nudAdminMap.Location = New System.Drawing.Point(107, 219)
+        Me.nudAdminMap.Margin = New System.Windows.Forms.Padding(4)
         Me.nudAdminMap.Name = "nudAdminMap"
-        Me.nudAdminMap.Size = New System.Drawing.Size(72, 26)
+        Me.nudAdminMap.Size = New System.Drawing.Size(64, 22)
         Me.nudAdminMap.TabIndex = 32
         '
         'btnLevelUp
         '
-        Me.btnLevelUp.Location = New System.Drawing.Point(48, 138)
-        Me.btnLevelUp.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnLevelUp.Location = New System.Drawing.Point(43, 110)
+        Me.btnLevelUp.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLevelUp.Name = "btnLevelUp"
-        Me.btnLevelUp.Size = New System.Drawing.Size(282, 34)
+        Me.btnLevelUp.Size = New System.Drawing.Size(251, 27)
         Me.btnLevelUp.TabIndex = 31
         Me.btnLevelUp.Text = "Subir de Nível"
         Me.btnLevelUp.UseVisualStyleBackColor = True
@@ -354,21 +354,21 @@ Partial Class FrmAdmin
         '
         Me.cmbAccess.FormattingEnabled = True
         Me.cmbAccess.Items.AddRange(New Object() {"Normal Player", "Monitor (GM)", "Mapper", "Developer", "Creator"})
-        Me.cmbAccess.Location = New System.Drawing.Point(86, 186)
-        Me.cmbAccess.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmbAccess.Location = New System.Drawing.Point(76, 149)
+        Me.cmbAccess.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbAccess.Name = "cmbAccess"
-        Me.cmbAccess.Size = New System.Drawing.Size(276, 28)
+        Me.cmbAccess.Size = New System.Drawing.Size(246, 24)
         Me.cmbAccess.TabIndex = 17
         '
         'tabMapList
         '
         Me.tabMapList.Controls.Add(Me.lstMaps)
         Me.tabMapList.Controls.Add(Me.btnMapReport)
-        Me.tabMapList.Location = New System.Drawing.Point(4, 29)
-        Me.tabMapList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.tabMapList.Location = New System.Drawing.Point(4, 25)
+        Me.tabMapList.Margin = New System.Windows.Forms.Padding(4)
         Me.tabMapList.Name = "tabMapList"
-        Me.tabMapList.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.tabMapList.Size = New System.Drawing.Size(379, 375)
+        Me.tabMapList.Padding = New System.Windows.Forms.Padding(4)
+        Me.tabMapList.Size = New System.Drawing.Size(336, 297)
         Me.tabMapList.TabIndex = 2
         Me.tabMapList.Text = "Mapas"
         Me.tabMapList.UseVisualStyleBackColor = True
@@ -382,31 +382,31 @@ Partial Class FrmAdmin
         Me.tabMapTools.Controls.Add(Me.lblItemSpawn)
         Me.tabMapTools.Controls.Add(Me.lblSpawnItemAmount)
         Me.tabMapTools.Controls.Add(Me.btnSpawnItem)
-        Me.tabMapTools.Location = New System.Drawing.Point(4, 29)
-        Me.tabMapTools.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.tabMapTools.Location = New System.Drawing.Point(4, 25)
+        Me.tabMapTools.Margin = New System.Windows.Forms.Padding(4)
         Me.tabMapTools.Name = "tabMapTools"
-        Me.tabMapTools.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.tabMapTools.Size = New System.Drawing.Size(379, 375)
+        Me.tabMapTools.Padding = New System.Windows.Forms.Padding(4)
+        Me.tabMapTools.Size = New System.Drawing.Size(336, 297)
         Me.tabMapTools.TabIndex = 3
         Me.tabMapTools.Text = "Ferramentas"
         Me.tabMapTools.UseVisualStyleBackColor = True
         '
         'nudSpawnItemAmount
         '
-        Me.nudSpawnItemAmount.Location = New System.Drawing.Point(124, 183)
-        Me.nudSpawnItemAmount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.nudSpawnItemAmount.Location = New System.Drawing.Point(110, 146)
+        Me.nudSpawnItemAmount.Margin = New System.Windows.Forms.Padding(4)
         Me.nudSpawnItemAmount.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.nudSpawnItemAmount.Name = "nudSpawnItemAmount"
-        Me.nudSpawnItemAmount.Size = New System.Drawing.Size(238, 26)
+        Me.nudSpawnItemAmount.Size = New System.Drawing.Size(212, 22)
         Me.nudSpawnItemAmount.TabIndex = 37
         '
         'cmbSpawnItem
         '
         Me.cmbSpawnItem.FormattingEnabled = True
-        Me.cmbSpawnItem.Location = New System.Drawing.Point(124, 142)
-        Me.cmbSpawnItem.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmbSpawnItem.Location = New System.Drawing.Point(110, 114)
+        Me.cmbSpawnItem.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbSpawnItem.Name = "cmbSpawnItem"
-        Me.cmbSpawnItem.Size = New System.Drawing.Size(236, 28)
+        Me.cmbSpawnItem.Size = New System.Drawing.Size(210, 24)
         Me.cmbSpawnItem.TabIndex = 36
         '
         'tabEditors
@@ -425,164 +425,164 @@ Partial Class FrmAdmin
         Me.tabEditors.Controls.Add(Me.btnSkillEditor)
         Me.tabEditors.Controls.Add(Me.btnShopEditor)
         Me.tabEditors.Controls.Add(Me.btnAnimationEditor)
-        Me.tabEditors.Location = New System.Drawing.Point(4, 29)
-        Me.tabEditors.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.tabEditors.Location = New System.Drawing.Point(4, 25)
+        Me.tabEditors.Margin = New System.Windows.Forms.Padding(4)
         Me.tabEditors.Name = "tabEditors"
-        Me.tabEditors.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.tabEditors.Size = New System.Drawing.Size(379, 375)
+        Me.tabEditors.Padding = New System.Windows.Forms.Padding(4)
+        Me.tabEditors.Size = New System.Drawing.Size(336, 297)
         Me.tabEditors.TabIndex = 4
         Me.tabEditors.Text = "Editores"
         Me.tabEditors.UseVisualStyleBackColor = True
         '
         'btnPetEditor
         '
-        Me.btnPetEditor.Location = New System.Drawing.Point(195, 9)
-        Me.btnPetEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnPetEditor.Location = New System.Drawing.Point(173, 7)
+        Me.btnPetEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnPetEditor.Name = "btnPetEditor"
-        Me.btnPetEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnPetEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnPetEditor.TabIndex = 68
         Me.btnPetEditor.Text = "Pets"
         Me.btnPetEditor.UseVisualStyleBackColor = True
         '
         'btnAutoMapper
         '
-        Me.btnAutoMapper.Location = New System.Drawing.Point(195, 296)
-        Me.btnAutoMapper.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAutoMapper.Location = New System.Drawing.Point(173, 237)
+        Me.btnAutoMapper.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAutoMapper.Name = "btnAutoMapper"
-        Me.btnAutoMapper.Size = New System.Drawing.Size(168, 38)
+        Me.btnAutoMapper.Size = New System.Drawing.Size(149, 30)
         Me.btnAutoMapper.TabIndex = 67
-        Me.btnAutoMapper.Text = "Mapeamento automático"
+        Me.btnAutoMapper.Text = "Gerador de mapas"
         Me.btnAutoMapper.UseVisualStyleBackColor = True
         '
         'btnClassEditor
         '
-        Me.btnClassEditor.Location = New System.Drawing.Point(9, 57)
-        Me.btnClassEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnClassEditor.Location = New System.Drawing.Point(8, 46)
+        Me.btnClassEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnClassEditor.Name = "btnClassEditor"
-        Me.btnClassEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnClassEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnClassEditor.TabIndex = 66
         Me.btnClassEditor.Text = "Classes"
         Me.btnClassEditor.UseVisualStyleBackColor = True
         '
         'btnRecipeEditor
         '
-        Me.btnRecipeEditor.Location = New System.Drawing.Point(195, 152)
-        Me.btnRecipeEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnRecipeEditor.Location = New System.Drawing.Point(173, 122)
+        Me.btnRecipeEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRecipeEditor.Name = "btnRecipeEditor"
-        Me.btnRecipeEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnRecipeEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnRecipeEditor.TabIndex = 65
         Me.btnRecipeEditor.Text = "Receitas"
         Me.btnRecipeEditor.UseVisualStyleBackColor = True
         '
         'btnProjectiles
         '
-        Me.btnProjectiles.Location = New System.Drawing.Point(195, 57)
-        Me.btnProjectiles.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnProjectiles.Location = New System.Drawing.Point(173, 46)
+        Me.btnProjectiles.Margin = New System.Windows.Forms.Padding(4)
         Me.btnProjectiles.Name = "btnProjectiles"
-        Me.btnProjectiles.Size = New System.Drawing.Size(168, 38)
+        Me.btnProjectiles.Size = New System.Drawing.Size(149, 30)
         Me.btnProjectiles.TabIndex = 64
         Me.btnProjectiles.Text = "Projéteis"
         Me.btnProjectiles.UseVisualStyleBackColor = True
         '
         'btnQuest
         '
-        Me.btnQuest.Location = New System.Drawing.Point(195, 105)
-        Me.btnQuest.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnQuest.Location = New System.Drawing.Point(173, 84)
+        Me.btnQuest.Margin = New System.Windows.Forms.Padding(4)
         Me.btnQuest.Name = "btnQuest"
-        Me.btnQuest.Size = New System.Drawing.Size(168, 38)
+        Me.btnQuest.Size = New System.Drawing.Size(149, 30)
         Me.btnQuest.TabIndex = 62
-        Me.btnQuest.Text = "Tarefas"
+        Me.btnQuest.Text = "Missões"
         Me.btnQuest.UseVisualStyleBackColor = True
         '
         'btnhouseEditor
         '
-        Me.btnhouseEditor.Location = New System.Drawing.Point(9, 105)
-        Me.btnhouseEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnhouseEditor.Location = New System.Drawing.Point(8, 84)
+        Me.btnhouseEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnhouseEditor.Name = "btnhouseEditor"
-        Me.btnhouseEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnhouseEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnhouseEditor.TabIndex = 63
         Me.btnhouseEditor.Text = "Moradias"
         Me.btnhouseEditor.UseVisualStyleBackColor = True
         '
         'btnMapEditor
         '
-        Me.btnMapEditor.Location = New System.Drawing.Point(9, 297)
-        Me.btnMapEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnMapEditor.Location = New System.Drawing.Point(8, 238)
+        Me.btnMapEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnMapEditor.Name = "btnMapEditor"
-        Me.btnMapEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnMapEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnMapEditor.TabIndex = 55
-        Me.btnMapEditor.Text = "Mapeamento manual"
+        Me.btnMapEditor.Text = "Editor de mapas"
         Me.btnMapEditor.UseVisualStyleBackColor = True
         '
         'btnItemEditor
         '
-        Me.btnItemEditor.Location = New System.Drawing.Point(9, 152)
-        Me.btnItemEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnItemEditor.Location = New System.Drawing.Point(8, 122)
+        Me.btnItemEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnItemEditor.Name = "btnItemEditor"
-        Me.btnItemEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnItemEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnItemEditor.TabIndex = 56
         Me.btnItemEditor.Text = "Itens"
         Me.btnItemEditor.UseVisualStyleBackColor = True
         '
         'btnResourceEditor
         '
-        Me.btnResourceEditor.Location = New System.Drawing.Point(195, 200)
-        Me.btnResourceEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnResourceEditor.Location = New System.Drawing.Point(173, 160)
+        Me.btnResourceEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnResourceEditor.Name = "btnResourceEditor"
-        Me.btnResourceEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnResourceEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnResourceEditor.TabIndex = 57
         Me.btnResourceEditor.Text = "Recursos"
         Me.btnResourceEditor.UseVisualStyleBackColor = True
         '
         'btnNPCEditor
         '
-        Me.btnNPCEditor.Location = New System.Drawing.Point(9, 248)
-        Me.btnNPCEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnNPCEditor.Location = New System.Drawing.Point(8, 198)
+        Me.btnNPCEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNPCEditor.Name = "btnNPCEditor"
-        Me.btnNPCEditor.Size = New System.Drawing.Size(168, 39)
+        Me.btnNPCEditor.Size = New System.Drawing.Size(149, 31)
         Me.btnNPCEditor.TabIndex = 58
         Me.btnNPCEditor.Text = "NPCs"
         Me.btnNPCEditor.UseVisualStyleBackColor = True
         '
         'btnSkillEditor
         '
-        Me.btnSkillEditor.Location = New System.Drawing.Point(9, 200)
-        Me.btnSkillEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnSkillEditor.Location = New System.Drawing.Point(8, 160)
+        Me.btnSkillEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSkillEditor.Name = "btnSkillEditor"
-        Me.btnSkillEditor.Size = New System.Drawing.Size(168, 39)
+        Me.btnSkillEditor.Size = New System.Drawing.Size(149, 31)
         Me.btnSkillEditor.TabIndex = 59
         Me.btnSkillEditor.Text = "Habilidades"
         Me.btnSkillEditor.UseVisualStyleBackColor = True
         '
         'btnShopEditor
         '
-        Me.btnShopEditor.Location = New System.Drawing.Point(195, 248)
-        Me.btnShopEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnShopEditor.Location = New System.Drawing.Point(173, 198)
+        Me.btnShopEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnShopEditor.Name = "btnShopEditor"
-        Me.btnShopEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnShopEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnShopEditor.TabIndex = 60
         Me.btnShopEditor.Text = "Lojas"
         Me.btnShopEditor.UseVisualStyleBackColor = True
         '
         'btnAnimationEditor
         '
-        Me.btnAnimationEditor.Location = New System.Drawing.Point(9, 9)
-        Me.btnAnimationEditor.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnAnimationEditor.Location = New System.Drawing.Point(8, 7)
+        Me.btnAnimationEditor.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAnimationEditor.Name = "btnAnimationEditor"
-        Me.btnAnimationEditor.Size = New System.Drawing.Size(168, 38)
+        Me.btnAnimationEditor.Size = New System.Drawing.Size(149, 30)
         Me.btnAnimationEditor.TabIndex = 61
         Me.btnAnimationEditor.Text = "Animações"
         Me.btnAnimationEditor.UseVisualStyleBackColor = True
         '
         'FrmAdmin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(390, 415)
+        Me.ClientSize = New System.Drawing.Size(347, 332)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmAdmin"

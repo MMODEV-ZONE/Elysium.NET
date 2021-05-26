@@ -2,6 +2,22 @@
 
 Module C_Editors
 
+#Region "Enumerators"
+    Enum Editors As Byte
+        ITEM = 1
+        NPC
+        SKILL
+        SHOP
+        RESOURCE
+        ANIMATION
+        PET
+        QUEST
+        HOUSE
+        RECIPE
+        CLASSES
+    End Enum
+#End Region
+
 #Region "Animation Editor"
 
     Friend Sub AnimationEditorInit()
@@ -511,7 +527,7 @@ Module C_Editors
             frmEditor_Classes.lstIndex.Items.Add(Trim(Classes(i).Name))
         Next
 
-        Editor = EDITOR_CLASSES
+        Editor = Editors.CLASSES
 
         frmEditor_Classes.nudMaleSprite.Maximum = NumCharacters
         frmEditor_Classes.nudFemaleSprite.Maximum = NumCharacters
@@ -596,7 +612,7 @@ Module C_Editors
         Dim i As Integer
 
         With frmEditor_Item
-            Editor = EDITOR_ITEM
+            Editor = Editors.ITEM
             .lstIndex.Items.Clear()
 
             ' Adicione os nomes

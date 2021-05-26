@@ -354,6 +354,7 @@
 
         STime
         SClock
+        SMapResourcesCache
 
         ' Tenha certeza que COUNT está abaixo de tudo
         COUNT

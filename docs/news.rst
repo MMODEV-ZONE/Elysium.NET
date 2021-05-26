@@ -13,6 +13,7 @@ Destaques:
 * Otimização da função de carregamento de texturas.
 * Adaptação do servidor para multiplataforma.
 * Atualização do modelo de sprites para 3 frames.
+* Seleção de múltiplos NPCs no editor de mapas.
 
 Elysium.NET 1.0.1 (Junho-2020)
 ---------------------------------

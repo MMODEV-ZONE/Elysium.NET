@@ -4,6 +4,21 @@ Imports System.Windows.Forms
 Imports ASFW
 
 Module C_GameLogic
+
+#Region "Enumerators"
+    Enum MenuState As Byte
+        NewAccount = 0
+        DelAccount
+        Login
+        GetChars
+        NewChar
+        AddChar
+        DelChar
+        UseChar
+        Init
+    End Enum
+#End Region
+
     Friend GameRand As New Random()
 
     Sub GameLoop()
@@ -269,6 +284,7 @@ Module C_GameLogic
                     End If
 
                     If InMapEditor Then FrmEditor_MapEditor.EditorMap_DrawTileset()
+                    If frmEditor_AutoMapper.Visible Then frmEditor_AutoMapper.Automapper_DrawTileset()
 
                     Application.DoEvents()
 
@@ -690,7 +706,7 @@ Module C_GameLogic
                     End If
 
                     SendKick(command(1))
-					
+
                 ' // Comandos de Mapeador //
                 ' Localização
                 Case "/loc"
