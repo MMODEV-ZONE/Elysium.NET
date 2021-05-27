@@ -711,6 +711,10 @@ Friend Class FrmMenu
     Private Sub btnDelChar_MouseLeave(sender As Object, e As EventArgs) Handles btnDelChar.MouseLeave
         btnDelChar.BackgroundImage = Image.FromFile(Path.Gui & "Menu\button" & GfxExt)
     End Sub
+
+    Private Sub picLogo_Click(sender As Object, e As EventArgs) Handles picLogo.Click
+        FrmInterface.Show()
+    End Sub
 #End Region
 
 End Class
