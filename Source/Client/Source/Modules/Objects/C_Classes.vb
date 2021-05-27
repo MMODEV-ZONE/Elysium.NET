@@ -30,7 +30,7 @@ Module C_Classes
 
         FrmMenu.DrawCharacter()
 
-        NewCharSprite = 1
+        NewCharSprite = 0
     End Sub
 
     Sub Packet_ClassesData(ByRef data() As Byte)
@@ -46,7 +46,7 @@ Module C_Classes
             Cmbclass(i) = Classes(i).Name
         Next
         FrmMenu.DrawCharacter()
-        NewCharSprite = 1
+        NewCharSprite = 0
 
         buffer.Dispose()
     End Sub

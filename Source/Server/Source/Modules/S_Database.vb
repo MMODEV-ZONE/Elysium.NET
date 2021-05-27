@@ -1065,9 +1065,9 @@ Module modDatabase
             Player(index).Character(CharNum).Classes = ClassNum
 
             If Player(index).Character(CharNum).Sex = SexType.Male Then
-                Player(index).Character(CharNum).Sprite = Classes(ClassNum).MaleSprite(Sprite - 1)
+                Player(index).Character(CharNum).Sprite = Classes(ClassNum).MaleSprite(Sprite)
             Else
-                Player(index).Character(CharNum).Sprite = Classes(ClassNum).FemaleSprite(Sprite - 1)
+                Player(index).Character(CharNum).Sprite = Classes(ClassNum).FemaleSprite(Sprite)
             End If
 
             Player(index).Character(CharNum).Level = 1
