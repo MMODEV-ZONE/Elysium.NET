@@ -344,7 +344,7 @@
     <None Include="Dados\AutoMapper.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dados\Interface\Fontes\MinimalFont.ttf">
+    <None Include="Dados\Interface\Fontes\FreePixel.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Dados\Interface\Menu\OpenSans-Regular.ttf">

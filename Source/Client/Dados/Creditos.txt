@@ -19,7 +19,7 @@ Gráficos temporários:
 RpgMaker MV
 
 Fonte padrão:
-Mounir Tohami (MinimalPixel Font)
+levelb (FreePixel Font)
 
 Contribuições externas:
 Kras

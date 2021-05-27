@@ -6,7 +6,7 @@ Module C_Constants
     Friend Const ChatBubbleWidth As Integer = 100
 
     ' Variáveis de Fonte
-    Friend Const FontName As String = "MinimalFont.ttf"
+    Friend Const FontName As String = "FreePixel.ttf"
     Friend Const FontSize As Byte = 13
 
     ' Variáveis e Diretorio de Logs
