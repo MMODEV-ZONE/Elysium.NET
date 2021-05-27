@@ -18,6 +18,9 @@ SFML*
 Gráficos temporários:
 RpgMaker MV
 
+Fonte padrão:
+Mounir Tohami (MinimalPixel Font)
+
 Contribuições externas:
 Kras
 Pamiclo

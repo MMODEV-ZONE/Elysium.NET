@@ -50,6 +50,13 @@
             End Get
         End Property
 
+        ''' <summary> Retorna o diretório de fontes </summary>
+        Friend ReadOnly Property Fonts As String
+            Get
+                Return Gui & "Fontes"
+            End Get
+        End Property
+
         ''' <summary> Retorna o diretório de músicas </summary>
         Friend ReadOnly Property Music As String
             Get

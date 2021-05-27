@@ -340,7 +340,7 @@ Module C_Graphics
         EditorAnimation_Anim1 = New RenderWindow(FrmEditor_Animation.picSprite0.Handle)
         EditorAnimation_Anim2 = New RenderWindow(FrmEditor_Animation.picSprite1.Handle)
 
-        SfmlGameFont = New SFML.Graphics.Font(Environment.GetFolderPath(Environment.SpecialFolder.Fonts) + "\" + FontName)
+        SfmlGameFont = New SFML.Graphics.Font(Path.Fonts + "\" + FontName)
 
         'apenas carrega quando necessário
         ReDim TileSetImgsGFX(0 To NumTileSets)

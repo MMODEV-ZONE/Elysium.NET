@@ -182,8 +182,6 @@ Friend Class FrmMenu
             Dim charwidth As Integer
             Dim charheight As Integer
 
-            If NewCharClass = 0 Then NewCharClass = 1
-
             If rdoMale.Checked = True Then
                 filename = Path.Graphics & "Personagens\" & Classes(NewCharClass).MaleSprite(NewCharSprite) & GfxExt
             Else

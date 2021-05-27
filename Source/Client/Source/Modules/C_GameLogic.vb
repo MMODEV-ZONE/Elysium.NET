@@ -289,7 +289,7 @@ Module C_GameLogic
                     Application.DoEvents()
 
                     If GettingMap Then
-                        Dim font As New Font(Environment.GetFolderPath(Environment.SpecialFolder.Fonts) + "\" + FontName, FontSize)
+                        Dim font As New Font(Path.Fonts + "\" + FontName, FontSize)
                         g.DrawString(Language.Game.MapReceive, font, Brushes.DarkCyan, FrmGame.picscreen.Width - 130, 5)
                     End If
 
