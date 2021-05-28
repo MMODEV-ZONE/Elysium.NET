@@ -29,30 +29,30 @@ Partial Class FrmInterface
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.txtAuthor = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbInterface = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tbComponents = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.cmbComponents = New System.Windows.Forms.ComboBox()
         Me.btnAddComponent = New System.Windows.Forms.Button()
         Me.tvComponents = New System.Windows.Forms.TreeView()
-        Me.lvProperties = New System.Windows.Forms.ListView()
-        Me.pbPreview = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cmbLayout = New System.Windows.Forms.ComboBox()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.btnAddLayout = New System.Windows.Forms.Button()
+        Me.lvProperties = New System.Windows.Forms.ListView()
+        Me.pbPreview = New System.Windows.Forms.PictureBox()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
+        Me.tbComponents.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
-        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel6.SuspendLayout()
+        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -132,31 +132,16 @@ Partial Class FrmInterface
         'txtName
         '
         Me.txtName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtName.Enabled = False
         Me.txtName.Location = New System.Drawing.Point(109, 29)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(912, 22)
         Me.txtName.TabIndex = 3
         '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.ColumnCount = 3
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.lvProperties, 2, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.pbPreview, 1, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 115)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 1
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1024, 472)
-        Me.TableLayoutPanel2.TabIndex = 0
-        '
         'txtDesc
         '
         Me.txtDesc.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtDesc.Enabled = False
         Me.txtDesc.Location = New System.Drawing.Point(109, 55)
         Me.txtDesc.Name = "txtDesc"
         Me.txtDesc.Size = New System.Drawing.Size(912, 22)
@@ -165,6 +150,7 @@ Partial Class FrmInterface
         'txtAuthor
         '
         Me.txtAuthor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtAuthor.Enabled = False
         Me.txtAuthor.Location = New System.Drawing.Point(109, 81)
         Me.txtAuthor.Name = "txtAuthor"
         Me.txtAuthor.Size = New System.Drawing.Size(912, 22)
@@ -191,22 +177,40 @@ Partial Class FrmInterface
         Me.cmbInterface.Size = New System.Drawing.Size(912, 24)
         Me.cmbInterface.TabIndex = 9
         '
-        'TableLayoutPanel4
+        'TableLayoutPanel2
         '
-        Me.TableLayoutPanel4.ColumnCount = 1
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel5, 0, 2)
-        Me.TableLayoutPanel4.Controls.Add(Me.tvComponents, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel6, 0, 0)
-        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 3
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(250, 466)
-        Me.TableLayoutPanel4.TabIndex = 0
+        Me.TableLayoutPanel2.ColumnCount = 3
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.tbComponents, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.lvProperties, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.pbPreview, 1, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 115)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1024, 472)
+        Me.TableLayoutPanel2.TabIndex = 0
+        '
+        'tbComponents
+        '
+        Me.tbComponents.ColumnCount = 1
+        Me.tbComponents.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tbComponents.Controls.Add(Me.TableLayoutPanel5, 0, 2)
+        Me.tbComponents.Controls.Add(Me.tvComponents, 0, 1)
+        Me.tbComponents.Controls.Add(Me.TableLayoutPanel6, 0, 0)
+        Me.tbComponents.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tbComponents.Enabled = False
+        Me.tbComponents.Location = New System.Drawing.Point(3, 3)
+        Me.tbComponents.Name = "tbComponents"
+        Me.tbComponents.RowCount = 3
+        Me.tbComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tbComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tbComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.tbComponents.Size = New System.Drawing.Size(250, 466)
+        Me.tbComponents.TabIndex = 0
         '
         'TableLayoutPanel5
         '
@@ -252,26 +256,6 @@ Partial Class FrmInterface
         Me.tvComponents.Size = New System.Drawing.Size(244, 384)
         Me.tvComponents.TabIndex = 1
         '
-        'lvProperties
-        '
-        Me.lvProperties.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lvProperties.HideSelection = False
-        Me.lvProperties.Location = New System.Drawing.Point(771, 3)
-        Me.lvProperties.Name = "lvProperties"
-        Me.lvProperties.Size = New System.Drawing.Size(250, 466)
-        Me.lvProperties.TabIndex = 1
-        Me.lvProperties.UseCompatibleStateImageBehavior = False
-        '
-        'pbPreview
-        '
-        Me.pbPreview.BackColor = System.Drawing.Color.Black
-        Me.pbPreview.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pbPreview.Location = New System.Drawing.Point(259, 3)
-        Me.pbPreview.Name = "pbPreview"
-        Me.pbPreview.Size = New System.Drawing.Size(506, 466)
-        Me.pbPreview.TabIndex = 2
-        Me.pbPreview.TabStop = False
-        '
         'TableLayoutPanel6
         '
         Me.TableLayoutPanel6.ColumnCount = 3
@@ -310,16 +294,6 @@ Partial Class FrmInterface
         Me.cmbLayout.Size = New System.Drawing.Size(114, 24)
         Me.cmbLayout.TabIndex = 1
         '
-        'btnSave
-        '
-        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnSave.Location = New System.Drawing.Point(927, 593)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(100, 35)
-        Me.btnSave.TabIndex = 2
-        Me.btnSave.Text = "Salvar"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
         'btnAddLayout
         '
         Me.btnAddLayout.Dock = System.Windows.Forms.DockStyle.Fill
@@ -329,6 +303,38 @@ Partial Class FrmInterface
         Me.btnAddLayout.TabIndex = 2
         Me.btnAddLayout.Text = "Add"
         Me.btnAddLayout.UseVisualStyleBackColor = True
+        '
+        'lvProperties
+        '
+        Me.lvProperties.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lvProperties.Enabled = False
+        Me.lvProperties.HideSelection = False
+        Me.lvProperties.Location = New System.Drawing.Point(771, 3)
+        Me.lvProperties.Name = "lvProperties"
+        Me.lvProperties.Size = New System.Drawing.Size(250, 466)
+        Me.lvProperties.TabIndex = 1
+        Me.lvProperties.UseCompatibleStateImageBehavior = False
+        '
+        'pbPreview
+        '
+        Me.pbPreview.BackColor = System.Drawing.Color.Black
+        Me.pbPreview.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbPreview.Location = New System.Drawing.Point(259, 3)
+        Me.pbPreview.Name = "pbPreview"
+        Me.pbPreview.Size = New System.Drawing.Size(506, 466)
+        Me.pbPreview.TabIndex = 2
+        Me.pbPreview.TabStop = False
+        '
+        'btnSave
+        '
+        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnSave.Enabled = False
+        Me.btnSave.Location = New System.Drawing.Point(927, 593)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(100, 35)
+        Me.btnSave.TabIndex = 2
+        Me.btnSave.Text = "Salvar"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'FrmInterface
         '
@@ -344,11 +350,11 @@ Partial Class FrmInterface
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.tbComponents.ResumeLayout(False)
         Me.TableLayoutPanel5.ResumeLayout(False)
-        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel6.PerformLayout()
+        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -364,7 +370,7 @@ Partial Class FrmInterface
     Friend WithEvents txtAuthor As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbInterface As ComboBox
-    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents tbComponents As TableLayoutPanel
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents cmbComponents As ComboBox
     Friend WithEvents btnAddComponent As Button

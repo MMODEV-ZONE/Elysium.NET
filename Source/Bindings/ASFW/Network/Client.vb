@@ -74,7 +74,7 @@ Namespace ASFW.Network
         End Sub
 
         Private Sub DoConnect(ByVal ar As IAsyncResult)
-            If Not Socket Is Nothing Then
+            If Not _socket Is Nothing Then
                 Try
                     _socket.EndConnect(ar)
                 Catch
