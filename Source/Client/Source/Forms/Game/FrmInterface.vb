@@ -3,6 +3,8 @@ Imports System.Linq
 Imports Ini = ASFW.IO.FileIO.TextFile
 
 Public Class FrmInterface
+    Private Layout As Panel
+
     Private Sub TableLayoutPanel3_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel3.Paint
 
     End Sub
@@ -79,5 +81,24 @@ Public Class FrmInterface
         For Each file In layouts
             cmbLayout.Items.Add(System.IO.Path.GetFileName(file))
         Next
+    End Sub
+
+    Private Sub cmbLayout_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbLayout.SelectedIndexChanged
+        If cmbLayout.SelectedIndex >= 0 Then
+            LoadLayout(cmbLayout.Text)
+        End If
+    End Sub
+
+    Private Sub LoadLayout(StrLayout As String)
+        Try
+            Dim filename = GetInterfacePath() & "\" & StrLayout
+
+            'Mock
+            Layout = New Panel()
+
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
