@@ -1,7 +1,6 @@
-﻿Public Class Panel
+﻿Public Class GUITextBox
     Inherits GUIObject
-
-    Public Children As List(Of GUIObject)
+    Public Text As String
 
     Public Overrides Sub Render()
         Throw New NotImplementedException()

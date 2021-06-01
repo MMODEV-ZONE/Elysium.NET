@@ -203,8 +203,11 @@
     <Compile Include="Source\Modules\C_AutoMap.vb" />
     <Compile Include="Source\Modules\C_Editors.vb" />
     <Compile Include="Source\Modules\Framework\ArrayExt.vb" />
+    <Compile Include="Source\Modules\Framework\Interface\GUIButton.vb" />
     <Compile Include="Source\Modules\Framework\Interface\GUIObject.vb" />
-    <Compile Include="Source\Modules\Framework\Interface\Panel.vb" />
+    <Compile Include="Source\Modules\Framework\Interface\GUITextBox.vb" />
+    <Compile Include="Source\Modules\Framework\Interface\GUILabel.vb" />
+    <Compile Include="Source\Modules\Framework\Interface\GUIPanel.vb" />
     <Compile Include="Source\Modules\Network\C_Binder.vb" />
     <Compile Include="Source\Modules\Network\C_Serialization.vb" />
     <Compile Include="Source\Modules\Objects\C_Animations.vb" />
