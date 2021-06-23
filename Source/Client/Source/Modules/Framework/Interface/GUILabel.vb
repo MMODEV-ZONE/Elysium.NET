@@ -1,5 +1,8 @@
-﻿Public Class GUILabel
+﻿Imports System.Xml.Serialization
+
+Public Class GUILabel
     Inherits GUIObject
+    <XmlAttribute("Text")>
     Public Text As String
 
     Public Overrides Sub Render()

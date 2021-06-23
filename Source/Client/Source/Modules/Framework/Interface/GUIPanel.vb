@@ -1,8 +1,13 @@
-﻿Public Class GUIPanel
+﻿Imports System.Xml.Serialization
+
+Public Class GUIPanel
     Inherits GUIObject
 
+    <XmlAttribute("ControlBox")>
     Public ControlBox As Boolean
+    <XmlAttribute("Caption")>
     Public Caption As String
+
     Public Children As List(Of GUIObject)
 
     Public Sub New()

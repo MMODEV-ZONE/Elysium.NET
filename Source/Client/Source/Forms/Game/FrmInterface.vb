@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Linq
+Imports System.Xml.Serialization
 Imports Ini = ASFW.IO.FileIO.TextFile
 
 Public Class FrmInterface
@@ -78,18 +79,25 @@ Public Class FrmInterface
                 layoutName = layoutName & ".xml"
             End If
 
-            File.Create(GetInterfacePath() & "\" & layoutName)
+            Dim newLayout = New GUIPanel With {
+                    .Name = "Root"
+                }
+
+            SaveLayout(newLayout, layoutName)
             UpdateLayoutList()
         End If
     End Sub
 
     Private Sub UpdateLayoutList()
+        Dim lastText As String = cmbLayout.Text
         cmbLayout.Items.Clear()
 
         Dim layouts = Directory.GetFiles(GetInterfacePath()).Where(Function(x) x.Contains(".xml"))
 
         For Each file In layouts
             cmbLayout.Items.Add(System.IO.Path.GetFileName(file))
+
+            If System.IO.Path.GetFileName(file) = lastText Then cmbLayout.Text = lastText
         Next
     End Sub
 
@@ -124,14 +132,14 @@ Public Class FrmInterface
             Dim permittedTypes As New List(Of String) From {
                 "String",
                 "Boolean",
-                "Integer"
+                "Int32"
             }
 
             Dim fields = component.GetType().GetFields()
             Dim orderedFields = fields.OrderBy(Function(x) x.Name)
 
             For Each field In orderedFields
-                If permittedTypes.Contains(field.FieldType.Name) Then
+                If permittedTypes.Contains(field.FieldType.Name) And ((component IsNot Layout) Or field.Name <> "Name") Then
                     Dim item As New ListViewItem
                     item.SubItems.Insert(0, New ListViewItem.ListViewSubItem(item, field.Name))
                     item.SubItems.Insert(1, New ListViewItem.ListViewSubItem(item, If(field.GetValue(component) IsNot Nothing, field.GetValue(component).ToString(), If(field.FieldType.IsValueType, Activator.CreateInstance(field.FieldType), String.Empty))))
@@ -188,18 +196,26 @@ Public Class FrmInterface
         End If
     End Sub
 
+    Private Sub SaveLayout(layoutToSave As GUIPanel, filename As String)
+        Dim cf As String = GetInterfacePath() & "\" & filename
+        Dim writer As New System.Xml.Serialization.XmlSerializer(GetType(GUIPanel))
+        Dim file As New System.IO.StreamWriter(cf)
+        writer.Serialize(file, layoutToSave)
+        file.Close()
+    End Sub
+
     Private Sub LoadLayout(StrLayout As String)
         Try
             Dim filename = GetInterfacePath() & "\" & StrLayout
+            Dim reader As New System.Xml.Serialization.XmlSerializer(GetType(GUIPanel))
+            Dim file As New System.IO.StreamReader(filename)
 
-            'Mock
-            Layout = New GUIPanel With {
-                .Name = "Root"
-            }
-
+            Layout = CType(reader.Deserialize(file), GUIPanel)
             UpdateComponentList()
-        Catch ex As Exception
 
+            file.Close()
+        Catch ex As Exception
+            MsgBox("Houve uma falha ao carregar o layout:" & Environment.NewLine & ex.Message, MsgBoxStyle.Exclamation)
         End Try
     End Sub
 
@@ -250,6 +266,44 @@ Public Class FrmInterface
     End Sub
 
     Private Sub lvProperties_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvProperties.SelectedIndexChanged
+        Dim component = GetSelectedItem()
 
+        If component IsNot Nothing And lvProperties.SelectedItems.Count > 0 Then
+            Dim fields = component.GetType().GetFields()
+            Dim selectedItemName = lvProperties.SelectedItems(0).SubItems(0).Text
+            Dim field = fields.FirstOrDefault(Function(x) x.Name = selectedItemName)
+
+            If field IsNot Nothing Then
+                cmbPropValue.Text = field.GetValue(component)
+            End If
+        End If
+    End Sub
+
+    Private Sub btnEditProp_Click(sender As Object, e As EventArgs) Handles btnEditProp.Click
+        Dim component = GetSelectedItem()
+
+        If component IsNot Nothing And lvProperties.SelectedItems.Count > 0 Then
+            Dim fields = component.GetType().GetFields()
+            Dim selectedItemName = lvProperties.SelectedItems(0).SubItems(0).Text
+            Dim field = fields.FirstOrDefault(Function(x) x.Name = selectedItemName)
+
+            If field IsNot Nothing Then
+                Try
+                    field.SetValue(component, Convert.ChangeType(cmbPropValue.Text, field.FieldType))
+
+                    If field.Name = "Name" Then
+                        UpdateComponentList()
+                    End If
+
+                    UpdatePropertyList()
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro ao alterar a propriedade do objeto:" & Environment.NewLine & ex.Message, MsgBoxStyle.Exclamation)
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        SaveLayout(Layout, cmbLayout.Text)
     End Sub
 End Class
