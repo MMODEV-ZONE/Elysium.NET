@@ -233,7 +233,6 @@ Public Class FrmInterface
         End Select
 
         If Not GUIComponent Is Nothing Then
-
             GUIComponent.Name = "Objeto" & Guid.NewGuid().ToString().Substring(1, 4)
 
             ParentPanel.Children.Add(GUIComponent)
