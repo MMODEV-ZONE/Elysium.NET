@@ -54,6 +54,7 @@ Partial Class FrmInterface
         Me.btnEditProp = New System.Windows.Forms.Button()
         Me.cmbPropValue = New System.Windows.Forms.ComboBox()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.tmrDrawLayout = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -74,7 +75,7 @@ Partial Class FrmInterface
         Me.TableLayoutPanel1.Controls.Add(Me.btnSave, 0, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91.0!))
@@ -98,7 +99,7 @@ Partial Class FrmInterface
         Me.TableLayoutPanel3.Controls.Add(Me.cmbInterface, 1, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(2, 2)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 4
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
@@ -149,7 +150,7 @@ Partial Class FrmInterface
         Me.txtName.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtName.Enabled = False
         Me.txtName.Location = New System.Drawing.Point(82, 23)
-        Me.txtName.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(903, 20)
         Me.txtName.TabIndex = 3
@@ -159,7 +160,7 @@ Partial Class FrmInterface
         Me.txtDesc.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtDesc.Enabled = False
         Me.txtDesc.Location = New System.Drawing.Point(82, 44)
-        Me.txtDesc.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDesc.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDesc.Name = "txtDesc"
         Me.txtDesc.Size = New System.Drawing.Size(903, 20)
         Me.txtDesc.TabIndex = 4
@@ -169,7 +170,7 @@ Partial Class FrmInterface
         Me.txtAuthor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtAuthor.Enabled = False
         Me.txtAuthor.Location = New System.Drawing.Point(82, 65)
-        Me.txtAuthor.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtAuthor.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAuthor.Name = "txtAuthor"
         Me.txtAuthor.Size = New System.Drawing.Size(903, 20)
         Me.txtAuthor.TabIndex = 5
@@ -192,7 +193,7 @@ Partial Class FrmInterface
         Me.cmbInterface.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbInterface.FormattingEnabled = True
         Me.cmbInterface.Location = New System.Drawing.Point(82, 2)
-        Me.cmbInterface.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbInterface.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbInterface.Name = "cmbInterface"
         Me.cmbInterface.Size = New System.Drawing.Size(903, 21)
         Me.cmbInterface.TabIndex = 9
@@ -208,7 +209,7 @@ Partial Class FrmInterface
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 2, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(2, 93)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -225,7 +226,7 @@ Partial Class FrmInterface
         Me.tbComponents.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tbComponents.Enabled = False
         Me.tbComponents.Location = New System.Drawing.Point(2, 2)
-        Me.tbComponents.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tbComponents.Margin = New System.Windows.Forms.Padding(2)
         Me.tbComponents.Name = "tbComponents"
         Me.tbComponents.RowCount = 3
         Me.tbComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
@@ -243,7 +244,7 @@ Partial Class FrmInterface
         Me.TableLayoutPanel5.Controls.Add(Me.btnAddComponent, 1, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(2, 395)
-        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -257,7 +258,7 @@ Partial Class FrmInterface
         Me.cmbComponents.FormattingEnabled = True
         Me.cmbComponents.Items.AddRange(New Object() {"Texto", "Botão", "Caixa de texto", "Painel", "Grade de slots"})
         Me.cmbComponents.Location = New System.Drawing.Point(2, 2)
-        Me.cmbComponents.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbComponents.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbComponents.Name = "cmbComponents"
         Me.cmbComponents.Size = New System.Drawing.Size(206, 21)
         Me.cmbComponents.TabIndex = 0
@@ -267,7 +268,7 @@ Partial Class FrmInterface
         Me.btnAddComponent.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAddComponent.Image = Global.My.Resources.Resources.Save
         Me.btnAddComponent.Location = New System.Drawing.Point(212, 2)
-        Me.btnAddComponent.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAddComponent.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAddComponent.Name = "btnAddComponent"
         Me.btnAddComponent.Size = New System.Drawing.Size(24, 24)
         Me.btnAddComponent.TabIndex = 1
@@ -279,7 +280,7 @@ Partial Class FrmInterface
         Me.tvComponents.ImageIndex = 0
         Me.tvComponents.ImageList = Me.icTreeView
         Me.tvComponents.Location = New System.Drawing.Point(2, 31)
-        Me.tvComponents.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tvComponents.Margin = New System.Windows.Forms.Padding(2)
         Me.tvComponents.Name = "tvComponents"
         Me.tvComponents.SelectedImageIndex = 0
         Me.tvComponents.Size = New System.Drawing.Size(238, 360)
@@ -306,7 +307,7 @@ Partial Class FrmInterface
         Me.TableLayoutPanel6.Controls.Add(Me.btnAddLayout, 2, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel6.Location = New System.Drawing.Point(2, 2)
-        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -331,7 +332,7 @@ Partial Class FrmInterface
         Me.cmbLayout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbLayout.FormattingEnabled = True
         Me.cmbLayout.Location = New System.Drawing.Point(50, 2)
-        Me.cmbLayout.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbLayout.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbLayout.Name = "cmbLayout"
         Me.cmbLayout.Size = New System.Drawing.Size(141, 21)
         Me.cmbLayout.TabIndex = 1
@@ -340,7 +341,7 @@ Partial Class FrmInterface
         '
         Me.btnAddLayout.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAddLayout.Location = New System.Drawing.Point(195, 2)
-        Me.btnAddLayout.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAddLayout.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAddLayout.Name = "btnAddLayout"
         Me.btnAddLayout.Size = New System.Drawing.Size(41, 21)
         Me.btnAddLayout.TabIndex = 2
@@ -352,7 +353,7 @@ Partial Class FrmInterface
         Me.pbPreview.BackColor = System.Drawing.Color.Black
         Me.pbPreview.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pbPreview.Location = New System.Drawing.Point(248, 2)
-        Me.pbPreview.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pbPreview.Margin = New System.Windows.Forms.Padding(2)
         Me.pbPreview.Name = "pbPreview"
         Me.pbPreview.Size = New System.Drawing.Size(489, 425)
         Me.pbPreview.TabIndex = 2
@@ -366,7 +367,7 @@ Partial Class FrmInterface
         Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel7, 0, 1)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(741, 2)
-        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -383,7 +384,7 @@ Partial Class FrmInterface
         Me.lvProperties.GridLines = True
         Me.lvProperties.HideSelection = False
         Me.lvProperties.Location = New System.Drawing.Point(2, 2)
-        Me.lvProperties.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lvProperties.Margin = New System.Windows.Forms.Padding(2)
         Me.lvProperties.MultiSelect = False
         Me.lvProperties.Name = "lvProperties"
         Me.lvProperties.Size = New System.Drawing.Size(240, 389)
@@ -410,7 +411,7 @@ Partial Class FrmInterface
         Me.TableLayoutPanel7.Controls.Add(Me.cmbPropValue, 0, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(2, 395)
-        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -421,7 +422,7 @@ Partial Class FrmInterface
         '
         Me.btnEditProp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnEditProp.Location = New System.Drawing.Point(182, 2)
-        Me.btnEditProp.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnEditProp.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEditProp.Name = "btnEditProp"
         Me.btnEditProp.Size = New System.Drawing.Size(56, 24)
         Me.btnEditProp.TabIndex = 0
@@ -434,7 +435,7 @@ Partial Class FrmInterface
         Me.cmbPropValue.FormattingEnabled = True
         Me.cmbPropValue.Items.AddRange(New Object() {"False", "True"})
         Me.cmbPropValue.Location = New System.Drawing.Point(2, 2)
-        Me.cmbPropValue.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbPropValue.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbPropValue.Name = "cmbPropValue"
         Me.cmbPropValue.Size = New System.Drawing.Size(176, 21)
         Me.cmbPropValue.TabIndex = 1
@@ -444,12 +445,16 @@ Partial Class FrmInterface
         Me.btnSave.Dock = System.Windows.Forms.DockStyle.Right
         Me.btnSave.Enabled = False
         Me.btnSave.Location = New System.Drawing.Point(914, 526)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 29)
         Me.btnSave.TabIndex = 2
         Me.btnSave.Text = "Salvar"
         Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'tmrDrawLayout
+        '
+        Me.tmrDrawLayout.Enabled = True
         '
         'FrmInterface
         '
@@ -458,7 +463,7 @@ Partial Class FrmInterface
         Me.ClientSize = New System.Drawing.Size(991, 557)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmInterface"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Editor de interface"
@@ -507,4 +512,5 @@ Partial Class FrmInterface
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents btnEditProp As Button
     Friend WithEvents cmbPropValue As ComboBox
+    Friend WithEvents tmrDrawLayout As Timer
 End Class

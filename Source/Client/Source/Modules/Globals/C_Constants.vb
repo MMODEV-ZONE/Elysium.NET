@@ -15,6 +15,9 @@ Module C_Constants
     ' Variáveis e Diretorio de Gráficos
     Friend Const GfxExt As String = ".png"
 
+    ' Variáveis e Diretorio de Interface
+    Friend Const GuiExt As String = ".png"
+
     ' Número de Tiles em comprimento nos tilesets
     Friend Const TilesheetWidth As Integer = 15 ' * PicX pixels
 

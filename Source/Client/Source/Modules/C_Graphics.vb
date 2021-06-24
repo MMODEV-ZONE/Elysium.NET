@@ -15,6 +15,7 @@ Module C_Graphics
     Friend EditorSkill_Icon As RenderWindow
     Friend EditorAnimation_Anim1 As RenderWindow
     Friend EditorAnimation_Anim2 As RenderWindow
+    Friend EditorInterface_Window As RenderWindow
 
     Friend SfmlGameFont As SFML.Graphics.Font
 
@@ -339,6 +340,7 @@ Module C_Graphics
         EditorSkill_Icon = New RenderWindow(frmEditor_Skill.picSprite.Handle)
         EditorAnimation_Anim1 = New RenderWindow(FrmEditor_Animation.picSprite0.Handle)
         EditorAnimation_Anim2 = New RenderWindow(FrmEditor_Animation.picSprite1.Handle)
+        EditorInterface_Window = New RenderWindow(FrmInterface.pbPreview.Handle)
 
         SfmlGameFont = New SFML.Graphics.Font(Path.Fonts + "\" + FontName)
 
@@ -1087,10 +1089,15 @@ Module C_Graphics
     End Sub
 
     Friend Sub RenderTextures(txture As Texture, target As RenderWindow, dX As Single, dY As Single, sx As Single, sy As Single, dWidth As Single, dHeight As Single, sWidth As Single, sHeight As Single)
+        RenderTextures(txture, target, dX, dY, sx, sy, dWidth, dHeight, sWidth, sHeight, Color.White)
+    End Sub
+
+    Friend Sub RenderTextures(txture As Texture, target As RenderWindow, dX As Single, dY As Single, sx As Single, sy As Single, dWidth As Single, dHeight As Single, sWidth As Single, sHeight As Single, TextureColor As Color)
         Dim tmpImage As Sprite = New Sprite(txture) With {
             .TextureRect = New IntRect(sx, sy, sWidth, sHeight),
             .Scale = New Vector2f(dWidth / sWidth, dHeight / sHeight),
-            .Position = New Vector2f(dX, dY)
+            .Position = New Vector2f(dX, dY),
+            .Color = TextureColor
         }
         target.Draw(tmpImage)
     End Sub
@@ -3369,6 +3376,19 @@ NextLoop:
                     EditorAnimation_Anim2.Display()
 
                 End If
+            End If
+        End If
+    End Sub
+
+    Sub DrawInterfaceComponent(component As GUIObject, window As RenderWindow)
+        component.Render(window)
+
+        If component.GetType() Is GetType(GUIPanel) Then
+            Dim panel = CType(component, GUIPanel)
+            If panel.Children.Count > 0 Then
+                For Each child In panel.Children
+                    DrawInterfaceComponent(child, window)
+                Next
             End If
         End If
     End Sub

@@ -265,4 +265,14 @@
         Repeatable
     End Enum
 
+    Friend Enum GUIComponents
+        Label = 0
+        Button
+        TextBox
+        Panel
+        Grid
+
+        Count
+    End Enum
+
 End Module

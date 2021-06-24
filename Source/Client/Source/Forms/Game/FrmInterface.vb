@@ -4,14 +4,6 @@ Imports System.Xml.Serialization
 Imports Ini = ASFW.IO.FileIO.TextFile
 
 Public Class FrmInterface
-    Private Enum GUIComponents
-        Label = 0
-        Button
-        TextBox
-        Panel
-        Grid
-    End Enum
-
     Private Layout As GUIPanel
 
     Private Sub TableLayoutPanel3_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel3.Paint
@@ -289,6 +281,7 @@ Public Class FrmInterface
 
             If field IsNot Nothing Then
                 Try
+                    Dim selectedItemIndex = lvProperties.SelectedItems(0).Index
                     field.SetValue(component, Convert.ChangeType(cmbPropValue.Text, field.FieldType))
 
                     If field.Name = "Name" Then
@@ -296,6 +289,8 @@ Public Class FrmInterface
                     End If
 
                     UpdatePropertyList()
+                    lvProperties.Items(selectedItemIndex).Selected = True
+                    cmbPropValue.Select()
                 Catch ex As Exception
                     MsgBox("Ocorreu um erro ao alterar a propriedade do objeto:" & Environment.NewLine & ex.Message, MsgBoxStyle.Exclamation)
                 End Try
@@ -305,5 +300,17 @@ Public Class FrmInterface
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         SaveLayout(Layout, cmbLayout.Text)
+    End Sub
+
+    Private Sub tmrDrawLayout_Tick(sender As Object, e As EventArgs) Handles tmrDrawLayout.Tick
+        If Layout IsNot Nothing Then
+            EditorInterface_Window.Clear(ToSfmlColor(Me.pbPreview.BackColor))
+            DrawInterfaceComponent(Layout, EditorInterface_Window)
+            EditorInterface_Window.Display()
+        End If
+    End Sub
+
+    Private Sub lvProperties_DoubleClick(sender As Object, e As EventArgs) Handles lvProperties.DoubleClick
+        cmbPropValue.Select()
     End Sub
 End Class
